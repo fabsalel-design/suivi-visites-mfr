@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import * as XLSX from "xlsx";
 
 export default function ImportPage() {
   const [message, setMessage] = useState("");
@@ -9,20 +10,29 @@ export default function ImportPage() {
 
   async function importer() {
     if (!fichier) {
-      setMessage("Veuillez sélectionner un fichier Excel");
+      setMessage("Veuillez sélectionner un fichier");
       return;
     }
 
+    const data = await fichier.arrayBuffer();
+
+    const workbook = XLSX.read(data);
+
+    const feuille =
+      workbook.Sheets[workbook.SheetNames[0]];
+
+    const lignes = XLSX.utils.sheet_to_json(feuille);
+
     setMessage(
-      `Fichier sélectionné : ${fichier.name}`
+      `${lignes.length} lignes trouvées dans le fichier`
     );
+
+    console.log(lignes);
   }
 
   return (
     <main style={{ padding: "40px" }}>
       <h1>Import Excel</h1>
-
-      <p>Import du fichier semestriel</p>
 
       <input
         type="file"
@@ -38,7 +48,7 @@ export default function ImportPage() {
       <br />
 
       <button onClick={importer}>
-        Importer
+        Lire le fichier Excel
       </button>
 
       <p>{message}</p>
