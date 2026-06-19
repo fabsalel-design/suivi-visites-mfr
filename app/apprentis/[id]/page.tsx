@@ -1,60 +1,62 @@
 
-import { apprentis } from "../../../data/apprentis";
+export const apprentis = [
+  {
+    id: 1,
+    nom: "ALARCO",
+    prenom: "Mateo",
+    entreprise: "SAS RAPIERE BRICOMARCHE",
+    formateur: "FABRICE",
+    statut: "A faire",
 
-export default async function FicheApprenti({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
+    tuteur: "Christine BRILLANT",
+    telephone: "04 90 78 23 25",
 
-  const apprenti = apprentis.find(
-    (a) => a.id === Number(id)
-  );
+    adresse: "85 Allée Roch Pape",
+    codePostal: "84300",
+    ville: "CAVAILLON",
 
-  if (!apprenti) {
-    return (
-      <main style={{ padding: "40px" }}>
-        <h1>Apprenti introuvable</h1>
-      </main>
-    );
+    contrat: "STAGE",
+    dateDebut: "08/01/2025",
+    dateFin: "30/06/2027"
+  },
+
+  {
+    id: 2,
+    nom: "AUSSEL",
+    prenom: "Nathan",
+    entreprise: "MAISON OLIVIER",
+    formateur: "FABRICE",
+    statut: "A faire",
+
+    tuteur: "Gérôme OLIVIER",
+    telephone: "06 84 36 51 53",
+
+    adresse: "1 RUE DE LA CARRETERIE",
+    codePostal: "84000",
+    ville: "AVIGNON",
+
+    contrat: "CApp",
+    dateDebut: "01/07/2025",
+    dateFin: "30/06/2027"
+  },
+
+  {
+    id: 3,
+    nom: "BODIN",
+    prenom: "Mathieu",
+    entreprise: "TRUFFAUT",
+    formateur: "CHRISTINE",
+    statut: "A faire",
+
+    tuteur: "Mathieu GENEZY",
+    telephone: "04 99 52 50 70",
+
+    adresse: "ZA FREJORGUES OUEST",
+    codePostal: "34280",
+    ville: "MAUGUIO",
+
+    contrat: "CApp",
+    dateDebut: "01/09/2025",
+    dateFin: "31/08/2026"
   }
-
-  return (
-    <main style={{ padding: "40px" }}>
-      <h1>Fiche apprenti</h1>
-
-      <h2>
-        {apprenti.prenom} {apprenti.nom}
-      </h2>
-
-      <hr />
-
-      <h3>Entreprise</h3>
-
-      <p>{apprenti.entreprise}</p>
-
-      <p>
-        Formateur : {apprenti.formateur}
-      </p>
-
-      <p>
-        Statut : {apprenti.statut}
-      </p>
-
-      <hr />
-
-      <h3>Historique</h3>
-
-      <ul>
-        <li>S2 2026 - À faire</li>
-      </ul>
-
-      <a href="/visites">
-        <button>
-          Réaliser la visite
-        </button>
-      </a>
-    </main>
-  );
-}
+];
