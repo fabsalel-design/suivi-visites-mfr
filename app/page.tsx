@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 
 export default function HomePage() {
@@ -25,6 +26,12 @@ export default function HomePage() {
         </li>
 
         <li>
+          <Link href="/entreprises">
+            Entreprises
+          </Link>
+        </li>
+
+        <li>
           <Link href="/import">
             Import Excel
           </Link>
@@ -47,11 +54,6 @@ export default function HomePage() {
             PDF
           </Link>
         </li>
-        <Link href="/entreprises">
-            Entreprises
-          </Link>
-        </li>
-
       </ul>
     </main>
   );
