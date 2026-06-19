@@ -47,6 +47,12 @@ export default function HomePage() {
             PDF
           </Link>
         </li>
+        
+<Link href="/entreprises">
+            Entreprises
+          </Link>
+        </li>
+
       </ul>
     </main>
   );
