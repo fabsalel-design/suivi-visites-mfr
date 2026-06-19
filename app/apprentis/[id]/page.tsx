@@ -1,62 +1,84 @@
 
-export const apprentis = [
-  {
-    id: 1,
-    nom: "ALARCO",
-    prenom: "Mateo",
-    entreprise: "SAS RAPIERE BRICOMARCHE",
-    formateur: "FABRICE",
-    statut: "A faire",
+import { apprentis } from "../../../data/apprentis";
 
-    tuteur: "Christine BRILLANT",
-    telephone: "04 90 78 23 25",
+export default async function FicheApprenti({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
-    adresse: "85 Allée Roch Pape",
-    codePostal: "84300",
-    ville: "CAVAILLON",
+  const apprenti = apprentis.find(
+    (a) => a.id === Number(id)
+  );
 
-    contrat: "STAGE",
-    dateDebut: "08/01/2025",
-    dateFin: "30/06/2027"
-  },
-
-  {
-    id: 2,
-    nom: "AUSSEL",
-    prenom: "Nathan",
-    entreprise: "MAISON OLIVIER",
-    formateur: "FABRICE",
-    statut: "A faire",
-
-    tuteur: "Gérôme OLIVIER",
-    telephone: "06 84 36 51 53",
-
-    adresse: "1 RUE DE LA CARRETERIE",
-    codePostal: "84000",
-    ville: "AVIGNON",
-
-    contrat: "CApp",
-    dateDebut: "01/07/2025",
-    dateFin: "30/06/2027"
-  },
-
-  {
-    id: 3,
-    nom: "BODIN",
-    prenom: "Mathieu",
-    entreprise: "TRUFFAUT",
-    formateur: "CHRISTINE",
-    statut: "A faire",
-
-    tuteur: "Mathieu GENEZY",
-    telephone: "04 99 52 50 70",
-
-    adresse: "ZA FREJORGUES OUEST",
-    codePostal: "34280",
-    ville: "MAUGUIO",
-
-    contrat: "CApp",
-    dateDebut: "01/09/2025",
-    dateFin: "31/08/2026"
+  if (!apprenti) {
+    return (
+      <main style={{ padding: "40px" }}>
+        <h1>Apprenti introuvable</h1>
+      </main>
+    );
   }
-];
+
+  return (
+    <main style={{ padding: "40px" }}>
+      <h1>Fiche apprenti</h1>
+
+      <h2>
+        {apprenti.prenom} {apprenti.nom}
+      </h2>
+
+      <hr />
+
+      <h3>Entreprise</h3>
+
+      <p>{apprenti.entreprise}</p>
+
+      <p>
+        <strong>Tuteur :</strong> {apprenti.tuteur}
+      </p>
+
+      <p>
+        <strong>Téléphone :</strong> {apprenti.telephone}
+      </p>
+
+      <hr />
+
+      <h3>Adresse</h3>
+
+      <p>{apprenti.adresse}</p>
+
+      <p>
+        {apprenti.codePostal} {apprenti.ville}
+      </p>
+
+      <hr />
+
+      <h3>Contrat</h3>
+
+      <p>{apprenti.contrat}</p>
+
+      <p>Du {apprenti.dateDebut}</p>
+
+      <p>Au {apprenti.dateFin}</p>
+
+      <hr />
+
+      <p>
+        <strong>Formateur :</strong>{" "}
+        {apprenti.formateur}
+      </p>
+
+      <p>
+        <strong>Statut :</strong>{" "}
+        {apprenti.statut}
+      </p>
+
+      <a href="/visites">
+        <button>
+          Réaliser la visite
+        </button>
+      </a>
+    </main>
+  );
+}
