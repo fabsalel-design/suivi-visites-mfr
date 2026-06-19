@@ -40,7 +40,14 @@ export default function EntreprisesPage() {
             borderRadius: "8px",
           }}
         >
-          <h2>{nom}</h2>
+         
+<a
+  href={`/entreprises/${encodeURIComponent(
+    nom
+  )}`}
+>
+  <h2>{nom}</h2>
+</a>
 
           <p>
             Apprentis :
