@@ -9,7 +9,7 @@ export default function HomePage() {
 
       <hr />
 
-      <h2>Menu</h2>
+      <h2>Menu principal</h2>
 
       <ul>
         <li>
@@ -20,7 +20,13 @@ export default function HomePage() {
 
         <li>
           <Link href="/apprentis">
-            Mes Apprentis
+            Liste des Apprentis
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/import">
+            Import Excel
           </Link>
         </li>
 
