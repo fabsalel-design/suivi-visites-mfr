@@ -5,27 +5,40 @@ import { useState } from "react";
 
 export default function ImportPage() {
   const [message, setMessage] = useState("");
+  const [fichier, setFichier] = useState<File | null>(null);
 
   async function importer() {
-    const response = await fetch("/api/import", {
-      method: "POST",
-    });
+    if (!fichier) {
+      setMessage("Veuillez sélectionner un fichier Excel");
+      return;
+    }
 
-    const result = await response.json();
-
-    setMessage(result.message);
+    setMessage(
+      `Fichier sélectionné : ${fichier.name}`
+    );
   }
 
   return (
     <main style={{ padding: "40px" }}>
       <h1>Import Excel</h1>
 
-      <p>
-        Import du fichier semestriel
-      </p>
+      <p>Import du fichier semestriel</p>
+
+      <input
+        type="file"
+        accept=".xlsx,.xls"
+        onChange={(e) =>
+          setFichier(
+            e.target.files?.[0] || null
+          )
+        }
+      />
+
+      <br />
+      <br />
 
       <button onClick={importer}>
-        Tester l'import
+        Importer
       </button>
 
       <p>{message}</p>
