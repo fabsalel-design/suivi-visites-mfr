@@ -23,10 +23,10 @@ export default function SignaturesPage() {
           marginBottom: "20px",
         }}
       />
-
-      <button>
-        Générer le PDF
-      </button>
+   
+<a href="/pdf">
+  <button>Générer le PDF</button>
+</a>
     </main>
   );
 }
