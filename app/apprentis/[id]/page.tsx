@@ -44,7 +44,26 @@ export default async function FicheApprenti({
 
       <hr />
 
-      <h3>Adresse</h3>
+      
+<h3>Adresse administrative</h3>
+
+<p>{apprenti.adresseAdministrative}</p>
+
+<p>
+  {apprenti.codePostalAdministratif}{" "}
+  {apprenti.villeAdministrative}
+</p>
+
+<hr />
+
+<h3>Adresse réelle</h3>
+
+<p>{apprenti.adresseReelle}</p>
+
+<p>
+  {apprenti.codePostalReel}{" "}
+  {apprenti.villeReelle}
+</p>
 
       <p>{apprenti.adresse}</p>
 
