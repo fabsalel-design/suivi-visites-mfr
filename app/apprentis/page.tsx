@@ -2,36 +2,10 @@
 "use client";
 
 import { useState } from "react";
+import { apprentis } from "../../data/apprentis";
 
 export default function ApprentisPage() {
   const [recherche, setRecherche] = useState("");
-
-  const apprentis = [
-    {
-      id: 1,
-      nom: "ALARCO",
-      prenom: "Mateo",
-      entreprise: "BRICOMARCHE",
-      formateur: "FABRICE",
-      statut: "A faire",
-    },
-    {
-      id: 2,
-      nom: "AUSSEL",
-      prenom: "Nathan",
-      entreprise: "MAISON OLIVIER",
-      formateur: "FABRICE",
-      statut: "A faire",
-    },
-    {
-      id: 3,
-      nom: "BODIN",
-      prenom: "Mathieu",
-      entreprise: "TRUFFAUT",
-      formateur: "CHRISTINE",
-      statut: "Réalisée",
-    },
-  ];
 
   const resultat = apprentis.filter((a) =>
     `${a.nom} ${a.prenom}`
@@ -69,13 +43,21 @@ export default function ApprentisPage() {
             {apprenti.nom} {apprenti.prenom}
           </h3>
 
-          <p>Entreprise : {apprenti.entreprise}</p>
+          <p>
+            <strong>Entreprise :</strong> {apprenti.entreprise}
+          </p>
 
-          <p>Formateur : {apprenti.formateur}</p>
+          <p>
+            <strong>Formateur :</strong> {apprenti.formateur}
+          </p>
 
-          <p>Statut : {apprenti.statut}</p>
+          <p>
+            <strong>Statut :</strong> {apprenti.statut}
+          </p>
 
-          <button>Ouvrir la fiche</button>
+          <button>
+            Ouvrir la fiche
+          </button>
         </div>
       ))}
     </main>
