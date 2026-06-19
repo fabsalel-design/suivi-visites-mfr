@@ -55,9 +55,12 @@ export default function ApprentisPage() {
             <strong>Statut :</strong> {apprenti.statut}
           </p>
 
-          <button>
-            Ouvrir la fiche
-          </button>
+          
+<a href="/apprentis/1">
+  <button>
+    Ouvrir la fiche
+  </button>
+</a>
         </div>
       ))}
     </main>
