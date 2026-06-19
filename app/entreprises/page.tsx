@@ -14,13 +14,19 @@ export default function EntreprisesPage() {
     entreprisesMap.get(entreprise).push(apprenti);
   });
 
-  const entreprises = Array.from(entreprisesMap.entries());
+  const entreprises = Array.from(
+    entreprisesMap.entries()
+  );
 
   return (
     <main style={{ padding: "40px" }}>
       <h1>Entreprises</h1>
 
-      <p>Nombre d'entreprises : {entreprises.length}</p>
+      <p>
+        Nombre d'entreprises :
+        {" "}
+        {entreprises.length}
+      </p>
 
       <hr />
 
@@ -30,18 +36,24 @@ export default function EntreprisesPage() {
           style={{
             border: "1px solid #ddd",
             padding: "15px",
-            marginBottom: "10px",
+            marginBottom: "15px",
             borderRadius: "8px",
           }}
         >
           <h2>{nom}</h2>
 
-          <p>Apprentis : {(liste as any[]).length}</p>
+          <p>
+            Apprentis :
+            {" "}
+            {(liste as any[]).length}
+          </p>
 
           <ul>
             {(liste as any[]).map((apprenti) => (
               <li key={apprenti.id}>
                 {apprenti.prenom} {apprenti.nom}
+                {" - "}
+                {apprenti.formateur}
               </li>
             ))}
           </ul>
