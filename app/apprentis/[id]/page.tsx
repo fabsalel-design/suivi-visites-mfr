@@ -27,9 +27,12 @@ export default function FicheApprenti() {
         <li>S1 2026 - PDF disponible</li>
       </ul>
 
-      <button>
-        Réaliser la visite
-      </button>
+      
+<a href="/visites">
+  <button>
+    Réaliser la visite
+  </button>
+</a>
     </main>
   );
 }
