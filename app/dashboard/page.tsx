@@ -1,58 +1,75 @@
 
+import { apprentis } from "../../data/apprentis";
+
 export default function DashboardPage() {
+  const entreprises = [
+    ...new Set(apprentis.map((a) => a.entreprise)),
+  ];
+
+  const formateurs = [
+    ...new Set(apprentis.map((a) => a.formateur)),
+  ];
+
+  const repartition = formateurs.map((formateur) => ({
+    formateur,
+    total: apprentis.filter(
+      (a) => a.formateur === formateur
+    ).length,
+  }));
+
   return (
     <main style={{ padding: "40px" }}>
-      <h1>Tableau de bord Coordinateur</h1>
+      <h1>Tableau de bord</h1>
 
       <div
         style={{
-          border: "1px solid #ddd",
-          padding: "20px",
-          borderRadius: "8px",
-          marginBottom: "20px",
+          display: "flex",
+          gap: "20px",
+          marginBottom: "30px",
         }}
       >
-        <h2>Campagne active</h2>
-        <p>S2 2026</p>
+        <div
+          style={{
+            border: "1px solid #ddd",
+            padding: "20px",
+            minWidth: "150px",
+          }}
+        >
+          <h2>Apprentis</h2>
+          <p>{apprentis.length}</p>
+        </div>
+
+        <div
+          style={{
+            border: "1px solid #ddd",
+            padding: "20px",
+            minWidth: "150px",
+          }}
+        >
+          <h2>Entreprises</h2>
+          <p>{entreprises.length}</p>
+        </div>
+
+        <div
+          style={{
+            border: "1px solid #ddd",
+            padding: "20px",
+            minWidth: "150px",
+          }}
+        >
+          <h2>Formateurs</h2>
+          <p>{formateurs.length}</p>
+        </div>
       </div>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "15px",
-        }}
-      >
-        <div style={{ border: "1px solid #ddd", padding: "15px" }}>
-          <h3>Apprentis</h3>
-          <p>84</p>
-        </div>
-
-        <div style={{ border: "1px solid #ddd", padding: "15px" }}>
-          <h3>Entreprises</h3>
-          <p>72</p>
-        </div>
-
-        <div style={{ border: "1px solid #ddd", padding: "15px" }}>
-          <h3>Visites réalisées</h3>
-          <p>0</p>
-        </div>
-
-        <div style={{ border: "1px solid #ddd", padding: "15px" }}>
-          <h3>Visites restantes</h3>
-          <p>84</p>
-        </div>
-      </div>
-
-      <hr style={{ margin: "30px 0" }} />
-
-      <h2>Actions rapides</h2>
+      <h2>Répartition par formateur</h2>
 
       <ul>
-        <li>Importer Excel</li>
-        <li>Gérer les apprentis</li>
-        <li>Voir les entreprises</li>
-        <li>Consulter les PDF</li>
+        {repartition.map((r) => (
+          <li key={r.formateur}>
+            {r.formateur} : {r.total} apprenti(s)
+          </li>
+        ))}
       </ul>
     </main>
   );
