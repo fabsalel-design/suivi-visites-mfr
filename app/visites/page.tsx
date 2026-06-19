@@ -32,7 +32,10 @@ export default function VisitesPage() {
       <br />
       <br />
 
-      <button>Passer aux signatures</button>
+     
+<a href="/signatures">
+  <button>Passer aux signatures</button>
+</a>
     </main>
   );
 }
