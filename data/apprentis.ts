@@ -7,19 +7,15 @@ export const apprentis = [
     entreprise: "SAS RAPIERE BRICOMARCHE",
     formateur: "FABRICE",
     statut: "A faire",
-
     tuteur: "Christine BRILLANT",
     telephone: "04 90 78 23 25",
-
     adresse: "85 Allée Roch Pape",
     codePostal: "84300",
     ville: "CAVAILLON",
-
     contrat: "STAGE",
     dateDebut: "08/01/2025",
     dateFin: "30/06/2027"
   },
-
   {
     id: 2,
     nom: "AUSSEL",
@@ -27,19 +23,15 @@ export const apprentis = [
     entreprise: "MAISON OLIVIER",
     formateur: "FABRICE",
     statut: "A faire",
-
     tuteur: "Gérôme OLIVIER",
     telephone: "06 84 36 51 53",
-
     adresse: "1 RUE DE LA CARRETERIE",
     codePostal: "84000",
     ville: "AVIGNON",
-
     contrat: "CApp",
     dateDebut: "01/07/2025",
     dateFin: "30/06/2027"
   },
-
   {
     id: 3,
     nom: "BODIN",
@@ -47,16 +39,125 @@ export const apprentis = [
     entreprise: "TRUFFAUT",
     formateur: "CHRISTINE",
     statut: "A faire",
-
     tuteur: "Mathieu GENEZY",
     telephone: "04 99 52 50 70",
-
     adresse: "ZA FREJORGUES OUEST",
     codePostal: "34280",
     ville: "MAUGUIO",
-
     contrat: "CApp",
     dateDebut: "01/09/2025",
     dateFin: "31/08/2026"
+  },
+  {
+    id: 4,
+    nom: "ARNAUD",
+    prenom: "Jimmy",
+    entreprise: "S.A.R.L TROPIC PLANTES",
+    formateur: "DAVID",
+    statut: "A faire",
+    tuteur: "Eva POUW",
+    telephone: "04 66 28 81 00",
+    adresse: "1882 Route de Nîmes",
+    codePostal: "30820",
+    ville: "CAVEIRAC",
+    contrat: "CApp",
+    dateDebut: "08/07/2024",
+    dateFin: "30/06/2026"
+  },
+  {
+    id: 5,
+    nom: "GARCIA",
+    prenom: "Lisa",
+    entreprise: "S.A.R.L TROPIC PLANTES",
+    formateur: "FABRICE",
+    statut: "A faire",
+    tuteur: "Eva POUW",
+    telephone: "04 66 28 81 00",
+    adresse: "1882 Route de Nîmes",
+    codePostal: "30820",
+    ville: "CAVEIRAC",
+    contrat: "CApp",
+    dateDebut: "08/07/2024",
+    dateFin: "30/06/2026"
+  },
+  {
+    id: 6,
+    nom: "HURARD",
+    prenom: "Clément",
+    entreprise: "S.A.R.L TROPIC PLANTES",
+    formateur: "DAVID",
+    statut: "A faire",
+    tuteur: "Eva POUW",
+    telephone: "04 66 28 81 00",
+    adresse: "1882 Route de Nîmes",
+    codePostal: "30820",
+    ville: "CAVEIRAC",
+    contrat: "CApp",
+    dateDebut: "10/03/2025",
+    dateFin: "31/08/2026"
+  },
+  {
+    id: 7,
+    nom: "LEVERRIER",
+    prenom: "Philippine",
+    entreprise: "S.A.R.L TROPIC PLANTES",
+    formateur: "DAVID",
+    statut: "A faire",
+    tuteur: "Eva POUW",
+    telephone: "04 66 28 81 00",
+    adresse: "1882 Route de Nîmes",
+    codePostal: "30820",
+    ville: "CAVEIRAC",
+    contrat: "CApp",
+    dateDebut: "21/10/2024",
+    dateFin: "30/06/2026"
+  },
+  {
+    id: 8,
+    nom: "REBOUL",
+    prenom: "Matthieu",
+    entreprise: "S.A.R.L TROPIC PLANTES",
+    formateur: "DAVID",
+    statut: "A faire",
+    tuteur: "Eva POUW",
+    telephone: "04 66 28 81 00",
+    adresse: "1882 Route de Nîmes",
+    codePostal: "30820",
+    ville: "CAVEIRAC",
+    contrat: "CApp",
+    dateDebut: "16/09/2024",
+    dateFin: "30/06/2026"
+  },
+  {
+    id: 9,
+    nom: "BONNEFOY",
+    prenom: "Lucas",
+    entreprise: "ANIMALIS",
+    formateur: "FABRICE",
+    statut: "A faire",
+    tuteur: "Stéphane FARGIER",
+    telephone: "04 75 88 05 81",
+    adresse: "CC TERRES DE MILLET",
+    codePostal: "07200",
+    ville: "SAINT-DIDIER-SOUS-AUBENAS",
+    contrat: "CApp",
+    dateDebut: "01/09/2025",
+    dateFin: "31/07/2026"
+  },
+  {
+    id: 10,
+    nom: "DA SILVA",
+    prenom: "Noa",
+    entreprise: "ANIMALIS",
+    formateur: "FABRICE",
+    statut: "A faire",
+    tuteur: "Stéphane FARGIER",
+    telephone: "04 75 88 05 81",
+    adresse: "CC TERRES DE MILLET",
+    codePostal: "07200",
+    ville: "SAINT-DIDIER-SOUS-AUBENAS",
+    contrat: "STAGE",
+    dateDebut: "01/09/2025",
+    dateFin: "10/07/2026"
   }
 ];
