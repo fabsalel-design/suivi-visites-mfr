@@ -9,9 +9,15 @@ export const apprentis = [
     statut: "A faire",
     tuteur: "Christine BRILLANT",
     telephone: "04 90 78 23 25",
-    adresse: "85 Allée Roch Pape",
-    codePostal: "84300",
-    ville: "CAVAILLON",
+   
+adresseAdministrative: "85 Allée Roch Pape",
+codePostalAdministratif: "84300",
+villeAdministrative: "CAVAILLON",
+
+adresseReelle: "85 Allée Roch Pape",
+codePostalReel: "84300",
+villeReelle: "CAVAILLON",
+
     contrat: "STAGE",
     dateDebut: "08/01/2025",
     dateFin: "30/06/2027"
@@ -25,9 +31,15 @@ export const apprentis = [
     statut: "A faire",
     tuteur: "Gérôme OLIVIER",
     telephone: "06 84 36 51 53",
-    adresse: "1 RUE DE LA CARRETERIE",
-    codePostal: "84000",
-    ville: "AVIGNON",
+        
+adresseAdministrative: "1 RUE DE LA CARRETERIE",
+codePostalAdministratif: "84000",
+villeAdministrative: "AVIGNON",
+
+adresseReelle: "1 RUE DE LA CARRETERIE",
+codePostalReel: "84000",
+villeReelle: "AVIGNON",
+
     contrat: "CApp",
     dateDebut: "01/07/2025",
     dateFin: "30/06/2027"
@@ -41,9 +53,15 @@ export const apprentis = [
     statut: "A faire",
     tuteur: "Mathieu GENEZY",
     telephone: "04 99 52 50 70",
-    adresse: "ZA FREJORGUES OUEST",
-    codePostal: "34280",
-    ville: "MAUGUIO",
+  
+adresseAdministrative: "ZA FREJORGUES OUEST",
+codePostalAdministratif: "34280",
+villeAdministrative: "MAUGUIO",
+
+adresseReelle: "ZA FREJORGUES OUEST",
+codePostalReel: "34280",
+villeReelle: "MAUGUIO",
+    
     contrat: "CApp",
     dateDebut: "01/09/2025",
     dateFin: "31/08/2026"
