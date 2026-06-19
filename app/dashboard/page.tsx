@@ -10,12 +10,37 @@ export default function DashboardPage() {
     ...new Set(apprentis.map((a) => a.formateur)),
   ];
 
-  const repartition = formateurs.map((formateur) => ({
-    formateur,
-    total: apprentis.filter(
+  const visitesRealisees = apprentis.filter(
+    (a) => a.statut === "Terminée"
+  ).length;
+
+  const visitesRestantes =
+    apprentis.length - visitesRealisees;
+
+  const avancement =
+    apprentis.length > 0
+      ? Math.round(
+          (visitesRealisees / apprentis.length) * 100
+        )
+      : 0;
+
+  const repartition = formateurs.map((formateur) => {
+    const apprentisFormateur = apprentis.filter(
       (a) => a.formateur === formateur
-    ).length,
-  }));
+    );
+
+    const realisees = apprentisFormateur.filter(
+      (a) => a.statut === "Terminée"
+    ).length;
+
+    return {
+      formateur,
+      total: apprentisFormateur.length,
+      realisees,
+      restantes:
+        apprentisFormateur.length - realisees,
+    };
+  });
 
   return (
     <main style={{ padding: "40px" }}>
@@ -25,6 +50,7 @@ export default function DashboardPage() {
         style={{
           display: "flex",
           gap: "20px",
+          flexWrap: "wrap",
           marginBottom: "30px",
         }}
       >
@@ -32,7 +58,7 @@ export default function DashboardPage() {
           style={{
             border: "1px solid #ddd",
             padding: "20px",
-            minWidth: "150px",
+            minWidth: "180px",
           }}
         >
           <h2>Apprentis</h2>
@@ -43,7 +69,7 @@ export default function DashboardPage() {
           style={{
             border: "1px solid #ddd",
             padding: "20px",
-            minWidth: "150px",
+            minWidth: "180px",
           }}
         >
           <h2>Entreprises</h2>
@@ -54,20 +80,61 @@ export default function DashboardPage() {
           style={{
             border: "1px solid #ddd",
             padding: "20px",
-            minWidth: "150px",
+            minWidth: "180px",
           }}
         >
           <h2>Formateurs</h2>
           <p>{formateurs.length}</p>
         </div>
+
+        <div
+          style={{
+            border: "1px solid #ddd",
+            padding: "20px",
+            minWidth: "180px",
+          }}
+        >
+          <h2>Visites réalisées</h2>
+          <p>{visitesRealisees}</p>
+        </div>
+
+        <div
+          style={{
+            border: "1px solid #ddd",
+            padding: "20px",
+            minWidth: "180px",
+          }}
+        >
+          <h2>Visites restantes</h2>
+          <p>{visitesRestantes}</p>
+        </div>
+
+        <div
+          style={{
+            border: "1px solid #ddd",
+            padding: "20px",
+            minWidth: "180px",
+          }}
+        >
+          <h2>Avancement</h2>
+          <p>{avancement}%</p>
+        </div>
       </div>
+
+      <hr />
 
       <h2>Répartition par formateur</h2>
 
       <ul>
         {repartition.map((r) => (
           <li key={r.formateur}>
-            {r.formateur} : {r.total} apprenti(s)
+            <strong>{r.formateur}</strong> :
+            {" "}
+            {r.realisees} réalisée(s) /
+            {" "}
+            {r.total} apprenti(s)
+            {" "}
+            ({r.restantes} restante(s))
           </li>
         ))}
       </ul>
