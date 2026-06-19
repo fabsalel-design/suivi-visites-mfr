@@ -1,22 +1,46 @@
 
-export default function FicheApprenti() {
+import { apprentis } from "../../../data/apprentis";
+
+export default async function FicheApprenti({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
+  const apprenti = apprentis.find(
+    (a) => a.id === Number(id)
+  );
+
+  if (!apprenti) {
+    return (
+      <main style={{ padding: "40px" }}>
+        <h1>Apprenti introuvable</h1>
+      </main>
+    );
+  }
+
   return (
     <main style={{ padding: "40px" }}>
       <h1>Fiche apprenti</h1>
 
-      <h2>Mateo ALARCO</h2>
-
-      <p>Formation : BTS</p>
+      <h2>
+        {apprenti.prenom} {apprenti.nom}
+      </h2>
 
       <hr />
 
       <h3>Entreprise</h3>
 
-      <p>SAS RAPIERE BRICOMARCHE</p>
+      <p>{apprenti.entreprise}</p>
 
-      <p>Tuteur : Christine BRILLANT</p>
+      <p>
+        Formateur : {apprenti.formateur}
+      </p>
 
-      <p>Téléphone : 04 90 78 23 25</p>
+      <p>
+        Statut : {apprenti.statut}
+      </p>
 
       <hr />
 
@@ -24,15 +48,13 @@ export default function FicheApprenti() {
 
       <ul>
         <li>S2 2026 - À faire</li>
-        <li>S1 2026 - PDF disponible</li>
       </ul>
 
-      
-<a href="/visites">
-  <button>
-    Réaliser la visite
-  </button>
-</a>
+      <a href="/visites">
+        <button>
+          Réaliser la visite
+        </button>
+      </a>
     </main>
   );
 }
