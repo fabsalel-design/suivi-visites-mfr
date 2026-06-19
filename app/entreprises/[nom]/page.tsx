@@ -24,18 +24,34 @@ export default async function EntreprisePage({
 
   const premier = liste[0];
 
+  const adresseComplete = `${premier.adresseReelle} ${premier.codePostalReel} ${premier.villeReelle}`;
+
+  const urlMaps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    adresseComplete
+  )}`;
+
   return (
     <main style={{ padding: "40px" }}>
       <h1>{entrepriseNom}</h1>
 
-      <p>
-        <strong>Adresse :</strong>
-      </p>
+      <h2>Adresse réelle</h2>
 
       <p>{premier.adresseReelle}</p>
 
       <p>
         {premier.codePostalReel} {premier.villeReelle}
+      </p>
+
+      <p>
+        <a
+          href={urlMaps}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button>
+            Voir sur Google Maps
+          </button>
+        </a>
       </p>
 
       <hr />
