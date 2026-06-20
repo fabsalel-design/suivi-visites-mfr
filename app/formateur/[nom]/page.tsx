@@ -115,9 +115,21 @@ export default async function FormateurDetailPage({
             borderRadius: "8px",
           }}
         >
-          🗺️ Carte
-        </button>
-      </div>
+          
+<Link
+  href={`/formateur/${encodeURIComponent(
+    nomFormateur
+  )}/carte`}
+  style={{
+    backgroundColor: "white",
+    border: "1px solid #ddd",
+    padding: "12px 20px",
+    borderRadius: "8px",
+    textDecoration: "none",
+    color: "black",
+  }}
+>
+  🗺️
 
       {error && (
         <p>
