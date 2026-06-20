@@ -1,20 +1,24 @@
 
+
 "use client";
 
+import { use } from "react";
 import { useEffect, useState } from "react";
 
 export default function EditApprentiPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = use(params);
+
   const [apprenti, setApprenti] = useState<any>(null);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     async function charger() {
       const response = await fetch(
-        `/api/apprenti/${params.id}`
+        `/api/apprenti/${id}`
       );
 
       const data = await response.json();
@@ -23,7 +27,7 @@ export default function EditApprentiPage({
     }
 
     charger();
-  }, [params.id]);
+  }, [id]);
 
   async function enregistrer() {
     const response = await fetch(
