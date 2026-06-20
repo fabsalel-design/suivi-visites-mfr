@@ -7,7 +7,6 @@ import * as XLSX from "xlsx";
 export default function ImportPage() {
   const [message, setMessage] = useState("");
   const [fichier, setFichier] = useState<File | null>(null);
-  const [apprentis, setApprentis] = useState<any[]>([]);
 
   async function importer() {
     if (!fichier) {
@@ -25,24 +24,52 @@ export default function ImportPage() {
     const lignes: any[] =
       XLSX.utils.sheet_to_json(feuille);
 
-    const resultat = lignes
+    const apprentis = lignes
       .filter(
         (ligne) =>
           ligne["Elève Nom"] &&
           ligne["Elève Prénom"]
       )
-      .map((ligne, index) => ({
-        id: index + 1,
-        nom: ligne["Elève Nom"],
-        prenom: ligne["Elève Prénom"],
-        formateur: ligne["FORMATEURS"],
-        entreprise: ligne["Mds organisme"],
+      .map((ligne) => ({
+        nom: ligne["Elève Nom"] || "",
+        prenom: ligne["Elève Prénom"] || "",
+        entreprise:
+          ligne["Mds organisme"] || "",
+        formateur:
+          ligne["FORMATEURS"] || "",
+        statut: "A faire",
+        tuteur:
+          `${ligne["Mds prénom"] || ""} ${
+            ligne["Mds nom"] || ""
+          }`.trim(),
+        telephone:
+          ligne["Mds téléphone"] || "",
       }));
 
-    setApprentis(resultat);
+    const response = await fetch(
+      "/api/import-supabase",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type":
+            "application/json",
+        },
+        body: JSON.stringify(apprentis),
+      }
+    );
+
+    const resultat =
+      await response.json();
+
+    if (resultat.error) {
+      setMessage(
+        `Erreur : ${resultat.error}`
+      );
+      return;
+    }
 
     setMessage(
-      `${resultat.length} apprentis trouvés`
+      `${resultat.total} apprentis importés dans PostgreSQL`
     );
   }
 
@@ -64,31 +91,10 @@ export default function ImportPage() {
       <br />
 
       <button onClick={importer}>
-        Lire le fichier Excel
+        Importer dans PostgreSQL
       </button>
 
       <p>{message}</p>
-
-      <hr />
-
-      {apprentis.slice(0, 20).map((a) => (
-        <div
-          key={a.id}
-          style={{
-            border: "1px solid #ddd",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
-        >
-          <strong>
-            {a.prenom} {a.nom}
-          </strong>
-
-          <p>{a.entreprise}</p>
-
-          <p>{a.formateur}</p>
-        </div>
-      ))}
     </main>
   );
 }
