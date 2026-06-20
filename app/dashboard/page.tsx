@@ -1,57 +1,55 @@
 
-import { apprentis } from "../../data/apprentis";
+import { supabase } from "../../lib/supabase";
 
-export default function DashboardPage() {
+export const dynamic = "force-dynamic";
+
+export default async function DashboardPage() {
+  const { data: apprentis, error } = await supabase
+    .from("apprentis")
+    .select("*");
+
+  const totalApprentis = apprentis?.length || 0;
+
   const entreprises = [
-    ...new Set(apprentis.map((a) => a.entreprise)),
+    ...new Set(
+      apprentis?.map((a) => a.entreprise) || []
+    ),
   ];
 
   const formateurs = [
-    ...new Set(apprentis.map((a) => a.formateur)),
+    ...new Set(
+      apprentis?.map((a) => a.formateur) || []
+    ),
   ];
 
-  const visitesRealisees = apprentis.filter(
-    (a) => a.statut === "Terminée"
-  ).length;
+  const visitesRealisees =
+    apprentis?.filter(
+      (a) => a.statut === "Terminée"
+    ).length || 0;
 
   const visitesRestantes =
-    apprentis.length - visitesRealisees;
+    totalApprentis - visitesRealisees;
 
   const avancement =
-    apprentis.length > 0
+    totalApprentis > 0
       ? Math.round(
-          (visitesRealisees / apprentis.length) * 100
+          (visitesRealisees / totalApprentis) * 100
         )
       : 0;
-
-  const repartition = formateurs.map((formateur) => {
-    const apprentisFormateur = apprentis.filter(
-      (a) => a.formateur === formateur
-    );
-
-    const realisees = apprentisFormateur.filter(
-      (a) => a.statut === "Terminée"
-    ).length;
-
-    return {
-      formateur,
-      total: apprentisFormateur.length,
-      realisees,
-      restantes:
-        apprentisFormateur.length - realisees,
-    };
-  });
 
   return (
     <main style={{ padding: "40px" }}>
       <h1>Tableau de bord</h1>
+
+      {error && (
+        <p>Erreur : {error.message}</p>
+      )}
 
       <div
         style={{
           display: "flex",
           gap: "20px",
           flexWrap: "wrap",
-          marginBottom: "30px",
         }}
       >
         <div
@@ -62,7 +60,7 @@ export default function DashboardPage() {
           }}
         >
           <h2>Apprentis</h2>
-          <p>{apprentis.length}</p>
+          <p>{totalApprentis}</p>
         </div>
 
         <div
@@ -120,24 +118,6 @@ export default function DashboardPage() {
           <p>{avancement}%</p>
         </div>
       </div>
-
-      <hr />
-
-      <h2>Répartition par formateur</h2>
-
-      <ul>
-        {repartition.map((r) => (
-          <li key={r.formateur}>
-            <strong>{r.formateur}</strong> :
-            {" "}
-            {r.realisees} réalisée(s) /
-            {" "}
-            {r.total} apprenti(s)
-            {" "}
-            ({r.restantes} restante(s))
-          </li>
-        ))}
-      </ul>
     </main>
   );
 }
