@@ -27,6 +27,8 @@ export default async function FormateurDetailPage({
         maxWidth: "1200px",
         margin: "0 auto",
         padding: "20px",
+        backgroundColor: "#f5f7fa",
+        minHeight: "100vh",
       }}
     >
       <h1
@@ -35,7 +37,7 @@ export default async function FormateurDetailPage({
           marginBottom: "20px",
         }}
       >
-        Bonjour {nomFormateur}
+        Bonjour {nomFormateur} 👋
       </h1>
 
       <div
@@ -48,42 +50,73 @@ export default async function FormateurDetailPage({
       >
         <div
           style={{
-            padding: "15px",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            minWidth: "150px",
+            background: "white",
+            padding: "20px",
+            borderRadius: "12px",
+            minWidth: "180px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
           <strong>Total</strong>
-          <br />
-          {total}
+          <h2>{total}</h2>
         </div>
 
         <div
           style={{
-            padding: "15px",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            minWidth: "150px",
+            background: "white",
+            padding: "20px",
+            borderRadius: "12px",
+            minWidth: "180px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
           <strong>Effectuées</strong>
-          <br />
-          0
+          <h2>0</h2>
         </div>
 
         <div
           style={{
-            padding: "15px",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            minWidth: "150px",
+            background: "white",
+            padding: "20px",
+            borderRadius: "12px",
+            minWidth: "180px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
           <strong>À faire</strong>
-          <br />
-          {total}
+          <h2>{total}</h2>
         </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          marginBottom: "30px",
+        }}
+      >
+        <button
+          style={{
+            backgroundColor: "#005CA9",
+            color: "white",
+            border: "none",
+            padding: "12px 20px",
+            borderRadius: "8px",
+          }}
+        >
+          📋 Mes visites
+        </button>
+
+        <button
+          style={{
+            backgroundColor: "white",
+            border: "1px solid #ddd",
+            padding: "12px 20px",
+            borderRadius: "8px",
+          }}
+        >
+          🗺️ Carte
+        </button>
       </div>
 
       {error && (
@@ -96,46 +129,69 @@ export default async function FormateurDetailPage({
         <div
           key={apprenti.id}
           style={{
-            border: "1px solid #ddd",
+            backgroundColor: "white",
             borderRadius: "12px",
             padding: "20px",
             marginBottom: "20px",
-            backgroundColor: "#ffffff",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
-          <h2>
-            {apprenti.prenom} {apprenti.nom}
-          </h2>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "start",
+            }}
+          >
+            <div>
+              <h2
+                style={{
+                  marginTop: 0,
+                  color: "#005CA9",
+                }}
+              >
+                {apprenti.prenom} {apprenti.nom}
+              </h2>
 
-          <p>
-            <strong>Entreprise :</strong>{" "}
-            {apprenti.entreprise}
-          </p>
+              <p>
+                <strong>{apprenti.entreprise}</strong>
+              </p>
 
-          <p>
-            <strong>Adresse :</strong>{" "}
-            {apprenti.adresse_reelle}
-          </p>
+              <p>
+                📍 {apprenti.adresse_reelle}
+              </p>
 
-          <p>
-            {apprenti.code_postal_reel}{" "}
-            {apprenti.ville_reelle}
-          </p>
+              <p>
+                {apprenti.code_postal_reel}{" "}
+                {apprenti.ville_reelle}
+              </p>
 
-          <p>
-            <strong>Tuteur :</strong>{" "}
-            {apprenti.tuteur}
-          </p>
+              <p>
+                👤 {apprenti.tuteur}
+              </p>
 
-          <p>
-            <strong>Téléphone :</strong>{" "}
-            {apprenti.telephone}
-          </p>
+              <p>
+                📞 {apprenti.telephone}
+              </p>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: "#f9a825",
+                color: "white",
+                padding: "6px 12px",
+                borderRadius: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              À faire
+            </div>
+          </div>
 
           <div
             style={{
               display: "flex",
-              gap: "15px",
+              gap: "12px",
               flexWrap: "wrap",
               marginTop: "15px",
             }}
@@ -146,8 +202,20 @@ export default async function FormateurDetailPage({
               )}`}
               target="_blank"
               rel="noreferrer"
+              style={{
+                textDecoration: "none",
+              }}
             >
               📍 Google Maps
+            </a>
+
+            <a
+              href={`tel:${apprenti.telephone || ""}`}
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              📞 Appeler
             </a>
 
             <Link
