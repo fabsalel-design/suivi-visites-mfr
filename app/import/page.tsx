@@ -23,28 +23,44 @@ export default function ImportPage() {
 
     const lignes: any[] =
       XLSX.utils.sheet_to_json(feuille);
+    
+const apprentis = lignes
+  .filter(
+    (ligne) =>
+      ligne["Elève Nom"] &&
+      ligne["Elève Prénom"]
+  )
+  .map((ligne) => ({
+    nom: ligne["Elève Nom"] || "",
+    prenom: ligne["Elève Prénom"] || "",
 
-    const apprentis = lignes
-      .filter(
-        (ligne) =>
-          ligne["Elève Nom"] &&
-          ligne["Elève Prénom"]
-      )
-      .map((ligne) => ({
-        nom: ligne["Elève Nom"] || "",
-        prenom: ligne["Elève Prénom"] || "",
-        entreprise:
-          ligne["Mds organisme"] || "",
-        formateur:
-          ligne["FORMATEURS"] || "",
-        statut: "A faire",
-        tuteur:
-          `${ligne["Mds prénom"] || ""} ${
-            ligne["Mds nom"] || ""
-          }`.trim(),
-        telephone:
-          ligne["Mds téléphone"] || "",
-      }));
+    entreprise:
+      ligne["Mds organisme"] || "",
+
+    formateur:
+      ligne["FORMATEURS"] || "",
+
+    statut: "A faire",
+
+    tuteur:
+      `${ligne["Mds prénom"] || ""} ${
+        ligne["Mds nom"] || ""
+      }`.trim(),
+
+    telephone:
+      ligne["Portable 1"] ||
+      ligne["Téléphone 1"] ||
+      "",
+
+    adresse_reelle:
+      ligne["Mds adresse 1"] || "",
+
+    code_postal_reel:
+      ligne["Mds code postal"] || "",
+
+    ville_reelle:
+      ligne["Mds ville"] || ""
+  }));
 
     const response = await fetch(
       "/api/import-supabase",
