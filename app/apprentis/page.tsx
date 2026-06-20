@@ -20,8 +20,7 @@ export default async function ApprentisPage() {
       )}
 
       <p>
-        Nombre d'apprentis :
-        {" "}
+        Nombre d'apprentis :{" "}
         {apprentis?.length || 0}
       </p>
 
@@ -42,20 +41,25 @@ export default async function ApprentisPage() {
           </h3>
 
           <p>
-            Entreprise :
-            {" "}
+            <a
+              href={`/apprentis/${apprenti.id}/edit`}
+            >
+              Modifier
+            </a>
+          </p>
+
+          <p>
+            Entreprise :{" "}
             {apprenti.entreprise}
           </p>
 
           <p>
-            Formateur :
-            {" "}
+            Formateur :{" "}
             {apprenti.formateur}
           </p>
 
           <p>
-            Statut :
-            {" "}
+            Statut :{" "}
             {apprenti.statut}
           </p>
         </div>
@@ -63,3 +67,4 @@ export default async function ApprentisPage() {
     </main>
   );
 }
+``
