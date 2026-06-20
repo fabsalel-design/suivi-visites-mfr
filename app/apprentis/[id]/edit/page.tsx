@@ -1,137 +1,34 @@
 
+import Link from "next/link";
 
-"use client";
-
-import { use } from "react";
-import { useEffect, useState } from "react";
-
-export default function EditApprentiPage({
+export default async function VisitesPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = use(params);
-
-  const [apprenti, setApprenti] = useState<any>(null);
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    async function charger() {
-      const response = await fetch(
-        `/api/apprenti/${id}`
-      );
-
-      const data = await response.json();
-
-      setApprenti(data);
-    }
-
-    charger();
-  }, [id]);
-
-  async function enregistrer() {
-    const response = await fetch(
-      "/api/update-apprenti",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type":
-            "application/json",
-        },
-        body: JSON.stringify({
-          id: apprenti.id,
-          telephone: apprenti.telephone,
-          tuteur: apprenti.tuteur,
-          statut: apprenti.statut,
-        }),
-      }
-    );
-
-    const resultat =
-      await response.json();
-
-    if (resultat.error) {
-      setMessage(
-        `Erreur : ${resultat.error}`
-      );
-      return;
-    }
-
-    setMessage(
-      "Enregistrement effectué"
-    );
-  }
-
-  if (!apprenti) {
-    return (
-      <main style={{ padding: "40px" }}>
-        Chargement...
-      </main>
-    );
-  }
+  const { id } = await params;
 
   return (
     <main style={{ padding: "40px" }}>
-      <h1>
-        {apprenti.prenom} {apprenti.nom}
-      </h1>
+      <h1>Historique des visites</h1>
 
-      <p>Tuteur</p>
+      <p>
+        Apprenti ID : {id}
+      </p>
 
-      <input
-        value={apprenti.tuteur || ""}
-        onChange={(e) =>
-          setApprenti({
-            ...apprenti,
-            tuteur: e.target.value,
-          })
-        }
-      />
+      <hr />
 
-      <br />
-      <br />
+      <p>
+        <button>
+          Nouvelle visite
+        </button>
+      </p>
 
-      <p>Téléphone</p>
+      <hr />
 
-      <input
-        value={
-          apprenti.telephone || ""
-        }
-        onChange={(e) =>
-          setApprenti({
-            ...apprenti,
-            telephone:
-              e.target.value,
-          })
-        }
-      />
-
-      <br />
-      <br />
-
-      <p>Statut</p>
-
-      <select
-        value={apprenti.statut || ""}
-        onChange={(e) =>
-          setApprenti({
-            ...apprenti,
-            statut: e.target.value,
-          })
-        }
-      >
-        <option>A faire</option>
-        <option>Terminée</option>
-      </select>
-
-      <br />
-      <br />
-
-      <button onClick={enregistrer}>
-        Enregistrer
-      </button>
-
-      <p>{message}</p>
+      <Link href={`/apprentis/${id}/edit`}>
+        Retour à la fiche apprenti
+      </Link>
     </main>
   );
 }
