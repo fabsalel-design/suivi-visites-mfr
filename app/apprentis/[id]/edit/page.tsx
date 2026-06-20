@@ -4,12 +4,7 @@ import Link from "next/link";
 export default async function EditApprentiPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-
-  return (
-    <main style={{ padding: "40px" }}>
+  params: Promise    <main style={{ padding: "40px" }}>  params: Promise<{ id: string }>;
       <h1>Édition apprenti</h1>
 
       <p>ID : {id}</p>
@@ -25,3 +20,8 @@ export default async function EditApprentiPage({
     </main>
   );
 }
+``
+}) {
+  const { id } = await params;
+
+  return (
