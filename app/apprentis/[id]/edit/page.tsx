@@ -1,26 +1,67 @@
 
-import Link from "next/link";
-import { supabase } from "../../../../lib/supabase";
+"use client";
 
-export const dynamic = "force-dynamic";
+import { useEffect, useState } from "react";
 
-export default async function EditApprentiPage({
+export default function EditApprentiPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = await params;
+  const [apprenti, setApprenti] = useState<any>(null);
+  const [message, setMessage] = useState("");
 
-  const { data: apprenti, error } = await supabase
-    .from("apprentis")
-    .select("*")
-    .eq("id", id)
-    .single();
+  useEffect(() => {
+    async function charger() {
+      const response = await fetch(
+        `/api/apprenti/${params.id}`
+      );
 
-  if (error || !apprenti) {
+      const data = await response.json();
+
+      setApprenti(data);
+    }
+
+    charger();
+  }, [params.id]);
+
+  async function enregistrer() {
+    const response = await fetch(
+      "/api/update-apprenti",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type":
+            "application/json",
+        },
+        body: JSON.stringify({
+          id: apprenti.id,
+          telephone: apprenti.telephone,
+          tuteur: apprenti.tuteur,
+          statut: apprenti.statut,
+        }),
+      }
+    );
+
+    const resultat =
+      await response.json();
+
+    if (resultat.error) {
+      setMessage(
+        `Erreur : ${resultat.error}`
+      );
+      return;
+    }
+
+    setMessage(
+      "Enregistrement effectué"
+    );
+  }
+
+  if (!apprenti) {
     return (
       <main style={{ padding: "40px" }}>
-        <h1>Apprenti introuvable</h1>
+        Chargement...
       </main>
     );
   }
@@ -31,47 +72,62 @@ export default async function EditApprentiPage({
         {apprenti.prenom} {apprenti.nom}
       </h1>
 
-      <p>
-        <strong>Entreprise :</strong>{" "}
-        {apprenti.entreprise}
-      </p>
+      <p>Tuteur</p>
 
-      <p>
-        <strong>Formateur :</strong>{" "}
-        {apprenti.formateur}
-      </p>
+      <input
+        value={apprenti.tuteur || ""}
+        onChange={(e) =>
+          setApprenti({
+            ...apprenti,
+            tuteur: e.target.value,
+          })
+        }
+      />
 
-      <p>
-        <strong>Tuteur :</strong>{" "}
-        {apprenti.tuteur}
-      </p>
+      <br />
+      <br />
 
-      <p>
-        <strong>Téléphone :</strong>{" "}
-        {apprenti.telephone}
-      </p>
+      <p>Téléphone</p>
 
-      <p>
-        <strong>Statut :</strong>{" "}
-        {apprenti.statut}
-      </p>
+      <input
+        value={
+          apprenti.telephone || ""
+        }
+        onChange={(e) =>
+          setApprenti({
+            ...apprenti,
+            telephone:
+              e.target.value,
+          })
+        }
+      />
 
-      <p>
-        <strong>Adresse :</strong>
-      </p>
+      <br />
+      <br />
 
-      <p>{apprenti.adresse_reelle}</p>
+      <p>Statut</p>
 
-      <p>
-        {apprenti.code_postal_reel}{" "}
-        {apprenti.ville_reelle}
-      </p>
+      <select
+        value={apprenti.statut || ""}
+        onChange={(e) =>
+          setApprenti({
+            ...apprenti,
+            statut: e.target.value,
+          })
+        }
+      >
+        <option>A faire</option>
+        <option>Terminée</option>
+      </select>
 
-      <hr />
+      <br />
+      <br />
 
-      <Link href="/apprentis">
-        Retour aux apprentis
-      </Link>
+      <button onClick={enregistrer}>
+        Enregistrer
+      </button>
+
+      <p>{message}</p>
     </main>
   );
 }
