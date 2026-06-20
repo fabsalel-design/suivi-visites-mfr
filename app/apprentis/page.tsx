@@ -40,31 +40,39 @@ export default async function ApprentisPage() {
             {apprenti.prenom} {apprenti.nom}
           </h3>
 
-          <p>
+          <div
+            style={{
+              display: "flex",
+              gap: "20px",
+              marginBottom: "10px",
+            }}
+          >
             <a
               href={`/apprentis/${apprenti.id}/edit`}
             >
               Modifier
             </a>
+
+            <a
+              href={`/apprentis/${apprenti.id}/visites`}
+            >
+              Historique visites
+            </a>
+          </div>
+
+          <p>
+            Entreprise : {apprenti.entreprise}
           </p>
 
           <p>
-            Entreprise :{" "}
-            {apprenti.entreprise}
+            Formateur : {apprenti.formateur}
           </p>
 
           <p>
-            Formateur :{" "}
-            {apprenti.formateur}
-          </p>
-
-          <p>
-            Statut :{" "}
-            {apprenti.statut}
+            Statut : {apprenti.statut}
           </p>
         </div>
       ))}
     </main>
   );
 }
-``
