@@ -1,13 +1,12 @@
 
 import { supabase } from "../../lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 export default async function TestSupabasePage() {
   const { data, error } = await supabase
     .from("apprentis")
     .select("*");
-
-  console.log("DATA:", data);
-  console.log("ERROR:", error);
 
   return (
     <main style={{ padding: "40px" }}>
@@ -22,7 +21,14 @@ export default async function TestSupabasePage() {
       )}
 
       <pre>
-        {JSON.stringify(data, null, 2)}
+        {JSON.stringify(
+          {
+            data,
+            error,
+          },
+          null,
+          2
+        )}
       </pre>
     </main>
   );
