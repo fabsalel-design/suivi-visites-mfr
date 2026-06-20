@@ -22,10 +22,10 @@ export default async function DashboardPage() {
     ),
   ];
 
-  const visitesRealisees =
-    apprentis?.filter(
-      (a) => a.statut === "Terminée"
-    ).length || 0;
+ const visitesRealisees =
+  apprentis?.filter(
+    (a) => a.statut?.trim() === "Terminée"
+  ).length || 0;
 
   const visitesRestantes =
     totalApprentis - visitesRealisees;
