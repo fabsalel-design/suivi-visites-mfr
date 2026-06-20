@@ -10,7 +10,7 @@ const supabase = createClient(
 export async function POST(request: Request) {
   const apprentis = await request.json();
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from("apprentis")
     .insert(apprentis);
 
@@ -23,6 +23,8 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     success: true,
-    total: data?.length || apprentis.length,
+    total: Array.isArray(apprentis)
+      ? apprentis.length
+      : 0,
   });
 }
