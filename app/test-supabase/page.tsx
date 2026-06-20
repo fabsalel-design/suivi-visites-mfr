@@ -6,9 +6,14 @@ export default async function TestSupabasePage() {
     .from("apprentis")
     .select("*");
 
+  console.log("DATA:", data);
+  console.log("ERROR:", error);
+
   return (
     <main style={{ padding: "40px" }}>
       <h1>Test Supabase</h1>
+
+      <p>Nombre de lignes : {data?.length || 0}</p>
 
       {error && (
         <p>
@@ -16,28 +21,9 @@ export default async function TestSupabasePage() {
         </p>
       )}
 
-      {data?.map((apprenti) => (
-        <div
-          key={apprenti.id}
-          style={{
-            border: "1px solid #ddd",
-            padding: "15px",
-            marginBottom: "10px",
-          }}
-        >
-          <h2>
-            {apprenti.prenom} {apprenti.nom}
-          </h2>
-
-          <p>
-            Entreprise : {apprenti.entreprise}
-          </p>
-
-          <p>
-            Formateur : {apprenti.formateur}
-          </p>
-        </div>
-      ))}
+      <pre>
+        {JSON.stringify(data, null, 2)}
+      </pre>
     </main>
   );
 }
