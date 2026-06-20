@@ -1,5 +1,7 @@
 
-import { apprentis } from "../../../data/apprentis";
+import { supabase } from "../../../lib/supabase";
+
+export const dynamic = "force-dynamic";
 
 export default async function EntreprisePage({
   params,
@@ -10,11 +12,21 @@ export default async function EntreprisePage({
 
   const entrepriseNom = decodeURIComponent(nom);
 
-  const liste = apprentis.filter(
-    (a) => a.entreprise === entrepriseNom
-  );
+  const { data: liste, error } = await supabase
+    .from("apprentis")
+    .select("*")
+    .eq("entreprise", entrepriseNom);
 
-  if (liste.length === 0) {
+  if (error) {
+    return (
+      <main style={{ padding: "40px" }}>
+        <h1>Erreur</h1>
+        <p>{error.message}</p>
+      </main>
+    );
+  }
+
+  if (!liste || liste.length === 0) {
     return (
       <main style={{ padding: "40px" }}>
         <h1>Entreprise introuvable</h1>
@@ -24,7 +36,9 @@ export default async function EntreprisePage({
 
   const premier = liste[0];
 
-  const adresseComplete = `${premier.adresseReelle} ${premier.codePostalReel} ${premier.villeReelle}`;
+  const adresseComplete = `${premier.adresse_reelle || ""} ${
+    premier.code_postal_reel || ""
+  } ${premier.ville_reelle || ""}`;
 
   const urlMaps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     adresseComplete
@@ -34,12 +48,25 @@ export default async function EntreprisePage({
     <main style={{ padding: "40px" }}>
       <h1>{entrepriseNom}</h1>
 
-      <h2>Adresse réelle</h2>
-
-      <p>{premier.adresseReelle}</p>
+      <h2>Coordonnées</h2>
 
       <p>
-        {premier.codePostalReel} {premier.villeReelle}
+        <strong>Tuteur :</strong>{" "}
+        {premier.tuteur || "Non renseigné"}
+      </p>
+
+      <p>
+        <strong>Téléphone :</strong>{" "}
+        {premier.telephone || "Non renseigné"}
+      </p>
+
+      <h2>Adresse réelle</h2>
+
+      <p>{premier.adresse_reelle}</p>
+
+      <p>
+        {premier.code_postal_reel}{" "}
+        {premier.ville_reelle}
       </p>
 
       <p>
@@ -56,12 +83,16 @@ export default async function EntreprisePage({
 
       <hr />
 
-      <h2>Apprentis</h2>
+      <h2>
+        Apprentis ({liste.length})
+      </h2>
 
       <ul>
         {liste.map((apprenti) => (
           <li key={apprenti.id}>
             {apprenti.prenom} {apprenti.nom}
+            {" - "}
+            {apprenti.formateur}
           </li>
         ))}
       </ul>
