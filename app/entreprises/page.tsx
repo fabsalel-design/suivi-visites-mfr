@@ -18,70 +18,90 @@ export default async function EntreprisesPage() {
     );
   }
 
-  const entreprisesMap = new Map();
+  const etablissementsMap = new Map();
 
   apprentis?.forEach((apprenti) => {
-    const entreprise = apprenti.entreprise;
+    const cle = [
+      apprenti.entreprise,
+      apprenti.adresse_reelle,
+      apprenti.code_postal_reel,
+      apprenti.ville_reelle,
+    ].join("|");
 
-    if (!entreprise) return;
-
-    if (!entreprisesMap.has(entreprise)) {
-      entreprisesMap.set(entreprise, []);
+    if (!etablissementsMap.has(cle)) {
+      etablissementsMap.set(cle, []);
     }
 
-    entreprisesMap.get(entreprise).push(apprenti);
+    etablissementsMap.get(cle).push(apprenti);
   });
 
-  const entreprises = Array.from(
-    entreprisesMap.entries()
+  const etablissements = Array.from(
+    etablissementsMap.entries()
   ).sort((a, b) =>
-    a[0].localeCompare(b[0])
+    a[1][0].entreprise.localeCompare(
+      b[1][0].entreprise
+    )
   );
 
   return (
     <main style={{ padding: "40px" }}>
-      <h1>Entreprises</h1>
+      <h1>Établissements</h1>
 
       <p>
-        Nombre d'entreprises : {entreprises.length}
+        Nombre d'établissements :
+        {" "}
+        {etablissements.length}
       </p>
 
       <hr />
 
-      {entreprises.map(([nom, liste]) => (
-        <div
-          key={nom}
-          style={{
-            border: "1px solid #ddd",
-            padding: "15px",
-            marginBottom: "15px",
-            borderRadius: "8px",
-          }}
-        >
-          <Link
-            href={`/entreprises/${encodeURIComponent(
-              nom
-            )}`}
+      {etablissements.map(([cle, liste]) => {
+        const premier = liste[0];
+
+        return (
+          <div
+            key={cle}
+            style={{
+              border: "1px solid #ddd",
+              padding: "15px",
+              marginBottom: "15px",
+              borderRadius: "8px",
+            }}
           >
-            <h2>{nom}</h2>
-          </Link>
+            <Link
+              href={`/entreprises/${encodeURIComponent(
+                premier.entreprise
+              )}`}
+            >
+              <h2>{premier.entreprise}</h2>
+            </Link>
 
-          <p>
-            Apprentis : {liste.length}
-          </p>
+            <p>{premier.adresse_reelle}</p>
 
-          <ul>
-            {liste.map((apprenti: any) => (
-              <li key={apprenti.id}>
-                {apprenti.prenom} {apprenti.nom}
-                {" - "}
-                {apprenti.formateur}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+            <p>
+              {premier.code_postal_reel}
+              {" "}
+              {premier.ville_reelle}
+            </p>
+
+            <p>
+              Apprentis :
+              {" "}
+              {liste.length}
+            </p>
+
+            <ul>
+              {liste.map((apprenti: any) => (
+                <li key={apprenti.id}>
+                  {apprenti.prenom}
+                  {" "}
+                  {apprenti.nom}
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
     </main>
   );
 }
-``
