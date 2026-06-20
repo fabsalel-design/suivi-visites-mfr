@@ -69,12 +69,6 @@ export default async function EditApprentiPage({
 
       <hr />
 
-      <p>
-        <a href={`/apprentis/${id}/visites`}>
-          Voir les visites
-        </a>
-      </p>
-
       <Link href="/apprentis">
         Retour aux apprentis
       </Link>
