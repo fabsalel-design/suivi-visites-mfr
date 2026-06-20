@@ -1,11 +1,29 @@
 
-import { apprentis } from "../../data/apprentis";
+import Link from "next/link";
+import { supabase } from "../../lib/supabase";
 
-export default function EntreprisesPage() {
+export const dynamic = "force-dynamic";
+
+export default async function EntreprisesPage() {
+  const { data: apprentis, error } = await supabase
+    .from("apprentis")
+    .select("*");
+
+  if (error) {
+    return (
+      <main style={{ padding: "40px" }}>
+        <h1>Erreur</h1>
+        <p>{error.message}</p>
+      </main>
+    );
+  }
+
   const entreprisesMap = new Map();
 
-  apprentis.forEach((apprenti) => {
+  apprentis?.forEach((apprenti) => {
     const entreprise = apprenti.entreprise;
+
+    if (!entreprise) return;
 
     if (!entreprisesMap.has(entreprise)) {
       entreprisesMap.set(entreprise, []);
@@ -16,6 +34,8 @@ export default function EntreprisesPage() {
 
   const entreprises = Array.from(
     entreprisesMap.entries()
+  ).sort((a, b) =>
+    a[0].localeCompare(b[0])
   );
 
   return (
@@ -23,9 +43,7 @@ export default function EntreprisesPage() {
       <h1>Entreprises</h1>
 
       <p>
-        Nombre d'entreprises :
-        {" "}
-        {entreprises.length}
+        Nombre d'entreprises : {entreprises.length}
       </p>
 
       <hr />
@@ -40,23 +58,20 @@ export default function EntreprisesPage() {
             borderRadius: "8px",
           }}
         >
-         
-<a
-  href={`/entreprises/${encodeURIComponent(
-    nom
-  )}`}
->
-  <h2>{nom}</h2>
-</a>
+          <Link
+            href={`/entreprises/${encodeURIComponent(
+              nom
+            )}`}
+          >
+            <h2>{nom}</h2>
+          </Link>
 
           <p>
-            Apprentis :
-            {" "}
-            {(liste as any[]).length}
+            Apprentis : {liste.length}
           </p>
 
           <ul>
-            {(liste as any[]).map((apprenti) => (
+            {liste.map((apprenti: any) => (
               <li key={apprenti.id}>
                 {apprenti.prenom} {apprenti.nom}
                 {" - "}
@@ -69,3 +84,4 @@ export default function EntreprisesPage() {
     </main>
   );
 }
+``
