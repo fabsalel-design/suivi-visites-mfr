@@ -1,0 +1,91 @@
+
+import Link from "next/link";
+
+export default async function NouvelleVisitePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
+  return (
+    <main
+      style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "30px",
+      }}
+    >
+      <h1
+        style={{
+          color: "#005CA9",
+        }}
+      >
+        Nouvelle visite
+      </h1>
+
+      <p>
+        Choisissez le type de visite à réaliser.
+      </p>
+
+      <div
+        style={{
+          display: "grid",
+          gap: "20px",
+          marginTop: "30px",
+        }}
+      >
+        <Link
+          href={`/apprentis/${id}/visites/periode-essai`}
+          style={{
+            padding: "20px",
+            background: "#ffffff",
+            border: "1px solid #ddd",
+            borderRadius: "12px",
+            textDecoration: "none",
+            color: "#005CA9",
+            fontWeight: "bold",
+          }}
+        >
+          📋 Période d'essai
+        </Link>
+
+        <Link
+          href={`/apprentis/${id}/visites/intermediaire`}
+          style={{
+            padding: "20px",
+            background: "#ffffff",
+            border: "1px solid #ddd",
+            borderRadius: "12px",
+            textDecoration: "none",
+            color: "#005CA9",
+            fontWeight: "bold",
+          }}
+        >
+          📋 Intermédiaire
+        </Link>
+
+        <Link
+          href={`/apprentis/${id}/visites/fin-contrat`}
+          style={{
+            padding: "20px",
+            background: "#ffffff",
+            border: "1px solid #ddd",
+            borderRadius: "12px",
+            textDecoration: "none",
+            color: "#005CA9",
+            fontWeight: "bold",
+          }}
+        >
+          📋 Fin de contrat
+        </Link>
+      </div>
+
+      <p style={{ marginTop: "30px" }}>
+        <Link href={`/apprentis/${id}/visites`}>
+          ← Retour à l'historique
+        </Link>
+      </p>
+    </main>
+  );
+}
