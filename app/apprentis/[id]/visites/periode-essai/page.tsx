@@ -5,17 +5,94 @@ import { supabase } from "../../../../../lib/supabase";
 export const dynamic = "force-dynamic";
 
 const criteres = [
-  "Intérêt et motivation",
-  "Dynamisme",
-  "Esprit d'initiative / curiosité",
-  "Sens de l'organisation",
-  "Volonté de changement",
-  "Relations / équipe de travail",
-  "Adaptation",
-  "Présentation",
-  "Compréhension des consignes",
-  "Application des règles",
-  "Aptitudes physiques générales",
+  {
+    titre: "Intérêt et motivation",
+    options: [
+      "Est indifférent",
+      "Écoute et observe",
+      "Observe et cherche à comprendre",
+    ],
+  },
+  {
+    titre: "Dynamisme",
+    options: [
+      "A des difficultés à suivre le rythme",
+      "Suit le mouvement",
+      "Participe activement",
+    ],
+  },
+  {
+    titre: "Esprit d'initiative, curiosité",
+    options: [
+      "Ne prend aucune initiative, attend les consignes",
+      "A des idées mais demande une validation avant d'agir",
+      "Sait prendre des initiatives dans les limites de sa compétence",
+    ],
+  },
+  {
+    titre: "Sens de l'organisation",
+    options: [
+      "Manque d'organisation et perd du temps",
+      "Est organisé",
+      "Sait s'organiser en relative autonomie",
+    ],
+  },
+  {
+    titre: "Volonté de changement",
+    options: [
+      "Refuse les critiques et remarques",
+      "Accepte les remarques mais difficilement",
+      "Accepte les remarques, a la volonté d'évoluer",
+    ],
+  },
+  {
+    titre: "Relations / équipe de travail",
+    options: [
+      "Ne cherche pas à communiquer ou entre en conflit",
+      "Hésite à s'exprimer mais se montre ouvert",
+      "Communique facilement et trouve sa place dans l'équipe",
+    ],
+  },
+  {
+    titre: "Adaptation",
+    options: [
+      "Fait peu d'efforts d'adaptation",
+      "Essaie mais a des difficultés d'adaptation",
+      "S'adapte facilement à l'esprit d'entreprise",
+    ],
+  },
+  {
+    titre: "Présentation",
+    options: [
+      "Ne fait aucun effort de présentation",
+      "A une présentation pouvant être améliorée",
+      "Bonne présentation",
+    ],
+  },
+  {
+    titre: "Compréhension des consignes",
+    options: [
+      "A des difficultés à saisir et appliquer les consignes",
+      "Comprend les consignes mais les applique mal",
+      "Comprend et applique les consignes avec précision",
+    ],
+  },
+  {
+    titre: "Application des règles",
+    options: [
+      "Les oublie fréquemment et prend des risques",
+      "Ne fait pas d'oubli ou d'erreur grave",
+      "Les applique rigoureusement",
+    ],
+  },
+  {
+    titre: "Aptitudes physiques générales",
+    options: [
+      "N'assure pas toutes les tâches confiées",
+      "Fatigue dans certaines situations",
+      "Ne ménage ni ses efforts ni son temps",
+    ],
+  },
 ];
 
 export default async function PeriodeEssaiPage({
@@ -34,7 +111,7 @@ export default async function PeriodeEssaiPage({
   return (
     <main
       style={{
-        maxWidth: "1200px",
+        maxWidth: "1000px",
         margin: "0 auto",
         padding: "30px",
       }}
@@ -42,16 +119,16 @@ export default async function PeriodeEssaiPage({
       <h1
         style={{
           color: "#005CA9",
+          marginBottom: "30px",
         }}
       >
-        Évaluation de fin de période d'essai
+        Évaluation de l'apprenti en fin de période d'essai
       </h1>
 
       <div
         style={{
           display: "grid",
           gap: "15px",
-          marginTop: "30px",
           marginBottom: "40px",
         }}
       >
@@ -84,10 +161,7 @@ export default async function PeriodeEssaiPage({
         <div>
           <label>Formation suivie</label>
           <br />
-          <input
-            type="text"
-            style={{ width: "100%" }}
-          />
+          <input type="text" style={{ width: "100%" }} />
         </div>
 
         <div>
@@ -113,113 +187,44 @@ export default async function PeriodeEssaiPage({
 
       <h2>Critères d'évaluation</h2>
 
-      <table
-        style={{
-          width: "100%",
-          borderCollapse: "collapse",
-          marginTop: "20px",
-          marginBottom: "30px",
-        }}
-      >
-        <thead>
-          <tr>
-            <th
+      {criteres.map((critere, index) => (
+        <div
+          key={index}
+          style={{
+            background: "#ffffff",
+            padding: "20px",
+            borderRadius: "12px",
+            marginBottom: "20px",
+            border: "1px solid #ddd",
+          }}
+        >
+          <h3>{critere.titre}</h3>
+
+          {critere.options.map((option, i) => (
+            <label
+              key={i}
               style={{
-                border: "1px solid #ccc",
-                padding: "10px",
+                display: "block",
+                marginBottom: "12px",
               }}
             >
-              Critère
-            </th>
-
-            <th
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-              }}
-            >
-              Non acquise
-            </th>
-
-            <th
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-              }}
-            >
-              En cours
-            </th>
-
-            <th
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-              }}
-            >
-              Acquise
-            </th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {criteres.map((critere) => (
-            <tr key={critere}>
-              <td
-                style={{
-                  border: "1px solid #ccc",
-                  padding: "10px",
-                }}
-              >
-                {critere}
-              </td>
-
-              <td
-                style={{
-                  border: "1px solid #ccc",
-                  textAlign: "center",
-                }}
-              >
-                <input
-                  type="radio"
-                  name={critere}
-                  value="non"
-                />
-              </td>
-
-              <td
-                style={{
-                  border: "1px solid #ccc",
-                  textAlign: "center",
-                }}
-              >
-                <input
-                  type="radio"
-                  name={critere}
-                  value="encours"
-                />
-              </td>
-
-              <td
-                style={{
-                  border: "1px solid #ccc",
-                  textAlign: "center",
-                }}
-              >
-                <input
-                  type="radio"
-                  name={critere}
-                  value="acquise"
-                />
-              </td>
-            </tr>
+              <input
+                type="radio"
+                name={`critere_${index}`}
+                value={i}
+                style={{ marginRight: "10px" }}
+              />
+              {option}
+            </label>
           ))}
-        </tbody>
-      </table>
+        </div>
+      ))}
 
       <div
         style={{
           display: "grid",
           gap: "20px",
+          marginTop: "40px",
         }}
       >
         <div>
@@ -253,6 +258,39 @@ export default async function PeriodeEssaiPage({
       <div
         style={{
           marginTop: "40px",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "30px",
+        }}
+      >
+        <div>
+          <h3>Visa maître d'apprentissage</h3>
+
+          <div
+            style={{
+              height: "120px",
+              border: "2px dashed #999",
+              borderRadius: "8px",
+            }}
+          />
+        </div>
+
+        <div>
+          <h3>Visa CFA / Formateur</h3>
+
+          <div
+            style={{
+              height: "120px",
+              border: "2px dashed #999",
+              borderRadius: "8px",
+            }}
+          />
+        </div>
+      </div>
+
+      <div
+        style={{
+          marginTop: "40px",
           display: "flex",
           gap: "15px",
           flexWrap: "wrap",
@@ -265,7 +303,6 @@ export default async function PeriodeEssaiPage({
             border: "none",
             padding: "12px 20px",
             borderRadius: "8px",
-            cursor: "pointer",
           }}
         >
           Enregistrer
@@ -278,10 +315,9 @@ export default async function PeriodeEssaiPage({
             border: "none",
             padding: "12px 20px",
             borderRadius: "8px",
-            cursor: "pointer",
           }}
         >
-          Générer PDF
+          Générer le PDF
         </button>
       </div>
 
