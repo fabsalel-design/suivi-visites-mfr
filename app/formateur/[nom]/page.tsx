@@ -251,7 +251,7 @@ export default async function FormateurDetailPage({
             </Link>
 
             <Link
-              href={`/apprentis/${apprenti.id}/visites`}
+              href={`/apprentis/${apprenti.id}/visites/nouvelle`}
             >
               📝 Nouvelle visite
             </Link>
