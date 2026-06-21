@@ -1,37 +1,245 @@
 
-<div
-  style={{
-    display: "flex",
-    gap: "10px",
-    marginBottom: "30px",
-  }}
->
-  <button
-    style={{
-      backgroundColor: "#005CA9",
-      color: "white",
-      border: "none",
-      padding: "12px 20px",
-      borderRadius: "8px",
-    }}
-  >
-    📋 Mes visites
-  </button>
+import Link from "next/link";
+import { supabase } from "../../../lib/supabase";
 
-  <Link
-    href={`/formateur/${encodeURIComponent(
-      nomFormateur
-    )}/carte`}
-    style={{
-      backgroundColor: "white",
-      border: "1px solid #ddd",
-      padding: "12px 20px",
-      borderRadius: "8px",
-      textDecoration: "none",
-      color: "black",
-      display: "inline-block",
-    }}
-  >
-    🗺️ Carte
-  </Link>
-</div>
+export const dynamic = "force-dynamic";
+
+export default async function FormateurDetailPage({
+  params,
+}: {
+  params: Promise<{ nom: string }>;
+}) {
+  const { nom } = await params;
+
+  const nomFormateur = decodeURIComponent(nom);
+
+  const { data: apprentis, error } = await supabase
+    .from("apprentis")
+    .select("*")
+    .eq("formateur", nomFormateur)
+    .order("nom");
+
+  const total = apprentis?.length || 0;
+
+  return (
+    <main
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "20px",
+        backgroundColor: "#f5f7fa",
+        minHeight: "100vh",
+      }}
+    >
+      <h1
+        style={{
+          color: "#005CA9",
+          marginBottom: "20px",
+        }}
+      >
+        Bonjour {nomFormateur} 👋
+      </h1>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          marginBottom: "30px",
+          flexWrap: "wrap",
+        }}
+      >
+        <div
+          style={{
+            background: "white",
+            padding: "20px",
+            borderRadius: "12px",
+            minWidth: "180px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+          }}
+        >
+          <strong>Total</strong>
+          <h2>{total}</h2>
+        </div>
+
+        <div
+          style={{
+            background: "white",
+            padding: "20px",
+            borderRadius: "12px",
+            minWidth: "180px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+          }}
+        >
+          <strong>Effectuées</strong>
+          <h2>0</h2>
+        </div>
+
+        <div
+          style={{
+            background: "white",
+            padding: "20px",
+            borderRadius: "12px",
+            minWidth: "180px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+          }}
+        >
+          <strong>À faire</strong>
+          <h2>{total}</h2>
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          marginBottom: "30px",
+        }}
+      >
+        <button
+          style={{
+            backgroundColor: "#005CA9",
+            color: "white",
+            border: "none",
+            padding: "12px 20px",
+            borderRadius: "8px",
+          }}
+        >
+          📋 Mes visites
+        </button>
+
+        <Link
+          href={`/formateur/${encodeURIComponent(
+            nomFormateur
+          )}/carte`}
+          style={{
+            backgroundColor: "white",
+            border: "1px solid #ddd",
+            padding: "12px 20px",
+            borderRadius: "8px",
+            textDecoration: "none",
+            color: "black",
+            display: "inline-block",
+          }}
+        >
+          🗺️ Carte
+        </Link>
+      </div>
+
+      {error && (
+        <p>
+          Erreur : {error.message}
+        </p>
+      )}
+
+      {apprentis?.map((apprenti) => (
+        <div
+          key={apprenti.id}
+          style={{
+            backgroundColor: "white",
+            borderRadius: "12px",
+            padding: "20px",
+            marginBottom: "20px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+            }}
+          >
+            <div>
+              <h2
+                style={{
+                  marginTop: 0,
+                  color: "#005CA9",
+                }}
+              >
+                {apprenti.prenom} {apprenti.nom}
+              </h2>
+
+              <p>
+                <strong>{apprenti.entreprise}</strong>
+              </p>
+
+              <p>
+                📍 {apprenti.adresse_reelle}
+              </p>
+
+              <p>
+                {apprenti.code_postal_reel}{" "}
+                {apprenti.ville_reelle}
+              </p>
+
+              <p>
+                👤 {apprenti.tuteur}
+              </p>
+
+              <p>
+                📞 {apprenti.telephone}
+              </p>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: "#f9a825",
+                color: "white",
+                padding: "6px 12px",
+                borderRadius: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              À faire
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "12px",
+              flexWrap: "wrap",
+              marginTop: "15px",
+            }}
+          >
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(
+                `${apprenti.adresse_reelle} ${apprenti.code_postal_reel} ${apprenti.ville_reelle}`
+              )}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              📍 Google Maps
+            </a>
+
+            <a
+              href={`tel:${apprenti.telephone || ""}`}
+            >
+              📞 Appeler
+            </a>
+
+            <Link
+              href={`/apprentis/${apprenti.id}/visites`}
+            >
+              📂 Historique
+            </Link>
+
+            <Link
+              href={`/apprentis/${apprenti.id}/visites`}
+            >
+              📝 Nouvelle visite
+            </Link>
+          </div>
+        </div>
+      ))}
+
+      <hr />
+
+      <p>
+        <Link href="/formateur">
+          ← Retour aux formateurs
+        </Link>
+      </p>
+    </main>
+  );
+}
