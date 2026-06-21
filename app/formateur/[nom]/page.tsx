@@ -159,6 +159,32 @@ export default async function FormateurDetailPage({
                 {apprenti.prenom} {apprenti.nom}
               </h2>
 
+              <div
+                style={{
+                  marginBottom: "12px",
+                }}
+              >
+                <span
+                  style={{
+                    backgroundColor:
+                      apprenti.contrat_type_contrat ===
+                      "STAGE"
+                        ? "#2e7d32"
+                        : "#1565c0",
+                    color: "white",
+                    padding: "5px 12px",
+                    borderRadius: "20px",
+                    fontSize: "12px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {apprenti.contrat_type_contrat ===
+                  "STAGE"
+                    ? "🟢 Stagiaire"
+                    : "🔵 Apprenti"}
+                </span>
+              </div>
+
               <p>
                 <strong>{apprenti.entreprise}</strong>
               </p>
