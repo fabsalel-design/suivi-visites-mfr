@@ -220,17 +220,32 @@ export default async function ConsulterVisitePage({
         </div>
       )}
 
-      <div
-        style={{
-          marginTop: "30px",
-        }}
-      >
-        <Link
-          href={`/apprentis/${id}/visites`}
-        >
-          ← Retour à l'historique
-        </Link>
-      </div>
-    </main>
-  );
-}
+      
+<div
+  style={{
+    marginTop: "30px",
+    display: "Items: "center",    display: "flex",
+  }}
+>
+  <a
+    href={`/api/visites/${visiteId}/pdf`}
+    target="_blank"
+    style={{
+      backgroundColor: "#2e7d32",
+      color: "white",
+      padding: "12px 20px",
+      borderRadius: "8px",
+      textDecoration: "none",
+    }}
+  >
+    📄 Télécharger PDF
+  </a>
+
+  <Link
+    href={`/apprentis/${id}/visites`}
+  >
+    ← Retour à l'historique
+  </Link>
+</div>
+
+    gap: "15px",
