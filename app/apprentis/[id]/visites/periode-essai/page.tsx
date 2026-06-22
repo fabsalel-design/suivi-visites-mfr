@@ -112,6 +112,8 @@ export default function PeriodeEssaiPage({
   params: Promise<{ id: string }>;
 }) {
   const [id, setId] = useState("");
+  const [formateur, setFormateur] =
+    useState("");
 
   const [loading, setLoading] =
     useState(false);
@@ -133,9 +135,26 @@ export default function PeriodeEssaiPage({
   >({});
 
   useEffect(() => {
-    params.then((p) => {
+    async function charger() {
+      const p = await params;
+
       setId(p.id);
-    });
+
+      const response = await fetch(
+        `/api/apprentis/${p.id}`
+      );
+
+      if (response.ok) {
+        const apprenti =
+          await response.json();
+
+        setFormateur(
+          apprenti.formateur || ""
+        );
+      }
+    }
+
+    charger();
   }, [params]);
 
   async function enregistrer() {
@@ -156,7 +175,7 @@ export default function PeriodeEssaiPage({
             date_visite: dateVisite,
 
             formateur_visiteur:
-              "Formateur",
+              formateur,
 
             observations,
             points_forts: pointsForts,
@@ -252,9 +271,7 @@ export default function PeriodeEssaiPage({
           marginBottom: "30px",
         }}
       >
-        <label>
-          Date de la visite
-        </label>
+        <label>Date de la visite</label>
 
         <br />
 
@@ -274,8 +291,7 @@ export default function PeriodeEssaiPage({
           key={critere.key}
           style={{
             background: "#fff",
-            border:
-              "1px solid #ddd",
+            border: "1px solid #ddd",
             borderRadius: "12px",
             padding: "20px",
             marginBottom: "20px",
@@ -288,10 +304,8 @@ export default function PeriodeEssaiPage({
               <label
                 key={option}
                 style={{
-                  display:
-                    "block",
-                  marginBottom:
-                    "8px",
+                  display: "block",
+                  marginBottom: "8px",
                 }}
               >
                 <input
