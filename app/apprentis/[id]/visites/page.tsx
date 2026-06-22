@@ -29,9 +29,13 @@ export default async function VisitesPage({
 
       <hr />
 
-      <button>
-        Nouvelle visite
-      </button>
+      <Link
+        href={`/apprentis/${id}/visites/nouvelle`}
+      >
+        <button>
+          Nouvelle visite
+        </button>
+      </Link>
 
       <hr />
 
@@ -87,6 +91,20 @@ export default async function VisitesPage({
             {visite.mode_traitement ||
               "Non renseigné"}
           </p>
+
+          <div
+            style={{
+              marginTop: "15px",
+            }}
+          >
+            <Link
+              href={`/apprentis/${id}/visites/${visite.id}`}
+            >
+              <button>
+                👁 Consulter
+              </button>
+            </Link>
+          </div>
         </div>
       ))}
 
