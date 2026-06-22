@@ -106,7 +106,17 @@ export default async function ConsulterVisitePage({
             padding: "20px",
           }}
         >
-          <h2>Évaluation période d'essai</h2>
+          <h2>
+            Évaluation période d'essai
+          </h2>
+
+          <p>
+            <strong>
+              Formation suivie :
+            </strong>{" "}
+            {details.formation_suivie ||
+              "Non renseignée"}
+          </p>
 
           <p>
             <strong>
@@ -154,7 +164,9 @@ export default async function ConsulterVisitePage({
           </p>
 
           <p>
-            <strong>Présentation :</strong>{" "}
+            <strong>
+              Présentation :
+            </strong>{" "}
             {details.presentation}
           </p>
 
@@ -182,7 +194,9 @@ export default async function ConsulterVisitePage({
           <hr />
 
           <p>
-            <strong>Points forts :</strong>
+            <strong>
+              Points forts :
+            </strong>
           </p>
 
           <p>
@@ -191,7 +205,9 @@ export default async function ConsulterVisitePage({
           </p>
 
           <p>
-            <strong>Points faibles :</strong>
+            <strong>
+              Points faibles :
+            </strong>
           </p>
 
           <p>
@@ -220,21 +236,20 @@ export default async function ConsulterVisitePage({
           alignItems: "center",
         }}
       >
-     
-<a
-  href={`/api/visites/${visiteId}/pdf`}
-  target="_blank"
-  rel="noreferrer"
-  style={{
-    backgroundColor: "#2e7d32",
-    color: "white",
-    padding: "10px 16px",
-    borderRadius: "8px",
-    textDecoration: "none",
-  }}
->
-  📄 PDF
-</a>
+        <a
+          href={`/api/visites/${visiteId}/pdf`}
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            backgroundColor: "#2e7d32",
+            color: "white",
+            padding: "10px 16px",
+            borderRadius: "8px",
+            textDecoration: "none",
+          }}
+        >
+          📄 PDF
+        </a>
 
         <Link
           href={`/apprentis/${id}/visites`}
