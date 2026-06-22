@@ -10,6 +10,8 @@ export async function POST(request: Request) {
       apprenti_id,
       date_visite,
 
+      formation_suivie,
+
       interet_motivation,
       dynamisme,
       esprit_initiative,
@@ -37,27 +39,31 @@ export async function POST(request: Request) {
     const formateurVisiteur =
       apprenti?.formateur || null;
 
-    const { data: visite, error: visiteError } =
-      await supabase
-        .from("visites")
-        .insert({
-          apprenti_id,
-          date_visite,
-          type_visite: "periode_essai",
-          formateur_visiteur:
-            formateurVisiteur,
-          realisee: true,
-          mode_traitement: "application",
-          observations,
-        })
-        .select()
-        .single();
+    const {
+      data: visite,
+      error: visiteError,
+    } = await supabase
+      .from("visites")
+      .insert({
+        apprenti_id,
+        date_visite,
+        type_visite: "periode_essai",
+        formateur_visiteur:
+          formateurVisiteur,
+        realisee: true,
+        mode_traitement:
+          "application",
+        observations,
+      })
+      .select()
+      .single();
 
     if (visiteError) {
       return NextResponse.json(
         {
           success: false,
-          error: visiteError.message,
+          error:
+            visiteError.message,
         },
         {
           status: 500,
@@ -67,9 +73,13 @@ export async function POST(request: Request) {
 
     const { error: detailsError } =
       await supabase
-        .from("visites_periode_essai")
+        .from(
+          "visites_periode_essai"
+        )
         .insert({
           visite_id: visite.id,
+
+          formation_suivie,
 
           interet_motivation,
           dynamisme,
@@ -92,7 +102,8 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          error: detailsError.message,
+          error:
+            detailsError.message,
         },
         {
           status: 500,
