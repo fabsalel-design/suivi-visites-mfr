@@ -9,7 +9,6 @@ export async function POST(request: Request) {
     const {
       apprenti_id,
       date_visite,
-      formateur_visiteur,
 
       interet_motivation,
       dynamisme,
@@ -28,6 +27,16 @@ export async function POST(request: Request) {
       points_faibles,
     } = body;
 
+    const { data: apprenti } =
+      await supabase
+        .from("apprentis")
+        .select("formateur")
+        .eq("id", apprenti_id)
+        .single();
+
+    const formateurVisiteur =
+      apprenti?.formateur || null;
+
     const { data: visite, error: visiteError } =
       await supabase
         .from("visites")
@@ -35,7 +44,8 @@ export async function POST(request: Request) {
           apprenti_id,
           date_visite,
           type_visite: "periode_essai",
-          formateur_visiteur,
+          formateur_visiteur:
+            formateurVisiteur,
           realisee: true,
           mode_traitement: "application",
           observations,
@@ -108,4 +118,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
