@@ -122,14 +122,57 @@ export async function GET(
       "RD 6086 - Lieu-dit La Granelle"
     );
 
-    ligne("30320 MARGUERITTES");
+    
+ligne("30320 MARGUERITTES");
 
-    y -= 10;
+y -= 10;
 
-    page.drawText(
-      
+page.drawText(
+  "ÉVALUATION DE L'APPRENTI EN FIN DE PÉRIODE D'ESSAI",
+  {
+    x: 40,
+    y,
+    size: 16,
+    font: boldFont,
+    color: rgb(0, 0.36, 0.66),
+  }
+);
+
+y -= 35;
+
+ligne(
+  `Date de l'évaluation : ${visite.date_visite || ""}`
+);
+
+ligne(
+  `Employeur : ${apprenti?.entreprise || ""}`
+);
+
+ligne(
+  `Nom de l'apprenti : ${apprenti?.prenom || ""} ${apprenti?.nom || ""}`
+);
+
+ligne(
+  `Formation suivie : ${
+    details?.formation_suivie || ""
+  }`
+);
+
+ligne(
+  `Nom du formateur : ${
+    visite.formateur_visiteur || ""
+  }`
+);
+
+ligne(
+  `Nom du maître d'apprentissage : ${
+    apprenti?.tuteur || ""
+  }`
+);
+
+y -= 15;
+
 titre("ÉVALUATION");
-
 const tableX = 40;
 const tableY = y;
 const rowHeight = 18;
