@@ -1,11 +1,12 @@
 
-import Link from "next/link";
-import { supabase } from "../../../../../lib/supabase";
+"use client";
 
-export const dynamic = "force-dynamic";
+import Link from "next/link";
+import { useState } from "react";
 
 const criteres = [
   {
+    key: "interet_motivation",
     titre: "Intérêt et motivation",
     options: [
       "Est indifférent",
@@ -14,6 +15,7 @@ const criteres = [
     ],
   },
   {
+    key: "dynamisme",
     titre: "Dynamisme",
     options: [
       "A des difficultés à suivre le rythme",
@@ -22,91 +24,195 @@ const criteres = [
     ],
   },
   {
+    key: "esprit_initiative",
     titre: "Esprit d'initiative, curiosité",
     options: [
-      "Ne prend aucune initiative, attend les consignes",
-      "A des idées mais demande une validation avant d'agir",
-      "Sait prendre des initiatives dans les limites de sa compétence",
+      "Ne prend aucune initiative",
+      "Demande validation",
+      "Prend des initiatives",
     ],
   },
   {
+    key: "sens_organisation",
     titre: "Sens de l'organisation",
     options: [
-      "Manque d'organisation et perd du temps",
-      "Est organisé",
-      "Sait s'organiser en relative autonomie",
+      "Peu organisé",
+      "Organisé",
+      "Très organisé",
     ],
   },
   {
+    key: "volonte_changement",
     titre: "Volonté de changement",
     options: [
-      "Refuse les critiques et remarques",
-      "Accepte les remarques mais difficilement",
-      "Accepte les remarques, a la volonté d'évoluer",
+      "Refuse les remarques",
+      "Accepte difficilement",
+      "Cherche à progresser",
     ],
   },
   {
+    key: "relations_equipe",
     titre: "Relations / équipe de travail",
     options: [
-      "Ne cherche pas à communiquer ou entre en conflit",
-      "Hésite à s'exprimer mais se montre ouvert",
-      "Communique facilement et trouve sa place dans l'équipe",
+      "Difficultés relationnelles",
+      "Relations correctes",
+      "Très bonne intégration",
     ],
   },
   {
+    key: "adaptation",
     titre: "Adaptation",
     options: [
-      "Fait peu d'efforts d'adaptation",
-      "Essaie mais a des difficultés d'adaptation",
-      "S'adapte facilement à l'esprit d'entreprise",
+      "Difficile",
+      "Moyenne",
+      "Facile",
     ],
   },
   {
+    key: "presentation",
     titre: "Présentation",
     options: [
-      "Ne fait aucun effort de présentation",
-      "A une présentation pouvant être améliorée",
-      "Bonne présentation",
+      "Insuffisante",
+      "Correcte",
+      "Très bonne",
     ],
   },
   {
+    key: "comprehension_consignes",
     titre: "Compréhension des consignes",
     options: [
-      "A des difficultés à saisir et appliquer les consignes",
-      "Comprend les consignes mais les applique mal",
-      "Comprend et applique les consignes avec précision",
+      "Difficile",
+      "Partielle",
+      "Bonne",
     ],
   },
   {
+    key: "application_regles",
     titre: "Application des règles",
     options: [
-      "Les oublie fréquemment et prend des risques",
-      "Ne fait pas d'oubli ou d'erreur grave",
-      "Les applique rigoureusement",
+      "Insuffisante",
+      "Correcte",
+      "Rigoureuse",
     ],
   },
   {
+    key: "aptitudes_physiques",
     titre: "Aptitudes physiques générales",
     options: [
-      "N'assure pas toutes les tâches confiées",
-      "Fatigue dans certaines situations",
-      "Ne ménage ni ses efforts ni son temps",
+      "Insuffisantes",
+      "Correctes",
+      "Très bonnes",
     ],
   },
 ];
 
-export default async function PeriodeEssaiPage({
+export default function PeriodeEssaiPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = await params;
+  const [loading, setLoading] =
+    useState(false);
 
-  const { data: apprenti } = await supabase
-    .from("apprentis")
-    .select("*")
-    .eq("id", id)
-    .single();
+  const [dateVisite, setDateVisite] =
+    useState("");
+
+  const [observations, setObservations] =
+    useState("");
+
+  const [pointsForts, setPointsForts] =
+    useState("");
+
+  const [pointsFaibles, setPointsFaibles] =
+    useState("");
+
+  const [notes, setNotes] = useState<
+    Record<string, string>
+  >({});
+
+  async function enregistrer() {
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        "/api/visites/periode-essai",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+          body: JSON.stringify({
+            apprenti_id: Number(
+              params.id
+            ),
+
+            date_visite: dateVisite,
+
+            formateur_visiteur:
+              "Formateur",
+
+            observations,
+            points_forts: pointsForts,
+            points_faibles:
+              pointsFaibles,
+
+            interet_motivation:
+              notes.interet_motivation ||
+              "",
+            dynamisme:
+              notes.dynamisme || "",
+            esprit_initiative:
+              notes.esprit_initiative ||
+              "",
+            sens_organisation:
+              notes.sens_organisation ||
+              "",
+            volonte_changement:
+              notes.volonte_changement ||
+              "",
+            relations_equipe:
+              notes.relations_equipe ||
+              "",
+            adaptation:
+              notes.adaptation || "",
+            presentation:
+              notes.presentation || "",
+            comprehension_consignes:
+              notes.comprehension_consignes ||
+              "",
+            application_regles:
+              notes.application_regles ||
+              "",
+            aptitudes_physiques:
+              notes.aptitudes_physiques ||
+              "",
+          }),
+        }
+      );
+
+      const result =
+        await response.json();
+
+      if (!response.ok) {
+        alert(
+          result.error ||
+            "Erreur lors de l'enregistrement"
+        );
+        return;
+      }
+
+      alert(
+        "✅ Visite enregistrée"
+      );
+
+      window.location.href = `/apprentis/${params.id}/visites`;
+    } catch (error) {
+      alert("Erreur serveur");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <main
@@ -122,170 +228,127 @@ export default async function PeriodeEssaiPage({
           marginBottom: "30px",
         }}
       >
-        Évaluation de l'apprenti en fin de période d'essai
+        Évaluation de fin de période d'essai
       </h1>
 
       <div
         style={{
-          display: "grid",
-          gap: "15px",
-          marginBottom: "40px",
+          marginBottom: "30px",
         }}
       >
-        <div>
-          <label>Date de l'évaluation</label>
-          <br />
-          <input type="date" />
-        </div>
-
-        <div>
-          <label>Employeur</label>
-          <br />
-          <input
-            type="text"
-            defaultValue={apprenti?.entreprise || ""}
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <label>Nom de l'étudiant</label>
-          <br />
-          <input
-            type="text"
-            defaultValue={`${apprenti?.prenom || ""} ${apprenti?.nom || ""}`}
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <label>Formation suivie</label>
-          <br />
-          <input type="text" style={{ width: "100%" }} />
-        </div>
-
-        <div>
-          <label>Nom du formateur</label>
-          <br />
-          <input
-            type="text"
-            defaultValue={apprenti?.formateur || ""}
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <label>Nom du maître d'apprentissage</label>
-          <br />
-          <input
-            type="text"
-            defaultValue={apprenti?.tuteur || ""}
-            style={{ width: "100%" }}
-          />
-        </div>
+        <label>
+          Date de la visite
+        </label>
+        <br />
+        <input
+          type="date"
+          value={dateVisite}
+          onChange={(e) =>
+            setDateVisite(
+              e.target.value
+            )
+          }
+        />
       </div>
 
-      <h2>Critères d'évaluation</h2>
-
-      {criteres.map((critere, index) => (
+      {criteres.map((critere) => (
         <div
-          key={index}
+          key={critere.key}
           style={{
-            background: "#ffffff",
-            padding: "20px",
+            background: "#fff",
+            border:
+              "1px solid #ddd",
             borderRadius: "12px",
+            padding: "20px",
             marginBottom: "20px",
-            border: "1px solid #ddd",
           }}
         >
           <h3>{critere.titre}</h3>
 
-          {critere.options.map((option, i) => (
-            <label
-              key={i}
-              style={{
-                display: "block",
-                marginBottom: "12px",
-              }}
-            >
-              <input
-                type="radio"
-                name={`critere_${index}`}
-                value={i}
-                style={{ marginRight: "10px" }}
-              />
-              {option}
-            </label>
-          ))}
+          {critere.options.map(
+            (option) => (
+              <label
+                key={option}
+                style={{
+                  display:
+                    "block",
+                  marginBottom:
+                    "8px",
+                }}
+              >
+                <input
+                  type="radio"
+                  name={
+                    critere.key
+                  }
+                  value={option}
+                  onChange={(e) =>
+                    setNotes({
+                      ...notes,
+                      [critere.key]:
+                        e.target
+                          .value,
+                    })
+                  }
+                />{" "}
+                {option}
+              </label>
+            )
+          )}
         </div>
       ))}
 
-      <div
-        style={{
-          display: "grid",
-          gap: "20px",
-          marginTop: "40px",
-        }}
-      >
-        <div>
-          <label>Observations générales</label>
-          <br />
-          <textarea
-            rows={6}
-            style={{ width: "100%" }}
-          />
-        </div>
+      <div>
+        <h3>
+          Observations générales
+        </h3>
 
-        <div>
-          <label>Points forts</label>
-          <br />
-          <textarea
-            rows={4}
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <label>Points faibles</label>
-          <br />
-          <textarea
-            rows={4}
-            style={{ width: "100%" }}
-          />
-        </div>
+        <textarea
+          rows={5}
+          style={{
+            width: "100%",
+          }}
+          value={observations}
+          onChange={(e) =>
+            setObservations(
+              e.target.value
+            )
+          }
+        />
       </div>
 
-      <div
-        style={{
-          marginTop: "40px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "30px",
-        }}
-      >
-        <div>
-          <h3>Visa maître d'apprentissage</h3>
+      <div>
+        <h3>Points forts</h3>
 
-          <div
-            style={{
-              height: "120px",
-              border: "2px dashed #999",
-              borderRadius: "8px",
-            }}
-          />
-        </div>
+        <textarea
+          rows={4}
+          style={{
+            width: "100%",
+          }}
+          value={pointsForts}
+          onChange={(e) =>
+            setPointsForts(
+              e.target.value
+            )
+          }
+        />
+      </div>
 
-        <div>
-          <h3>Visa CFA / Formateur</h3>
+      <div>
+        <h3>Points faibles</h3>
 
-          <div
-            style={{
-              height: "120px",
-              border: "2px dashed #999",
-              borderRadius: "8px",
-            }}
-          />
-        </div>
+        <textarea
+          rows={4}
+          style={{
+            width: "100%",
+          }}
+          value={pointsFaibles}
+          onChange={(e) =>
+            setPointsFaibles(
+              e.target.value
+            )
+          }
+        />
       </div>
 
       <div
@@ -297,33 +360,51 @@ export default async function PeriodeEssaiPage({
         }}
       >
         <button
+          onClick={enregistrer}
+          disabled={loading}
           style={{
-            backgroundColor: "#005CA9",
+            backgroundColor:
+              "#005CA9",
             color: "white",
             border: "none",
-            padding: "12px 20px",
-            borderRadius: "8px",
+            padding:
+              "12px 20px",
+            borderRadius:
+              "8px",
+            cursor: "pointer",
           }}
         >
-          Enregistrer
+          {loading
+            ? "Enregistrement..."
+            : "Enregistrer"}
         </button>
 
         <button
           style={{
-            backgroundColor: "#2e7d32",
+            backgroundColor:
+              "#2e7d32",
             color: "white",
             border: "none",
-            padding: "12px 20px",
-            borderRadius: "8px",
+            padding:
+              "12px 20px",
+            borderRadius:
+              "8px",
           }}
         >
           Générer le PDF
         </button>
       </div>
 
-      <p style={{ marginTop: "30px" }}>
-        <Link href={`/apprentis/${id}/visites/nouvelle`}>
-          ← Retour aux types de visite
+      <p
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <Link
+          href={`/apprentis/${params.id}/visites/nouvelle`}
+        >
+          ← Retour aux types
+          de visite
         </Link>
       </p>
     </main>
