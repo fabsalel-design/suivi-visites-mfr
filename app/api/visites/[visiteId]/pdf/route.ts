@@ -43,10 +43,9 @@ export async function GET(
 
     const page = pdfDoc.addPage([595, 842]);
 
-    const font =
-      await pdfDoc.embedFont(
-        StandardFonts.Helvetica
-      );
+    const font = await pdfDoc.embedFont(
+      StandardFonts.Helvetica
+    );
 
     let y = 800;
 
@@ -54,7 +53,7 @@ export async function GET(
       texte: string,
       taille = 11
     ) {
-      page.drawText(texte, {
+      page.drawText(String(texte), {
         x: 40,
         y,
         size: taille,
@@ -73,34 +72,23 @@ export async function GET(
     y -= 10;
 
     ligne(
-      `Apprenti : ${
-        apprenti?.prenom || ""
-      } ${apprenti?.nom || ""}`
+      `Apprenti : ${apprenti?.prenom || ""} ${apprenti?.nom || ""}`
     );
 
     ligne(
-      `Entreprise : ${
-        apprenti?.entreprise || ""
-      }`
+      `Entreprise : ${apprenti?.entreprise || ""}`
     );
 
     ligne(
-      `Formateur : ${
-        visite.formateur_visiteur ||
-        ""
-      }`
+      `Formateur : ${visite.formateur_visiteur || ""}`
     );
 
     ligne(
-      `Date de visite : ${
-        visite.date_visite || ""
-      }`
+      `Date de visite : ${visite.date_visite || ""}`
     );
 
     ligne(
-      `Tuteur : ${
-        apprenti?.tuteur || ""
-      }`
+      `Tuteur : ${apprenti?.tuteur || ""}`
     );
 
     y -= 15;
@@ -173,10 +161,7 @@ export async function GET(
 
     y -= 10;
 
-    ligne(
-      "OBSERVATIONS",
-      14
-    );
+    ligne("OBSERVATIONS", 14);
 
     ligne(
       details?.observations ||
@@ -188,12 +173,11 @@ export async function GET(
       await pdfDoc.save();
 
     return new NextResponse(
-      pdfBytes,
+      Buffer.from(pdfBytes),
       {
         headers: {
           "Content-Type":
             "application/pdf",
-
           "Content-Disposition":
             `attachment; filename="Visite_Periode_Essai_${apprenti?.nom || "Apprenti"}_${apprenti?.prenom || ""}.pdf"`,
         },
@@ -213,4 +197,3 @@ export async function GET(
     );
   }
 }
-``
