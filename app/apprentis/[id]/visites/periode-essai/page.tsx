@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const criteres = [
   {
@@ -109,8 +109,10 @@ const criteres = [
 export default function PeriodeEssaiPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const [id, setId] = useState("");
+
   const [loading, setLoading] =
     useState(false);
 
@@ -130,6 +132,12 @@ export default function PeriodeEssaiPage({
     Record<string, string>
   >({});
 
+  useEffect(() => {
+    params.then((p) => {
+      setId(p.id);
+    });
+  }, [params]);
+
   async function enregistrer() {
     try {
       setLoading(true);
@@ -143,9 +151,7 @@ export default function PeriodeEssaiPage({
               "application/json",
           },
           body: JSON.stringify({
-            apprenti_id: Number(
-              params.id
-            ),
+            apprenti_id: Number(id),
 
             date_visite: dateVisite,
 
@@ -160,30 +166,40 @@ export default function PeriodeEssaiPage({
             interet_motivation:
               notes.interet_motivation ||
               "",
+
             dynamisme:
               notes.dynamisme || "",
+
             esprit_initiative:
               notes.esprit_initiative ||
               "",
+
             sens_organisation:
               notes.sens_organisation ||
               "",
+
             volonte_changement:
               notes.volonte_changement ||
               "",
+
             relations_equipe:
               notes.relations_equipe ||
               "",
+
             adaptation:
               notes.adaptation || "",
+
             presentation:
               notes.presentation || "",
+
             comprehension_consignes:
               notes.comprehension_consignes ||
               "",
+
             application_regles:
               notes.application_regles ||
               "",
+
             aptitudes_physiques:
               notes.aptitudes_physiques ||
               "",
@@ -197,7 +213,7 @@ export default function PeriodeEssaiPage({
       if (!response.ok) {
         alert(
           result.error ||
-            "Erreur lors de l'enregistrement"
+            "Erreur d'enregistrement"
         );
         return;
       }
@@ -206,7 +222,7 @@ export default function PeriodeEssaiPage({
         "✅ Visite enregistrée"
       );
 
-      window.location.href = `/apprentis/${params.id}/visites`;
+      window.location.href = `/apprentis/${id}/visites`;
     } catch (error) {
       alert("Erreur serveur");
     } finally {
@@ -239,7 +255,9 @@ export default function PeriodeEssaiPage({
         <label>
           Date de la visite
         </label>
+
         <br />
+
         <input
           type="date"
           value={dateVisite}
@@ -401,12 +419,12 @@ export default function PeriodeEssaiPage({
         }}
       >
         <Link
-          href={`/apprentis/${params.id}/visites/nouvelle`}
+          href={`/apprentis/${id}/visites/nouvelle`}
         >
-          ← Retour aux types
-          de visite
+          ← Retour aux types de visite
         </Link>
       </p>
     </main>
   );
 }
+``
