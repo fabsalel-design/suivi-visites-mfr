@@ -1,7 +1,13 @@
 
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import {
+  PDFDocument,
+  StandardFonts,
+  rgb,
+} from "pdf-lib";
+import fs from "fs";
+import path from "path";
 
 export async function GET(
   request: Request,
@@ -39,111 +45,198 @@ export async function GET(
       .eq("visite_id", visite.id)
       .single();
 
-    const pdfDoc = await PDFDocument.create();
+    const pdfDoc =
+      await PDFDocument.create();
 
-    const page = pdfDoc.addPage([595, 842]);
+    const page =
+      pdfDoc.addPage([595, 842]);
 
-    const font = await pdfDoc.embedFont(
-      StandardFonts.Helvetica
-    );
+    const font =
+      await pdfDoc.embedFont(
+        StandardFonts.Helvetica
+      );
 
-    let y = 800;
+    const boldFont =
+      await pdfDoc.embedFont(
+        StandardFonts.HelveticaBold
+      );
 
-    function ligne(
-      texte: string,
-      taille = 11
-    ) {
-      page.drawText(String(texte), {
+    try {
+      const logoPath = path.join(
+        process.cwd(),
+        "public",
+        "logo-mfr.jpg"
+      );
+
+      const logoBytes =
+        fs.readFileSync(logoPath);
+
+      const logo =
+        await pdfDoc.embedJpg(
+          logoBytes
+        );
+
+      page.drawImage(logo, {
         x: 40,
-        y,
-        size: taille,
-        font,
-        color: rgb(0, 0, 0),
+        y: 730,
+        width: 120,
+        height: 75,
       });
-
-      y -= taille + 8;
+    } catch (e) {
+      console.log(
+        "Logo non chargé"
+      );
     }
 
+    let y = 700;
+
+    function titre(
+      texte: string
+    ) {
+      page.drawText(texte, {
+        x: 40,
+        y,
+        size: 14,
+        font: boldFont,
+      });
+
+      y -= 22;
+    }
+
+    function ligne(
+      texte: string
+    ) {
+      page.drawText(texte, {
+        x: 40,
+        y,
+        size: 10,
+        font,
+      });
+
+      y -= 15;
+    }
+
+    titre("MFR LA PINÈDE");
+
     ligne(
-      "VISITE DE PERIODE D'ESSAI",
-      18
+      "RD 6086 - Lieu-dit La Granelle"
+    );
+
+    ligne("30320 MARGUERITTES");
+
+    y -= 10;
+
+    page.drawText(
+      "ÉVALUATION DE L'APPRENTI EN FIN DE PÉRIODE D'ESSAI",
+      {
+        x: 40,
+        y,
+        size: 16,
+        font: boldFont,
+        color: rgb(
+          0,
+          0.36,
+          0.66
+        ),
+      }
+    );
+
+    y -= 35;
+
+    ligne(
+      `Date de l'évaluation : ${visite.date_visite || ""}`
+    );
+
+    ligne(
+      `Employeur : ${apprenti?.entreprise || ""}`
+    );
+
+    ligne(
+      `Nom de l'apprenti : ${apprenti?.prenom || ""} ${apprenti?.nom || ""}`
+    );
+
+    ligne(
+      `Nom du formateur : ${visite.formateur_visiteur || ""}`
+    );
+
+    ligne(
+      `Nom du maître d'apprentissage : ${apprenti?.tuteur || ""}`
+    );
+
+    y -= 15;
+
+    titre("ÉVALUATION");
+
+    const criteres = [
+      [
+        "Intérêt et motivation",
+        details?.interet_motivation,
+      ],
+      [
+        "Dynamisme",
+        details?.dynamisme,
+      ],
+      [
+        "Esprit d'initiative",
+        details?.esprit_initiative,
+      ],
+      [
+        "Sens de l'organisation",
+        details?.sens_organisation,
+      ],
+      [
+        "Volonté de changement",
+        details?.volonte_changement,
+      ],
+      [
+        "Relations équipe",
+        details?.relations_equipe,
+      ],
+      [
+        "Adaptation",
+        details?.adaptation,
+      ],
+      [
+        "Présentation",
+        details?.presentation,
+      ],
+      [
+        "Compréhension des consignes",
+        details?.comprehension_consignes,
+      ],
+      [
+        "Application des règles",
+        details?.application_regles,
+      ],
+      [
+        "Aptitudes physiques",
+        details?.aptitudes_physiques,
+      ],
+    ];
+
+    criteres.forEach(
+      ([nom, valeur]) => {
+        ligne(
+          `${nom} : ${valeur || ""}`
+        );
+      }
     );
 
     y -= 10;
 
-    ligne(
-      `Apprenti : ${apprenti?.prenom || ""} ${apprenti?.nom || ""}`
+    titre(
+      "OBSERVATIONS GÉNÉRALES"
     );
 
     ligne(
-      `Entreprise : ${apprenti?.entreprise || ""}`
+      details?.observations ||
+        visite.observations ||
+        "Non renseigné"
     );
 
-    ligne(
-      `Formateur : ${visite.formateur_visiteur || ""}`
-    );
+    y -= 10;
 
-    ligne(
-      `Date de visite : ${visite.date_visite || ""}`
-    );
-
-    ligne(
-      `Tuteur : ${apprenti?.tuteur || ""}`
-    );
-
-    y -= 15;
-
-    ligne("EVALUATION", 14);
-
-    y -= 5;
-
-    ligne(
-      `Intérêt et motivation : ${details?.interet_motivation || ""}`
-    );
-
-    ligne(
-      `Dynamisme : ${details?.dynamisme || ""}`
-    );
-
-    ligne(
-      `Esprit d'initiative : ${details?.esprit_initiative || ""}`
-    );
-
-    ligne(
-      `Sens de l'organisation : ${details?.sens_organisation || ""}`
-    );
-
-    ligne(
-      `Volonté de changement : ${details?.volonte_changement || ""}`
-    );
-
-    ligne(
-      `Relations équipe : ${details?.relations_equipe || ""}`
-    );
-
-    ligne(
-      `Adaptation : ${details?.adaptation || ""}`
-    );
-
-    ligne(
-      `Présentation : ${details?.presentation || ""}`
-    );
-
-    ligne(
-      `Compréhension des consignes : ${details?.comprehension_consignes || ""}`
-    );
-
-    ligne(
-      `Application des règles : ${details?.application_regles || ""}`
-    );
-
-    ligne(
-      `Aptitudes physiques : ${details?.aptitudes_physiques || ""}`
-    );
-
-    y -= 15;
-
-    ligne("POINTS FORTS", 14);
+    titre("POINTS FORTS");
 
     ligne(
       details?.points_forts ||
@@ -152,22 +245,48 @@ export async function GET(
 
     y -= 10;
 
-    ligne("POINTS FAIBLES", 14);
+    titre("POINTS FAIBLES");
 
     ligne(
       details?.points_faibles ||
         "Non renseigné"
     );
 
-    y -= 10;
+    y -= 25;
 
-    ligne("OBSERVATIONS", 14);
-
-    ligne(
-      details?.observations ||
-        visite.observations ||
-        "Non renseigné"
+    page.drawText(
+      "Visa maître d'apprentissage",
+      {
+        x: 40,
+        y,
+        size: 11,
+        font: boldFont,
+      }
     );
+
+    page.drawText(
+      "Visa CFA / Formateur",
+      {
+        x: 320,
+        y,
+        size: 11,
+        font: boldFont,
+      }
+    );
+
+    y -= 60;
+
+    page.drawLine({
+      start: { x: 40, y },
+      end: { x: 220, y },
+      thickness: 1,
+    });
+
+    page.drawLine({
+      start: { x: 320, y },
+      end: { x: 500, y },
+      thickness: 1,
+    });
 
     const pdfBytes =
       await pdfDoc.save();
@@ -179,7 +298,7 @@ export async function GET(
           "Content-Type":
             "application/pdf",
           "Content-Disposition":
-            `attachment; filename="Visite_Periode_Essai_${apprenti?.nom || "Apprenti"}_${apprenti?.prenom || ""}.pdf"`,
+            `attachment; filename="Evaluation_Periode_Essai_${apprenti?.nom || "Apprenti"}.pdf"`,
         },
       }
     );
