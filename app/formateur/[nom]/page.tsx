@@ -21,6 +21,23 @@ export default async function FormateurDetailPage({
 
   const total = apprentis?.length || 0;
 
+  const apprentiIds =
+    apprentis?.map((a) => a.id) || [];
+
+  const { data: visitesEffectuees } =
+    await supabase
+      .from("visites")
+      .select("id, apprenti_id")
+      .eq("realisee", true);
+
+  const effectuees =
+    visitesEffectuees?.filter((v) =>
+      apprentiIds.includes(v.apprenti_id)
+    ).length || 0;
+
+  const aFaire =
+    Math.max(0, total - effectuees);
+
   return (
     <main
       style={{
@@ -54,7 +71,8 @@ export default async function FormateurDetailPage({
             padding: "20px",
             borderRadius: "12px",
             minWidth: "180px",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            boxShadow:
+              "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
           <strong>Total</strong>
@@ -67,11 +85,12 @@ export default async function FormateurDetailPage({
             padding: "20px",
             borderRadius: "12px",
             minWidth: "180px",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            boxShadow:
+              "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
           <strong>Effectuées</strong>
-          <h2>0</h2>
+          <h2>{effectuees}</h2>
         </div>
 
         <div
@@ -80,11 +99,12 @@ export default async function FormateurDetailPage({
             padding: "20px",
             borderRadius: "12px",
             minWidth: "180px",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            boxShadow:
+              "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
           <strong>À faire</strong>
-          <h2>{total}</h2>
+          <h2>{aFaire}</h2>
         </div>
       </div>
 
@@ -126,9 +146,7 @@ export default async function FormateurDetailPage({
       </div>
 
       {error && (
-        <p>
-          Erreur : {error.message}
-        </p>
+        <p>Erreur : {error.message}</p>
       )}
 
       {apprentis?.map((apprenti) => (
@@ -139,13 +157,15 @@ export default async function FormateurDetailPage({
             borderRadius: "12px",
             padding: "20px",
             marginBottom: "20px",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            boxShadow:
+              "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent:
+                "space-between",
               alignItems: "flex-start",
             }}
           >
@@ -156,7 +176,8 @@ export default async function FormateurDetailPage({
                   color: "#005CA9",
                 }}
               >
-                {apprenti.prenom} {apprenti.nom}
+                {apprenti.prenom}{" "}
+                {apprenti.nom}
               </h2>
 
               <div
@@ -186,16 +207,23 @@ export default async function FormateurDetailPage({
               </div>
 
               <p>
-                <strong>{apprenti.entreprise}</strong>
+                <strong>
+                  {apprenti.entreprise}
+                </strong>
               </p>
 
               <p>
-                📍 {apprenti.adresse_reelle}
+                📍{" "}
+                {apprenti.adresse_reelle}
               </p>
 
               <p>
-                {apprenti.code_postal_reel}{" "}
-                {apprenti.ville_reelle}
+                {
+                  apprenti.code_postal_reel
+                }{" "}
+                {
+                  apprenti.ville_reelle
+                }
               </p>
 
               <p>
@@ -203,13 +231,15 @@ export default async function FormateurDetailPage({
               </p>
 
               <p>
-                📞 {apprenti.telephone}
+                📞{" "}
+                {apprenti.telephone}
               </p>
             </div>
 
             <div
               style={{
-                backgroundColor: "#f9a825",
+                backgroundColor:
+                  "#f9a825",
                 color: "white",
                 padding: "6px 12px",
                 borderRadius: "20px",
