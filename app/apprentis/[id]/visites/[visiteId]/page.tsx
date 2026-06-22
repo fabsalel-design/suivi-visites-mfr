@@ -154,9 +154,7 @@ export default async function ConsulterVisitePage({
           </p>
 
           <p>
-            <strong>
-              Présentation :
-            </strong>{" "}
+            <strong>Présentation :</strong>{" "}
             {details.presentation}
           </p>
 
@@ -164,9 +162,7 @@ export default async function ConsulterVisitePage({
             <strong>
               Compréhension des consignes :
             </strong>{" "}
-            {
-              details.comprehension_consignes
-            }
+            {details.comprehension_consignes}
           </p>
 
           <p>
@@ -186,9 +182,7 @@ export default async function ConsulterVisitePage({
           <hr />
 
           <p>
-            <strong>
-              Points forts :
-            </strong>
+            <strong>Points forts :</strong>
           </p>
 
           <p>
@@ -197,9 +191,7 @@ export default async function ConsulterVisitePage({
           </p>
 
           <p>
-            <strong>
-              Points faibles :
-            </strong>
+            <strong>Points faibles :</strong>
           </p>
 
           <p>
@@ -220,32 +212,33 @@ export default async function ConsulterVisitePage({
         </div>
       )}
 
-      
-<div
-  style={{
-    marginTop: "30px",
-    display: "Items: "center",    display: "flex",
-  }}
->
-  <a
-    href={`/api/visites/${visiteId}/pdf`}
-    target="_blank"
-    style={{
-      backgroundColor: "#2e7d32",
-      color: "white",
-      padding: "12px 20px",
-      borderRadius: "8px",
-      textDecoration: "none",
-    }}
-  >
-    📄 Télécharger PDF
-  </a>
+      <div
+        style={{
+          marginTop: "30px",
+          display: "flex",
+          gap: "15px",
+          alignItems: "center",
+        }}
+      >
+        <a
+          href="#"
+          style={{
+            backgroundColor: "#2e7d32",
+            color: "white",
+            padding: "10px 16px",
+            borderRadius: "8px",
+            textDecoration: "none",
+          }}
+        >
+          📄 PDF
+        </a>
 
-  <Link
-    href={`/apprentis/${id}/visites`}
-  >
-    ← Retour à l'historique
-  </Link>
-</div>
-
-    gap: "15px",
+        <Link
+          href={`/apprentis/${id}/visites`}
+        >
+          ← Retour à l'historique
+        </Link>
+      </div>
+    </main>
+  );
+}
