@@ -127,76 +127,212 @@ export async function GET(
     y -= 10;
 
     page.drawText(
-      "ÉVALUATION DE L'APPRENTI EN FIN DE PÉRIODE D'ESSAI",
-      {
-        x: 40,
-        y,
-        size: 16,
-        font: boldFont,
-        color: rgb(
-          0,
-          0.36,
-          0.66
-        ),
-      }
+      
+titre("ÉVALUATION");
+
+const tableX = 40;
+const tableY = y;
+const rowHeight = 18;
+
+const colCritere = 300;
+const colNA = 55;
+const colECA = 55;
+const colACQ = 55;
+
+const totalWidth =
+  colCritere +
+  colNA +
+  colECA +
+  colACQ;
+
+const lignes = [
+  [
+    "Intérêt et motivation",
+    details?.interet_motivation,
+  ],
+  [
+    "Dynamisme",
+    details?.dynamisme,
+  ],
+  [
+    "Esprit d'initiative",
+    details?.esprit_initiative,
+  ],
+  [
+    "Sens de l'organisation",
+    details?.sens_organisation,
+  ],
+  [
+    "Volonté de changement",
+    details?.volonte_changement,
+  ],
+  [
+    "Relations / équipe",
+    details?.relations_equipe,
+  ],
+  [
+    "Adaptation",
+    details?.adaptation,
+  ],
+  [
+    "Présentation",
+    details?.presentation,
+  ],
+  [
+    "Compréhension consignes",
+    details?.comprehension_consignes,
+  ],
+  [
+    "Application règles",
+    details?.application_regles,
+  ],
+  [
+    "Aptitudes physiques",
+    details?.aptitudes_physiques,
+  ],
+];
+
+page.drawRectangle({
+  x: tableX,
+  y: tableY,
+  width: totalWidth,
+  height: rowHeight,
+  borderWidth: 1,
+});
+
+page.drawText(
+  "Critères à apprécier",
+  {
+    x: tableX + 5,
+    y: tableY + 5,
+    size: 9,
+    font: boldFont,
+  }
+);
+
+page.drawText("NA", {
+  x: tableX + colCritere + 18,
+  y: tableY + 5,
+  size: 9,
+  font: boldFont,
+});
+
+page.drawText("ECA", {
+  x:
+    tableX +
+    colCritere +
+    colNA +
+    15,
+  y: tableY + 5,
+  size: 9,
+  font: boldFont,
+});
+
+page.drawText("ACQ", {
+  x:
+    tableX +
+    colCritere +
+    colNA +
+    colECA +
+    15,
+  y: tableY + 5,
+  size: 9,
+  font: boldFont,
+});
+
+for (
+  let i = 0;
+  i < lignes.length;
+  i++
+) {
+  const yLigne =
+    tableY -
+    rowHeight * (i + 1);
+
+  page.drawRectangle({
+    x: tableX,
+    y: yLigne,
+    width: totalWidth,
+    height: rowHeight,
+    borderWidth: 1,
+  });
+
+  const [libelle, valeur] =
+    lignes[i];
+
+  page.drawText(libelle, {
+    x: tableX + 5,
+    y: yLigne + 5,
+    size: 8,
+    font,
+  });
+
+  const texte =
+    String(valeur || "");
+
+  const estAcquise =
+    texte.includes(
+      "cherche"
+    ) ||
+    texte.includes(
+      "activement"
+    ) ||
+    texte.includes(
+      "Très"
+    ) ||
+    texte.includes(
+      "Rigoureuse"
+    ) ||
+    texte.includes(
+      "Facile"
     );
 
-    y -= 35;
+  const estEnCours =
+    !estAcquise &&
+    texte.length > 0;
 
-    ligne(
-      `Date de l'évaluation : ${visite.date_visite || ""}`
-    );
+  if (estAcquise) {
+    page.drawText("X", {
+      x:
+        tableX +
+        colCritere +
+        colNA +
+        colECA +
+        20,
+      y: yLigne + 5,
+      size: 10,
+      font: boldFont,
+    });
+  } else if (estEnCours) {
+    page.drawText("X", {
+      x:
+        tableX +
+        colCritere +
+        colNA +
+        20,
+      y: yLigne + 5,
+      size: 10,
+      font: boldFont,
+    });
+  } else {
+    page.drawText("X", {
+      x:
+        tableX +
+        colCritere +
+        20,
+      y: yLigne + 5,
+      size: 10,
+      font: boldFont,
+    });
+  }
+}
 
-    ligne(
-      `Employeur : ${apprenti?.entreprise || ""}`
-    );
+y =
+  tableY -
+  rowHeight *
+    (lignes.length + 1) -
+  20;
 
-    ligne(
-      `Nom de l'apprenti : ${apprenti?.prenom || ""} ${apprenti?.nom || ""}`
-    );
-
-    ligne(
-      `Nom du formateur : ${visite.formateur_visiteur || ""}`
-    );
-
-    ligne(
-      `Nom du maître d'apprentissage : ${apprenti?.tuteur || ""}`
-    );
-
-    y -= 15;
-
-    titre("ÉVALUATION");
-
-    const criteres = [
-      [
-        "Intérêt et motivation",
-        details?.interet_motivation,
-      ],
-      [
-        "Dynamisme",
-        details?.dynamisme,
-      ],
-      [
-        "Esprit d'initiative",
-        details?.esprit_initiative,
-      ],
-      [
-        "Sens de l'organisation",
-        details?.sens_organisation,
-      ],
-      [
-        "Volonté de changement",
-        details?.volonte_changement,
-      ],
-      [
-        "Relations équipe",
-        details?.relations_equipe,
-      ],
-      [
-        "Adaptation",
-        details?.adaptation,
-      ],
-      [
         "Présentation",
         details?.presentation,
       ],
