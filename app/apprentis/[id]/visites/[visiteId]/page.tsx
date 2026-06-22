@@ -220,18 +220,21 @@ export default async function ConsulterVisitePage({
           alignItems: "center",
         }}
       >
-        <a
-          href="#"
-          style={{
-            backgroundColor: "#2e7d32",
-            color: "white",
-            padding: "10px 16px",
-            borderRadius: "8px",
-            textDecoration: "none",
-          }}
-        >
-          📄 PDF
-        </a>
+     
+<a
+  href={`/api/visites/${visiteId}/pdf`}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    backgroundColor: "#2e7d32",
+    color: "white",
+    padding: "10px 16px",
+    borderRadius: "8px",
+    textDecoration: "none",
+  }}
+>
+  📄 PDF
+</a>
 
         <Link
           href={`/apprentis/${id}/visites`}
