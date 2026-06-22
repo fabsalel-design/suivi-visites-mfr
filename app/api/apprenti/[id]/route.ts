@@ -1,31 +1,36 @@
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  "https://cbhomuatxxptfcbzveys.supabase.co",
-  "sb_publishable_4vPEKeE_FYXBu6jm_YvlHw_zKUR_aNz"
-);
+import { supabase } from "../../../../../lib/supabase";
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
+  try {
+    const { id } = await params;
 
-  const { data, error } =
-    await supabase
+    const { data, error } = await supabase
       .from("apprentis")
       .select("*")
       .eq("id", id)
       .single();
 
-  if (error) {
+    if (error) {
+      return NextResponse.json(
+        {
+          error: error.message,
+        },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(data);
+  } catch (error) {
     return NextResponse.json(
-      { error: error.message },
+      {
+        error: "Erreur serveur",
+      },
       { status: 500 }
     );
   }
-
-  return NextResponse.json(data);
 }
