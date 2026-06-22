@@ -375,34 +375,7 @@ y =
   rowHeight *
     (lignes.length + 1) -
   20;
-
-        "Présentation",
-        details?.presentation,
-      ],
-      [
-        "Compréhension des consignes",
-        details?.comprehension_consignes,
-      ],
-      [
-        "Application des règles",
-        details?.application_regles,
-      ],
-      [
-        "Aptitudes physiques",
-        details?.aptitudes_physiques,
-      ],
-    ];
-
-    criteres.forEach(
-      ([nom, valeur]) => {
-        ligne(
-          `${nom} : ${valeur || ""}`
-        );
-      }
-    );
-
-    y -= 10;
-
+        
     titre(
       "OBSERVATIONS GÉNÉRALES"
     );
