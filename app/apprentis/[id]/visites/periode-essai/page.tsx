@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -332,3 +331,150 @@ export default function PeriodeEssaiPage({
             background: "#fff",
             border: "1px solid #ddd",
             borderRadius: "12px",
+            padding: "20px",
+            marginBottom: "20px",
+          }}
+        >
+          <h3>{critere.titre}</h3>
+
+          {critere.options.map(
+            (option) => (
+              <label
+                key={option}
+                style={{
+                  display: "block",
+                  marginBottom: "8px",
+                }}
+              >
+                <input
+                  type="radio"
+                  name={
+                    critere.key
+                  }
+                  value={option}
+                  onChange={(e) =>
+                    setNotes({
+                      ...notes,
+                      [critere.key]:
+                        e.target.value,
+                    })
+                  }
+                />{" "}
+                {option}
+              </label>
+            )
+          )}
+        </div>
+      ))}
+
+      <div>
+        <h3>
+          Observations générales
+        </h3>
+
+        <textarea
+          rows={5}
+          style={{
+            width: "100%",
+          }}
+          value={observations}
+          onChange={(e) =>
+            setObservations(
+              e.target.value
+            )
+          }
+        />
+      </div>
+
+      <div>
+        <h3>Points forts</h3>
+
+        <textarea
+          rows={4}
+          style={{
+            width: "100%",
+          }}
+          value={pointsForts}
+          onChange={(e) =>
+            setPointsForts(
+              e.target.value
+            )
+          }
+        />
+      </div>
+
+      <div>
+        <h3>Points faibles</h3>
+
+        <textarea
+          rows={4}
+          style={{
+            width: "100%",
+          }}
+          value={pointsFaibles}
+          onChange={(e) =>
+            setPointsFaibles(
+              e.target.value
+            )
+          }
+        />
+      </div>
+
+      <div
+        style={{
+          marginTop: "40px",
+          display: "flex",
+          gap: "15px",
+          flexWrap: "wrap",
+        }}
+      >
+        <button
+          onClick={enregistrer}
+          disabled={loading}
+          style={{
+            backgroundColor:
+              "#005CA9",
+            color: "white",
+            border: "none",
+            padding:
+              "12px 20px",
+            borderRadius:
+              "8px",
+            cursor: "pointer",
+          }}
+        >
+          {loading
+            ? "Enregistrement..."
+            : "Enregistrer"}
+        </button>
+
+        <button
+          style={{
+            backgroundColor:
+              "#2e7d32",
+            color: "white",
+            border: "none",
+            padding:
+              "12px 20px",
+            borderRadius:
+              "8px",
+          }}
+        >
+          Générer le PDF
+        </button>
+      </div>
+
+      <p
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <Link
+          href={`/apprentis/${id}/visites/nouvelle`}
+        >
+          ← Retour aux types de visite
+        </Link>
+      </p>
+    </main>
+  );
+}
