@@ -92,6 +92,9 @@ export default function PeriodeEssaiPage({
   const [id, setId] = useState("");
   const [formateur, setFormateur] =
     useState("");
+  
+const [apprenti, setApprenti] =
+  useState<any>(null);
 
   const [loading, setLoading] =
     useState(false);
@@ -127,14 +130,19 @@ export default function PeriodeEssaiPage({
         `/api/apprentis/${p.id}`
       );
 
-      if (response.ok) {
-        const apprenti =
-          await response.json();
+     
+if (response.ok) {
+  const apprenti =
+    await response.json();
 
-        setFormateur(
-          apprenti.formateur || ""
-        );
-      }
+  setApprenti(apprenti);
+
+  setFormateur(
+    apprenti.formateur || ""
+  );
+}
+``
+
     }
 
     charger();
