@@ -143,6 +143,11 @@ export async function generatePeriodeEssaiExcel(
     data.aptitudes_physiques,
     23
   );
+  
+console.log(
+  "✅ Excel généré pour :",
+  data.apprenti
+);
 
   return workbook;
 }
