@@ -365,65 +365,77 @@ export default function PeriodeEssaiPage({
           {critere.titre}
         </td>
 
-        <td
-          style={{
-            border: "1px solid #ccc",
-            textAlign: "center",
-          }}
-        >
-          <input
-            type="radio"
-            name={critere.key}
-            value="NON_ACQUISE"
-            onChange={(e) =>
-              setNotes({
-                ...notes,
-                [critere.key]:
-                  e.target.value,
-              })
-            }
-          />
-        </td>
+        
+<td
+  style={{
+    border: "1px solid #ccc",
+    padding: "8px",
+  }}
+>
+  <label>
+    <input
+      type="radio"
+      name={critere.key}
+      value="NON_ACQUISE"
+      onChange={(e) =>
+        setNotes({
+          ...notes,
+          [critere.key]:
+            e.target.value,
+        })
+      }
+    />{" "}
+    {critere.non}
+  </label>
+</td>
 
-        <td
-          style={{
-            border: "1px solid #ccc",
-            textAlign: "center",
-          }}
-        >
-          <input
-            type="radio"
-            name={critere.key}
-            value="EN_COURS"
-            onChange={(e) =>
-              setNotes({
-                ...notes,
-                [critere.key]:
-                  e.target.value,
-              })
-            }
-          />
-        </td>
+       
+<td
+  style={{
+    border: "1px solid #ccc",
+    padding: "8px",
+  }}
+>
+  <label>
+    <input
+      type="radio"
+      name={critere.key}
+      value="EN_COURS"
+      onChange={(e) =>
+        setNotes({
+          ...notes,
+          [critere.key]:
+            e.target.value,
+        })
+      }
+    />{" "}
+    {critere.encours}
+  </label>
+</td>
 
-        <td
-          style={{
-            border: "1px solid #ccc",
-            textAlign: "center",
-          }}
-        >
-          <input
-            type="radio"
-            name={critere.key}
-            value="ACQUISE"
-            onChange={(e) =>
-              setNotes({
-                ...notes,
-                [critere.key]:
-                  e.target.value,
-              })
-            }
-          />
-        </td>
+       
+<td
+  style={{
+    border: "1px solid #ccc",
+    padding: "8px",
+  }}
+>
+  <label>
+    <input
+      type="radio"
+      name={critere.key}
+      value="ACQUISE"
+      onChange={(e) =>
+        setNotes({
+          ...notes,
+          [critere.key]:
+            e.target.value,
+        })
+      }
+    />{" "}
+    {critere.acquis}
+  </label>
+</td>
       </tr>
     ))}
   </tbody>
