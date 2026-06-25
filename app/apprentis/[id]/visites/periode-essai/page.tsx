@@ -135,6 +135,8 @@ if (response.ok) {
   const apprenti =
     await response.json();
 
+  console.log(apprenti);
+  
   setApprenti(apprenti);
 
   setFormateur(
