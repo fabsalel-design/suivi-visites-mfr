@@ -11,7 +11,15 @@ export async function generatePeriodeEssaiExcel(
     "evaluation_apprenti FINAL.xlsx"
   );
 
-  const workbook = XLSX.readFile(filePath);
+
+import fs from "fs";
+
+const fileBuffer = fs.readFileSync(filePath);
+
+const workbook = XLSX.read(
+  fileBuffer,
+  { type: "buffer" }
+);
 
   const sheet =
     workbook.Sheets[
