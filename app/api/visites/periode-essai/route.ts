@@ -1,4 +1,7 @@
 
+import { generatePeriodeEssaiExcel } from "@/lib/generatePeriodeEssaiExcel";
+``
+
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
@@ -110,6 +113,38 @@ export async function POST(request: Request) {
         }
       );
     }
+
+await generatePeriodeEssaiExcel({
+  dateEvaluation: date_visite,
+
+  employeur: "À récupérer ensuite",
+
+  apprenti: apprenti_id,
+
+  formation: formation_suivie,
+
+  formateur: formateurVisiteur,
+
+  maitreApprentissage: "",
+
+  observations,
+
+  pointsForts: points_forts,
+
+  pointsFaibles: points_faibles,
+
+  interet_motivation,
+  dynamisme,
+  esprit_initiative,
+  sens_organisation,
+  volonte_changement,
+  relations_equipe,
+  adaptation,
+  presentation,
+  comprehension_consignes,
+  application_regles,
+  aptitudes_physiques,
+});
 
     return NextResponse.json({
       success: true,
