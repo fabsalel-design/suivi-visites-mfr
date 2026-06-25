@@ -3,105 +3,84 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+
 const criteres = [
   {
     key: "interet_motivation",
     titre: "Intérêt et motivation",
-    options: [
-      "Est indifférent",
-      "Écoute et observe",
-      "Observe et cherche à comprendre",
-    ],
+    non: "Est indifférent",
+    encours: "Écoute et observe",
+    acquis: "Observe et cherche à comprendre",
   },
   {
     key: "dynamisme",
     titre: "Dynamisme",
-    options: [
-      "A des difficultés à suivre le rythme",
-      "Suit le mouvement",
-      "Participe activement",
-    ],
+    non: "A des difficultés à suivre le rythme",
+    encours: "Suit le mouvement",
+    acquis: "Participe activement",
   },
   {
     key: "esprit_initiative",
     titre: "Esprit d'initiative, curiosité",
-    options: [
-      "Ne prend aucune initiative",
-      "Demande validation",
-      "Prend des initiatives",
-    ],
+    non: "Ne prend aucune initiative",
+    encours: "Demande validation",
+    acquis: "Prend des initiatives",
   },
   {
     key: "sens_organisation",
     titre: "Sens de l'organisation",
-    options: [
-      "Peu organisé",
-      "Organisé",
-      "Très organisé",
-    ],
+    non: "Manque d'organisation",
+    encours: "Organisé",
+    acquis: "Autonome",
   },
   {
     key: "volonte_changement",
     titre: "Volonté de changement",
-    options: [
-      "Refuse les remarques",
-      "Accepte difficilement",
-      "Cherche à progresser",
-    ],
+    non: "Refuse les remarques",
+    encours: "Accepte difficilement",
+    acquis: "Cherche à progresser",
   },
   {
     key: "relations_equipe",
     titre: "Relations / équipe de travail",
-    options: [
-      "Difficultés relationnelles",
-      "Relations correctes",
-      "Très bonne intégration",
-    ],
+    non: "Entre en conflit",
+    encours: "Relations correctes",
+    acquis: "Très bonne intégration",
   },
   {
     key: "adaptation",
     titre: "Adaptation",
-    options: [
-      "Difficile",
-      "Moyenne",
-      "Facile",
-    ],
+    non: "Difficile",
+    encours: "Moyenne",
+    acquis: "Facile",
   },
   {
     key: "presentation",
     titre: "Présentation",
-    options: [
-      "Insuffisante",
-      "Correcte",
-      "Très bonne",
-    ],
+    non: "Insuffisante",
+    encours: "Correcte",
+    acquis: "Très bonne",
   },
   {
     key: "comprehension_consignes",
     titre: "Compréhension des consignes",
-    options: [
-      "Difficile",
-      "Partielle",
-      "Bonne",
-    ],
+    non: "Difficile",
+    encours: "Partielle",
+    acquis: "Bonne",
   },
   {
     key: "application_regles",
     titre: "Application des règles",
-    options: [
-      "Insuffisante",
-      "Correcte",
-      "Rigoureuse",
-    ],
+    non: "Insuffisante",
+    encours: "Correcte",
+    acquis: "Rigoureuse",
   },
   {
     key: "aptitudes_physiques",
     titre: "Aptitudes physiques générales",
-    options: [
-      "Insuffisantes",
-      "Correctes",
-      "Très bonnes",
-    ],
+    non: "Insuffisantes",
+    encours: "Correctes",
+    acquis: "Très bonnes",
   },
 ];
 
