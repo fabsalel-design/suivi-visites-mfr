@@ -262,6 +262,38 @@ if (response.ok) {
       >
         Évaluation de fin de période d'essai
       </h1>
+      
+{apprenti && (
+  <div
+    style={{
+      background: "#ffffff",
+      border: "1px solid #ddd",
+      borderRadius: "12px",
+      padding: "20px",
+      marginBottom: "30px",
+    }}
+  >
+    <p>
+      <strong>Apprenti :</strong>{" "}
+      {apprenti.prenom} {apprenti.nom}
+    </p>
+
+    <p>
+      <strong>Entreprise :</strong>{" "}
+      {apprenti.entreprise}
+    </p>
+
+    <p>
+      <strong>Maître d'apprentissage :</strong>{" "}
+      {apprenti.tuteur}
+    </p>
+
+    <p>
+      <strong>Formateur :</strong>{" "}
+      {apprenti.formateur}
+    </p>
+  </div>
+)}
 
       <div
         style={{
