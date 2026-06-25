@@ -127,7 +127,7 @@ const [apprenti, setApprenti] =
       setId(p.id);
 
       const response = await fetch(
-        `/api/apprentis/${p.id}`
+        `/api/apprenti/${p.id}`
       );
 
      
