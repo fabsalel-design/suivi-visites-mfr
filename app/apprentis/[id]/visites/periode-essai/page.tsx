@@ -324,48 +324,131 @@ export default function PeriodeEssaiPage({
         />
       </div>
 
-      {criteres.map((critere) => (
-        <div
-          key={critere.key}
+     
+<table
+  style={{
+    width: "100%",
+    borderCollapse: "collapse",
+    marginBottom: "30px",
+    backgroundColor: "white",
+  }}
+>
+  <thead>
+    <tr>
+      <th
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+          textAlign: "left",
+        }}
+      >
+        Critère
+      </th>
+
+      <th
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+        }}
+      >
+        Non acquise
+      </th>
+
+      <th
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+        }}
+      >
+        En cours d'acquisition
+      </th>
+
+      <th
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+        }}
+      >
+        Acquise
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {criteres.map((critere) => (
+      <tr key={critere.key}>
+        <td
           style={{
-            background: "#fff",
-            border: "1px solid #ddd",
-            borderRadius: "12px",
-            padding: "20px",
-            marginBottom: "20px",
+            border: "1px solid #ccc",
+            padding: "10px",
           }}
         >
-          <h3>{critere.titre}</h3>
+          {critere.titre}
+        </td>
 
-          {critere.options.map(
-            (option) => (
-              <label
-                key={option}
-                style={{
-                  display: "block",
-                  marginBottom: "8px",
-                }}
-              >
-                <input
-                  type="radio"
-                  name={
-                    critere.key
-                  }
-                  value={option}
-                  onChange={(e) =>
-                    setNotes({
-                      ...notes,
-                      [critere.key]:
-                        e.target.value,
-                    })
-                  }
-                />{" "}
-                {option}
-              </label>
-            )
-          )}
-        </div>
-      ))}
+        <td
+          style={{
+            border: "1px solid #ccc",
+            textAlign: "center",
+          }}
+        >
+          <input
+            type="radio"
+            name={critere.key}
+            value="NON_ACQUISE"
+            onChange={(e) =>
+              setNotes({
+                ...notes,
+                [critere.key]:
+                  e.target.value,
+              })
+            }
+          />
+        </td>
+
+        <td
+          style={{
+            border: "1px solid #ccc",
+            textAlign: "center",
+          }}
+        >
+          <input
+            type="radio"
+            name={critere.key}
+            value="EN_COURS"
+            onChange={(e) =>
+              setNotes({
+                ...notes,
+                [critere.key]:
+                  e.target.value,
+              })
+            }
+          />
+        </td>
+
+        <td
+          style={{
+            border: "1px solid #ccc",
+            textAlign: "center",
+          }}
+        >
+          <input
+            type="radio"
+            name={critere.key}
+            value="ACQUISE"
+            onChange={(e) =>
+              setNotes({
+                ...notes,
+                [critere.key]:
+                  e.target.value,
+              })
+            }
+          />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
       <div>
         <h3>
