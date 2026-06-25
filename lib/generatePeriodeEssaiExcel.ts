@@ -1,6 +1,7 @@
 
 import * as XLSX from "xlsx";
 import path from "path";
+import fs from "fs";
 
 export async function generatePeriodeEssaiExcel(
   data: any
@@ -11,15 +12,15 @@ export async function generatePeriodeEssaiExcel(
     "evaluation_apprenti FINAL.xlsx"
   );
 
+  const fileBuffer =
+    fs.readFileSync(filePath);
 
-import fs from "fs";
-
-const fileBuffer = fs.readFileSync(filePath);
-
-const workbook = XLSX.read(
-  fileBuffer,
-  { type: "buffer" }
-);
+  const workbook = XLSX.read(
+    fileBuffer,
+    {
+      type: "buffer",
+    }
+  );
 
   const sheet =
     workbook.Sheets[
@@ -151,27 +152,21 @@ function remplirCritere(
   valeur: string,
   ligne: number
 ) {
-  if (
-    valeur === "NON_ACQUISE"
-  ) {
+  if (valeur === "NON_ACQUISE") {
     sheet[`D${ligne}`] = {
       t: "s",
       v: "X",
     };
   }
 
-  if (
-    valeur === "EN_COURS"
-  ) {
+  if (valeur === "EN_COURS") {
     sheet[`F${ligne}`] = {
       t: "s",
       v: "X",
     };
   }
 
-  if (
-    valeur === "ACQUISE"
-  ) {
+  if (valeur === "ACQUISE") {
     sheet[`H${ligne}`] = {
       t: "s",
       v: "X",
