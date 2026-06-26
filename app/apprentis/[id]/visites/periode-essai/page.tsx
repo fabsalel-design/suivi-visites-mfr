@@ -239,7 +239,10 @@ console.log(
   result
 );
 
-alert(JSON.stringify(result));
+alert(
+  "ExcelData présent : " +
+    (result.excelData ? "OUI" : "NON")
+);
       
 setVisiteId(result.visite_id);
       
