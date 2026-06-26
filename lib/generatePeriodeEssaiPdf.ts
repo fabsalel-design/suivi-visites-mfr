@@ -39,5 +39,16 @@ page.drawText("APPRENTI TEST", {
 });
 
 
+const { width, height } = page.getSize();
+
+page.drawText(
+  `W=${width} H=${height}`,
+  {
+    x: 50,
+    y: 50,
+    size: 8,
+  }
+);
+
   return await pdfDoc.save();
 }
