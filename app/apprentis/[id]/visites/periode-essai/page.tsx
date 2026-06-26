@@ -576,45 +576,7 @@ setExcelData(
             ? "Enregistrement..."
             : "Enregistrer"}
         </button>
-
-{visiteId && (
-  <button
-    style={{
-      backgroundColor: "#2e7d32",
-      color: "white",
-      border: "none",
-      padding: "12px 20px",
-      borderRadius: "8px",
-      cursor: "pointer",
-    }}
-  >
-  
-{visiteId && excelData && (
-  <button
-    onClick={() => {
-      const link =
-        document.createElement("a");
-
-      link.href =
-        "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," +
-        excelData;
-
-      link.download =
-        `evaluation_apprenti_${visiteId}.xlsx`;
-
-      link.click();
-    }}
-    style={{
-      backgroundColor: "#2e7d32",
-      color: "white",
-      border: "none",
-      padding: "12px 20px",
-      borderRadius: "8px",
-      cursor: "pointer",
-    }}
-  >
-    📄 Télécharger Excel
-  </button>
+        
 )}
             
         <button
@@ -632,7 +594,6 @@ setExcelData(
           Générer le PDF
         </button>
       </div>
-
       <p
         style={{
           marginTop: "30px",
