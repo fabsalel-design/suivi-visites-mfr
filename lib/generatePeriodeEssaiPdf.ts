@@ -16,5 +16,14 @@ export async function generatePeriodeEssaiPdf() {
   const pdfDoc =
     await PDFDocument.load(pdfBytes);
 
-  return pdfDoc;
+  const page =
+    pdfDoc.getPage(0);
+
+  page.drawText("TEST", {
+    x: 100,
+    y: 700,
+    size: 14,
+  });
+
+  return await pdfDoc.save();
 }
