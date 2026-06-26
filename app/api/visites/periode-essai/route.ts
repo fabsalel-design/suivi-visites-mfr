@@ -33,7 +33,9 @@ export async function POST(request: Request) {
     const { data: apprenti } =
       await supabase
         .from("apprentis")
-        .select("formateur")
+       
+.select("*")
+
         .eq("id", apprenti_id)
         .single();
 
@@ -112,20 +114,29 @@ export async function POST(request: Request) {
       );
     }
 
+
 const excelBuffer =
   await generatePeriodeEssaiExcel({
 
   dateEvaluation: date_visite,
 
-  employeur: "À récupérer ensuite",
+  employeur:
+    `${apprenti.entreprise || ""} ${
+      apprenti.ville_reelle || ""
+    }`,
 
-  apprenti: apprenti_id,
+  apprenti:
+    `${apprenti.prenom || ""} ${
+      apprenti.nom || ""
+    }`,
 
   formation: formation_suivie,
 
-  formateur: formateurVisiteur,
+  formateur:
+    apprenti.formateur || "",
 
-  maitreApprentissage: "",
+  maitreApprentissage:
+    apprenti.tuteur || "",
 
   observations,
 
