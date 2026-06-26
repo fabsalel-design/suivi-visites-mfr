@@ -37,5 +37,24 @@ page.drawText("APPRENTI TEST", {
   size: 10,
 });
 
+  
+page.drawText("FORMATION TEST", {
+  x: 455,
+  y: 610,
+  size: 10,
+});
+
+page.drawText("FORMATEUR TEST", {
+  x: 150,
+  y: 572,
+  size: 10,
+});
+
+page.drawText("MAITRE TEST", {
+  x: 455,
+  y: 572,
+  size: 10,
+});
+
   return await pdfDoc.save();
 }
