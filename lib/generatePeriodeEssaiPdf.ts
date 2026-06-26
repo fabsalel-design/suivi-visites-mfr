@@ -26,7 +26,7 @@ page.drawText("DATE TEST", {
 });
 
 page.drawText("EMPLOYEUR TEST", {
-  x: 385,
+  x: 455,
   y: 642,
   size: 10,
 });
