@@ -232,9 +232,14 @@ if (response.ok) {
       );
 
       const result =
-        await response.json();
+  await response.json();
 
-      console.log(result);
+console.log(
+  "RESULTAT API :",
+  result
+);
+
+alert(JSON.stringify(result));
       
 setVisiteId(result.visite_id);
       
