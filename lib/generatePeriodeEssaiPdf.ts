@@ -44,16 +44,19 @@ page.drawText("FORMATION TEST", {
   size: 10,
 });
 
+
 page.drawText("FORMATEUR TEST", {
   x: 150,
-  y: 572,
+  y: 590,
   size: 10,
 });
 
 page.drawText("MAITRE TEST", {
   x: 455,
-  y: 572,
+  y: 590,
   size: 10,
+});
+
 });
 
   return await pdfDoc.save();
