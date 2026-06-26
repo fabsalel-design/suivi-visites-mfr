@@ -152,7 +152,8 @@ return NextResponse.json({
   excel: !!excelBuffer,
   excelData: Buffer.from(
     excelBuffer
-  ).toString("base
+ ).toString("base64"),
+});
 
   } catch (error) {
     console.error(error);
