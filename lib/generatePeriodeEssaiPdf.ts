@@ -28,7 +28,7 @@ const Y_ESPRIT_INITIATIVE = 472;
 const Y_INTERET_MOTIVATION = 523;
 const Y_SENS_ORGANISATION = 437;
 const Y_VOLONTE_CHANGEMENT = 402;
-const Y_RELATIONS_EQUIPE = 367;
+const Y_RELATIONS_EQUIPE = 385;
 const Y_ADAPTATION = 332;
 const Y_PRESENTATION = 297;
 const Y_COMPREHENSION_CONSIGNES = 262;
@@ -85,7 +85,7 @@ page.drawText("MAITRE TEST", {
   size: 10,
 });
 
-drawCroix(page, X_NON_ACQUISE, 385);
+drawCroix(page, X_NON_ACQUISE, 410);
 
   return await pdfDoc.save();
 }
