@@ -21,13 +21,13 @@ export async function generatePeriodeEssaiPdf() {
 
 page.drawText("DATE TEST", {
   x: 150,
-  y: 650,
+  y: 642,
   size: 10,
 });
 
 page.drawText("EMPLOYEUR TEST", {
-  x: 360,
-  y: 630,
+  x: 385,
+  y: 642,
   size: 10,
 });
 
@@ -36,6 +36,7 @@ page.drawText("APPRENTI TEST", {
   y: 610,
   size: 10,
 });
+
 
   return await pdfDoc.save();
 }
