@@ -112,7 +112,9 @@ export async function POST(request: Request) {
       );
     }
 
-await generatePeriodeEssaiExcel({
+const excelBuffer =
+  await generatePeriodeEssaiExcel({
+
   dateEvaluation: date_visite,
 
   employeur: "À récupérer ensuite",
