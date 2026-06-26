@@ -37,6 +37,5 @@ page.drawText("APPRENTI TEST", {
   size: 10,
 });
 
-
   return await pdfDoc.save();
 }
