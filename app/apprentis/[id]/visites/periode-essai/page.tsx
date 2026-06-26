@@ -98,6 +98,9 @@ const [apprenti, setApprenti] =
 
   const [loading, setLoading] =
     useState(false);
+  
+const [visiteId, setVisiteId] =
+  useState<number | null>(null);
 
   const [dateVisite, setDateVisite] =
     useState("");
@@ -230,6 +233,8 @@ if (response.ok) {
 
       console.log(result);
       
+setVisiteId(result.visite_id);
+      
       if (!response.ok) {
         alert(
           result.error ||
@@ -241,8 +246,7 @@ if (response.ok) {
       alert(
         "✅ Visite enregistrée"
       );
-
-      window.location.href = `/apprentis/${id}/visites`;
+    
     } catch (error) {
       alert("Erreur serveur");
     } finally {
@@ -566,6 +570,20 @@ if (response.ok) {
             : "Enregistrer"}
         </button>
 
+{visiteId && (
+  <button
+    style={{
+      backgroundColor: "#2e7d32",
+      color: "white",
+      border: "none",
+      padding: "12px 20px",
+      borderRadius: "8px",
+      cursor: "pointer",
+    }}
+  >
+    📄 Télécharger Excel
+  </button>
+        
         <button
           style={{
             backgroundColor:
