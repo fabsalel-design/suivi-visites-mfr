@@ -85,30 +85,11 @@ page.drawText("MAITRE TEST", {
   size: 10,
 });
   
-page.drawText("X", {
-  x: 550,
-  y: 503,
-  size: 12,
-});
-  
-page.drawText("X", {
-  x: 275,
-  y: 502,
-  size: 12,
-});
-
-
-page.drawText("X", {
-  x: 275,
-  y: 402,
-  size: 12,
-});
-
-page.drawText("X", {
-  x: 275,
-  y: 367,
-  size: 12,
-});
+drawCroix(
+  page,
+  X_NON_ACQUISE,
+  Y_DYNAMISME
+);
 
   return await pdfDoc.save();
 }
