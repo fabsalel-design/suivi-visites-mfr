@@ -47,13 +47,13 @@ page.drawText("FORMATION TEST", {
 
 page.drawText("FORMATEUR TEST", {
   x: 150,
-  y: 590,
+  y: 585,
   size: 10,
 });
 
 page.drawText("MAITRE TEST", {
   x: 455,
-  y: 590,
+  y: 585,
   size: 10,
 });
 
