@@ -583,6 +583,7 @@ setVisiteId(result.visite_id);
   >
     📄 Télécharger Excel
   </button>
+     )}   
         
         <button
           style={{
