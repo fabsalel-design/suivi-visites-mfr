@@ -63,5 +63,18 @@ page.drawText("X", {
   size: 12,
 });
 
+  
+page.drawText("X", {
+  x: 275,
+  y: 502,
+  size: 12,
+});
+
+page.drawText("X", {
+  x: 275,
+  y: 470,
+  size: 12,
+});
+
   return await pdfDoc.save();
 }
