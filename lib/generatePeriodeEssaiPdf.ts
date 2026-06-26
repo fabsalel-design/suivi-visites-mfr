@@ -63,15 +63,16 @@ page.drawText("X", {
   size: 12,
 });
   
+
 page.drawText("X", {
   x: 275,
-  y: Y.dynamisme,
+  y: 502,
   size: 12,
 });
 
 page.drawText("X", {
   x: 275,
-  y: Y.esprit_initiative,
+  y: 472,
   size: 12,
 });
 
