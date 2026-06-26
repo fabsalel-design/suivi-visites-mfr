@@ -34,6 +34,18 @@ const Y_PRESENTATION = 297;
 const Y_COMPREHENSION_CONSIGNES = 262;
 const Y_APPLICATION_REGLES = 227;
 const Y_APTITUDES_PHYSIQUES = 192;
+  
+function drawCroix(
+  page: any,
+  x: number,
+  y: number
+) {
+  page.drawText("X", {
+    x,
+    y,
+    size: 12,
+  });
+}
 
 page.drawText("DATE TEST", {
   x: 150,
