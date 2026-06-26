@@ -19,23 +19,25 @@ export async function generatePeriodeEssaiPdf() {
   const page =
     pdfDoc.getPage(0);
 
+
 page.drawText("DATE TEST", {
-  x: 265,
-  y: 503,
+  x: 120,
+  y: 642,
   size: 10,
 });
 
 page.drawText("EMPLOYEUR TEST", {
-  x: 695,
-  y: 463,
+  x: 360,
+  y: 620,
   size: 10,
 });
 
 page.drawText("APPRENTI TEST", {
-  x: 300,
-  y: 423,
+  x: 130,
+  y: 610,
   size: 10,
 });
+
 
   return await pdfDoc.save();
 }
