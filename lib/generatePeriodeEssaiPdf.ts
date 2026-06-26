@@ -63,7 +63,6 @@ page.drawText("X", {
   size: 12,
 });
   
-
 page.drawText("X", {
   x: 275,
   y: 502,
@@ -73,6 +72,12 @@ page.drawText("X", {
 page.drawText("X", {
   x: 275,
   y: 472,
+  size: 12,
+});
+  
+page.drawText("X", {
+  x: 275,
+  y: 437,
   size: 12,
 });
 
