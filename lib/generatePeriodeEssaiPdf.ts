@@ -58,8 +58,8 @@ page.drawText("MAITRE TEST", {
 });
   
 page.drawText("X", {
-  x: 310,
-  y: 520,
+  x: 290,
+  y: 500,
   size: 12,
 });
 
