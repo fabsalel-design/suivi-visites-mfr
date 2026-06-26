@@ -557,49 +557,74 @@ setExcelData(
         />
       </div>
 
-      <div
-        style={{
-          marginTop: "40px",
-          display: "flex",
-          gap: "15px",
-          flexWrap: "wrap",
-        }}
-      >
-        <button
-          onClick={enregistrer}
-          disabled={loading}
-          style={{
-            backgroundColor:
-              "#005CA9",
-            color: "white",
-            border: "none",
-            padding:
-              "12px 20px",
-            borderRadius:
-              "8px",
-            cursor: "pointer",
-          }}
-        >
-          {loading
-            ? "Enregistrement..."
-            : "Enregistrer"}
-        </button>
-                 
-        <button
-          style={{
-            backgroundColor:
-              "#2e7d32",
-            color: "white",
-            border: "none",
-            padding:
-              "12px 20px",
-            borderRadius:
-              "8px",
-          }}
-        >
-          Générer le PDF
-        </button>
-      </div>
+  
+<div
+  style={{
+    marginTop: "40px",
+    display: "flex",
+    gap: "15px",
+    flexWrap: "wrap",
+  }}
+>
+  <button
+    onClick={enregistrer}
+    disabled={loading}
+    style={{
+      backgroundColor: "#005CA9",
+      color: "white",
+      border: "none",
+      padding: "12px 20px",
+      borderRadius: "8px",
+      cursor: "pointer",
+    }}
+  >
+    {loading
+      ? "Enregistrement..."
+      : "Enregistrer"}
+  </button>
+
+  {visiteId && excelData && (
+    <button
+      onClick={() => {
+        const link =
+          document.createElement("a");
+
+        link.href =
+          "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," +
+          excelData;
+
+        link.download =
+          `evaluation_apprenti_${visiteId}.xlsx`;
+
+        link.click();
+      }}
+      style={{
+        backgroundColor: "#2e7d32",
+        color: "white",
+        border: "none",
+        padding: "12px 20px",
+        borderRadius: "8px",
+        cursor: "pointer",
+      }}
+    >
+      📄 Télécharger Excel
+    </button>
+  )}
+
+  <button
+    style={{
+      backgroundColor: "#f57c00",
+      color: "white",
+      border: "none",
+      padding: "12px 20px",
+      borderRadius: "8px",
+      cursor: "pointer",
+    }}
+  >
+    Générer le PDF
+  </button>
+</div>
+
       <p
         style={{
           marginTop: "30px",
