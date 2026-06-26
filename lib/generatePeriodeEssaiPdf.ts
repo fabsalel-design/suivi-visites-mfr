@@ -56,6 +56,12 @@ page.drawText("MAITRE TEST", {
   y: 585,
   size: 10,
 });
+  
+page.drawText("X", {
+  x: 210,
+  y: 505,
+  size: 12,
+});
 
   return await pdfDoc.save();
 }
