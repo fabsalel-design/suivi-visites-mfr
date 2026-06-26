@@ -84,19 +84,18 @@ page.drawText("MAITRE TEST", {
   y: 585,
   size: 10,
 });
-  
 
-drawCroix(
-  page,
-  X_NON_ACQUISE,
-  Y_VOLONTE_CHANGEMENT
-);
-
-drawCroix(
-  page,
-  X_NON_ACQUISE,
-  Y_RELATIONS_EQUIPE
-);
+drawCroix(page, X_NON_ACQUISE, Y_INTERET_MOTIVATION);
+drawCroix(page, X_NON_ACQUISE, Y_DYNAMISME);
+drawCroix(page, X_NON_ACQUISE, Y_ESPRIT_INITIATIVE);
+drawCroix(page, X_NON_ACQUISE, Y_SENS_ORGANISATION);
+drawCroix(page, X_NON_ACQUISE, Y_VOLONTE_CHANGEMENT);
+drawCroix(page, X_NON_ACQUISE, Y_RELATIONS_EQUIPE);
+drawCroix(page, X_NON_ACQUISE, Y_ADAPTATION);
+drawCroix(page, X_NON_ACQUISE, Y_PRESENTATION);
+drawCroix(page, X_NON_ACQUISE, Y_COMPREHENSION_CONSIGNES);
+drawCroix(page, X_NON_ACQUISE, Y_APPLICATION_REGLES);
+drawCroix(page, X_NON_ACQUISE, Y_APTITUDES_PHYSIQUES);
 
   return await pdfDoc.save();
 }
