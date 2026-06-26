@@ -150,7 +150,9 @@ return NextResponse.json({
   success: true,
   visite_id: visite.id,
   excel: !!excelBuffer,
-});
+  excelData: Buffer.from(
+    excelBuffer
+  ).toString("base
 
   } catch (error) {
     console.error(error);
