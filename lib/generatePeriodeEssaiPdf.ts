@@ -57,7 +57,5 @@ page.drawText("MAITRE TEST", {
   size: 10,
 });
 
-});
-
   return await pdfDoc.save();
 }
