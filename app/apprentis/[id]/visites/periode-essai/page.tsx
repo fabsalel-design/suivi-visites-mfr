@@ -101,6 +101,9 @@ const [apprenti, setApprenti] =
   
 const [visiteId, setVisiteId] =
   useState<number | null>(null);
+  
+const [excelData, setExcelData] =
+  useState("");
 
   const [dateVisite, setDateVisite] =
     useState("");
@@ -234,6 +237,10 @@ if (response.ok) {
       console.log(result);
       
 setVisiteId(result.visite_id);
+      
+setExcelData(
+  result.excelData || ""
+);
       
       if (!response.ok) {
         alert(
@@ -581,8 +588,35 @@ setVisiteId(result.visite_id);
       cursor: "pointer",
     }}
   >
+  
+{visiteId && excelData && (
+  <button
+    onClick={() => {
+      const link =
+        document.createElement("a");
+
+      link.href =
+        "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," +
+        excelData;
+
+      link.download =
+        `evaluation_apprenti_${visiteId}.xlsx`;
+
+      link.click();
+    }}
+    style={{
+      backgroundColor: "#2e7d32",
+      color: "white",
+      border: "none",
+      padding: "12px 20px",
+      borderRadius: "8px",
+      cursor: "pointer",
+    }}
+  >
     📄 Télécharger Excel
   </button>
+)}
+
      )}   
         
         <button
