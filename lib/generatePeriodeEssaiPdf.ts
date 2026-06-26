@@ -90,6 +90,19 @@ drawCroix(
   X_NON_ACQUISE,
   Y_DYNAMISME
 );
+  
+drawCroix(
+  page,
+  X_NON_ACQUISE,
+  Y_ESPRIT_INITIATIVE
+);
+
+drawCroix(
+  page,
+  X_NON_ACQUISE,
+  Y_SENS_ORGANISATION
+);
+
 
   return await pdfDoc.save();
 }
