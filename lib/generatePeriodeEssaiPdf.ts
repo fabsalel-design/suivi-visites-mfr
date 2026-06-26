@@ -85,24 +85,18 @@ page.drawText("MAITRE TEST", {
   size: 10,
 });
   
+
 drawCroix(
   page,
   X_NON_ACQUISE,
-  Y_DYNAMISME
-);
-  
-drawCroix(
-  page,
-  X_NON_ACQUISE,
-  Y_ESPRIT_INITIATIVE
+  Y_VOLONTE_CHANGEMENT
 );
 
 drawCroix(
   page,
   X_NON_ACQUISE,
-  Y_SENS_ORGANISATION
+  Y_RELATIONS_EQUIPE
 );
-
 
   return await pdfDoc.save();
 }
