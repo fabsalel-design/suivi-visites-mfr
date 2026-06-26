@@ -145,11 +145,13 @@ const excelBuffer =
   application_regles,
   aptitudes_physiques,
 });
+   
+return NextResponse.json({
+  success: true,
+  visite_id: visite.id,
+  excel: !!excelBuffer,
+});
 
-    return NextResponse.json({
-      success: true,
-      visite_id: visite.id,
-    });
   } catch (error) {
     console.error(error);
 
