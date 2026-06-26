@@ -144,12 +144,21 @@ export async function generatePeriodeEssaiExcel(
     23
   );
   
+const buffer = XLSX.write(
+  workbook,
+  {
+    type: "buffer",
+    bookType: "xlsx",
+  }
+);
+
 console.log(
   "✅ Excel généré pour :",
   data.apprenti
 );
 
-  return workbook;
+return buffer;
+
 }
 
 function remplirCritere(
