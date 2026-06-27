@@ -99,7 +99,17 @@ export async function POST(request: Request) {
           observations,
           points_forts,
           points_faibles,
+
+          signature_maitre,
         });
+
+console.log(
+  "SIGNATURE RECUE :",
+  signature_maitre?.substring(
+    0,
+    50
+  )
+);
 
     if (detailsError) {
       return NextResponse.json(
