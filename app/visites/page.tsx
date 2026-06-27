@@ -37,26 +37,22 @@ export default function VisitesPage() {
       }
     );
 
-    const result = await response.json();
-  
+const result = await response.json();
+
 console.log("PDF PRESENT", !!result.pdfData);
 console.log("TAILLE PDF", result.pdfData?.length);
-console.log(result);
 
 if (result.pdfData) {
   console.log("TELECHARGEMENT PDF");
-  
+
   const pdfBytes = Uint8Array.from(
     atob(result.pdfData),
     (c) => c.charCodeAt(0)
   );
 
-  const blob = new Blob(
-    [pdfBytes],
-    {
-      type: "application/pdf",
-    }
-  );
+  const blob = new Blob([pdfBytes], {
+    type: "application/pdf",
+  });
 
   const url =
     window.URL.createObjectURL(blob);
@@ -68,7 +64,9 @@ if (result.pdfData) {
   a.download =
     "evaluation-periode-essai.pdf";
 
+  document.body.appendChild(a); // IMPORTANT
   a.click();
+  a.remove();
 
   window.URL.revokeObjectURL(url);
 }
