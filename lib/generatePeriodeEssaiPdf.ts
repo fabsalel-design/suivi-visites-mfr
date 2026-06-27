@@ -108,13 +108,13 @@ page.drawText(data.employeur || "", {
 
 page.drawText(data.apprenti || "", {
   x: 150,
-  y: 610,
+  y: 615,
   size: 10,
 });
 
 page.drawText(data.formation || "", {
 x: 365,
-  y: 610,
+  y: 615,
   size: 10,
 });
 
@@ -125,7 +125,7 @@ page.drawText(data.formateur || "", {
 });
 
 page.drawText(data.maitreApprentissage || "", {
- x: 415,
+ x: 420,
   y: 585,
   size: 10,
 });
