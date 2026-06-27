@@ -1,4 +1,4 @@
-
+import { generatePeriodeEssaiPdf } from "@/lib/generatePeriodeEssaiPdf";
 import { generatePeriodeEssaiExcel } from "@/lib/generatePeriodeEssaiExcel";
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
@@ -156,14 +156,57 @@ const excelBuffer =
   application_regles,
   aptitudes_physiques,
 });
-   
+
+    
+const pdfBuffer =
+  await generatePeriodeEssaiPdf({
+    dateEvaluation: date_visite,
+
+    employeur:
+      `${apprenti.entreprise || ""} ${
+        apprenti.ville_reelle || ""
+      }`,
+
+    apprenti:
+      `${apprenti.prenom || ""} ${
+        apprenti.nom || ""
+      }`,
+
+    formation: formation_suivie,
+
+    formateur:
+      apprenti.formateur || "",
+
+    maitreApprentissage:
+      apprenti.tuteur || "",
+
+    interet_motivation,
+    dynamisme,
+    esprit_initiative,
+    sens_organisation,
+    volonte_changement,
+    relations_equipe,
+    adaptation,
+    presentation,
+    comprehension_consignes,
+    application_regles,
+    aptitudes_physiques,
+  });
+ 
 return NextResponse.json({
   success: true,
   visite_id: visite.id,
+
   excel: !!excelBuffer,
+  pdf: !!pdfBuffer,
+
   excelData: Buffer.from(
     excelBuffer
- ).toString("base64"),
+  ).toString("base64"),
+
+  pdfData: Buffer.from(
+    pdfBuffer
+  ).toString("base64"),
 });
 
   } catch (error) {
