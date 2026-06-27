@@ -179,6 +179,12 @@ const pdfBuffer =
 
     maitreApprentissage:
       apprenti.tuteur || "",
+    
+observations,
+
+pointsForts: points_forts,
+
+pointsFaibles: points_faibles,
 
     interet_motivation,
     dynamisme,
