@@ -194,7 +194,7 @@ const pdfBuffer =
 
     maitreApprentissage:
       apprenti.tuteur || "",
-    
+    signatureMaitre: signature_maitre,
 observations,
 
 pointsForts: points_forts,
