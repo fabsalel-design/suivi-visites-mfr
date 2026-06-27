@@ -164,7 +164,6 @@ await generateIntermediairePdf({
     attitude_generale,
   });
 
-
 return NextResponse.json({
   success: true,
 
