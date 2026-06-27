@@ -1,4 +1,4 @@
-
+// Coordonnées validées PDF MFR - Version de référence
 import { PDFDocument } from "pdf-lib";
 import fs from "fs";
 import path from "path";
