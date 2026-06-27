@@ -38,7 +38,7 @@ export default function VisitesPage() {
     );
 
 const result = await response.json();
-    alert("JE PASSE ICI");
+   alert("TEST PDF 123");
 console.log("PDF PRESENT", !!result.pdfData);
 console.log("TAILLE PDF", result.pdfData?.length);
 
