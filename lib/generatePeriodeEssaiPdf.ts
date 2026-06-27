@@ -113,7 +113,7 @@ page.drawText(data.apprenti || "", {
 });
 
 page.drawText(data.formation || "", {
-x: 390,
+x: 365,
   y: 610,
   size: 10,
 });
@@ -125,11 +125,10 @@ page.drawText(data.formateur || "", {
 });
 
 page.drawText(data.maitreApprentissage || "", {
- x: 390,
+ x: 415,
   y: 585,
   size: 10,
 });
-
 
 function drawEvaluation(
   page: any,
