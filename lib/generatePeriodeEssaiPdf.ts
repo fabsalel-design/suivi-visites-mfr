@@ -104,6 +104,46 @@ page.drawText(data.maitreApprentissage, {
 // drawCroix(page, X_NON_ACQUISE, Y_APPLICATION_REGLES);
 // drawCroix(page, X_EN_COURS, Y_APTITUDES_PHYSIQUES);
   
+function drawMultilineText(
+  page: any,
+  text: string,
+  x: number,
+  y: number
+) {
+  const maxChars = 60;
+
+  const words = text.split(" ");
+  const lines: string[] = [];
+
+  let currentLine = "";
+
+  for (const word of words) {
+    const testLine =
+      currentLine.length === 0
+        ? word
+        : `${currentLine} ${word}`;
+
+    if (testLine.length > maxChars) {
+      lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = testLine;
+    }
+  }
+
+  if (currentLine) {
+    lines.push(currentLine);
+  }
+
+  lines.forEach((line, index) => {
+    page.drawText(line, {
+      x,
+      y: y - index * 12,
+      size: 10,
+    });
+  });
+}
+
 function drawEvaluation(
   page: any,
   valeur: string,
@@ -201,29 +241,27 @@ drawEvaluation(
   Y_APTITUDES_PHYSIQUES
 );
 
-page.drawText(data.observations || "", {
-  x: 120,
-  y: 220,
-  size: 10,
-  maxWidth: 430,
-  lineHeight: 12,
-});
 
-page.drawText(data.pointsForts || "", {
-  x: 120,
-  y: 185,
-  size: 10,
-  maxWidth: 430,
-  lineHeight: 12,
-});
+drawMultilineText(
+  page,
+  data.observations || "",
+  120,
+  220
+);
 
-page.drawText(data.pointsFaibles || "", {
-  x: 120,
-  y: 145,
-  size: 10,
-  maxWidth: 430,
-  lineHeight: 12,
-});
+drawMultilineText(
+  page,
+  data.pointsForts || "",
+  120,
+  185
+);
+
+drawMultilineText(
+  page,
+  data.pointsFaibles || "",
+  120,
+  145
+);
 
 
   return await pdfDoc.save();
