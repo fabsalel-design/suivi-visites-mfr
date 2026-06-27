@@ -19,9 +19,9 @@ export async function generatePeriodeEssaiPdf() {
   const page =
     pdfDoc.getPage(0);
 
-const X_NON_ACQUISE = 270;
-const X_EN_COURS = 410;
-const X_ACQUISE = 550;
+const X_NON_ACQUISE = 265;
+const X_EN_COURS = 400;
+const X_ACQUISE = 540;
   
 const Y_DYNAMISME = 502;
 const Y_ESPRIT_INITIATIVE = 472; 
