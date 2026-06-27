@@ -252,7 +252,7 @@ console.log(
 );
 
       const response = await fetch(
-        "/api/visites/periode-essai",
+       "/api/visites/intermediaire",
         {
           method: "POST",
           headers: {
