@@ -30,6 +30,7 @@ const {
   points_faibles,
 
   signature_maitre,
+  signature_formateur,
 } = body;
 
     const { data: apprenti } =
@@ -103,6 +104,7 @@ const {
           points_faibles,
 
           signature_maitre,
+          signature_formateur,
         });
 
 console.log(
