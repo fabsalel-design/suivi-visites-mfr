@@ -164,14 +164,6 @@ if (response.ok) {
   }, [params]);
 
 useEffect(() => {
-  async function charger() {
-    ...
-  }
-
-  charger();
-}, [params]);
-
-useEffect(() => {
   const canvas = canvasRef.current;
 
   if (!canvas) return;
