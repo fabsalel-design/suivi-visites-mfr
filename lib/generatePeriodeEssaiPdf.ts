@@ -209,13 +209,13 @@ page.drawText("OBSERVATION TEST", {
 
 page.drawText("POINT FORT TEST", {
   x: 120,
-  y: 165,
+  y: 195,
   size: 10,
 });
 
 page.drawText("POINT FAIBLE TEST", {
   x: 120,
-  y: 110,
+  y: 140,
   size: 10,
 });
 
