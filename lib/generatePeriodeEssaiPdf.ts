@@ -134,6 +134,7 @@ function drawEvaluation(
   }
 }
 
+
 drawEvaluation(
   page,
   data.interet_motivation,
@@ -145,6 +146,61 @@ drawEvaluation(
   data.dynamisme,
   Y_DYNAMISME
 );
+
+drawEvaluation(
+  page,
+  data.esprit_initiative,
+  Y_ESPRIT_INITIATIVE
+);
+
+drawEvaluation(
+  page,
+  data.sens_organisation,
+  Y_SENS_ORGANISATION
+);
+
+drawEvaluation(
+  page,
+  data.volonte_changement,
+  Y_VOLONTE_CHANGEMENT
+);
+
+drawEvaluation(
+  page,
+  data.relations_equipe,
+  Y_RELATIONS_EQUIPE
+);
+
+drawEvaluation(
+  page,
+  data.adaptation,
+  Y_ADAPTATION
+);
+
+drawEvaluation(
+  page,
+  data.presentation,
+  Y_PRESENTATION
+);
+
+drawEvaluation(
+  page,
+  data.comprehension_consignes,
+  Y_COMPREHENSION_CONSIGNES
+);
+
+drawEvaluation(
+  page,
+  data.application_regles,
+  Y_APPLICATION_REGLES
+);
+
+drawEvaluation(
+  page,
+  data.aptitudes_physiques,
+  Y_APTITUDES_PHYSIQUES
+);
+
 
   return await pdfDoc.save();
 }
