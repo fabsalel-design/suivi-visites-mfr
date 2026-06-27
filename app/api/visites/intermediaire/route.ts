@@ -7,7 +7,6 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
    
-
 const {
   apprenti_id,
   date_visite,
