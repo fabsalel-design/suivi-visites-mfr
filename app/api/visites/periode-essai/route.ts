@@ -6,29 +6,31 @@ import { supabase } from "@/lib/supabase";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+   
+const {
+  apprenti_id,
+  date_visite,
 
-    const {
-      apprenti_id,
-      date_visite,
+  formation_suivie,
 
-      formation_suivie,
+  interet_motivation,
+  dynamisme,
+  esprit_initiative,
+  sens_organisation,
+  volonte_changement,
+  relations_equipe,
+  adaptation,
+  presentation,
+  comprehension_consignes,
+  application_regles,
+  aptitudes_physiques,
 
-      interet_motivation,
-      dynamisme,
-      esprit_initiative,
-      sens_organisation,
-      volonte_changement,
-      relations_equipe,
-      adaptation,
-      presentation,
-      comprehension_consignes,
-      application_regles,
-      aptitudes_physiques,
+  observations,
+  points_forts,
+  points_faibles,
 
-      observations,
-      points_forts,
-      points_faibles,
-    } = body;
+  signature_maitre,
+} = body;
 
     const { data: apprenti } =
       await supabase
