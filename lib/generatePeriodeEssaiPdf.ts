@@ -93,6 +93,42 @@ function drawMultilineText(
   });
 }
   
+page.drawText(data.dateEvaluation || "", {
+  x: 150,
+  y: 642,
+  size: 10,
+});
+
+page.drawText(data.employeur || "", {
+  x: 455,
+  y: 642,
+  size: 10,
+});
+
+page.drawText(data.apprenti || "", {
+  x: 150,
+  y: 610,
+  size: 10,
+});
+
+page.drawText(data.formation || "", {
+  x: 455,
+  y: 610,
+  size: 10,
+});
+
+page.drawText(data.formateur || "", {
+  x: 150,
+  y: 585,
+  size: 10,
+});
+
+page.drawText(data.maitreApprentissage || "", {
+  x: 455,
+  y: 585,
+  size: 10,
+});
+
 function drawEvaluation(
   page: any,
   valeur: string,
