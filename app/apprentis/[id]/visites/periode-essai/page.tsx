@@ -629,6 +629,52 @@ setPdfData(
         />
       </div>
 
+<div
+  style={{
+    marginTop: "30px",
+  }}
+>
+  <h3>
+    Signature maître d'apprentissage
+  </h3>
+
+  <canvas
+    ref={canvasRef}
+    width={400}
+    height={150}
+    style={{
+      border: "1px solid #000",
+      backgroundColor: "#fff",
+    }}
+  />
+
+  <br />
+
+  <button
+    type="button"
+    onClick={() => {
+      const canvas =
+        canvasRef.current;
+
+      if (!canvas) return;
+
+      const ctx =
+        canvas.getContext("2d");
+
+      if (!ctx) return;
+
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+    }}
+  >
+    Effacer la signature
+  </button>
+</div>
+
   
 <div
   style={{
