@@ -192,7 +192,7 @@ const pdfBuffer =
 signatureFormateur:
   signature_formateur,
 
-conseils
+conseils,
 
 pointsForts: points_forts,
 
