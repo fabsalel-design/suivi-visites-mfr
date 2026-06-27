@@ -237,6 +237,16 @@ useEffect(() => {
     try {
       setLoading(true);
 
+const signatureMaitre =
+      canvasRef.current?.toDataURL(
+        "image/png"
+      ) || "";
+
+    console.log(
+      "SIGNATURE",
+      signatureMaitre
+    );
+
       const response = await fetch(
         "/api/visites/periode-essai",
         {
