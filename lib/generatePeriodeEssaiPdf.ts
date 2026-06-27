@@ -248,5 +248,12 @@ drawMultilineText(
   145
 );
 
+console.log(
+  "SIGNATURE PDF :",
+  data.signatureMaitre
+    ? "OUI"
+    : "NON"
+);
+
   return await pdfDoc.save();
 }
