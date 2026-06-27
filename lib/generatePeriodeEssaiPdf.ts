@@ -194,14 +194,14 @@ drawMultilineText(
   page,
   data.observations || "",
   120,
-  220
+  230
 );
 
 drawMultilineText(
   page,
   data.pointsForts || "",
   120,
-  185
+  195
 );
 
 drawMultilineText(
@@ -210,7 +210,6 @@ drawMultilineText(
   120,
   145
 );
-
 
   return await pdfDoc.save();
 }
