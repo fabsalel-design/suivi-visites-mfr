@@ -136,7 +136,13 @@ function drawEvaluation(
 
 drawEvaluation(
   page,
-  "NON_ACQUISE",
+  data.interet_motivation,
+  Y_INTERET_MOTIVATION
+);
+
+drawEvaluation(
+  page,
+  data.dynamisme,
   Y_DYNAMISME
 );
 
