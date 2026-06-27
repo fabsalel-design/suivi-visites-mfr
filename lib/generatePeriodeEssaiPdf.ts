@@ -201,23 +201,24 @@ drawEvaluation(
   Y_APTITUDES_PHYSIQUES
 );
 
-page.drawText("OBSERVATION TEST", {
+  page.drawText(data.observations || "", {
   x: 120,
   y: 220,
   size: 10,
 });
 
-page.drawText("POINT FORT TEST", {
+page.drawText(data.pointsForts || "", {
   x: 120,
   y: 185,
   size: 10,
 });
 
-page.drawText("POINT FAIBLE TEST", {
+page.drawText(data.pointsFaibles || "", {
   x: 120,
   y: 145,
   size: 10,
 });
+
 
 
   return await pdfDoc.save();
