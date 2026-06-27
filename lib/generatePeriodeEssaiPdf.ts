@@ -269,7 +269,7 @@ if (data.signatureMaitre) {
     signatureImage,
     {
       x: 430,
-      y: 140,
+      y: 170,
       width: 120,
       height: 50,
     }
