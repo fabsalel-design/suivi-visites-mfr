@@ -10,81 +10,49 @@ import {
 
 const criteres = [
   {
-    key: "interet_motivation",
-    titre: "Intérêt et motivation",
-    non: "Est indifférent",
-    encours: "Écoute et observe",
-    acquis: "Observe et cherche à comprendre",
-  },
-  {
-    key: "dynamisme",
-    titre: "Dynamisme",
-    non: "A des difficultés à suivre le rythme",
-    encours: "Suit le mouvement",
-    acquis: "Participe activement",
+    key: "autonomie",
+    titre: "Autonomie",
+    non: "A besoin d'être accompagné dans les activités",
+    encours: "Réalise la plupart des tâches seul",
+    acquis: "Est totalement autonome dans son travail",
   },
   {
     key: "esprit_initiative",
     titre: "Esprit d'initiative, curiosité",
-    non: "Ne prend aucune initiative",
-    encours: "Demande validation",
-    acquis: "Prend des initiatives",
+    non: "Ne prend aucune initiative, attend les consignes",
+    encours: "A des idées mais demande une validation avant d'agir",
+    acquis:
+      "Sait prendre des initiatives dans les limites de sa compétence",
   },
   {
-    key: "sens_organisation",
-    titre: "Sens de l'organisation",
-    non: "Manque d'organisation",
-    encours: "Organisé",
-    acquis: "Autonome",
+    key: "respect_limites",
+    titre: "Connaître et respecter ses limites",
+    non:
+      "Ne connaît pas ses limites et peut être dangereux",
+    encours:
+      "Connaît ses limites mais est tenté de les dépasser",
+    acquis:
+      "Connaît et respecte ses limites",
   },
   {
-    key: "volonte_changement",
-    titre: "Volonté de changement",
-    non: "Refuse les remarques",
-    encours: "Accepte difficilement",
-    acquis: "Cherche à progresser",
+    key: "ponctualite_assiduite",
+    titre: "Ponctualité / Assiduité",
+    non:
+      "Retards fréquents ou absences injustifiées",
+    encours:
+      "Quelques retards ou absences justifiées",
+    acquis:
+      "Respecte ses horaires et n'a pas d'absences",
   },
   {
-    key: "relations_equipe",
-    titre: "Relations / équipe de travail",
-    non: "Entre en conflit",
-    encours: "Relations correctes",
-    acquis: "Très bonne intégration",
-  },
-  {
-    key: "adaptation",
-    titre: "Adaptation",
-    non: "Difficile",
-    encours: "Moyenne",
-    acquis: "Facile",
-  },
-  {
-    key: "presentation",
-    titre: "Présentation",
-    non: "Insuffisante",
-    encours: "Correcte",
-    acquis: "Très bonne",
-  },
-  {
-    key: "comprehension_consignes",
-    titre: "Compréhension des consignes",
-    non: "Difficile",
-    encours: "Partielle",
-    acquis: "Bonne",
-  },
-  {
-    key: "application_regles",
-    titre: "Application des règles",
-    non: "Insuffisante",
-    encours: "Correcte",
-    acquis: "Rigoureuse",
-  },
-  {
-    key: "aptitudes_physiques",
-    titre: "Aptitudes physiques générales",
-    non: "Insuffisantes",
-    encours: "Correctes",
-    acquis: "Très bonnes",
+    key: "attitude_generale",
+    titre: "Attitude générale",
+    non:
+      "Nonchalant ou manque de réserve",
+    encours:
+      "Réservé",
+    acquis:
+      "Ouvert et avenant",
   },
 ];
 
