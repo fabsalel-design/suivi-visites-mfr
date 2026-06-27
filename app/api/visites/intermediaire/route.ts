@@ -1,4 +1,8 @@
-import { generatePeriodeEssaiPdf } from "@/lib/generatePeriodeEssaiPdf";
+
+import {
+  generateIntermediairePdf,
+} from "...";
+
 import { generatePeriodeEssaiExcel } from "@/lib/generatePeriodeEssaiExcel";
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
@@ -124,7 +128,7 @@ console.log(
     }
 
 const pdfBuffer =
-  await generatePeriodeEssaiPdf({
+await generateIntermediairePdf({
     dateEvaluation: date_visite,
 
     employeur:
