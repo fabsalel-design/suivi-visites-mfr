@@ -39,6 +39,63 @@ export default function VisitesPage() {
 
     const result = await response.json();
 
+if (result.pdfData) {
+  const pdfBytes = Uint8Array.from(
+    atob(result.pdfData),
+    (c) => c.charCodeAt(0)
+  );
+
+  const blob = new Blob(
+    [pdfBytes],
+    {
+      type: "application/pdf",
+    }
+  );
+
+  const url =
+    window.URL.createObjectURL(blob);
+
+  const a =
+    document.createElement("a");
+
+  a.href = url;
+  a.download =
+    "evaluation-periode-essai.pdf";
+
+  a.click();
+
+  window.URL.revokeObjectURL(url);
+}
+
+if (result.excelData) {
+  const excelBytes = Uint8Array.from(
+    atob(result.excelData),
+    (c) => c.charCodeAt(0)
+  );
+
+  const blob = new Blob(
+    [excelBytes],
+    {
+      type:
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    }
+  );
+
+  const url =
+    window.URL.createObjectURL(blob);
+
+  const a =
+    document.createElement("a");
+
+  a.href = url;
+  a.download =
+    "evaluation-periode-essai.xlsx";
+
+  a.click();
+
+  window.URL.revokeObjectURL(url);
+}
+
     if (result.success) {
       alert(
         `Visite enregistrée ✅\nID : ${result.visite_id}`
