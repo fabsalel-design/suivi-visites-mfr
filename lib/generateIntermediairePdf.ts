@@ -7,13 +7,11 @@ export async function generateIntermediairePdf(
   data: any
 ) {
 
-}
-
 
   const filePath = path.join(
     process.cwd(),
     "templates",
-    "evaluation_apprenti FINAL.pdf"
+    "evaluation_intermediaire FINAL.pdf
   );
 
   const pdfBytes =
@@ -232,7 +230,7 @@ drawEvaluation(
 
 drawMultilineText(
   page,
-  data.observations || "",
+ data.conseils || "",
   120,
   230
 );
