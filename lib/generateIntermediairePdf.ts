@@ -11,7 +11,7 @@ export async function generateIntermediairePdf(
   const filePath = path.join(
     process.cwd(),
     "templates",
-    "evaluation_intermediaire FINAL.pdf
+    "evaluation_intermediaire FINAL.pdf"
   );
 
   const pdfBytes =
