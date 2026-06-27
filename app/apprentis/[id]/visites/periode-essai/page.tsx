@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
+import {
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 
 const criteres = [
   {
@@ -105,6 +109,9 @@ const [visiteId, setVisiteId] =
 const [pdfData, setPdfData] =
   useState("");
 
+const canvasRef =
+  useRef<HTMLCanvasElement>(null);
+
   const [dateVisite, setDateVisite] =
     useState("");
 
@@ -155,6 +162,84 @@ if (response.ok) {
 
     charger();
   }, [params]);
+
+useEffect(() => {
+  async function charger() {
+    ...
+  }
+
+  charger();
+}, [params]);
+
+useEffect(() => {
+  const canvas = canvasRef.current;
+
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  if (!ctx) return;
+
+  let drawing = false;
+
+  const start = (e: MouseEvent) => {
+    drawing = true;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      e.offsetX,
+      e.offsetY
+    );
+  };
+
+  const move = (e: MouseEvent) => {
+    if (!drawing) return;
+
+    ctx.lineTo(
+      e.offsetX,
+      e.offsetY
+    );
+
+    ctx.stroke();
+  };
+
+  const end = () => {
+    drawing = false;
+  };
+
+  canvas.addEventListener(
+    "mousedown",
+    start
+  );
+
+  canvas.addEventListener(
+    "mousemove",
+    move
+  );
+
+  canvas.addEventListener(
+    "mouseup",
+    end
+  );
+
+  return () => {
+    canvas.removeEventListener(
+      "mousedown",
+      start
+    );
+
+    canvas.removeEventListener(
+      "mousemove",
+      move
+    );
+
+    canvas.removeEventListener(
+      "mouseup",
+      end
+    );
+  };
+}, []);
 
   async function enregistrer() {
     try {
