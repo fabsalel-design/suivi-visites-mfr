@@ -242,10 +242,16 @@ const signatureMaitre =
         "image/png"
       ) || "";
 
-    console.log(
-      "SIGNATURE",
-      signatureMaitre
-    );
+   
+console.log(
+  "SIGNATURE",
+  signatureMaitre
+);
+
+console.log(
+  "TAILLE",
+  signatureMaitre.length
+);
 
       const response = await fetch(
         "/api/visites/periode-essai",
