@@ -279,6 +279,25 @@ signature_formateur text
 Visa CFA
 ```
 
+### Signature CFA
+
+✅ Canvas ajouté
+
+✅ Signature enregistrée en base
+
+✅ Colonne signature_formateur créée
+
+✅ Transmission au PDF
+
+✅ Position validée
+
+Coordonnées :
+
+x: 430
+y: 115
+width: 120
+height: 50
+
 ---
 
 #### Évolutions futures
