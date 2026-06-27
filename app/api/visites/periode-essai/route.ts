@@ -107,11 +107,14 @@ const {
 
 console.log(
   "SIGNATURE RECUE :",
-  signature_maitre?.substring(
-    0,
-    50
-  )
+  signature_maitre
 );
+
+console.log(
+  "TYPE :",
+  typeof signature_maitre
+);
+
 
     if (detailsError) {
       return NextResponse.json(
