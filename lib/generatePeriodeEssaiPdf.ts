@@ -201,7 +201,7 @@ drawEvaluation(
   Y_APTITUDES_PHYSIQUES
 );
 
-  page.drawText(data.observations || "", {
+page.drawText(data.observations || "", {
   x: 120,
   y: 220,
   size: 10,
@@ -218,8 +218,6 @@ page.drawText(data.pointsFaibles || "", {
   y: 145,
   size: 10,
 });
-
-
 
   return await pdfDoc.save();
 }
