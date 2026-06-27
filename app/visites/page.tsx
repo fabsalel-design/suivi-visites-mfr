@@ -38,9 +38,14 @@ export default function VisitesPage() {
     );
 
     const result = await response.json();
-    console.log(result);
+  
+console.log("PDF PRESENT", !!result.pdfData);
+console.log("TAILLE PDF", result.pdfData?.length);
+console.log(result);
 
 if (result.pdfData) {
+  console.log("TELECHARGEMENT PDF");
+  
   const pdfBytes = Uint8Array.from(
     atob(result.pdfData),
     (c) => c.charCodeAt(0)
