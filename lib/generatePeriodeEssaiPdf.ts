@@ -103,6 +103,42 @@ page.drawText(data.maitreApprentissage, {
 
 // drawCroix(page, X_NON_ACQUISE, Y_APPLICATION_REGLES);
 // drawCroix(page, X_EN_COURS, Y_APTITUDES_PHYSIQUES);
+  
+function drawEvaluation(
+  page: any,
+  valeur: string,
+  y: number
+) {
+  if (valeur === "NON_ACQUISE") {
+    drawCroix(
+      page,
+      X_NON_ACQUISE,
+      y
+    );
+  }
+
+  if (valeur === "EN_COURS") {
+    drawCroix(
+      page,
+      X_EN_COURS,
+      y
+    );
+  }
+
+  if (valeur === "ACQUISE") {
+    drawCroix(
+      page,
+      X_ACQUISE,
+      y
+    );
+  }
+}
+
+drawEvaluation(
+  page,
+  "NON_ACQUISE",
+  Y_DYNAMISME
+);
 
   return await pdfDoc.save();
 }
