@@ -64,14 +64,12 @@ page.drawText("APPRENTI TEST", {
   y: 610,
   size: 10,
 });
-
   
 page.drawText("FORMATION TEST", {
   x: 455,
   y: 610,
   size: 10,
 });
-
 
 page.drawText("FORMATEUR TEST", {
   x: 150,
@@ -85,7 +83,20 @@ page.drawText("MAITRE TEST", {
   size: 10,
 });
 
-drawCroix(page, X_NON_ACQUISE, 270);
+drawCroix(page, X_NON_ACQUISE, Y_INTERET_MOTIVATION);
+drawCroix(page, X_EN_COURS, Y_DYNAMISME);
+drawCroix(page, X_ACQUISE, Y_ESPRIT_INITIATIVE);
+
+drawCroix(page, X_NON_ACQUISE, Y_SENS_ORGANISATION);
+drawCroix(page, X_EN_COURS, Y_VOLONTE_CHANGEMENT);
+drawCroix(page, X_ACQUISE, Y_RELATIONS_EQUIPE);
+
+drawCroix(page, X_NON_ACQUISE, Y_ADAPTATION);
+drawCroix(page, X_EN_COURS, Y_PRESENTATION);
+drawCroix(page, X_ACQUISE, Y_COMPREHENSION_CONSIGNES);
+
+drawCroix(page, X_NON_ACQUISE, Y_APPLICATION_REGLES);
+drawCroix(page, X_EN_COURS, Y_APTITUDES_PHYSIQUES);
 
   return await pdfDoc.save();
 }
