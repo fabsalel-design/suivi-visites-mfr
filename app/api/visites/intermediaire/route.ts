@@ -56,7 +56,6 @@ const {
   mode_traitement:
     "application",
 })
-
       .select()
       .single();
 
