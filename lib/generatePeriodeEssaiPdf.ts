@@ -205,19 +205,26 @@ page.drawText(data.observations || "", {
   x: 120,
   y: 220,
   size: 10,
+  maxWidth: 430,
+  lineHeight: 12,
 });
 
 page.drawText(data.pointsForts || "", {
   x: 120,
   y: 185,
   size: 10,
+  maxWidth: 430,
+  lineHeight: 12,
 });
 
 page.drawText(data.pointsFaibles || "", {
   x: 120,
   y: 145,
   size: 10,
+  maxWidth: 430,
+  lineHeight: 12,
 });
+
 
   return await pdfDoc.save();
 }
