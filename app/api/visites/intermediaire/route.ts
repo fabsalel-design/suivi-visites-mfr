@@ -166,17 +166,13 @@ const pdfBuffer =
     attitude_generale,
   });
 
- 
+
 return NextResponse.json({
   success: true,
+
   visite_id: visite.id,
 
-  excel: !!excelBuffer,
   pdf: !!pdfBuffer,
-
-  excelData: Buffer.from(
-    excelBuffer
-  ).toString("base64"),
 
   pdfData: Buffer.from(
     pdfBuffer
