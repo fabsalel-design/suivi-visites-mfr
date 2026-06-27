@@ -100,9 +100,10 @@ page.drawText(data.dateEvaluation || "", {
 });
 
 page.drawText(data.employeur || "", {
-  x: 455,
+  x: 390,
   y: 642,
   size: 10,
+
 });
 
 page.drawText(data.apprenti || "", {
@@ -112,7 +113,7 @@ page.drawText(data.apprenti || "", {
 });
 
 page.drawText(data.formation || "", {
-  x: 455,
+x: 390,
   y: 610,
   size: 10,
 });
@@ -124,10 +125,11 @@ page.drawText(data.formateur || "", {
 });
 
 page.drawText(data.maitreApprentissage || "", {
-  x: 455,
+ x: 390,
   y: 585,
   size: 10,
 });
+
 
 function drawEvaluation(
   page: any,
