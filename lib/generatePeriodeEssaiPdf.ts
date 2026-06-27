@@ -255,5 +255,26 @@ console.log(
     : "NON"
 );
 
+if (data.signatureMaitre) {
+  const base64 =
+    data.signatureMaitre.replace(
+      /^data:image\/png;base64,/,
+      ""
+    );
+
+  const signatureImage =
+    await pdfDoc.embedPng(base64);
+
+  page.drawImage(
+    signatureImage,
+    {
+      x: 430,
+      y: 55,
+      width: 120,
+      height: 50,
+    }
+  );
+}
+
   return await pdfDoc.save();
 }
