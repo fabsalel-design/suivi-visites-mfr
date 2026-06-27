@@ -7,31 +7,28 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
    
+
 const {
   apprenti_id,
   date_visite,
-
   formation_suivie,
+  formateur_visiteur,
 
-  interet_motivation,
-  dynamisme,
-  esprit_initiative,
-  sens_organisation,
-  volonte_changement,
-  relations_equipe,
-  adaptation,
-  presentation,
-  comprehension_consignes,
-  application_regles,
-  aptitudes_physiques,
+  conseils,
 
-  observations,
   points_forts,
   points_faibles,
+
+  autonomie,
+  esprit_initiative,
+  respect_limites,
+  ponctualite_assiduite,
+  attitude_generale,
 
   signature_maitre,
   signature_formateur,
 } = body;
+
 
     const { data: apprenti } =
       await supabase
@@ -80,32 +77,27 @@ const {
     const { error: detailsError } =
       await supabase
         .from(
-          "visites_periode_essai"
+         "visites_intermediaires"
         )
-        .insert({
-          visite_id: visite.id,
+   
+.insert({
+  visite_id: visite.id,
 
-          formation_suivie,
+  formation_suivie,
 
-          interet_motivation,
-          dynamisme,
-          esprit_initiative,
-          sens_organisation,
-          volonte_changement,
-          relations_equipe,
-          adaptation,
-          presentation,
-          comprehension_consignes,
-          application_regles,
-          aptitudes_physiques,
+  autonomie,
+  esprit_initiative,
+  respect_limites,
+  ponctualite_assiduite,
+  attitude_generale,
 
-          observations,
-          points_forts,
-          points_faibles,
+  conseils,
+  points_forts,
+  points_faibles,
 
-          signature_maitre,
-          signature_formateur,
-        });
+  signature_maitre,
+  signature_formateur,
+})
 
 console.log(
   "SIGNATURE RECUE :",
