@@ -91,8 +91,8 @@ const canvasFormateurRef =
     setFormationSuivie,
   ] = useState("");
 
-  const [observations, setObservations] =
-    useState("");
+  const [conseils, setConseils] =
+  useState("");
 
   const [pointsForts, setPointsForts] =
     useState("");
@@ -269,8 +269,7 @@ console.log(
 
             formateur_visiteur:
               formateur,
-
-            observations,
+conseils,
 
             points_forts:
               pointsForts,
@@ -597,21 +596,24 @@ setPdfData(
 </table>
 
       <div>
-        <h3>
-          Observations générales
-        </h3>
+        
+<h3>
+  Conseils à donner à l'apprenti(e)
+  pour s'améliorer
+</h3>
 
         <textarea
           rows={5}
           style={{
             width: "100%",
           }}
-          value={observations}
-          onChange={(e) =>
-            setObservations(
-              e.target.value
-            )
-          }
+        
+value={conseils}
+onChange={(e) =>
+  setConseils(
+    e.target.value
+  )
+}
         />
       </div>
 
