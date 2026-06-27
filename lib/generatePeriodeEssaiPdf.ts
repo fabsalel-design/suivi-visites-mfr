@@ -202,5 +202,23 @@ drawEvaluation(
 );
 
 
+page.drawText("OBSERVATION TEST", {
+  x: 120,
+  y: 155,
+  size: 10,
+});
+
+page.drawText("POINT FORT TEST", {
+  x: 120,
+  y: 105,
+  size: 10,
+});
+
+page.drawText("POINT FAIBLE TEST", {
+  x: 120,
+  y: 55,
+  size: 10,
+});
+
   return await pdfDoc.save();
 }
