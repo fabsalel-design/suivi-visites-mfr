@@ -274,6 +274,9 @@ const signatureMaitre =
             points_faibles:
               pointsFaibles,
 
+signature_maitre:
+    signatureMaitre,
+
             interet_motivation:
               notes.interet_motivation ||
               "",
