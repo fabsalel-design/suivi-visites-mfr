@@ -20,8 +20,8 @@ export async function generatePeriodeEssaiPdf() {
     pdfDoc.getPage(0);
 
 const X_NON_ACQUISE = 265;
-const X_EN_COURS = 400;
-const X_ACQUISE = 540;
+const X_EN_COURS = 410;
+const X_ACQUISE = 550;
 
 const Y_INTERET_MOTIVATION = 523;
 const Y_DYNAMISME = 502;
@@ -29,7 +29,7 @@ const Y_ESPRIT_INITIATIVE = 472;
 const Y_SENS_ORGANISATION = 442;
 
 const Y_VOLONTE_CHANGEMENT = 420;
-const Y_RELATIONS_EQUIPE = 405;
+const Y_RELATIONS_EQUIPE = 400;
 
 const Y_ADAPTATION = 367;
 const Y_PRESENTATION = 346;
