@@ -109,7 +109,10 @@ const [visiteId, setVisiteId] =
 const [pdfData, setPdfData] =
   useState("");
 
-const canvasRef =
+const canvasMaitreRef =
+  useRef<HTMLCanvasElement>(null);
+
+const canvasFormateurRef =
   useRef<HTMLCanvasElement>(null);
 
   const [dateVisite, setDateVisite] =
@@ -163,73 +166,96 @@ if (response.ok) {
     charger();
   }, [params]);
 
+
 useEffect(() => {
-  const canvas = canvasRef.current;
+  function initCanvas(
+    canvas: HTMLCanvasElement | null
+  ) {
+    if (!canvas) return;
 
-  if (!canvas) return;
+    const ctx =
+      canvas.getContext("2d");
 
-  const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-  if (!ctx) return;
+    let drawing = false;
 
-  let drawing = false;
+    const start = (
+      e: MouseEvent
+    ) => {
+      drawing = true;
 
-  const start = (e: MouseEvent) => {
-    drawing = true;
+      ctx.beginPath();
 
-    ctx.beginPath();
+      ctx.moveTo(
+        e.offsetX,
+        e.offsetY
+      );
+    };
 
-    ctx.moveTo(
-      e.offsetX,
-      e.offsetY
-    );
-  };
+    const move = (
+      e: MouseEvent
+    ) => {
+      if (!drawing) return;
 
-  const move = (e: MouseEvent) => {
-    if (!drawing) return;
+      ctx.lineTo(
+        e.offsetX,
+        e.offsetY
+      );
 
-    ctx.lineTo(
-      e.offsetX,
-      e.offsetY
-    );
+      ctx.stroke();
+    };
 
-    ctx.stroke();
-  };
+    const end = () => {
+      drawing = false;
+    };
 
-  const end = () => {
-    drawing = false;
-  };
-
-  canvas.addEventListener(
-    "mousedown",
-    start
-  );
-
-  canvas.addEventListener(
-    "mousemove",
-    move
-  );
-
-  canvas.addEventListener(
-    "mouseup",
-    end
-  );
-
-  return () => {
-    canvas.removeEventListener(
+    canvas.addEventListener(
       "mousedown",
       start
     );
 
-    canvas.removeEventListener(
+    canvas.addEventListener(
       "mousemove",
       move
     );
 
-    canvas.removeEventListener(
+    canvas.addEventListener(
       "mouseup",
       end
     );
+
+    return () => {
+      canvas.removeEventListener(
+        "mousedown",
+        start
+      );
+
+      canvas.removeEventListener(
+        "mousemove",
+        move
+      );
+
+      canvas.removeEventListener(
+        "mouseup",
+        end
+      );
+    };
+  }
+
+  const cleanupMaitre =
+    initCanvas(
+      canvasMaitreRef.current
+    );
+
+  const cleanupFormateur =
+    initCanvas(
+      canvasFormateurRef.current
+    );
+
+  return () => {
+    cleanupMaitre?.();
+    cleanupFormateur?.();
   };
 }, []);
 
@@ -238,10 +264,9 @@ useEffect(() => {
       setLoading(true);
 
 const signatureMaitre =
-      canvasRef.current?.toDataURL(
-        "image/png"
-      ) || "";
-
+  canvasMaitreRef.current?.toDataURL(
+    "image/png"
+  ) || "";
    
 console.log(
   "SIGNATURE",
@@ -657,8 +682,9 @@ setPdfData(
     Signature maître d'apprentissage
   </h3>
 
-  <canvas
-    ref={canvasRef}
+
+<canvas
+  ref={canvasMaitreRef}
     width={400}
     height={150}
     style={{
@@ -672,8 +698,9 @@ setPdfData(
   <button
     type="button"
     onClick={() => {
-      const canvas =
-        canvasRef.current;
+     
+const canvas =
+  canvasMaitreRef.current;
 
       if (!canvas) return;
 
@@ -694,6 +721,51 @@ setPdfData(
   </button>
 </div>
 
+<div
+  style={{
+    marginTop: "30px",
+  }}
+>
+  <h3>
+    Signature Formateur CFA
+  </h3>
+
+  <canvas
+    ref={canvasFormateurRef}
+    width={400}
+    height={150}
+    style={{
+      border: "1px solid #000",
+      backgroundColor: "#fff",
+    }}
+  />
+
+  <br />
+
+  <button
+    type="button"
+    onClick={() => {
+      const canvas =
+        canvasFormateurRef.current;
+
+      if (!canvas) return;
+
+      const ctx =
+        canvas.getContext("2d");
+
+      if (!ctx) return;
+
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+    }}
+  >
+    Effacer signature CFA
+  </button>
+</div>
   
 <div
   style={{
