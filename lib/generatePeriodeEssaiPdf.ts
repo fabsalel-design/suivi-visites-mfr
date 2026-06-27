@@ -94,7 +94,7 @@ function drawMultilineText(
 }
   
 page.drawText(data.dateEvaluation || "", {
-  x: 95,
+  x: 105,
   y: 642,
   size: 10,
 });
@@ -119,7 +119,7 @@ x: 365,
 });
 
 page.drawText(data.formateur || "", {
-  x: 105,
+  x: 95,
   y: 585,
   size: 10,
 });
