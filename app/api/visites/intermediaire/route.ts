@@ -56,7 +56,7 @@ const {
         realisee: true,
         mode_traitement:
           "application",
-        observations,
+      conseils
       })
       .select()
       .single();
@@ -147,7 +147,7 @@ const excelBuffer =
   maitreApprentissage:
     apprenti.tuteur || "",
 
-  observations,
+conseils
 
   pointsForts: points_forts,
 
@@ -193,7 +193,7 @@ const pdfBuffer =
 signatureFormateur:
   signature_formateur,
 
-observations,
+conseils
 
 pointsForts: points_forts,
 
