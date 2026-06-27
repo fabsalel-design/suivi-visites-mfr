@@ -53,57 +53,6 @@ function drawCroix(
   });
 }
 
-page.drawText(data.dateEvaluation, {
-  x: 150,
-  y: 642,
-  size: 10,
-});
-
-page.drawText(data.employeur, {
-  x: 455,
-  y: 642,
-  size: 10,
-});
-
-page.drawText(data.apprenti, {
-  x: 150,
-  y: 610,
-  size: 10,
-});
-  
-page.drawText(data.formation, {
-  x: 455,
-  y: 610,
-  size: 10,
-});
-
-page.drawText(data.formateur, {
-  x: 150,
-  y: 585,
-  size: 10,
-});
-
-page.drawText(data.maitreApprentissage, {
-  x: 455,
-  y: 585,
-  size: 10,
-});
-
-// drawCroix(page, X_NON_ACQUISE, Y_INTERET_MOTIVATION);
-// drawCroix(page, X_EN_COURS, Y_DYNAMISME);
-// drawCroix(page, X_ACQUISE, Y_ESPRIT_INITIATIVE);
-
-// drawCroix(page, X_NON_ACQUISE, Y_SENS_ORGANISATION);
-// drawCroix(page, X_EN_COURS, Y_VOLONTE_CHANGEMENT);
-// drawCroix(page, X_ACQUISE, Y_RELATIONS_EQUIPE);
-
-// drawCroix(page, X_NON_ACQUISE, Y_ADAPTATION);
-// drawCroix(page, X_EN_COURS, Y_PRESENTATION);
-// drawCroix(page, X_ACQUISE, Y_COMPREHENSION_CONSIGNES);
-
-// drawCroix(page, X_NON_ACQUISE, Y_APPLICATION_REGLES);
-// drawCroix(page, X_EN_COURS, Y_APTITUDES_PHYSIQUES);
-  
 function drawMultilineText(
   page: any,
   text: string,
@@ -143,7 +92,7 @@ function drawMultilineText(
     });
   });
 }
-
+  
 function drawEvaluation(
   page: any,
   valeur: string,
@@ -240,7 +189,6 @@ drawEvaluation(
   data.aptitudes_physiques,
   Y_APTITUDES_PHYSIQUES
 );
-
 
 drawMultilineText(
   page,
