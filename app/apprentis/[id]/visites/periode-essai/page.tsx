@@ -268,6 +268,11 @@ const signatureMaitre =
     "image/png"
   ) || "";
    
+const signatureFormateur =
+  canvasFormateurRef.current?.toDataURL(
+    "image/png"
+  ) || "";
+
 console.log(
   "SIGNATURE",
   signatureMaitre
@@ -307,6 +312,9 @@ console.log(
 
 signature_maitre:
     signatureMaitre,
+
+signature_formateur:
+  signatureFormateur,
 
             interet_motivation:
               notes.interet_motivation ||
