@@ -276,5 +276,33 @@ if (data.signatureMaitre) {
   );
 }
 
+if (data.signatureFormateur) {
+  const base64 =
+    data.signatureFormateur.replace(
+      /^data:image\/png;base64,/,
+      ""
+    );
+
+  const signatureImage =
+    await pdfDoc.embedPng(base64);
+
+  page.drawImage(
+    signatureImage,
+    {
+      x: 430,
+      y: 85,
+      width: 120,
+      height: 50,
+    }
+  );
+}
+
+console.log(
+  "SIGNATURE FORMATEUR PDF :",
+  data.signatureFormateur
+    ? "OUI"
+    : "NON"
+);
+
   return await pdfDoc.save();
 }
