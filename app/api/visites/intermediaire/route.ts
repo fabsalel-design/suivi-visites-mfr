@@ -28,7 +28,6 @@ const {
   signature_formateur,
 } = body;
 
-
     const { data: apprenti } =
       await supabase
         .from("apprentis")
