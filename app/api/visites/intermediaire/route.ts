@@ -147,8 +147,7 @@ const excelBuffer =
   maitreApprentissage:
     apprenti.tuteur || "",
 
-conseils
-
+conseils,
   pointsForts: points_forts,
 
   pointsFaibles: points_faibles,
