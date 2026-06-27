@@ -3,7 +3,10 @@ import { PDFDocument } from "pdf-lib";
 import fs from "fs";
 import path from "path";
 
-export async function generatePeriodeEssaiPdf() {
+export async function generatePeriodeEssaiPdf(
+  data: any
+) {
+
   const filePath = path.join(
     process.cwd(),
     "templates",
@@ -50,56 +53,56 @@ function drawCroix(
   });
 }
 
-page.drawText("DATE TEST", {
+page.drawText(data.dateEvaluation, {
   x: 150,
   y: 642,
   size: 10,
 });
 
-page.drawText("EMPLOYEUR TEST", {
+page.drawText(data.employeur, {
   x: 455,
   y: 642,
   size: 10,
 });
 
-page.drawText("APPRENTI TEST", {
+page.drawText(data.apprenti, {
   x: 150,
   y: 610,
   size: 10,
 });
   
-page.drawText("FORMATION TEST", {
+page.drawText(data.formation, {
   x: 455,
   y: 610,
   size: 10,
 });
 
-page.drawText("FORMATEUR TEST", {
+page.drawText(data.formateur, {
   x: 150,
   y: 585,
   size: 10,
 });
 
-page.drawText("MAITRE TEST", {
+page.drawText(data.maitreApprentissage, {
   x: 455,
   y: 585,
   size: 10,
 });
 
-drawCroix(page, X_NON_ACQUISE, Y_INTERET_MOTIVATION);
-drawCroix(page, X_EN_COURS, Y_DYNAMISME);
-drawCroix(page, X_ACQUISE, Y_ESPRIT_INITIATIVE);
+// drawCroix(page, X_NON_ACQUISE, Y_INTERET_MOTIVATION);
+// drawCroix(page, X_EN_COURS, Y_DYNAMISME);
+// drawCroix(page, X_ACQUISE, Y_ESPRIT_INITIATIVE);
 
-drawCroix(page, X_NON_ACQUISE, Y_SENS_ORGANISATION);
-drawCroix(page, X_EN_COURS, Y_VOLONTE_CHANGEMENT);
-drawCroix(page, X_ACQUISE, Y_RELATIONS_EQUIPE);
+// drawCroix(page, X_NON_ACQUISE, Y_SENS_ORGANISATION);
+// drawCroix(page, X_EN_COURS, Y_VOLONTE_CHANGEMENT);
+// drawCroix(page, X_ACQUISE, Y_RELATIONS_EQUIPE);
 
-drawCroix(page, X_NON_ACQUISE, Y_ADAPTATION);
-drawCroix(page, X_EN_COURS, Y_PRESENTATION);
-drawCroix(page, X_ACQUISE, Y_COMPREHENSION_CONSIGNES);
+// drawCroix(page, X_NON_ACQUISE, Y_ADAPTATION);
+// drawCroix(page, X_EN_COURS, Y_PRESENTATION);
+// drawCroix(page, X_ACQUISE, Y_COMPREHENSION_CONSIGNES);
 
-drawCroix(page, X_NON_ACQUISE, Y_APPLICATION_REGLES);
-drawCroix(page, X_EN_COURS, Y_APTITUDES_PHYSIQUES);
+// drawCroix(page, X_NON_ACQUISE, Y_APPLICATION_REGLES);
+// drawCroix(page, X_EN_COURS, Y_APTITUDES_PHYSIQUES);
 
   return await pdfDoc.save();
 }
