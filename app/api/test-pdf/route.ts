@@ -12,6 +12,9 @@ const pdfBytes =
     formation: "FORMATION TEST",
     formateur: "FORMATEUR TEST",
     maitreApprentissage: "MAITRE TEST",
+
+    interet_motivation: "NON_ACQUISE",
+    dynamisme: "EN_COURS",
   });
 
   return new NextResponse(Buffer.from(pdfBytes), {
