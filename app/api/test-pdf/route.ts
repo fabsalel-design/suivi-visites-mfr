@@ -13,9 +13,18 @@ const pdfBytes =
     formateur: "FORMATEUR TEST",
     maitreApprentissage: "MAITRE TEST",
 
-    interet_motivation: "NON_ACQUISE",
-    dynamisme: "EN_COURS",
-  });
+interet_motivation: "NON_ACQUISE",
+dynamisme: "EN_COURS",
+esprit_initiative: "ACQUISE",
+sens_organisation: "NON_ACQUISE",
+volonte_changement: "EN_COURS",
+relations_equipe: "ACQUISE",
+adaptation: "NON_ACQUISE",
+presentation: "EN_COURS",
+comprehension_consignes: "ACQUISE",
+application_regles: "NON_ACQUISE",
+aptitudes_physiques: "EN_COURS",
+
 
   return new NextResponse(Buffer.from(pdfBytes), {
     headers: {
