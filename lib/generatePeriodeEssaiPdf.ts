@@ -85,7 +85,7 @@ page.drawText("MAITRE TEST", {
   size: 10,
 });
 
-drawCroix(page, X_NON_ACQUISE, 360);
+drawCroix(page, X_NON_ACQUISE, 375);
 
   return await pdfDoc.save();
 }
