@@ -215,7 +215,7 @@ page.drawText("POINT FORT TEST", {
 
 page.drawText("POINT FAIBLE TEST", {
   x: 120,
-  y: 115,
+  y: 135,
   size: 10,
 });
 
