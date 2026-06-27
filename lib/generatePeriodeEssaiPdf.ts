@@ -201,22 +201,21 @@ drawEvaluation(
   Y_APTITUDES_PHYSIQUES
 );
 
-
 page.drawText("OBSERVATION TEST", {
   x: 120,
-  y: 155,
+  y: 118,
   size: 10,
 });
 
 page.drawText("POINT FORT TEST", {
   x: 120,
-  y: 105,
+  y: 83,
   size: 10,
 });
 
 page.drawText("POINT FAIBLE TEST", {
   x: 120,
-  y: 55,
+  y: 48,
   size: 10,
 });
 
