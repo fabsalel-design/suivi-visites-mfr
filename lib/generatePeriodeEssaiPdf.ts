@@ -119,7 +119,7 @@ x: 365,
 });
 
 page.drawText(data.formateur || "", {
-  x: 95,
+  x: 100,
   y: 585,
   size: 10,
 });
