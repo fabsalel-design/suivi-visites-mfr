@@ -290,7 +290,7 @@ if (data.signatureFormateur) {
     signatureImage,
     {
       x: 430,
-      y: 85,
+      y: 115,
       width: 120,
       height: 50,
     }
