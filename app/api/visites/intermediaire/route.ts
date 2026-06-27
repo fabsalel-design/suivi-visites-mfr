@@ -47,18 +47,19 @@ const {
       data: visite,
       error: visiteError,
     } = await supabase
-      .from("visites")
-      .insert({
-        apprenti_id,
-        date_visite,
-        type_visite: "periode_essai",
-        formateur_visiteur:
-          formateurVisiteur,
-        realisee: true,
-        mode_traitement:
-          "application",
-      conseils,
-      })
+      
+.from("visites")
+.insert({
+  apprenti_id,
+  date_visite,
+  type_visite: "intermediaire",
+  formateur_visiteur:
+    formateurVisiteur,
+  realisee: true,
+  mode_traitement:
+    "application",
+})
+
       .select()
       .single();
 
