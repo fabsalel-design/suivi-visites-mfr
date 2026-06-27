@@ -165,7 +165,7 @@ conseils,
   aptitudes_physiques,
 });
 
-    
+
 const pdfBuffer =
   await generatePeriodeEssaiPdf({
     dateEvaluation: date_visite,
@@ -187,29 +187,28 @@ const pdfBuffer =
 
     maitreApprentissage:
       apprenti.tuteur || "",
-    signatureMaitre: signature_maitre,
-    
-signatureFormateur:
-  signature_formateur,
 
-conseils,
+    signatureMaitre:
+      signature_maitre,
 
-pointsForts: points_forts,
+    signatureFormateur:
+      signature_formateur,
 
-pointsFaibles: points_faibles,
+    conseils,
 
-    interet_motivation,
-    dynamisme,
+    pointsForts:
+      points_forts,
+
+    pointsFaibles:
+      points_faibles,
+
+    autonomie,
     esprit_initiative,
-    sens_organisation,
-    volonte_changement,
-    relations_equipe,
-    adaptation,
-    presentation,
-    comprehension_consignes,
-    application_regles,
-    aptitudes_physiques,
+    respect_limites,
+    ponctualite_assiduite,
+    attitude_generale,
   });
+
  
 return NextResponse.json({
   success: true,
