@@ -102,7 +102,7 @@ const [apprenti, setApprenti] =
 const [visiteId, setVisiteId] =
   useState<number | null>(null);
   
-const [excelData, setExcelData] =
+const [pdfData, setPdfData] =
   useState("");
 
   const [dateVisite, setDateVisite] =
@@ -238,16 +238,11 @@ console.log(
   "RESULTAT API :",
   result
 );
-
-alert(
-  "ExcelData présent : " +
-    (result.excelData ? "OUI" : "NON")
-);
-      
+     
 setVisiteId(result.visite_id);
-      
-setExcelData(
-  result.excelData || ""
+     
+setPdfData(
+  result.pdfData || ""
 );
       
       if (!response.ok) {
@@ -582,36 +577,22 @@ setExcelData(
       ? "Enregistrement..."
       : "Enregistrer"}
   </button>
-
-  {visiteId && excelData && (
-    <button
-      onClick={() => {
-        const link =
-          document.createElement("a");
-
-        link.href =
-          "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," +
-          excelData;
-
-        link.download =
-          `evaluation_apprenti_${visiteId}.xlsx`;
-
-        link.click();
-      }}
-      style={{
-        backgroundColor: "#2e7d32",
-        color: "white",
-        border: "none",
-        padding: "12px 20px",
-        borderRadius: "8px",
-        cursor: "pointer",
-      }}
-    >
-      📄 Télécharger Excel
-    </button>
-  )}
-
+ 
+{visiteId && pdfData && (
   <button
+    onClick={() => {
+      const link =
+        document.createElement("a");
+
+      link.href =
+        "data:application/pdf;base64," +
+        pdfData;
+
+      link.download =
+        `evaluation_apprenti_${visiteId}.pdf`;
+
+      link.click();
+    }}
     style={{
       backgroundColor: "#f57c00",
       color: "white",
@@ -621,8 +602,10 @@ setExcelData(
       cursor: "pointer",
     }}
   >
-    Générer le PDF
+    📄 Télécharger PDF
   </button>
+)}
+
 </div>
 
       <p
