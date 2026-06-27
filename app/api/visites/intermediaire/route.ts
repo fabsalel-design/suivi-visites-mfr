@@ -12,7 +12,6 @@ const {
   date_visite,
   formation_suivie,
   formateur_visiteur,
-
   conseils,
 
   points_forts,
