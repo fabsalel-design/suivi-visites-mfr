@@ -94,7 +94,7 @@ function drawMultilineText(
 }
   
 page.drawText(data.dateEvaluation || "", {
-  x: 150,
+  x: 135,
   y: 642,
   size: 10,
 });
@@ -107,19 +107,19 @@ page.drawText(data.employeur || "", {
 });
 
 page.drawText(data.apprenti || "", {
-  x: 150,
-  y: 615,
+  x: 135,
+  y: 613,
   size: 10,
 });
 
 page.drawText(data.formation || "", {
 x: 365,
-  y: 615,
+  y: 613,
   size: 10,
 });
 
 page.drawText(data.formateur || "", {
-  x: 150,
+  x: 135,
   y: 585,
   size: 10,
 });
