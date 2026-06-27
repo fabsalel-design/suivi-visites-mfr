@@ -274,21 +274,28 @@ Statut :
 
 ✅ VALIDÉ
 
----
-
 # Signature CFA
 
-Statut :
+Position validée
 
-🔲 À développer
+```ts
+page.drawImage(
+  signatureImage,
+  {
+    x: 430,
+    y: 115,
+    width: 120,
+    height: 50,
+  }
+);
 
 Coordonnées :
-
-```text
-Non définies
-```
-
----
+x = 430
+y = 115
+width = 120
+height = 50
+Statut :
+✅ VALIDÉ
 
 # Historique des validations
 
