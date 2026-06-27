@@ -108,7 +108,6 @@ console.log(
   typeof signature_maitre
 );
 
-
     if (detailsError) {
       return NextResponse.json(
         {
