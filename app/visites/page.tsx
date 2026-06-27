@@ -71,11 +71,11 @@ if (result.pdfData) {
   window.URL.revokeObjectURL(url);
 }
 
-if (result.excelData) {
-  const excelBytes = Uint8Array.from(
-    atob(result.excelData),
-    (c) => c.charCodeAt(0)
-  );
+// if (result.excelData) {
+  // const excelBytes = Uint8Array.from(
+    // atob(result.excelData),
+   // (c) => c.charCodeAt(0)
+  // );
 
   const blob = new Blob(
     [excelBytes],
