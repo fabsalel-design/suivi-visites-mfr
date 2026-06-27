@@ -203,7 +203,7 @@ drawEvaluation(
 
 page.drawText("OBSERVATION TEST", {
   x: 120,
-  y: 250,
+  y: 220,
   size: 10,
 });
 
