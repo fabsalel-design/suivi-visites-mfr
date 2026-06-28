@@ -203,15 +203,15 @@ drawMultilineText(
  data.conseils || "",
   20,
   320,
-  90
+  70
 );
 
 drawMultilineText(
   page,
   data.pointsForts || "",
-  120,
-  195,
-  60
+  20,
+  215,
+  70
 );
 
 drawMultilineText(
