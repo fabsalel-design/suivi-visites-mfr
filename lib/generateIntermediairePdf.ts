@@ -7,7 +7,6 @@ export async function generateIntermediairePdf(
   data: any
 ) {
 
-
   const filePath = path.join(
     process.cwd(),
     "templates",
