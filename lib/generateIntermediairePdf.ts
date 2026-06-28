@@ -98,10 +98,12 @@ page.drawText(data.dateEvaluation || "", {
   size: 10,
 });
 
-page.drawText(data.employeur || "", {
-  x: 390,
-  y: 642,
-  size: 10,
+drawMultilineText(
+  page,
+  data.employeur || "",
+  390,
+  642
+);
 
 });
 
