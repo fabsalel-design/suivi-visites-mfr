@@ -159,7 +159,6 @@ function drawEvaluation(
   }
 }
 
-
 drawEvaluation(
   page,
   data.interet_motivation,
