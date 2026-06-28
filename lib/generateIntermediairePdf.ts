@@ -102,7 +102,7 @@ drawMultilineText(
   page,
   data.employeur || "",
   390,
-  642
+  642,
   35
 );
 
@@ -202,7 +202,7 @@ drawMultilineText(
   page,
  data.conseils || "",
   120,
-  230
+  230,
   60
 );
 
@@ -210,7 +210,7 @@ drawMultilineText(
   page,
   data.pointsForts || "",
   120,
-  195
+  195,
   60
 );
 
@@ -218,7 +218,7 @@ drawMultilineText(
   page,
   data.pointsFaibles || "",
   120,
-  145
+  145,
   60
 );
 
