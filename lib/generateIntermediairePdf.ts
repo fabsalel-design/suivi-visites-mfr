@@ -261,7 +261,7 @@ page.drawImage(
   signatureImage,
   {
     x: 430,
-    y: 255,
+    y: 260,
     width: 120,
     height: 50,
   }
