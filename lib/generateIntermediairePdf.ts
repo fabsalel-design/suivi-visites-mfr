@@ -133,6 +133,7 @@ function drawEvaluation(
   page: any,
   valeur: string,
   y: number
+  console.log("DRAW", valeur);
 ) {
   if (valeur === "NON_ACQUISE") {
     drawCroix(
@@ -158,7 +159,11 @@ function drawEvaluation(
     );
   }
 }
-
+console.log("AUTONOMIE =", data.autonomie);
+console.log("ESPRIT =", data.esprit_initiative);
+console.log("LIMITES =", data.respect_limites);
+console.log("PONCTUALITE =", data.ponctualite_assiduite);
+console.log("ATTITUDE =", data.attitude_generale);
 
 drawEvaluation(
   page,
