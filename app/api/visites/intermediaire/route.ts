@@ -173,7 +173,6 @@ return NextResponse.json({
     pdfBuffer
   ).toString("base64"),
 });
-
  
 } catch (error) {
   console.error(
