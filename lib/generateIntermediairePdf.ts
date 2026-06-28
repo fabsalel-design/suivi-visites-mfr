@@ -56,9 +56,9 @@ function drawMultilineText(
   page: any,
   text: string,
   x: number,
-  y: number
+  y: number,
+  maxChars: number = 60
 ) {
-  const maxChars = 35;
 
   const words = text.split(" ");
   const lines: string[] = [];
@@ -103,6 +103,7 @@ drawMultilineText(
   data.employeur || "",
   390,
   642
+  35
 );
 
 page.drawText(data.apprenti || "", {
@@ -202,6 +203,7 @@ drawMultilineText(
  data.conseils || "",
   120,
   230
+  60
 );
 
 drawMultilineText(
@@ -209,6 +211,7 @@ drawMultilineText(
   data.pointsForts || "",
   120,
   195
+  60
 );
 
 drawMultilineText(
@@ -216,6 +219,7 @@ drawMultilineText(
   data.pointsFaibles || "",
   120,
   145
+  60
 );
 
 console.log(
