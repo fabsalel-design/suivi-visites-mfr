@@ -105,8 +105,6 @@ drawMultilineText(
   642
 );
 
-});
-
 page.drawText(data.apprenti || "", {
   x: 95,
   y: 613,
