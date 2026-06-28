@@ -133,8 +133,9 @@ function drawEvaluation(
   page: any,
   valeur: string,
   y: number
-  console.log("DRAW", valeur);
 ) {
+    console.log("DRAW", valeur);
+  
   if (valeur === "NON_ACQUISE") {
     drawCroix(
       page,
