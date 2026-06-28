@@ -58,7 +58,7 @@ function drawMultilineText(
   x: number,
   y: number
 ) {
-  const maxChars = 20;
+  const maxChars = 35;
 
   const words = text.split(" ");
   const lines: string[] = [];
