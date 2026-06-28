@@ -283,45 +283,21 @@ signature_maitre:
 signature_formateur:
   signatureFormateur,
 
-            interet_motivation:
-              notes.interet_motivation ||
-              "",
+           
+autonomie:
+  notes.autonomie || "",
 
-            dynamisme:
-              notes.dynamisme || "",
+esprit_initiative:
+  notes.esprit_initiative || "",
 
-            esprit_initiative:
-              notes.esprit_initiative ||
-              "",
+respect_limites:
+  notes.respect_limites || "",
 
-            sens_organisation:
-              notes.sens_organisation ||
-              "",
+ponctualite_assiduite:
+  notes.ponctualite_assiduite || "",
 
-            volonte_changement:
-              notes.volonte_changement ||
-              "",
-
-            relations_equipe:
-              notes.relations_equipe ||
-              "",
-
-            adaptation:
-              notes.adaptation || "",
-
-            presentation:
-              notes.presentation || "",
-
-            comprehension_consignes:
-              notes.comprehension_consignes ||
-              "",
-
-            application_regles:
-              notes.application_regles ||
-              "",
-
-            aptitudes_physiques:
-              notes.aptitudes_physiques ||
+attitude_generale:
+  notes.attitude_generale || "",
               "",
           }),
         }
