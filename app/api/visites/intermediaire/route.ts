@@ -174,17 +174,24 @@ return NextResponse.json({
   ).toString("base64"),
 });
 
-  } catch (error) {
-    console.error(error);
+ 
+} catch (error) {
+  console.error(
+    "ERREUR INTERMEDIAIRE :",
+    error
+  );
 
-    return NextResponse.json(
-      {
-        success: false,
-        error: "Erreur serveur",
-      },
-      {
-        status: 500,
-      }
-    );
-  }
+  return NextResponse.json(
+    {
+      success: false,
+      error:
+        error instanceof Error
+          ? error.message
+          : String(error),
+    },
+    {
+      status: 500,
+    }
+  );
 }
+
