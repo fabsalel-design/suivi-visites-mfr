@@ -203,23 +203,23 @@ drawMultilineText(
  data.conseils || "",
   20,
   320,
-  70
+  75
 );
 
 drawMultilineText(
   page,
   data.pointsForts || "",
   20,
-  215,
-  70
+  220,
+  75
 );
 
 drawMultilineText(
   page,
   data.pointsFaibles || "",
-  120,
-  145,
-  60
+  20,
+  155,
+  75
 );
 
 console.log(
