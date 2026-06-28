@@ -298,7 +298,7 @@ ponctualite_assiduite:
 
 attitude_generale:
   notes.attitude_generale || "",
-              "",
+              
           }),
         }
       );
