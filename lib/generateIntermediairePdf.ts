@@ -210,7 +210,7 @@ drawMultilineText(
   page,
   data.pointsForts || "",
   20,
-  220,
+  224,
   75
 );
 
@@ -218,7 +218,7 @@ drawMultilineText(
   page,
   data.pointsFaibles || "",
   20,
-  155,
+  159,
   75
 );
 
