@@ -197,10 +197,9 @@ drawEvaluation(
   Y_VOLONTE_CHANGEMENT
 );
 
-
 drawMultilineText(
   page,
- data.conseils || "",
+ data.pointsForts || "",
   20,
   320,
   75
@@ -208,7 +207,7 @@ drawMultilineText(
 
 drawMultilineText(
   page,
-  data.pointsForts || "",
+  data.pointsFaibles || "",
   20,
   227,
   75
@@ -216,7 +215,7 @@ drawMultilineText(
 
 drawMultilineText(
   page,
-  data.pointsFaibles || "",
+ data.conseils || "",
   20,
   160,
   75
