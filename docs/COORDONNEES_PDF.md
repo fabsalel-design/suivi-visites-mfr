@@ -323,3 +323,65 @@ Avant toute modification :
 4. Valider visuellement.
 5. Mettre à jour ce document.
 
+
+# EVALUATION INTERMEDIAIRE
+
+## Croches critères
+
+Y_INTERET_MOTIVATION = 517
+Y_DYNAMISME = 483
+Y_ESPRIT_INITIATIVE = 438
+Y_SENS_ORGANISATION = 394
+Y_VOLONTE_CHANGEMENT = 364
+
+Correspondances :
+
+autonomie -> Y_INTERET_MOTIVATION
+esprit_initiative -> Y_DYNAMISME
+respect_limites -> Y_ESPRIT_INITIATIVE
+ponctualite_assiduite -> Y_SENS_ORGANISATION
+attitude_generale -> Y_VOLONTE_CHANGEMENT
+
+## Signature CFA
+
+x = 430
+y = 260
+width = 120
+height = 50
+
+## Signature maître d'apprentissage
+
+x = 430
+y = 125
+width = 120
+height = 50
+
+## Employeur
+
+drawMultilineText(
+  page,
+  data.employeur || "",
+  390,
+  642,
+  35
+);
+
+## Points forts
+
+x = 20
+y = 320
+maxChars = 75
+
+## Points faibles
+
+x = 20
+y = 227
+maxChars = 75
+
+## Conseils
+
+x = 20
+y = 160
+maxChars = 75
+
+✅ PDF visite intermédiaire finalisé et validé
