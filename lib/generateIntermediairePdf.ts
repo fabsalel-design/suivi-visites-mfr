@@ -256,15 +256,16 @@ if (data.signatureFormateur) {
   const signatureImage =
     await pdfDoc.embedPng(base64);
 
-  page.drawImage(
-    signatureImage,
-    {
-      x: 430,
-      y: 115,
-      width: 120,
-      height: 50,
-    }
-  );
+
+page.drawImage(
+  signatureImage,
+  {
+    x: 430,
+    y: 205,
+    width: 120,
+    height: 50,
+  }
+);
 }
 
 console.log(
