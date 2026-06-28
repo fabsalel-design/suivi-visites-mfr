@@ -308,4 +308,19 @@ height: 50
 - Statistiques
 - Export global PDF
 - Gestion avancée des signatures
-``
+
+
+## 2026-06-27
+
+Création complète du module "Visite intermédiaire"
+
+- création page.tsx
+- création route.ts
+- création table visites_intermediaires
+- création generateIntermediairePdf.ts
+- intégration signatures CFA et maître d'apprentissage
+- génération PDF fonctionnelle
+- validation coordonnées PDF
+- validation renvoi à la ligne employeur
+- validation zones points forts / points faibles / conseils
+
