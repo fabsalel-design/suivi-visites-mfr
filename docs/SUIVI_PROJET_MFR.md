@@ -394,3 +394,17 @@ Visa CFA
 🔲 Tableau de bord
 
 🔲 Statistiques
+
+
+✅ Visite période d'essai terminée
+
+✅ Visite intermédiaire terminée
+
+Modules opérationnels :
+
+- Formulaire
+- Enregistrement Supabase
+- Génération PDF
+- Signatures
+- Archivage des visites
+
