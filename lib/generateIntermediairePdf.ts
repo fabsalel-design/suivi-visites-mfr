@@ -239,7 +239,7 @@ if (data.signatureMaitre) {
     signatureImage,
     {
       x: 430,
-      y: 175,
+      y: 125,
       width: 120,
       height: 50,
     }
@@ -261,7 +261,7 @@ page.drawImage(
   signatureImage,
   {
     x: 430,
-    y: 225,
+    y: 255,
     width: 120,
     height: 50,
   }
