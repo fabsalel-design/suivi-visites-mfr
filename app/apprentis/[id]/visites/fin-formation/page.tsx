@@ -524,10 +524,6 @@ setPdfData(
     width: "70%",
   }}
 >
-
-          {[0, 1, 2, 3, 4].map((note) => (
-            <label
-              key={note}
  <td
   style={{          
 border: "1px solid #ccc",
@@ -537,7 +533,9 @@ border: "1px solid #ccc",
     whiteSpace: "nowrap",
   }}
 >
-
+          {[0, 1, 2, 3, 4].map((note) => (
+            <label
+              key={note}
                 marginRight: "15px",
               }}
             >
