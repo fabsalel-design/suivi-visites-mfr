@@ -314,6 +314,9 @@ capacite_adaptation:
 travail_bien_fait:
   notes.travail_bien_fait,
               
+reprise_apprenti:
+  repriseApprenti,
+
           }),
         }
       );
@@ -594,6 +597,47 @@ onChange={(e) =>
             )
           }
         />
+
+<div
+  style={{
+    marginTop: "20px",
+    marginBottom: "20px",
+  }}
+>
+  <h3>
+    Accepteriez-vous à nouveau de reprendre un apprenti ?
+  </h3>
+
+  <label
+    style={{
+      marginRight: "20px",
+    }}
+  >
+    <input
+      type="radio"
+      name="repriseApprenti"
+      checked={repriseApprenti === true}
+      onChange={() =>
+        setRepriseApprenti(true)
+      }
+    />
+    {" "}Oui
+  </label>
+
+  <label>
+    <input
+      type="radio"
+      name="repriseApprenti"
+      checked={repriseApprenti === false}
+      onChange={() =>
+        setRepriseApprenti(false)
+      }
+    />
+    {" "}Non
+  </label>
+</div>
+
+        
       </div>
    
 <div
