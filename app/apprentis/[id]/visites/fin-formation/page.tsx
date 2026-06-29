@@ -239,7 +239,7 @@ console.log(
 );
 
       const response = await fetch(
-"/api/visites/fin-formation"
+  "/api/visites/fin-formation",
         {
           method: "POST",
           headers: {
