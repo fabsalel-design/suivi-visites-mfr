@@ -131,49 +131,6 @@ console.log(
       );
     }
 
-
-const excelBuffer =
-  await generatePeriodeEssaiExcel({
-
-  dateEvaluation: date_visite,
-
-  employeur:
-    `${apprenti.entreprise || ""} ${
-      apprenti.ville_reelle || ""
-    }`,
-
-  apprenti:
-    `${apprenti.prenom || ""} ${
-      apprenti.nom || ""
-    }`,
-
-  formation: formation_suivie,
-
-  formateur:
-    apprenti.formateur || "",
-
-  maitreApprentissage:
-    apprenti.tuteur || "",
-
-  observations,
-
-  pointsForts: points_forts,
-
-  pointsFaibles: points_faibles,
-
-  interet_motivation,
-  dynamisme,
-  esprit_initiative,
-  sens_organisation,
-  volonte_changement,
-  relations_equipe,
-  adaptation,
-  presentation,
-  comprehension_consignes,
-  application_regles,
-  aptitudes_physiques,
-});
-
     
 const pdfBuffer =
   await generatePeriodeEssaiPdf({
