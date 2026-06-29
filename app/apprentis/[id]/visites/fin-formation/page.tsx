@@ -458,24 +458,30 @@ setPdfData(
 >
   <thead>
     <tr>
-      <th
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-          textAlign: "left",
-        }}
-      >
-        Critère
-      </th>
+      
+<th
+  style={{
+    border: "1px solid #ccc",
+    padding: "10px",
+    textAlign: "left",
+    fontSize: "20px",
+    width: "70%",
+  }}
+>
+  Critères à évaluer
+</th>
+      
+<th
+  style={{
+    border: "1px solid #ccc",
+    padding: "10px",
+    width: "30%",
+    fontSize: "20px",
+  }}
+>
+  Note (0 à 4)
+</th>
 
-      <th
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-        }}
-      >
-        Note (0 à 4)
-      </th>
     </tr>
   </thead>
 
@@ -510,16 +516,28 @@ setPdfData(
 
         </td>
 
-        <td
-          style={{
-            border: "1px solid #ccc",
-            padding: "10px",
-          }}
-        >
+       
+<td
+  style={{
+    border: "1px solid #ccc",
+    padding: "10px",
+    width: "70%",
+  }}
+>
+
           {[0, 1, 2, 3, 4].map((note) => (
             <label
               key={note}
-              style={{
+ <td
+  style={{          
+border: "1px solid #ccc",
+    padding: "10px",
+    width: "30%",
+    textAlign: "center",
+    whiteSpace: "nowrap",
+  }}
+>
+
                 marginRight: "15px",
               }}
             >
