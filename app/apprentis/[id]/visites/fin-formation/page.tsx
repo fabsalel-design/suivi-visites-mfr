@@ -8,51 +8,39 @@ import {
   useRef,
 } from "react";
 
+
 const criteres = [
   {
-    key: "autonomie",
-    titre: "Autonomie",
-    non: "A besoin d'être accompagné dans les activités",
-    encours: "Réalise la plupart des tâches seul",
-    acquis: "Est totalement autonome dans son travail",
+    key: "gestion_temps",
+    titre: "Gestion du temps",
   },
   {
-    key: "esprit_initiative",
-    titre: "Esprit d'initiative, curiosité",
-    non: "Ne prend aucune initiative, attend les consignes",
-    encours: "A des idées mais demande une validation avant d'agir",
-    acquis:
-      "Sait prendre des initiatives dans les limites de sa compétence",
+    key: "productivite",
+    titre: "Productivité",
   },
   {
-    key: "respect_limites",
-    titre: "Connaître et respecter ses limites",
-    non:
-      "Ne connaît pas ses limites et peut être dangereux",
-    encours:
-      "Connaît ses limites mais est tenté de les dépasser",
-    acquis:
-      "Connaît et respecte ses limites",
+    key: "sens_responsabilites",
+    titre: "Sens des responsabilités",
   },
   {
-    key: "ponctualite_assiduite",
-    titre: "Ponctualité / Assiduité",
-    non:
-      "Retards fréquents ou absences injustifiées",
-    encours:
-      "Quelques retards ou absences justifiées",
-    acquis:
-      "Respecte ses horaires et n'a pas d'absences",
+    key: "jugement",
+    titre: "Jugement",
   },
   {
-    key: "attitude_generale",
-    titre: "Attitude générale",
-    non:
-      "Nonchalant ou manque de réserve",
-    encours:
-      "Réservé",
-    acquis:
-      "Ouvert et avenant",
+    key: "communication",
+    titre: "Communication",
+  },
+  {
+    key: "sens_relations",
+    titre: "Sens des relations",
+  },
+  {
+    key: "capacite_adaptation",
+    titre: "Capacité d'adaptation",
+  },
+  {
+    key: "travail_bien_fait",
+    titre: "Sens du travail bien fait",
   },
 ];
 
@@ -283,21 +271,29 @@ signature_maitre:
 signature_formateur:
   signatureFormateur,
 
-           
-autonomie:
-  notes.autonomie || "",
+gestion_temps:
+  notes.gestion_temps,
 
-esprit_initiative:
-  notes.esprit_initiative || "",
+productivite:
+  notes.productivite,
 
-respect_limites:
-  notes.respect_limites || "",
+sens_responsabilites:
+  notes.sens_responsabilites,
 
-ponctualite_assiduite:
-  notes.ponctualite_assiduite || "",
+jugement:
+  notes.jugement,
 
-attitude_generale:
-  notes.attitude_generale || "",
+communication:
+  notes.communication,
+
+sens_relations:
+  notes.sens_relations,
+
+capacite_adaptation:
+  notes.capacite_adaptation,
+
+travail_bien_fait:
+  notes.travail_bien_fait,
               
           }),
         }
@@ -450,123 +446,45 @@ setPdfData(
           padding: "10px",
           textAlign: "left",
         }}
-      >
-        Critère
-      </th>
+ 
+<th
+  style={{
+    border: "1px solid #ccc",
+    padding: "10px",
+  }}
+>
+  Note (0 à 4)
+</th>
 
-      <th
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-        }}
-      >
-        Non acquise
-      </th>
-
-      <th
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-        }}
-      >
-        En cours d'acquisition
-      </th>
-
-      <th
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-        }}
-      >
-        Acquise
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {criteres.map((critere) => (
-      <tr key={critere.key}>
-        <td
-          style={{
-            border: "1px solid #ccc",
-            padding: "10px",
-          }}
-        >
-          {critere.titre}
-        </td>
-
-        
 <td
   style={{
     border: "1px solid #ccc",
     padding: "8px",
   }}
 >
-  <label>
-    <input
-      type="radio"
-      name={critere.key}
-      value="NON_ACQUISE"
-      onChange={(e) =>
-        setNotes({
-          ...notes,
-          [critere.key]:
-            e.target.value,
-        })
-      }
-    />{" "}
-    {critere.non}
-  </label>
+  {[0, 1, 2, 3, 4].map((note) => (
+    <label
+      key={note}
+      style={{
+        marginRight: "15px",
+      }}
+    >
+      <input
+        type="radio"
+        name={critere.key}
+        value={note}
+        onChange={(e) =>
+          setNotes({
+            ...notes,
+            [critere.key]:
+              Number(e.target.value),
+          })
+        }
+      />{" "}
+      {note}
+    </label>
+  ))}
 </td>
-
-       
-<td
-  style={{
-    border: "1px solid #ccc",
-    padding: "8px",
-  }}
->
-  <label>
-    <input
-      type="radio"
-      name={critere.key}
-      value="EN_COURS"
-      onChange={(e) =>
-        setNotes({
-          ...notes,
-          [critere.key]:
-            e.target.value,
-        })
-      }
-    />{" "}
-    {critere.encours}
-  </label>
-</td>
-
-       
-<td
-  style={{
-    border: "1px solid #ccc",
-    padding: "8px",
-  }}
->
-  <label>
-    <input
-      type="radio"
-      name={critere.key}
-      value="ACQUISE"
-      onChange={(e) =>
-        setNotes({
-          ...notes,
-          [critere.key]:
-            e.target.value,
-        })
-      }
-    />{" "}
-    {critere.acquis}
-  </label>
-</td>
-      </tr>
     ))}
   </tbody>
 </table>
