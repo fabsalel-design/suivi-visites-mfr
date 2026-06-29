@@ -44,7 +44,7 @@ const criteres = [
   },
 ];
 
-export default function FinFormationPage
+export default function FinFormationPage({
   params,
 }: {
   params: Promise<{ id: string }>;
