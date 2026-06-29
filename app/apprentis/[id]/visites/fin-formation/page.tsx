@@ -274,13 +274,11 @@ console.log(
 
             formateur_visiteur:
               formateur,
-conseils,
 
-            points_forts:
-              pointsForts,
+axes_amelioration:
+  axesAmelioration,
 
-            points_faibles:
-              pointsFaibles,
+commentaires,
 
 signature_maitre:
     signatureMaitre,
