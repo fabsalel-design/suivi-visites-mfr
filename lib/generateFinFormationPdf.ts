@@ -2,9 +2,10 @@ import { PDFDocument } from "pdf-lib";
 import fs from "fs";
 import path from "path";
 
-export async function generateIntermediairePdf(
+export async function generateFinFormationPdf(
   data: any
 ) {
+
 
   const filePath = path.join(
     process.cwd(),
