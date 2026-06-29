@@ -115,8 +115,6 @@ if (response.ok) {
     apprenti.formateur || ""
   );
 }
-``
-
     }
 
     charger();
@@ -430,6 +428,7 @@ setPdfData(
       </div>
 
      
+
 <table
   style={{
     width: "100%",
@@ -446,45 +445,64 @@ setPdfData(
           padding: "10px",
           textAlign: "left",
         }}
- 
-<th
-  style={{
-    border: "1px solid #ccc",
-    padding: "10px",
-  }}
->
-  Note (0 à 4)
-</th>
+      >
+        Critère
+      </th>
 
-<td
-  style={{
-    border: "1px solid #ccc",
-    padding: "8px",
-  }}
->
-  {[0, 1, 2, 3, 4].map((note) => (
-    <label
-      key={note}
-      style={{
-        marginRight: "15px",
-      }}
-    >
-      <input
-        type="radio"
-        name={critere.key}
-        value={note}
-        onChange={(e) =>
-          setNotes({
-            ...notes,
-            [critere.key]:
-              Number(e.target.value),
-          })
-        }
-      />{" "}
-      {note}
-    </label>
-  ))}
-</td>
+      <th
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+        }}
+      >
+        Note (0 à 4)
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {criteres.map((critere) => (
+      <tr key={critere.key}>
+        <td
+          style={{
+            border: "1px solid #ccc",
+            padding: "10px",
+          }}
+        >
+          {critere.titre}
+        </td>
+
+        <td
+          style={{
+            border: "1px solid #ccc",
+            padding: "10px",
+          }}
+        >
+          {[0, 1, 2, 3, 4].map((note) => (
+            <label
+              key={note}
+              style={{
+                marginRight: "15px",
+              }}
+            >
+              <input
+                type="radio"
+                name={critere.key}
+                value={note}
+                onChange={(e) =>
+                  setNotes({
+                    ...notes,
+                    [critere.key]: Number(
+                      e.target.value
+                    ),
+                  })
+                }
+              />{" "}
+              {note}
+            </label>
+          ))}
+        </td>
+      </tr>
     ))}
   </tbody>
 </table>
