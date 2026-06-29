@@ -485,97 +485,71 @@ setPdfData(
     </tr>
   </thead>
 
-  <tbody>
-    {criteres.map((critere) => (
-      <tr key={critere.key}>
-        <td
-          style={{
-            border: "1px solid #ccc",
-            padding: "10px",
-          }}
-        >
-       
-<>
-  <strong>
-    {critere.titre}
-  </strong>
-
-  <br />
-
-  <span
-    style={{
-      fontSize: "12px",
-      color: "#666",
-      display: "block",
-      marginTop: "4px",
-    }}
-  >
-    {critere.description}
-  </span>
-</>
-
-        </td>
-
-       
-
-<tr key={critere.key}>
-  <td
-    style={{
-      border: "1px solid #ccc",
-      padding: "10px",
-      width: "70%",
-    }}
-  >
-    <strong>
-      {critere.titre}
-    </strong>
-
-    <br />
-
-    <span
-      style={{
-        fontSize: "12px",
-        color: "#666",
-      }}
-    >
-      {critere.description}
-    </span>
-  </td>
-
-  <td
-    style={{
-      border: "1px solid #ccc",
-      padding: "10px",
-      width: "30%",
-      textAlign: "center",
-      whiteSpace: "nowrap",
-    }}
-  >
-    {[0, 1, 2, 3, 4].map((note) => (
-      <label
-        key={note}
+  
+<tbody>
+  {criteres.map((critere) => (
+    <tr key={critere.key}>
+      <td
         style={{
-          marginRight: "15px",
+          border: "1px solid #ccc",
+          padding: "10px",
+          width: "70%",
         }}
       >
-        <input
-          type="radio"
-          name={critere.key}
-          value={note}
-          onChange={(e) =>
-            setNotes({
-              ...notes,
-              [critere.key]: Number(
-                e.target.value
-              ),
-            })
-          }
-        />{" "}
-        {note}
-      </label>
-    ))}
-  </td>
-</tr>
+        <strong>
+          {critere.titre}
+        </strong>
+
+        <br />
+
+        <span
+          style={{
+            fontSize: "12px",
+            color: "#666",
+            display: "block",
+            marginTop: "4px",
+          }}
+        >
+          {critere.description}
+        </span>
+      </td>
+
+      <td
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+          width: "30%",
+          textAlign: "center",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {[0, 1, 2, 3, 4].map((note) => (
+          <label
+            key={note}
+            style={{
+              marginRight: "15px",
+            }}
+          >
+            <input
+              type="radio"
+              name={critere.key}
+              value={note}
+              onChange={(e) =>
+                setNotes({
+                  ...notes,
+                  [critere.key]: Number(
+                    e.target.value
+                  ),
+                })
+              }
+            />{" "}
+            {note}
+          </label>
+        ))}
+      </td>
+    </tr>
+  ))}
+</tbody>
 
       <div>
         
