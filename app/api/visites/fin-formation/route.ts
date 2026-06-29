@@ -106,12 +106,12 @@ type_visite: "fin_formation",
 
 console.log(
   "SIGNATURE RECUE :",
-  signature_maitre
+  signature_tuteur
 );
-
+  
 console.log(
   "TYPE :",
-  typeof signature_maitre
+  typeof signature_tuteur
 );
 
     if (detailsError) {
