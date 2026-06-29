@@ -1,4 +1,4 @@
-import {generateIntermediairePdf } from "@/lib/generateIntermediairePdf";
+import { generateFinFormationPdf } from "@/lib/generateFinFormationPdf";
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
