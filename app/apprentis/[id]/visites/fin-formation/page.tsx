@@ -550,7 +550,7 @@ setPdfData(
     </tr>
   ))}
 </tbody>
-
+</table>
       <div>
         
 <h3>
