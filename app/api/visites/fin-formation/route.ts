@@ -6,24 +6,28 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
    
+
 const {
   apprenti_id,
   date_visite,
   formation_suivie,
-  formateur_visiteur,
-  conseils,
 
-  points_forts,
-  points_faibles,
+  gestion_temps,
+  productivite,
+  sens_responsabilites,
+  jugement,
+  communication,
+  sens_relations,
+  capacite_adaptation,
+  travail_bien_fait,
 
-  autonomie,
-  esprit_initiative,
-  respect_limites,
-  ponctualite_assiduite,
-  attitude_generale,
+  reprise_apprenti,
 
-  signature_maitre,
-  signature_formateur,
+  axes_amelioration,
+  commentaires,
+
+  signature_tuteur,
+  signature_apprenti,
 } = body;
 
     const { data: apprenti } =
@@ -47,7 +51,7 @@ const {
 .insert({
   apprenti_id,
   date_visite,
-  type_visite: "intermediaire",
+type_visite: "fin_formation",
   formateur_visiteur:
     formateurVisiteur,
   realisee: true,
@@ -73,26 +77,31 @@ const {
     const { error: detailsError } =
       await supabase
         .from(
-         "visites_intermediaires"
+         "visites_fin_formation"
         )
    
+
 .insert({
   visite_id: visite.id,
 
   formation_suivie,
 
-  autonomie,
-  esprit_initiative,
-  respect_limites,
-  ponctualite_assiduite,
-  attitude_generale,
+  gestion_temps,
+  productivite,
+  sens_responsabilites,
+  jugement,
+  communication,
+  sens_relations,
+  capacite_adaptation,
+  travail_bien_fait,
 
-  conseils,
-  points_forts,
-  points_faibles,
+  reprise_apprenti,
 
-  signature_maitre,
-  signature_formateur,
+  axes_amelioration,
+  commentaires,
+
+  signature_tuteur,
+  signature_apprenti,
 })
 
 console.log(
@@ -119,7 +128,7 @@ console.log(
     }
 
 const pdfBuffer =
-await generateIntermediairePdf({
+await generateFinFormationPdf({
     dateEvaluation: date_visite,
 
     employeur:
@@ -140,25 +149,27 @@ await generateIntermediairePdf({
     maitreApprentissage:
       apprenti.tuteur || "",
 
-    signatureMaitre:
-      signature_maitre,
+  
+gestion_temps,
+productivite,
+sens_responsabilites,
+jugement,
+communication,
+sens_relations,
+capacite_adaptation,
+travail_bien_fait,
 
-    signatureFormateur:
-      signature_formateur,
+reprise_apprenti,
 
-    conseils,
+axes_amelioration,
+commentaires,
 
-    pointsForts:
-      points_forts,
+signatureTuteur:
+  signature_tuteur,
 
-    pointsFaibles:
-      points_faibles,
+signatureApprenti:
+  signature_apprenti,
 
-    autonomie,
-    esprit_initiative,
-    respect_limites,
-    ponctualite_assiduite,
-    attitude_generale,
   });
 
 return NextResponse.json({
