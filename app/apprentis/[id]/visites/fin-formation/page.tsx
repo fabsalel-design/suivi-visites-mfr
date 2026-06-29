@@ -44,7 +44,7 @@ const criteres = [
   },
 ];
 
-export default function IntermediairePage({
+export default function FinFormationPage
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -239,7 +239,7 @@ console.log(
 );
 
       const response = await fetch(
-       "/api/visites/intermediaire",
+"/api/visites/fin-formation"
         {
           method: "POST",
           headers: {
@@ -345,7 +345,7 @@ setPdfData(
           marginBottom: "30px",
         }}
       >
-      Évaluation intermédiaire
+ Évaluation fin de formation
       </h1>
       
 {apprenti && (
