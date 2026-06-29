@@ -96,11 +96,14 @@ const canvasFormateurRef =
     formationSuivie,
     setFormationSuivie,
   ] = useState("");
+  
+const [
+  axesAmelioration,
+  setAxesAmelioration,
+] = useState("");
 
-  const [conseils, setConseils] =
-  useState("");
 
-  const [pointsForts, setPointsForts] =
+const [commentaires, setCommentaires,
     useState("");
 
   const [pointsFaibles, setPointsFaibles] =
@@ -553,9 +556,10 @@ setPdfData(
 </table>
       <div>
         
+
 <h3>
-  Conseils à donner à l'apprenti(e)
-  pour s'améliorer
+  Aspects personnels ou professionnels
+  que l'apprenti devrait améliorer
 </h3>
 
         <textarea
@@ -564,49 +568,35 @@ setPdfData(
             width: "100%",
           }}
         
-value={conseils}
+
+value={axesAmelioration}
+
 onChange={(e) =>
-  setConseils(
+  setAxesAmelioration(
     e.target.value
   )
 }
+
         />
       </div>
 
       <div>
-        <h3>Points forts</h3>
+<h3>Commentaires</h3>
 
         <textarea
           rows={4}
           style={{
             width: "100%",
           }}
-          value={pointsForts}
+         value={commentaires}
           onChange={(e) =>
-            setPointsForts(
+           setCommentaires(
               e.target.value
             )
           }
         />
       </div>
-
-      <div>
-        <h3>Points faibles</h3>
-
-        <textarea
-          rows={4}
-          style={{
-            width: "100%",
-          }}
-          value={pointsFaibles}
-          onChange={(e) =>
-            setPointsFaibles(
-              e.target.value
-            )
-          }
-        />
-      </div>
-
+   
 <div
   style={{
     marginTop: "30px",
