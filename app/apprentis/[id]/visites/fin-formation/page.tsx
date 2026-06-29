@@ -534,11 +534,14 @@ border: "1px solid #ccc",
   }}
 >
           {[0, 1, 2, 3, 4].map((note) => (
-            <label
-              key={note}
-                marginRight: "15px",
-              }}
-            >
+           
+<label
+  key={note}
+  style={{
+    marginRight: "15px",
+  }}
+>
+
               <input
                 type="radio"
                 name={critere.key}
