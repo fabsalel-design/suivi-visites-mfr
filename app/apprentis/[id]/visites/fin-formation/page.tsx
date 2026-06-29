@@ -9,40 +9,58 @@ import {
 } from "react";
 
 
+
 const criteres = [
   {
     key: "gestion_temps",
     titre: "Gestion du temps",
+    description:
+      "Collecte, ordonne et organise les informations, planifie ses activités.",
   },
   {
     key: "productivite",
     titre: "Productivité",
+    description:
+      "Mise à profit de ses compétences, adaptabilité à des tâches nouvelles.",
   },
   {
     key: "sens_responsabilites",
     titre: "Sens des responsabilités",
+    description:
+      "Ponctualité, confiance, sens des responsabilités, prise d'initiatives adaptées.",
   },
   {
     key: "jugement",
     titre: "Jugement",
+    description:
+      "Ouverture d'esprit, pose les bonnes questions au bon moment à la personne adéquate, comprend la dynamique et les caractéristiques de l'établissement.",
   },
   {
     key: "communication",
     titre: "Communication",
+    description:
+      "Clarté, cohérence, fait preuve de synthèse.",
   },
   {
     key: "sens_relations",
     titre: "Sens des relations",
+    description:
+      "Participe activement au sein de l'équipe de travail. Écoute, courtoisie, respect des règles de confidentialité.",
   },
   {
     key: "capacite_adaptation",
     titre: "Capacité d'adaptation",
+    description:
+      "Accepte les critiques constructives et apporte les correctifs nécessaires. Adhère à la culture d'entreprise.",
   },
   {
     key: "travail_bien_fait",
     titre: "Sens du travail bien fait",
+    description:
+      "S'implique dans son travail, vérifie son travail, désire se perfectionner.",
   },
 ];
+
 
 export default function FinFormationPage({
   params,
@@ -470,7 +488,26 @@ setPdfData(
             padding: "10px",
           }}
         >
-          {critere.titre}
+       
+<>
+  <strong>
+    {critere.titre}
+  </strong>
+
+  <br />
+
+  <span
+    style={{
+      fontSize: "12px",
+      color: "#666",
+      display: "block",
+      marginTop: "4px",
+    }}
+  >
+    {critere.description}
+  </span>
+</>
+
         </td>
 
         <td
