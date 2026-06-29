@@ -103,12 +103,9 @@ const [
 ] = useState("");
 
 
-const [commentaires, setCommentaires,
-    useState("");
 
-  const [pointsFaibles, setPointsFaibles] =
+const [commentaires, setCommentaires] =
     useState("");
-
   
 const [notes, setNotes] = useState<
   Record<string, number>
