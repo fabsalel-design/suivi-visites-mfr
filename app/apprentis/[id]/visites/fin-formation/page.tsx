@@ -82,6 +82,12 @@ const [visiteId, setVisiteId] =
   
 const [pdfData, setPdfData] =
   useState("");
+  
+const [
+  repriseApprenti,
+  setRepriseApprenti,
+] = useState<boolean | null>(null);
+
 
 const canvasMaitreRef =
   useRef<HTMLCanvasElement>(null);
@@ -102,9 +108,7 @@ const [
   setAxesAmelioration,
 ] = useState("");
 
-
-
-const [commentaires, setCommentaires] =
+  const [commentaires, setCommentaires] =
     useState("");
   
 const [notes, setNotes] = useState<
