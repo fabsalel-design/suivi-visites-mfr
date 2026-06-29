@@ -88,9 +88,10 @@ const canvasFormateurRef =
   const [pointsFaibles, setPointsFaibles] =
     useState("");
 
-  const [notes, setNotes] = useState<
-    Record<string, string>
-  >({});
+  
+const [notes, setNotes] = useState<
+  Record<string, number>
+>({});
 
   useEffect(() => {
     async function charger() {
