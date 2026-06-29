@@ -66,7 +66,7 @@ export default async function NouvelleVisitePage({
         </Link>
 
         <Link
-          href={`/apprentis/${id}/visites/fin-contrat`}
+       href={`/apprentis/${id}/visites/fin-formation`}
           style={{
             padding: "20px",
             background: "#ffffff",
@@ -77,7 +77,7 @@ export default async function NouvelleVisitePage({
             fontWeight: "bold",
           }}
         >
-          📋 Fin de contrat
+        📋 Fin de formation
         </Link>
       </div>
 
