@@ -192,7 +192,7 @@ const positions: Record<number, number> = {
   1: 366,
   2: 421,
   3: 476,
-  4: 525,
+  4: 530,
   };
 
   const x = positions[note];
