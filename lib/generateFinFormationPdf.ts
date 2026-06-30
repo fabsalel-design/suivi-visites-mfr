@@ -5,7 +5,7 @@ import path from "path";
 export async function generateFinFormationPdf(
   data: any
 ) {
-
+console.log(data);
 
   const filePath = path.join(
     process.cwd(),
@@ -168,34 +168,41 @@ console.log("LIMITES =", data.respect_limites);
 console.log("PONCTUALITE =", data.ponctualite_assiduite);
 console.log("ATTITUDE =", data.attitude_generale);
 
-drawEvaluation(
-  page,
-  data.autonomie,
-  Y_INTERET_MOTIVATION
+
+page.drawText(
+  `GT=${data.gestion_temps}`,
+  {
+    x: 50,
+    y: 500,
+    size: 12,
+  }
 );
 
-drawEvaluation(
-  page,
-  data.esprit_initiative,
-  Y_DYNAMISME
+page.drawText(
+  `PROD=${data.productivite}`,
+  {
+    x: 50,
+    y: 480,
+    size: 12,
+  }
 );
 
-drawEvaluation(
-  page,
-  data.respect_limites,
-  Y_ESPRIT_INITIATIVE
+page.drawText(
+  `RESP=${data.sens_responsabilites}`,
+  {
+    x: 50,
+    y: 460,
+    size: 12,
+  }
 );
 
-drawEvaluation(
-  page,
-  data.ponctualite_assiduite,
-  Y_SENS_ORGANISATION
-);
-
-drawEvaluation(
-  page,
-  data.attitude_generale,
-  Y_VOLONTE_CHANGEMENT
+page.drawText(
+  `JUG=${data.jugement}`,
+  {
+    x: 50,
+    y: 440,
+    size: 12,
+  }
 );
 
 drawMultilineText(
