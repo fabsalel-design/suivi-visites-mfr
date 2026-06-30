@@ -102,29 +102,55 @@ drawMultilineText(
   35
 );
 
-page.drawText(data.apprenti || "", {
-  x: 95,
-  y: 613,
-  size: 10,
-});
 
-page.drawText(data.formation || "", {
-x: 365,
-  y: 613,
-  size: 10,
-});
+drawNote(
+  page,
+  Number(data.gestion_temps),
+  Y_GESTION_TEMPS
+);
 
-page.drawText(data.formateur || "", {
-  x: 100,
-  y: 585,
-  size: 10,
-});
+drawNote(
+  page,
+  Number(data.productivite),
+  Y_PRODUCTIVITE
+);
 
-page.drawText(data.maitreApprentissage || "", {
- x: 420,
-  y: 585,
-  size: 10,
-});
+drawNote(
+  page,
+  Number(data.sens_responsabilites),
+  Y_RESPONSABILITES
+);
+
+drawNote(
+  page,
+  Number(data.jugement),
+  Y_JUGEMENT
+);
+
+drawNote(
+  page,
+  Number(data.communication),
+  Y_COMMUNICATION
+);
+
+drawNote(
+  page,
+  Number(data.sens_relations),
+  Y_RELATIONS
+);
+
+drawNote(
+  page,
+  Number(data.capacite_adaptation),
+  Y_ADAPTATION
+);
+
+drawNote(
+  page,
+  Number(data.travail_bien_fait),
+  Y_TRAVAIL_BIEN_FAIT
+);
+
 
 function drawEvaluation(
   page: any,
