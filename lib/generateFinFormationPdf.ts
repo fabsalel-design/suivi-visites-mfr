@@ -29,8 +29,8 @@ const filePath = path.join(
   const page =
     pdfDoc.getPage(0);
 
-const Y_GESTION_TEMPS = 585;
-const Y_PRODUCTIVITE = 555;
+const Y_GESTION_TEMPS = 580;
+const Y_PRODUCTIVITE = 550;
 const Y_RESPONSABILITES = 510;
 const Y_JUGEMENT = 465;
 const Y_COMMUNICATION = 420;
