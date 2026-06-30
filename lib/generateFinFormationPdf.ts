@@ -245,10 +245,6 @@ function drawNote(
   });
 }
 
-
-
-}
-
 console.log(
   "SIGNATURE PDF :",
   data.signatureMaitre
