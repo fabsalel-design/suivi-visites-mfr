@@ -251,14 +251,15 @@ const signatureApprenti =
   ) || "";
 
 
+
 console.log(
   "SIGNATURE",
-  signatureMaitre
+  signatureTuteur
 );
 
 console.log(
   "TAILLE",
-  signatureMaitre.length
+  signatureTuteur.length
 );
 
       const response = await fetch(
