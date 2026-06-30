@@ -33,14 +33,16 @@ const X_NON_ACQUISE = 265;
 const X_EN_COURS = 410;
 const X_ACQUISE = 550;
 
-const Y_GESTION_TEMPS = 540;
-const Y_PRODUCTIVITE = 495;
-const Y_RESPONSABILITES = 450;
-const Y_JUGEMENT = 405;
-const Y_COMMUNICATION = 360;
-const Y_RELATIONS = 315;
-const Y_ADAPTATION = 270;
-const Y_TRAVAIL_BIEN_FAIT = 225;
+
+const Y_GESTION_TEMPS = 530;
+const Y_PRODUCTIVITE = 485;
+const Y_RESPONSABILITES = 440;
+const Y_JUGEMENT = 395;
+const Y_COMMUNICATION = 350;
+const Y_RELATIONS = 305;
+const Y_ADAPTATION = 260;
+const Y_TRAVAIL_BIEN_FAIT = 215;
+
 
 function drawCroix(
   page: any,
