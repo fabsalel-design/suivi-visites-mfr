@@ -31,7 +31,7 @@ const filePath = path.join(
 
 const Y_GESTION_TEMPS = 579;
 const Y_PRODUCTIVITE = 545;
-const Y_RESPONSABILITES = 505;
+const Y_RESPONSABILITES = 506;
 const Y_JUGEMENT = 465;
 const Y_COMMUNICATION = 420;
 const Y_RELATIONS = 375;
@@ -190,7 +190,7 @@ function drawNote(
 const positions: Record<number, number> = {
   0: 323,
   1: 366,
-  2: 422,
+  2: 421,
   3: 395,
   4: 485,
   };
