@@ -6,12 +6,13 @@ export async function generateFinFormationPdf(
   data: any
 ) {
 console.log(data);
+  
+const filePath = path.join(
+  process.cwd(),
+  "templates",
+  "evaluation fin de formation.pdf"
+);
 
-  const filePath = path.join(
-    process.cwd(),
-    "templates",
-    "evaluation_intermediaire FINAL.pdf"
-  );
 
   const pdfBytes =
     fs.readFileSync(filePath);
