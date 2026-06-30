@@ -645,9 +645,9 @@ onChange={(e) =>
     marginTop: "30px",
   }}
 >
-  <h3>
-    Signature maître d'apprentissage
-  </h3>
+ <h3>
+  Signature du tuteur
+</h3>
 
 
 <canvas
@@ -684,7 +684,7 @@ const canvas =
       );
     }}
   >
-    Effacer la signature
+  Effacer la signature du tuteur
   </button>
 </div>
 
@@ -693,9 +693,11 @@ const canvas =
     marginTop: "30px",
   }}
 >
-  <h3>
-    Signature Formateur CFA
-  </h3>
+  
+<h3>
+  Signature de l'apprenti
+</h3>
+
 
   <canvas
     ref={canvasFormateurRef}
@@ -730,7 +732,7 @@ const canvas =
       );
     }}
   >
-    Effacer signature CFA
+Effacer la signature de l'apprenti
   </button>
 </div>
   
