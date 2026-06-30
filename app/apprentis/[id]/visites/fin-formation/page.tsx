@@ -240,15 +240,16 @@ useEffect(() => {
     try {
       setLoading(true);
 
-const signatureMaitre =
+const signatureTuteur =
   canvasMaitreRef.current?.toDataURL(
     "image/png"
   ) || "";
-   
-const signatureFormateur =
+
+const signatureApprenti =
   canvasFormateurRef.current?.toDataURL(
     "image/png"
   ) || "";
+
 
 console.log(
   "SIGNATURE",
@@ -284,11 +285,11 @@ axes_amelioration:
 
 commentaires,
 
-signature_maitre:
-    signatureMaitre,
+signature_tuteur:
+  signatureTuteur,
 
-signature_formateur:
-  signatureFormateur,
+signature_apprenti:
+  signatureApprenti,
 
 gestion_temps:
   notes.gestion_temps,
