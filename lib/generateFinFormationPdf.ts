@@ -27,21 +27,15 @@ const X_NON_ACQUISE = 265;
 const X_EN_COURS = 410;
 const X_ACQUISE = 550;
 
-const Y_INTERET_MOTIVATION = 517;
-const Y_DYNAMISME = 483;
-const Y_ESPRIT_INITIATIVE = 438;
-const Y_SENS_ORGANISATION = 394;
+const Y_GESTION_TEMPS = 540;
+const Y_PRODUCTIVITE = 495;
+const Y_RESPONSABILITES = 450;
+const Y_JUGEMENT = 405;
+const Y_COMMUNICATION = 360;
+const Y_RELATIONS = 315;
+const Y_ADAPTATION = 270;
+const Y_TRAVAIL_BIEN_FAIT = 225;
 
-const Y_VOLONTE_CHANGEMENT = 364;
-const Y_RELATIONS_EQUIPE = 395;
-
-const Y_ADAPTATION = 367;
-const Y_PRESENTATION = 346;
-
-const Y_COMPREHENSION_CONSIGNES = 323;
-const Y_APPLICATION_REGLES = 295;
-const Y_APTITUDES_PHYSIQUES = 270;
-  
 function drawCroix(
   page: any,
   x: number,
@@ -170,42 +164,6 @@ console.log("PONCTUALITE =", data.ponctualite_assiduite);
 console.log("ATTITUDE =", data.attitude_generale);
 
 
-page.drawText(
-  `GT=${data.gestion_temps}`,
-  {
-    x: 50,
-    y: 500,
-    size: 12,
-  }
-);
-
-page.drawText(
-  `PROD=${data.productivite}`,
-  {
-    x: 50,
-    y: 480,
-    size: 12,
-  }
-);
-
-page.drawText(
-  `RESP=${data.sens_responsabilites}`,
-  {
-    x: 50,
-    y: 460,
-    size: 12,
-  }
-);
-
-page.drawText(
-  `JUG=${data.jugement}`,
-  {
-    x: 50,
-    y: 440,
-    size: 12,
-  }
-);
-
 drawMultilineText(
   page,
  data.pointsForts || "",
@@ -229,6 +187,31 @@ drawMultilineText(
   160,
   75
 );
+
+function drawNote(
+  page: any,
+  note: number,
+  y: number
+) {
+  const positions: Record<number, number> = {
+    0: 125,
+    1: 215,
+    2: 305,
+    3: 395,
+    4: 485,
+  };
+
+  const x = positions[note];
+
+  if (!x) return;
+
+  page.drawCircle({
+    x,
+    y,
+    size: 12,
+    borderWidth: 2,
+  });
+}
 
 console.log(
   "SIGNATURE PDF :",
