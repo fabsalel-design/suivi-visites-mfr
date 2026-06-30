@@ -220,6 +220,7 @@ drawMultilineText(
   75
 );
 
+
 function drawNote(
   page: any,
   note: number,
@@ -235,14 +236,15 @@ function drawNote(
 
   const x = positions[note];
 
-  if (!x) return;
+  if (x === undefined) return;
 
-page.drawCircle({
-  x,
-  y,
-  size: 12,
-  borderWidth: 2,
-});
+  page.drawText("O", {
+    x: x - 8,
+    y: y - 8,
+    size: 24,
+  });
+}
+
 
 
 }
