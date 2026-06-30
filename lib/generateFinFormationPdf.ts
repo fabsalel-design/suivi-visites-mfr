@@ -231,12 +231,15 @@ function drawNote(
 
   if (!x) return;
 
-  page.drawCircle({
-    x,
-    y,
-    size: 12,
-    borderWidth: 2,
-  });
+page.drawCircle({
+  x,
+  y,
+  size: 12,
+  borderWidth: 2,
+  borderColor: rgb(0, 0, 0),
+});
+
+
 }
 
 console.log(
