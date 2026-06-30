@@ -1,4 +1,10 @@
-import { PDFDocument } from "pdf-lib";
+
+
+import {
+  PDFDocument,
+  rgb,
+} from "pdf-lib";
+
 import fs from "fs";
 import path from "path";
 
