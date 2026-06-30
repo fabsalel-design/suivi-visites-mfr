@@ -188,7 +188,7 @@ function drawNote(
 ) {
  
 const positions: Record<number, number> = {
-  0: 125,
+  0: 320,
   1: 215,
   2: 305,
   3: 395,
