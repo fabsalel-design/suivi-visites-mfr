@@ -226,12 +226,13 @@ function drawNote(
   note: number,
   y: number
 ) {
-  const positions: Record<number, number> = {
-    0: 125,
-    1: 215,
-    2: 305,
-    3: 395,
-    4: 485,
+ 
+const positions: Record<number, number> = {
+  0: 125,
+  1: 215,
+  2: 305,
+  3: 395,
+  4: 485,
   };
 
   const x = positions[note];
@@ -241,7 +242,7 @@ function drawNote(
   page.drawText("O", {
     x: x - 8,
     y: y - 8,
-    size: 24,
+    size: 16,
   });
 }
 
