@@ -29,7 +29,7 @@ const filePath = path.join(
   const page =
     pdfDoc.getPage(0);
 
-const Y_GESTION_TEMPS = 577;
+const Y_GESTION_TEMPS = 575;
 const Y_PRODUCTIVITE = 538;
 const Y_RESPONSABILITES = 501;
 const Y_JUGEMENT = 458;
@@ -192,7 +192,7 @@ const positions: Record<number, number> = {
   1: 366,
   2: 421,
   3: 476,
-  4: 530,
+  4: 528,
   };
 
   const x = positions[note];
