@@ -29,12 +29,7 @@ const filePath = path.join(
   const page =
     pdfDoc.getPage(0);
 
-const X_NON_ACQUISE = 265;
-const X_EN_COURS = 410;
-const X_ACQUISE = 550;
-
-
-const Y_GESTION_TEMPS = 600;
+const Y_GESTION_TEMPS = 570;
 const Y_PRODUCTIVITE = 555;
 const Y_RESPONSABILITES = 510;
 const Y_JUGEMENT = 465;
@@ -159,43 +154,6 @@ drawNote(
   Y_TRAVAIL_BIEN_FAIT
 );
 
-
-function drawEvaluation(
-  page: any,
-  valeur: string,
-  y: number
-) {
-    console.log("DRAW", valeur);
-  
-  if (valeur === "NON_ACQUISE") {
-    drawCroix(
-      page,
-      X_NON_ACQUISE,
-      y
-    );
-  }
-
-  if (valeur === "EN_COURS") {
-    drawCroix(
-      page,
-      X_EN_COURS,
-      y
-    );
-  }
-
-  if (valeur === "ACQUISE") {
-    drawCroix(
-      page,
-      X_ACQUISE,
-      y
-    );
-  }
-}
-console.log("AUTONOMIE =", data.autonomie);
-console.log("ESPRIT =", data.esprit_initiative);
-console.log("LIMITES =", data.respect_limites);
-console.log("PONCTUALITE =", data.ponctualite_assiduite);
-console.log("ATTITUDE =", data.attitude_generale);
 
 
 drawMultilineText(
