@@ -242,7 +242,6 @@ page.drawCircle({
   y,
   size: 12,
   borderWidth: 2,
-  borderColor: rgb(0, 0, 0),
 });
 
 
