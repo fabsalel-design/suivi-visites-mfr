@@ -233,10 +233,13 @@ function drawNote(
   });
 }
 
-  data.signatureMaitre
+console.log(
+  "SIGNATURE PDF :",
+  data.signatureTuteur
     ? "OUI"
     : "NON"
 );
+
 
 if (data.signatureMaitre) {
   const base64 =
