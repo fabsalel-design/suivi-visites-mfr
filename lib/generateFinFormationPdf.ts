@@ -106,6 +106,7 @@ function drawMultilineText(
   });
 }
   
+
 page.drawText(data.dateEvaluation || "", {
   x: 105,
   y: 695,
@@ -120,6 +121,29 @@ drawMultilineText(
   35
 );
 
+page.drawText(data.apprenti || "", {
+  x: 138,
+  y: 635,
+  size: 10,
+});
+
+page.drawText(data.formation || "", {
+  x: 440,
+  y: 635,
+  size: 10,
+});
+
+page.drawText(data.formateur || "", {
+  x: 135,
+  y: 575,
+  size: 10,
+});
+
+page.drawText(data.maitreApprentissage || "", {
+  x: 485,
+  y: 575,
+  size: 10,
+});
 
 drawNote(
   page,
@@ -169,45 +193,33 @@ drawNote(
   Y_TRAVAIL_BIEN_FAIT
 );
 
-
-
 drawMultilineText(
   page,
- data.pointsForts || "",
+  data.axes_amelioration || "",
   20,
-  320,
-  75
+  282,
+  35
 );
 
 drawMultilineText(
   page,
-  data.pointsFaibles || "",
-  20,
-  227,
-  75
+  data.commentaires || "",
+  305,
+  282,
+  35
 );
-
-drawMultilineText(
-  page,
- data.conseils || "",
-  20,
-  160,
-  75
-);
-
 
 function drawNote(
   page: any,
   note: number,
   y: number
 ) {
- 
-const positions: Record<number, number> = {
-  0: 323,
-  1: 366,
-  2: 421,
-  3: 476,
-  4: 529,
+  const positions: Record<number, number> = {
+    0: 323,
+    1: 366,
+    2: 421,
+    3: 476,
+    4: 529,
   };
 
   const x = positions[note];
@@ -221,8 +233,6 @@ const positions: Record<number, number> = {
   });
 }
 
-console.log(
-  "SIGNATURE PDF :",
   data.signatureMaitre
     ? "OUI"
     : "NON"
