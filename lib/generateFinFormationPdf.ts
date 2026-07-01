@@ -123,25 +123,25 @@ drawMultilineText(
 
 page.drawText(data.apprenti || "", {
   x: 138,
-  y: 635,
+  y: 665,
   size: 10,
 });
 
 page.drawText(data.formation || "", {
   x: 440,
-  y: 635,
+  y: 665,
   size: 10,
 });
 
 page.drawText(data.formateur || "", {
   x: 135,
-  y: 575,
+  y: 615,
   size: 10,
 });
 
 page.drawText(data.maitreApprentissage || "", {
   x: 485,
-  y: 575,
+  y: 615,
   size: 10,
 });
 
