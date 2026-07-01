@@ -48,13 +48,13 @@ function drawCroix(
 
 page.drawText("APPRENTI", {
   x: 180,
-  y: 560,
+  y: 600,
   size: 12,
 });
 
 page.drawText("FORMATEUR", {
   x: 180,
-  y: 505,
+  y: 555,
   size: 12,
 });
 
