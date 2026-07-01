@@ -324,3 +324,12 @@ Création complète du module "Visite intermédiaire"
 - validation renvoi à la ligne employeur
 - validation zones points forts / points faibles / conseils
 
+
+## Fin de formation
+
+- création table visites_fin_formation
+- création page.tsx
+- création route.ts
+- création generateFinFormationPdf.ts
+- notation 0 à 4
+- coordonnées des notes validées
