@@ -122,13 +122,13 @@ drawMultilineText(
 );
 
 page.drawText(data.apprenti || "", {
-  x: 128,
+  x: 108,
   y: 665,
   size: 10,
 });
 
 page.drawText(data.formation || "", {
-  x: 400,
+  x: 370,
   y: 665,
   size: 10,
 });
