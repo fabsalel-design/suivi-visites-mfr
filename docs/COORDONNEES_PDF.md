@@ -385,3 +385,24 @@ y = 160
 maxChars = 75
 
 ✅ PDF visite intermédiaire finalisé et validé
+
+# FIN DE FORMATION
+
+## Notes 0 à 4
+
+const Y_GESTION_TEMPS = 575;
+const Y_PRODUCTIVITE = 538;
+const Y_RESPONSABILITES = 501;
+const Y_JUGEMENT = 458;
+const Y_COMMUNICATION = 420;
+const Y_RELATIONS = 387;
+const Y_ADAPTATION = 349;
+const Y_TRAVAIL_BIEN_FAIT = 312;
+
+const positions = {
+  0: 323,
+  1: 366,
+  2: 421,
+  3: 476,
+  4: 529,
+};
