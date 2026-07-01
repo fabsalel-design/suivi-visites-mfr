@@ -93,7 +93,7 @@ function drawMultilineText(
   
 page.drawText(data.dateEvaluation || "", {
   x: 105,
-  y: 700,
+  y: 695,
   size: 10,
 });
 
@@ -101,7 +101,7 @@ drawMultilineText(
   page,
   data.employeur || "",
   395,
-  700,
+  695,
   35
 );
 
