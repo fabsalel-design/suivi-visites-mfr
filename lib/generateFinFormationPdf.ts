@@ -45,28 +45,23 @@ function drawCroix(
   y: number
 ) {
   
-page.drawText(data.apprenti || "", {
-  x: 95,
-  y: 613,
-  size: 10,
+
+page.drawText("APPRENTI", {
+  x: 180,
+  y: 560,
+  size: 12,
 });
 
-page.drawText(data.formation || "", {
-  x: 365,
-  y: 613,
-  size: 10,
+page.drawText("FORMATEUR", {
+  x: 180,
+  y: 505,
+  size: 12,
 });
 
-page.drawText(data.formateur || "", {
-  x: 100,
-  y: 585,
-  size: 10,
-});
-
-page.drawText(data.maitreApprentissage || "", {
-  x: 420,
-  y: 585,
-  size: 10,
+page.drawText("MAITRE", {
+  x: 700,
+  y: 505,
+  size: 12,
 });
 
 }
