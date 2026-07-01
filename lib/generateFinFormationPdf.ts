@@ -33,8 +33,8 @@ const Y_GESTION_TEMPS = 575;
 const Y_PRODUCTIVITE = 538;
 const Y_RESPONSABILITES = 501;
 const Y_JUGEMENT = 458;
-const Y_COMMUNICATION = 418;
-const Y_RELATIONS = 375;
+const Y_COMMUNICATION = 420;
+const Y_RELATIONS = 385;
 const Y_ADAPTATION = 330;
 const Y_TRAVAIL_BIEN_FAIT = 285;
 
@@ -192,7 +192,7 @@ const positions: Record<number, number> = {
   1: 366,
   2: 421,
   3: 476,
-  4: 528,
+  4: 529,
   };
 
   const x = positions[note];
