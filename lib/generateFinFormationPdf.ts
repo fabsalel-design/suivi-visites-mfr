@@ -44,11 +44,31 @@ function drawCroix(
   x: number,
   y: number
 ) {
-  page.drawText("X", {
-    x,
-    y,
-    size: 12,
-  });
+  
+page.drawText(data.apprenti || "", {
+  x: 95,
+  y: 613,
+  size: 10,
+});
+
+page.drawText(data.formation || "", {
+  x: 365,
+  y: 613,
+  size: 10,
+});
+
+page.drawText(data.formateur || "", {
+  x: 100,
+  y: 585,
+  size: 10,
+});
+
+page.drawText(data.maitreApprentissage || "", {
+  x: 420,
+  y: 585,
+  size: 10,
+});
+
 }
 
 function drawMultilineText(
