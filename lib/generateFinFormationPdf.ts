@@ -35,8 +35,8 @@ const Y_RESPONSABILITES = 501;
 const Y_JUGEMENT = 458;
 const Y_COMMUNICATION = 420;
 const Y_RELATIONS = 387;
-const Y_ADAPTATION = 340;
-const Y_TRAVAIL_BIEN_FAIT = 295;
+const Y_ADAPTATION = 350;
+const Y_TRAVAIL_BIEN_FAIT = 315;
 
 
 function drawCroix(
