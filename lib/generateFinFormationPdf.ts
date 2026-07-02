@@ -79,37 +79,6 @@ function drawMultilineText(
   });
 
 }
-  const words = (text || "").split(" ");
-  const lines: string[] = [];
-
-  let currentLine = "";
-
-  for (const word of words) {
-    const testLine =
-      currentLine.length === 0
-        ? word
-        : `${currentLine} ${word}`;
-
-    if (testLine.length > maxChars) {
-      lines.push(currentLine);
-      currentLine = word;
-    } else {
-      currentLine = testLine;
-    }
-  }
-
-  if (currentLine) {
-    lines.push(currentLine);
-  }
-
-  lines.forEach((line, index) => {
-    page.drawText(line, {
-      x,
-      y: y - index * 12,
-      size: 10,
-    });
-  });
-}
   
 
 page.drawText(data.dateEvaluation || "", {
