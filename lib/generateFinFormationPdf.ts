@@ -38,34 +38,7 @@ const Y_RELATIONS = 387;
 const Y_ADAPTATION = 349;
 const Y_TRAVAIL_BIEN_FAIT = 312;
 
-
-function drawCroix(
-  page: any,
-  x: number,
-  y: number
-) {
   
-
-page.drawText("APPRENTI", {
-  x: 180,
-  y: 600,
-  size: 12,
-});
-
-page.drawText("FORMATEUR", {
-  x: 180,
-  y: 555,
-  size: 12,
-});
-
-page.drawText("MAITRE", {
-  x: 700,
-  y: 505,
-  size: 12,
-});
-
-}
-
 function drawMultilineText(
   page: any,
   text: string,
