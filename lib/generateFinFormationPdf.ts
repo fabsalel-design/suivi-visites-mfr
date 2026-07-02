@@ -182,7 +182,7 @@ drawMultilineText(
 if (data.reprise_apprenti === true) {
   page.drawText("O", {
     x: 360,
-    y: 320,
+    y: 220,
     size: 20,
   });
 }
