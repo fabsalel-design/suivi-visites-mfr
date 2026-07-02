@@ -140,7 +140,7 @@ page.drawText(data.formateur || "", {
 });
 
 page.drawText(data.maitreApprentissage || "", {
-  x: 415,
+  x: 420,
   y: 625,
   size: 10,
 });
