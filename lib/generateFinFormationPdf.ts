@@ -216,8 +216,7 @@ console.log(
 
 if (data.signatureTuteur) {
   const base64 =
-  data.signatureTuteur.replace(
-
+    data.signatureTuteur.replace(
       /^data:image\/png;base64,/,
       ""
     );
@@ -237,9 +236,8 @@ if (data.signatureTuteur) {
 }
 
 if (data.signatureApprenti) {
- const base64 =
-  data.signatureApprenti.replace(
-
+  const base64 =
+    data.signatureApprenti.replace(
       /^data:image\/png;base64,/,
       ""
     );
@@ -247,16 +245,15 @@ if (data.signatureApprenti) {
   const signatureImage =
     await pdfDoc.embedPng(base64);
 
-
-page.drawImage(
-  signatureImage,
-  {
-    x: 430,
-    y: 260,
-    width: 120,
-    height: 50,
-  }
-);
+  page.drawImage(
+    signatureImage,
+    {
+      x: 430,
+      y: 260,
+      width: 120,
+      height: 50,
+    }
+  );
 }
 
 console.log(
@@ -265,7 +262,6 @@ console.log(
     ? "OUI"
     : "NON"
 );
-
 
   return await pdfDoc.save();
 }
