@@ -171,7 +171,7 @@ drawMultilineText(
   20,
   255,
   75,
-  10
+  7
 );
 
 drawMultilineText(
