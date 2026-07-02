@@ -180,7 +180,7 @@ drawMultilineText(
 );
   
 if (data.reprise_apprenti === true) {
-  page.drawText("✓", {
+  page.drawText("X", {
     x: 330,
     y: 200,
     size: 20,
@@ -188,7 +188,7 @@ if (data.reprise_apprenti === true) {
 }
 
 if (data.reprise_apprenti === false) {
-  page.drawText("O", {
+  page.drawText("X", {
     x: 470,
     y: 270,
     size: 14,
