@@ -114,8 +114,6 @@ page.drawText(data.maitreApprentissage || "", {
   size: 10,
 }
   
-});
-
 drawNote(
   page,
   Number(data.gestion_temps),
