@@ -227,8 +227,8 @@ if (data.signatureTuteur) {
   page.drawImage(
     signatureImage,
     {
-      x: 430,
-      y: 125,
+      x: 420,
+      y: 115,
       width: 120,
       height: 50,
     }
