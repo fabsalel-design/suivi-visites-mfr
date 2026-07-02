@@ -34,15 +34,12 @@ const Y_RELATIONS = 387;
 const Y_ADAPTATION = 349;
 const Y_TRAVAIL_BIEN_FAIT = 312;
 
-  
-
-
 function drawMultilineText(
   page: any,
   text: string,
   x: number,
   y: number,
-  maxChars: number = 28,
+  maxChars: number = 48,
   maxLines: number = 7
 ) {
   if (!text) return;
