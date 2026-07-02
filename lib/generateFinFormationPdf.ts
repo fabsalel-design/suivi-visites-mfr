@@ -170,7 +170,7 @@ drawMultilineText(
   data.axes_amelioration || "",
   20,
   255,
-  75,
+  70,
   7
 );
 
