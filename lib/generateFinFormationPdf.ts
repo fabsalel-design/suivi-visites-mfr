@@ -65,12 +65,11 @@ function drawMultilineText(
       } else {
         currentLine = testLine;
       }
-    });
+ }
 
     if (currentLine) {
       lines.push(currentLine);
     }
-  });
 
   lines.slice(0, maxLines).forEach((line, index) => {
     page.drawText(line, {
