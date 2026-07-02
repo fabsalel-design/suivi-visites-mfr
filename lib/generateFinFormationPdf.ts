@@ -36,40 +36,39 @@ const Y_TRAVAIL_BIEN_FAIT = 312;
 
   
 
+
 function drawMultilineText(
   page: any,
   text: string,
   x: number,
   y: number,
-  maxChars: number = 30,
-  maxLines: number = 6
+  maxChars: number = 28,
+  maxLines: number = 7
 ) {
   if (!text) return;
 
-  const paragraphs = text.split("\n");
+  const words = text.split(" ");
   const lines: string[] = [];
 
-  paragraphs.forEach((paragraph) => {
-    const words = paragraph.split(" ");
-    let currentLine = "";
+  let currentLine = "";
 
-    words.forEach((word) => {
-      const testLine =
-        currentLine === ""
-          ? word
-          : `${currentLine} ${word}`;
+  for (const word of words) {
+    const testLine =
+      currentLine === ""
+        ? word
+        : `${currentLine} ${word}`;
 
-      if (testLine.length > maxChars) {
-        lines.push(currentLine);
-        currentLine = word;
-      } else {
-        currentLine = testLine;
-      }
- }
-
-    if (currentLine) {
+    if (testLine.length > maxChars) {
       lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = testLine;
     }
+  }
+
+  if (currentLine) {
+    lines.push(currentLine);
+  }
 
   lines.slice(0, maxLines).forEach((line, index) => {
     page.drawText(line, {
@@ -78,6 +77,7 @@ function drawMultilineText(
       size: 9,
     });
   });
+
 }
   const words = (text || "").split(" ");
   const lines: string[] = [];
@@ -199,14 +199,13 @@ drawNote(
   Y_TRAVAIL_BIEN_FAIT
 );
 
-
-
 drawMultilineText(
   page,
   data.axes_amelioration || "",
   15,
   275,
-  28
+  28,
+  7
 );
 
 drawMultilineText(
@@ -214,10 +213,9 @@ drawMultilineText(
   data.commentaires || "",
   315,
   275,
-  28
+  28,
+  7
 );
-
-
   
 if (data.reprise_apprenti === true) {
   page.drawText("X", {
