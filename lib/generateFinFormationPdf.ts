@@ -214,9 +214,10 @@ console.log(
 );
 
 
-if (data.signatureMaitre) {
+if (data.signatureTuteur) {
   const base64 =
-    data.signatureMaitre.replace(
+  data.signatureTuteur.replace(
+
       /^data:image\/png;base64,/,
       ""
     );
@@ -235,9 +236,10 @@ if (data.signatureMaitre) {
   );
 }
 
-if (data.signatureFormateur) {
-  const base64 =
-    data.signatureFormateur.replace(
+if (data.signatureApprenti) {
+ const base64 =
+  data.signatureApprenti.replace(
+
       /^data:image\/png;base64,/,
       ""
     );
@@ -258,11 +260,12 @@ page.drawImage(
 }
 
 console.log(
-  "SIGNATURE FORMATEUR PDF :",
-  data.signatureFormateur
+  "SIGNATURE APPRENTI PDF :",
+  data.signatureApprenti
     ? "OUI"
     : "NON"
 );
+
 
   return await pdfDoc.save();
 }
