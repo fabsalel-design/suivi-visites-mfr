@@ -178,6 +178,22 @@ drawMultilineText(
   282,
   35
 );
+  
+if (data.reprise_apprenti === true) {
+  page.drawText("O", {
+    x: 300,
+    y: 270,
+    size: 14,
+  });
+}
+
+if (data.reprise_apprenti === false) {
+  page.drawText("O", {
+    x: 470,
+    y: 270,
+    size: 14,
+  });
+}
 
 function drawNote(
   page: any,
