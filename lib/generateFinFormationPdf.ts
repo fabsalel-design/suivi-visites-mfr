@@ -169,8 +169,8 @@ drawMultilineText(
   page,
   data.axes_amelioration || "",
   20,
-  260,
-  85,
+  255,
+  70,
   7
 );
 
