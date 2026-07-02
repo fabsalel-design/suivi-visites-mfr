@@ -1,10 +1,6 @@
 
 
-import {
-  PDFDocument,
-  rgb,
-} from "pdf-lib";
-
+import { PDFDocument } from "pdf-lib";
 import fs from "fs";
 import path from "path";
 
@@ -47,7 +43,7 @@ function drawMultilineText(
   maxChars: number = 60
 ) {
 
-  const words = text.split(" ");
+  const words = (text || "").split(" ");
   const lines: string[] = [];
 
   let currentLine = "";
