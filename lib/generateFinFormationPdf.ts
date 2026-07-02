@@ -171,9 +171,9 @@ drawNote(
 drawMultilineText(
   page,
   data.axes_amelioration || "",
-  15,
-  275,
-  28,
+  20,
+  265,
+  38,
   7
 );
 
