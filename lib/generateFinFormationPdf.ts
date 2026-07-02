@@ -35,14 +35,51 @@ const Y_ADAPTATION = 349;
 const Y_TRAVAIL_BIEN_FAIT = 312;
 
   
+
 function drawMultilineText(
   page: any,
   text: string,
   x: number,
   y: number,
-  maxChars: number = 60
+  maxChars: number = 30,
+  maxLines: number = 6
 ) {
+  if (!text) return;
 
+  const paragraphs = text.split("\n");
+  const lines: string[] = [];
+
+  paragraphs.forEach((paragraph) => {
+    const words = paragraph.split(" ");
+    let currentLine = "";
+
+    words.forEach((word) => {
+      const testLine =
+        currentLine === ""
+          ? word
+          : `${currentLine} ${word}`;
+
+      if (testLine.length > maxChars) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine = testLine;
+      }
+    });
+
+    if (currentLine) {
+      lines.push(currentLine);
+    }
+  });
+
+  lines.slice(0, maxLines).forEach((line, index) => {
+    page.drawText(line, {
+      x,
+      y: y - index * 12,
+      size: 9,
+    });
+  });
+}
   const words = (text || "").split(" ");
   const lines: string[] = [];
 
@@ -163,21 +200,25 @@ drawNote(
   Y_TRAVAIL_BIEN_FAIT
 );
 
+
 drawMultilineText(
   page,
   data.axes_amelioration || "",
-  20,
-  282,
-  35
+  15,
+  275,
+  30,
+  6
 );
 
 drawMultilineText(
   page,
   data.commentaires || "",
-  305,
-  282,
-  35
+  315,
+  275,
+  30,
+  6
 );
+
   
 if (data.reprise_apprenti === true) {
   page.drawText("X", {
