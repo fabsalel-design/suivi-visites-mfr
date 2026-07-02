@@ -134,13 +134,13 @@ page.drawText(data.formation || "", {
 });
 
 page.drawText(data.formateur || "", {
-  x: 105,
+  x: 100,
   y: 625,
   size: 10,
 });
 
 page.drawText(data.maitreApprentissage || "", {
-  x: 455,
+  x: 415,
   y: 625,
   size: 10,
 });
