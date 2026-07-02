@@ -181,7 +181,7 @@ drawMultilineText(
   
 if (data.reprise_apprenti === true) {
   page.drawText("X", {
-    x: 330,
+    x: 350,
     y: 190,
     size: 18,
   });
@@ -189,9 +189,9 @@ if (data.reprise_apprenti === true) {
 
 if (data.reprise_apprenti === false) {
   page.drawText("X", {
-    x: 470,
-    y: 270,
-    size: 14,
+    x: 450,
+    y: 190,
+    size: 18,
   });
 }
 
