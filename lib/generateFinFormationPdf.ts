@@ -182,8 +182,8 @@ drawMultilineText(
 if (data.reprise_apprenti === true) {
   page.drawText("X", {
     x: 330,
-    y: 200,
-    size: 20,
+    y: 190,
+    size: 18,
   });
 }
 
