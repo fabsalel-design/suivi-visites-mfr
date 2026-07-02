@@ -112,6 +112,24 @@ page.drawText(data.maitreApprentissage || "", {
   x: 430,
   y: 625,
   size: 10,
+
+
+if (data.reprise_apprenti === true) {
+  page.drawText("O", {
+    x: 300,
+    y: 270,
+    size: 14,
+  });
+}
+
+if (data.reprise_apprenti === false) {
+  page.drawText("O", {
+    x: 470,
+    y: 270,
+    size: 14,
+  });
+}
+  
 });
 
 drawNote(
