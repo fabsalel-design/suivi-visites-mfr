@@ -201,13 +201,13 @@ drawNote(
 );
 
 
+
 drawMultilineText(
   page,
   data.axes_amelioration || "",
   15,
   275,
-  30,
-  6
+  28
 );
 
 drawMultilineText(
@@ -215,9 +215,9 @@ drawMultilineText(
   data.commentaires || "",
   315,
   275,
-  30,
-  6
+  28
 );
+
 
   
 if (data.reprise_apprenti === true) {
