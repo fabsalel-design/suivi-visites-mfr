@@ -189,7 +189,7 @@ if (data.reprise_apprenti === true) {
 
 if (data.reprise_apprenti === false) {
   page.drawText("X", {
-    x: 450,
+    x: 490,
     y: 190,
     size: 18,
   });
