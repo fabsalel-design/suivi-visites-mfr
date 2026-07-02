@@ -112,7 +112,8 @@ page.drawText(data.maitreApprentissage || "", {
   x: 430,
   y: 625,
   size: 10,
-}
+});
+
   
 drawNote(
   page,
