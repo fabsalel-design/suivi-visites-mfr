@@ -178,7 +178,7 @@ drawMultilineText(
   page,
   data.commentaires || "",
   300,
-  275,
+  270,
   70,
   7
 );
