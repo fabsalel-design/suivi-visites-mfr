@@ -65,7 +65,7 @@ const pointsCarte = [
     longitude: 4.3601,
     apprentis: ["Test"],
   },
-
+];
 
   return (
     <main
