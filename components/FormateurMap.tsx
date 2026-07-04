@@ -32,13 +32,16 @@ L.Icon.Default.mergeOptions({
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
+
 type Etablissement = {
   entreprise: string;
   ville: string;
   latitude: number;
   longitude: number;
+  adresse?: string;
   apprentis?: string[];
 };
+
 
 function FitBounds({
   etablissements,
@@ -119,6 +122,24 @@ export default function FormateurMap({
                 </div>
               )
             )}
+
+<br />
+
+<a
+  href={`https://maps.google.com/?q=${encodeURIComponent(
+    `${e.adresse || ""} ${e.ville}`
+  )}`}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    color: "#005CA9",
+    fontWeight: "bold",
+    textDecoration: "none",
+  }}
+>
+  📍 Ouvrir dans 
+
+            
           </Popup>
         </Marker>
       ))}
