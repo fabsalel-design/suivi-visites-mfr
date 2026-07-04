@@ -144,11 +144,20 @@ return {
     data[0].lon
   ),
 
-  apprentis:
-    etablissement.apprentis.map(
-      (a) =>
-        `${a.prenom} ${a.nom}`
-    ),
+ 
+apprentis:
+  etablissement.apprentis.map(
+    (a) =>
+      `${a.prenom} ${a.nom}`
+  ),
+
+statut:
+  etablissement.apprentis.some(
+    (a) => a.statut !== "Terminée"
+  )
+    ? "AFaire"
+    : "Terminee",
+
 };
 
           }
