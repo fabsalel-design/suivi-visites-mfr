@@ -54,14 +54,19 @@ L.Icon.Default.mergeOptions({
 
 
 
+
 type Etablissement = {
   entreprise: string;
+  adresse?: string;
+  cp?: string;
   ville: string;
+  tuteur?: string;
+  telephone?: string;
   latitude: number;
   longitude: number;
-  adresse?: string;
   apprentis?: string[];
 };
+
 
 
 
@@ -128,43 +133,99 @@ export default function FormateurMap({
   ]}
 >
 
-          
-<Popup>
-  <strong>
-    🏢 {e.entreprise}
-  </strong>
 
-  <br />
-
-  📍 {e.ville}
-
-  <br />
-  <br />
-
-  {e.apprentis?.map(
-    (nom, index) => (
-      <div key={index}>
-        👨‍🎓 {nom}
-      </div>
-    )
-  )}
-
-  <br />
-
-  <a
-    href={`https://maps.google.com/?q=${encodeURIComponent(
-      `${e.adresse || ""} ${e.ville}`
-    )}`}
-    target="_blank"
-    rel="noreferrer"
+<Popup minWidth={260}>
+  <div
     style={{
-      color: "#005CA9",
-      fontWeight: "bold",
-      }}
+      minWidth: "260px",
+    }}
   >
-    📍 Ouvrir dans Google Maps
-  </a>
+    <h3
+      style={{
+        margin: 0,
+        color: "#333",
+      }}
+    >
+      {e.entreprise}
+    </h3>
+
+    <p
+      style={{
+        color: "#666",
+        marginTop: "8px",
+        marginBottom: "12px",
+        fontSize: "13px",
+      }}
+    >
+      {e.adresse}
+      <br />
+      {e.cp} {e.ville}
+    </p>
+
+    {e.tuteur && (
+      <div
+        style={{
+          marginBottom: "5px",
+        }}
+      >
+        👤 {e.tuteur}
+      </div>
+    )}
+
+    {e.telephone && (
+      <div
+        style={{
+          marginBottom: "10px",
+        }}
+      >
+        📞 {e.telephone}
+      </div>
+    )}
+
+    <hr />
+
+    <div
+      style={{
+        fontWeight: "bold",
+        color: "#888",
+        marginTop: "10px",
+        marginBottom: "10px",
+      }}
+    >
+      👨‍🎓 {e.apprentis?.length || 0} élève(s)
+    </div>
+
+    {e.apprentis?.map(
+      (nom, index) => (
+        <div
+          key={index}
+          style={{
+            marginBottom: "6px",
+          }}
+        >
+          🟠 {nom}
+        </div>
+      )
+    )}
+
+    <hr />
+
+    {`https://maps.google.com/?q=${encodeURIComponent( `${e.adresse || ""} ${e.cp || ""} ${e.ville}`
+      )}`}
+      target="_blank"
+      rel="noreferrer"
+      style={{
+        color: "#005CA9",
+        fontWeight: "bold",
+        textDecoration: "none",
+      }}
+    >
+      📍 Ouvrir dans Google Maps
+    </a>
+  </div>
 </Popup>
+
+
 
         </Marker>
       ))}
