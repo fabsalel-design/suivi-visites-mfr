@@ -21,6 +21,28 @@ export default async function FormateurDetailPage({
 
   const total = apprentis?.length || 0;
 
+const entreprises = [
+  ...new Set(
+    apprentis?.map(
+      (a) => a.entreprise
+    ) || []
+  ),
+];
+
+<div
+  style={{
+    background: "white",
+    padding: "20px",
+    borderRadius: "12px",
+    minWidth: "180px",
+    boxShadow:
+      "0 2px 5px rgba(0,0,0,0.1)",
+  }}
+>
+  <strong>🏢 Entreprises</strong>
+  <h2>{entreprises.length}</h2>
+</div>
+
   const apprentiIds =
     apprentis?.map((a) => a.id) || [];
 
@@ -230,24 +252,38 @@ export default async function FormateurDetailPage({
                 👤 {apprenti.tuteur}
               </p>
 
+              
+<p>
+  📅 Contrat :
+  {" "}
+  {apprenti.contrat_date_debut}
+  {" → "}
+  {apprenti.contrat_date_fin}
+</p>
+
               <p>
                 📞{" "}
                 {apprenti.telephone}
               </p>
             </div>
+          
+<div
+  style={{
+    backgroundColor:
+      apprenti.statut === "Terminée"
+        ? "#2e7d32"
+        : "#f9a825",
+    color: "white",
+    padding: "6px 12px",
+    borderRadius: "20px",
+    fontWeight: "bold",
+  }}
+>
+  {apprenti.statut === "Terminée"
+    ? "✅ Terminée"
+    : "🟠 À faire"}
+</div>
 
-            <div
-              style={{
-                backgroundColor:
-                  "#f9a825",
-                color: "white",
-                padding: "6px 12px",
-                borderRadius: "20px",
-                fontWeight: "bold",
-              }}
-            >
-              À faire
-            </div>
           </div>
 
           <div
