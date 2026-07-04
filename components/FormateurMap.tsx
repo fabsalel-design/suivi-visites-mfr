@@ -12,12 +12,32 @@ import { useEffect } from "react";
 
 import L from "leaflet";
 
-const pinIcon = L.divIcon({
-  html: `<div style="font-size:30px;">📍</div>`,
-  className: "",
-  iconSize: [30, 30],
-  iconAnchor: [15, 30],
-});
+const pinIcon = (nombre: number) =>
+  L.divIcon({
+    html: `
+      <div
+        style="
+          width:36px;
+          height:36px;
+          border-radius:50%;
+          background:#005CA9;
+          color:white;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-weight:bold;
+          font-size:14px;
+          border:3px solid white;
+          box-shadow:0 2px 6px rgba(0,0,0,0.25);
+        "
+      >
+        ${nombre}
+      </div>
+    `,
+    className: "",
+    iconSize: [36, 36],
+    iconAnchor: [18, 18],
+  });
 
 import "leaflet/dist/leaflet.css";
 
@@ -33,6 +53,7 @@ L.Icon.Default.mergeOptions({
 });
 
 
+
 type Etablissement = {
   entreprise: string;
   ville: string;
@@ -41,6 +62,7 @@ type Etablissement = {
   adresse?: string;
   apprentis?: string[];
 };
+
 
 
 function FitBounds({
@@ -94,10 +116,12 @@ export default function FormateurMap({
 
       {etablissements.map((e, index) => (
        
+
 <Marker
   key={index}
-  icon={pinIcon}
-  position={[
+  icon={pinIcon(
+    e.apprentis?.length || 1
+  )}
     e.latitude,
     e.longitude,
   ]}
