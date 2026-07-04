@@ -135,8 +135,7 @@ export default function FormateurMap({
     style={{
       color: "#005CA9",
       fontWeight: "bold",
-      : "none",
-    }}
+      }}
   >
     📍 Ouvrir dans Google Maps
   </a>
