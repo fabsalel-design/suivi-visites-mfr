@@ -195,38 +195,37 @@ export default function FormateurMap({
       👨‍🎓 {e.apprentis?.length || 0} élève(s)
     </div>
 
-   
-{e.apprentis?.map(
-  (nom, index) => (
-    <div
-      key={index}
+
+    {e.apprentis?.map(
+      (nom, index) => (
+        <div
+          key={index}
+          style={{
+            marginBottom: "6px",
+          }}
+        >
+          🟠 {nom}
+        </div>
+      )
+    )}
+
+    <hr />
+
+    {`https://maps.google.com/?q=${encodeURIComponent(.adresse || ""} ${e.cp || ""} ${e.ville}`
+      )}`}
+      target="_blank"
+      rel="noreferrer"
       style={{
-        marginBottom: "6px",
+        color: "#005CA9",
+        fontWeight: "bold",
+        textDecoration: "none",
       }}
     >
-      🟠 {nom}
-    </div>
-  )
-)}
-
-<hr />
-
-.google.com/?q=${encodeURIComponent(
-    `${e.adresse || ""} ${e.cp || ""} ${e.ville}`
-  )}`}
-  target="_blank"
-  rel="noreferrer"
-  style={{
-    color: "#005CA9",
-    fontWeight: "bold",
-    textDecoration: "none",
-  }}
->
-  📍 Ouvrir dans Google Maps
-</a>
-
-</div>
+      📍 Ouvrir dans Google Maps
+    </a>
+  </div>
 </Popup>
+ 
 
 </Marker>
 
