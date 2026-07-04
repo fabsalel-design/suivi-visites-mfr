@@ -108,11 +108,19 @@ const etablissementsGeocodes =
       }
     )
   );
+
+
 const pointsCarte =
   etablissementsGeocodes.filter(
     Boolean
-  );
-  
+  ) as {
+    entreprise: string;
+    ville: string;
+    latitude: number;
+    longitude: number;
+    apprentis: string[];
+  }[];
+ 
   return (
     <main
       style={{
