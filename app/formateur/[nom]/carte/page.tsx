@@ -1,9 +1,9 @@
 
 import Link from "next/link";
 import { supabase } from "../../../../lib/supabase";
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 
-const FormateurMap = dynamic(
+const FormateurMap = nextDynamic(
   () => import("../../../../components/FormateurMap"),
   {
     ssr: false,
