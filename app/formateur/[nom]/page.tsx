@@ -29,35 +29,36 @@ const entreprises = [
   ),
 ];
 
-
+<div
+  style={{
+    background: "white",
+    padding: "20px",
+    borderRadius: "12px",
+    minWidth: "180px",
+    boxShadow:
+      "0 2px 5px rgba(0,0,0,0.1)",
+  }}
+>
+  <strong>🏢 Entreprises</strong>
+  <h2>{entreprises.length}</h2>
+</div>
 
   const apprentiIds =
     apprentis?.map((a) => a.id) || [];
 
-  
-const { data: visites } =
-  await supabase
-    .from("visites")
-    .select("*")
-    .eq("realisee", true);
-  
-const effectuees = visites?.filter((v) =>
-  apprentiIds.includes(v.apprenti_id)
-).length || 0;
+  const { data: visitesEffectuees } =
+    await supabase
+      .from("visites")
+      .select("id, apprenti_id")
+      .eq("realisee", true);
 
+  const effectuees =
+    visitesEffectuees?.filter((v) =>
+      apprentiIds.includes(v.apprenti_id)
+    ).length || 0;
 
   const aFaire =
     Math.max(0, total - effectuees);
-
-const derniereVisite = visites
-  ?.filter(
-    (v) => v.apprenti_id === apprenti.id
-  )
-  .sort(
-    (a, b) =>
-      new Date(b.date_visite).getTime() -
-      new Date(a.date_visite).getTime()
-  )[0];
 
   return (
     <main
@@ -216,35 +217,18 @@ const derniereVisite = visites
         <p>Erreur : {error.message}</p>
       )}
 
-  
-
-{apprentis?.map((apprenti) => (
-  <div
-    key={apprenti.id}
-    style={{
-      backgroundColor: "white",
-      borderRadius: "12px",
-      padding: "20px",
-      marginBottom: "20px",
-      boxShadow:
-        "0 2px 5px rgba(0,0,0,0.1)",
-    }}
-  >
-  return (
-    <div
-      key={apprenti.id}
-      style={{
-        backgroundColor: "white",
-        borderRadius: "12px",
-        padding: "20px",
-        marginBottom: "20px",
-        boxShadow:
-          "0 2px 5px rgba(0,0,0,0.1)",
-      
-  );
-})}
-
-            >
+      {apprentis?.map((apprenti) => (
+        <div
+          key={apprenti.id}
+          style={{
+            backgroundColor: "white",
+            borderRadius: "12px",
+            padding: "20px",
+            marginBottom: "20px",
+            boxShadow:
+              "0 2px 5px rgba(0,0,0,0.1)",
+          }}
+        >
           <div
             style={{
               display: "flex",
@@ -327,40 +311,6 @@ const derniereVisite = visites
                 📞{" "}
                 {apprenti.telephone}
               </p>
-              
-<div
-  style={{
-    marginTop: "12px",
-    padding: "10px",
-    backgroundColor: "#f5f7fa",
-    borderRadius: "8px",
-  }}
->
-  {derniereVisite ? (
-    <>
-      <strong>
-        ✅ Dernière visite
-      </strong>
-
-      <p>
-        {derniereVisite.type_visite}
-      </p>
-
-      <p>
-        {new Date(
-          derniereVisite.date_visite
-        ).toLocaleDateString("fr-FR")}
-      </p>
-    </>
-  ) : (
-    <>
-      <strong>
-        ⚠ Aucune visite enregistrée
-      </strong>
-    </>
-  )}
-</div>
-
             </div>
           
 <div
