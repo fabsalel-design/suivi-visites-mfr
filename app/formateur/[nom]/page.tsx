@@ -108,8 +108,20 @@ const entreprises = [
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
-          <strong>Total</strong>
-          <h2>{total}</h2>
+         <strong>👨‍🎓 Apprentis</strong>
+         
+<div
+  style={{
+    fontSize: "42px",
+    fontWeight: "bold",
+    color: "#005CA9",
+    marginTop: "10px",
+  }}
+>
+  {total}
+</div>
+``
+
         </div>
 
         <div
@@ -122,8 +134,20 @@ const entreprises = [
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
-          <strong>Effectuées</strong>
-          <h2>{effectuees}</h2>
+      <strong>📝 Visites réalisées</stron
+   
+<div
+  style={{
+    fontSize: "42px",
+    fontWeight: "bold",
+    color: "#005CA9",
+    marginTop: "10px",
+  }}
+>
+  {total}
+</div>
+``
+
         </div>
 
         <div
@@ -135,9 +159,20 @@ const entreprises = [
             boxShadow:
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
-        >
-          <strong>À faire</strong>
-          <h2>{aFaire}</h2>
+       <strong>🏢 Entreprises</strong>
+
+<div
+  style={{
+    fontSize: "42px",
+    fontWeight: "bold",
+    color: "#005CA9",
+    marginTop: "10px",
+  }}
+>
+  {total}
+</div>
+``
+
         </div>
       </div>
 
