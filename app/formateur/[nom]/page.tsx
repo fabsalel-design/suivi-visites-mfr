@@ -144,7 +144,7 @@ const entreprises = [
     marginTop: "10px",
   }}
 >
-  {total}
+ {effectuees}
 </div>
 
         </div>
@@ -169,7 +169,7 @@ const entreprises = [
     marginTop: "10px",
   }}
 >
-  {total}
+  {entreprises.length}
 </div>
 ``
 
