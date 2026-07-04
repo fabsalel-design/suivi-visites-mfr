@@ -333,3 +333,40 @@ Création complète du module "Visite intermédiaire"
 - création generateFinFormationPdf.ts
 - notation 0 à 4
 - coordonnées des notes validées
+
+
+# 04/07/2026
+
+## Carte OpenStreetMap
+
+Création du composant :
+
+components/FormateurMap.tsx
+
+### Réalisé
+
+- Installation Leaflet
+- Installation React Leaflet
+- Affichage OpenStreetMap
+- Correction des icônes Leaflet
+- Géocodage automatique des entreprises
+- Zoom automatique FitBounds
+- Popup avec apprentis
+
+### État
+
+BUILD OK
+VERCEL OK
+
+### Décision produit
+
+Google Maps reste disponible dans chaque fiche apprenti.
+
+OpenStreetMap sert à la visualisation globale des entreprises du portefeuille.
+
+### Evolution validée
+
+Créer une mini-carte sur le dashboard formateur.
+
+La page /carte devient la version détaillée.
+
