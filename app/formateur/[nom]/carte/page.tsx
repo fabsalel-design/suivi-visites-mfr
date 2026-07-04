@@ -171,7 +171,7 @@ border: "2px solid #005CA9",
       </p>
 
       <p>
-       🏢 {" "} : établissements géolocalisés
+       🏢 établissements géolocalisés : {" "}
         <strong>
           {listeEtablissements.length}
         </strong>
