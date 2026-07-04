@@ -1,4 +1,4 @@
-
+import FormateurMap from "../../../components/FormateurMap";
 import Link from "next/link";
 import { supabase } from "../../../lib/supabase";
 
@@ -56,6 +56,15 @@ const actionStyle = {
   color: "#005CA9",
   fontWeight: 600,
 };
+  
+const pointsCarte = [
+  {
+    entreprise: "ANIMALIS",
+    ville: "Nîmes",
+    latitude: 43.8367,
+    longitude: 4.3601,
+    apprentis: ["Test"],
+  },
 
 
   return (
@@ -199,16 +208,19 @@ const actionStyle = {
   >
     Vue géographique de mon portefeuille
   </p>
+  
+<div
+  style={{
+    height: "300px",
+    borderRadius: "8px",
+    overflow: "hidden",
+  }}
+>
+  <FormateurMap
+    etablissements={pointsCarte}
+  />
+</div>
 
-  <div
-    style={{
-      height: "400px",
-      borderRadius: "8px",
-      overflow: "hidden",
-    }}
-  >
-    ICI LA CARTE
-  </div>
 </div>
 
       <div
