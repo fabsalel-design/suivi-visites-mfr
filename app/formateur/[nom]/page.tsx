@@ -47,6 +47,16 @@ const entreprises = [
 
   const aFaire =
     Math.max(0, total - effectuees);
+  
+const actionStyle = {
+  padding: "8px 14px",
+  borderRadius: "8px",
+  backgroundColor: "#f5f7fa",
+  textDecoration: "none",
+  color: "#005CA9",
+  fontWeight: 600,
+};
+
 
   return (
     <main
@@ -271,21 +281,10 @@ const entreprises = [
 >
   🏢 {apprenti.entreprise}
 </p>
-
-
-              <p>
-                📍{" "}
-                {apprenti.adresse_reelle}
-              </p>
-
-              <p>
-                {
-                  apprenti.code_postal_reel
-                }{" "}
-                {
-                  apprenti.ville_reelle
-                }
-              </p>
+           
+<p>
+  📍 {apprenti.ville_reelle}
+</p>
 
               <p>
                 👤 {apprenti.tuteur}
@@ -334,32 +333,37 @@ const entreprises = [
             }}
           >
             <a
-              href={`https://maps.google.com/?q=${encodeURIComponent(
-                `${apprenti.adresse_reelle} ${apprenti.code_postal_reel} ${apprenti.ville_reelle}`
-              )}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              📍 Google Maps
-            </a>
+            
+  style={actionStyle}
+  href={`https://maps.google.com/?q=${encodeURIComponent(
+    `${apprenti.adresse_reelle} ${apprenti.code_postal_reel} ${apprenti.ville_reelle}`
+  )}`}
+  target="_blank"
+  rel="noreferrer"
+>
+  📍 Google Maps
+</a>
+            
+<a
+  style={actionStyle}
+  href={`tel:${apprenti.telephone || ""}`}
+>
+  📞 Appeler
+</a>
 
-            <a
-              href={`tel:${apprenti.telephone || ""}`}
-            >
-              📞 Appeler
-            </a>
+            
+<Link
+  style={actionStyle}
+  href={`/apprentis/${apprenti.id}/visites`}
+>
+  📂 Historique
+</Link>
+          
 
-            <Link
-              href={`/apprentis/${apprenti.id}/visites`}
-            >
-              📂 Historique
-            </Link>
+{`/apprentis/${apprenti.id}/visites/nouvelle`}
+  📝 Nouvelle visite
+</Link>
 
-            <Link
-              href={`/apprentis/${apprenti.id}/visites/nouvelle`}
-            >
-              📝 Nouvelle visite
-            </Link>
           </div>
         </div>
       ))}
