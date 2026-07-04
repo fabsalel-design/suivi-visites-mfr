@@ -97,28 +97,31 @@ export default async function CartePage({
   }}
 >
 
+
 <FormateurMap
   etablissements={[
-    {
-      entreprise: "COPAL",
-      ville: "Sommières",
-      latitude: 43.783,
-      longitude: 4.09,
-    },
     {
       entreprise: "ANIMALIS",
       ville: "Nîmes",
       latitude: 43.8367,
       longitude: 4.3601,
+      apprentis: [
+        "Nathan ANTERIEUX",
+        "Lucas MARTIN",
+      ],
     },
     {
-      entreprise: "BOTANIC",
-      ville: "Avignon",
-      latitude: 43.9493,
-      longitude: 4.8055,
+      entreprise: "COPAL",
+      ville: "Sommières",
+      latitude: 43.783,
+      longitude: 4.09,
+      apprentis: [
+        "Emma DURAND",
+      ],
     },
   ]}
 />
+
 
 
 </div>
