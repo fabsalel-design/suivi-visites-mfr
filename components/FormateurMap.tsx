@@ -15,6 +15,7 @@ type Etablissement = {
   ville: string;
   latitude: number;
   longitude: number;
+  apprentis?: string[];
 };
 
 export default function FormateurMap({
@@ -45,11 +46,24 @@ export default function FormateurMap({
             e.longitude,
           ]}
         >
-          <Popup>
-            <strong>{e.entreprise}</strong>
-            <br />
-            {e.ville}
-          </Popup>
+         
+<Popup>
+  <strong>{e.entreprise}</strong>
+
+  <br />
+
+  {e.ville}
+
+  <br />
+  <br />
+
+  {e.apprentis?.map((nom, index) => (
+    <div key={index}>
+      👨‍🎓 {nom}
+    </div>
+  ))}
+</Popup>
+
         </Marker>
       ))}
     </MapContainer>
