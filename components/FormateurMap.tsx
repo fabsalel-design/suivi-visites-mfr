@@ -209,20 +209,19 @@ export default function FormateurMap({
       )
     )}
 
-    <hr />
+  
+<hr />
 
-    {`https://maps.google.com/?q=${encodeURIComponent(.adresse || ""} ${e.cp || ""} ${e.ville}`
-      )}`}
-      target="_blank"
-      rel="noreferrer"
-      style={{
-        color: "#005CA9",
-        fontWeight: "bold",
-        textDecoration: "none",
-      }}
-    >
-      📍 Ouvrir dans Google Maps
-    </a>
+{`https://maps.google.com/?q=${encodeURIComponent(noreferrer"
+  style={{
+    color: "#005CA9",
+    fontWeight: "bold",
+    textDecoration: "none",
+  }}
+>
+  📍 Ouvrir dans Google Maps
+</a>
+
   </div>
 </Popup>
  
