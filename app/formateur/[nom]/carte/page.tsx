@@ -136,24 +136,23 @@ const pointsCarte =
   href={`/formateur/${encodeURIComponent(
     nomFormateur
   )}`}
-  style={{
-    display: "flex",
-justifyContent: "space-between",
-alignItems: "center",
 
-    gap: "8px",
-   backgroundColor: "white",
-color: "#005CA9",
-border: "2px solid #005CA9",
-
+style={{
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "8px",
+  backgroundColor: "white",
+  color: "#005CA9",
   padding: "10px 18px",
-   borderRadius: "14px",
-    textDecoration: "none",
-    fontWeight: "bold",
-    marginBottom: "20px",
-    boxShadow:
-      "0 2px 5px rgba(0,0,0,0.15)",
-  }}
+  borderRadius: "12px",
+  textDecoration: "none",
+  fontWeight: "bold",
+  border: "2px solid #005CA9",
+  marginBottom: "20px",
+  boxShadow:
+    "0 3px 10px rgba(0,0,0,0.08)",
+}}
+
 >
 🏠 Retour au tableau de bord
 </Link>
