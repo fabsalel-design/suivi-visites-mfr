@@ -10,7 +10,18 @@ import {
 
 import "leaflet/dist/leaflet.css";
 
-export default function FormateurMap() {
+type Etablissement = {
+  entreprise: string;
+  ville: string;
+  latitude: number;
+  longitude: number;
+};
+
+export default function FormateurMap({
+  etablissements,
+}: {
+  etablissements: Etablissement[];
+}) {
   return (
     <MapContainer
       center={[43.8367, 4.3601]}
@@ -26,21 +37,21 @@ export default function FormateurMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <Marker
-        position={[43.8367, 4.3601]}
-      >
-        <Popup>
-          Nîmes
-        </Popup>
-      </Marker>
-
-      <Marker
-        position={[43.6766, 4.6278]}
-      >
-        <Popup>
-          Arles
-        </Popup>
-      </Marker>
+      {etablissements.map((e, index) => (
+        <Marker
+          key={index}
+          position={[
+            e.latitude,
+            e.longitude,
+          ]}
+        >
+          <Popup>
+            <strong>{e.entreprise}</strong>
+            <br />
+            {e.ville}
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }
