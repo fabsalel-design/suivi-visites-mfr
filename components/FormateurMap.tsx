@@ -12,7 +12,11 @@ import { useEffect } from "react";
 
 import L from "leaflet";
 
-const pinIcon = (nombre: number) =>
+const pinIcon = (
+  nombre: number,
+  couleur: string
+) =>
+
   L.divIcon({
     html: `
       <div
@@ -20,7 +24,7 @@ const pinIcon = (nombre: number) =>
           width:36px;
           height:36px;
           border-radius:50%;
-          background:#005CA9;
+        background:${couleur};
           color:white;
           display:flex;
           align-items:center;
@@ -124,9 +128,14 @@ export default function FormateurMap({
 
 <Marker
   key={index}
-  icon={pinIcon(
-    e.apprentis?.length || 1
-  )}
+ 
+icon={pinIcon(
+  e.apprentis?.length || 1,
+  (e.apprentis?.length || 0) > 1
+    ? "#f9a825"
+    : "#2e7d32"
+)}
+
   position={[
     e.latitude,
     e.longitude,
