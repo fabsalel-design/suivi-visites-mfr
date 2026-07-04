@@ -210,18 +210,21 @@ export default function FormateurMap({
 
     <hr />
 
-    {`https://maps.google.com/?q=${encodeURIComponent( `${e.adresse || ""} ${e.cp || ""} ${e.ville}`
-      )}`}
-      target="_blank"
-      rel="noreferrer"
-      style={{
-        color: "#005CA9",
-        fontWeight: "bold",
-        textDecoration: "none",
-      }}
-    >
-      📍 Ouvrir dans Google Maps
-    </a>
+   
+<hr />
+
+<a
+  href={`https://maps.googleencodeURIComponent("
+  rel="noreferrer"
+  style={{
+    color: "#005CA9",
+    fontWeight: "bold",
+    textDecoration: "none",
+  }}
+>
+  📍 Ouvrir dans Google Maps
+</a>
+
   </div>
 </Popup>
 
