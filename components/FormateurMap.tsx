@@ -122,6 +122,7 @@ export default function FormateurMap({
   icon={pinIcon(
     e.apprentis?.length || 1
   )}
+  position={[
     e.latitude,
     e.longitude,
   ]}
