@@ -260,11 +260,18 @@ const entreprises = [
                 </span>
               </div>
 
-              <p>
-                <strong>
-                  {apprenti.entreprise}
-                </strong>
-              </p>
+             
+<p
+  style={{
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "#005CA9",
+    marginBottom: "10px",
+  }}
+>
+  🏢 {apprenti.entreprise}
+</p>
+
 
               <p>
                 📍{" "}
