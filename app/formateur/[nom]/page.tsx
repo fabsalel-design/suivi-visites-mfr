@@ -29,19 +29,7 @@ const entreprises = [
   ),
 ];
 
-<div
-  style={{
-    background: "white",
-    padding: "20px",
-    borderRadius: "12px",
-    minWidth: "180px",
-    boxShadow:
-      "0 2px 5px rgba(0,0,0,0.1)",
-  }}
->
-  <strong>🏢 Entreprises</strong>
-  <h2>{entreprises.length}</h2>
-</div>
+
 
   const apprentiIds =
     apprentis?.map((a) => a.id) || [];
@@ -160,6 +148,18 @@ const entreprises = [
           }}
           >
        <strong>🏢 Entreprises</strong>
+
+  <div
+    style={{
+      fontSize: "42px",
+      fontWeight: "bold",
+      color: "#005CA9",
+      marginTop: "10px",
+    }}
+  >
+    {entreprises.length}
+  </div>
+</div>
 
 <div
   style={{
