@@ -97,7 +97,7 @@ export default async function CartePage({
   }}
 >
  <FormateurMap />
-  />
+
 </div>
 
       {listeEtablissements.map(
