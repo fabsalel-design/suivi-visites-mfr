@@ -57,6 +57,62 @@ export default async function CartePage({
     apprentis: any[];
   }>;
 
+  
+const etablissementsGeocodes =
+  await Promise.all(
+    listeEtablissements.map(
+      async (etablissement) => {
+        try {
+          const adresse = encodeURIComponent(
+            `${etablissement.adresse} ${etablissement.cp} ${etablissement.ville}`
+          );
+
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/search?format=json&q=${adresse}`,
+            {
+              headers: {
+                "User-Agent":
+                  "Suivi-Visites-MFR",
+              },
+            }
+          );
+
+const pointsCarte =
+  etablissementsGeocodes.filter(
+    Boolean
+  );
+
+          const data =
+            await response.json();
+
+          if (data.length > 0) {
+            return {
+              entreprise:
+                etablissement.entreprise,
+              ville:
+                etablissement.ville,
+              latitude: parseFloat(
+                data[0].lat
+              ),
+              longitude: parseFloat(
+                data[0].lon
+              ),
+              apprentis:
+                etablissement.apprentis.map(
+                  (a) =>
+                    `${a.prenom} ${a.nom}`
+                ),
+            };
+          }
+
+          return null;
+        } catch {
+          return null;
+        }
+      }
+    )
+  );
+
   return (
     <main
       style={{
@@ -99,30 +155,8 @@ export default async function CartePage({
 
 
 <FormateurMap
-  etablissements={[
-    {
-      entreprise: "ANIMALIS",
-      ville: "Nîmes",
-      latitude: 43.8367,
-      longitude: 4.3601,
-      apprentis: [
-        "Nathan ANTERIEUX",
-        "Lucas MARTIN",
-      ],
-    },
-    {
-      entreprise: "COPAL",
-      ville: "Sommières",
-      latitude: 43.783,
-      longitude: 4.09,
-      apprentis: [
-        "Emma DURAND",
-      ],
-    },
-  ]}
+  etablissements={pointsCarte}
 />
-
-
 
 </div>
 
