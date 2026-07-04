@@ -359,10 +359,13 @@ const actionStyle = {
   📂 Historique
 </Link>
           
-
-{`/apprentis/${apprenti.id}/visites/nouvelle`}
+<Link
+  style={actionStyle}
+  href={`/apprentis/${apprenti.id}/visites/nouvelle`}
+>
   📝 Nouvelle visite
 </Link>
+
 
           </div>
         </div>
