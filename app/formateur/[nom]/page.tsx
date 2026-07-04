@@ -148,18 +148,6 @@ const entreprises = [
           >
        <strong>🏢 Entreprises</strong>
 
-  <div
-    style={{
-      fontSize: "42px",
-      fontWeight: "bold",
-      color: "#005CA9",
-      marginTop: "10px",
-    }}
-  >
-    {entreprises.length}
-  </div>
-</div>
-
 <div
   style={{
     fontSize: "42px",
