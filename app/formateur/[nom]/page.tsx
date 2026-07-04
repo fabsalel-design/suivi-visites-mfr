@@ -134,7 +134,7 @@ const entreprises = [
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
-      <strong>📝 Visites réalisées</stron
+<strong>📝 Visites réalisées</strong>
    
 <div
   style={{
@@ -146,7 +146,6 @@ const entreprises = [
 >
   {total}
 </div>
-``
 
         </div>
 
@@ -159,6 +158,7 @@ const entreprises = [
             boxShadow:
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
+          >
        <strong>🏢 Entreprises</strong>
 
 <div
