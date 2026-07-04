@@ -98,12 +98,15 @@ const etablissementsGeocodes =
           );
 
           const response = await fetch(
-            `https://nominatim.openstreetmap.org/search?format=json&q=${adresse}`,
+           `https://nominatim.openstreetmap.org/search?format=json&q=${adresse}`,
             {
-              headers: {
-                User-Agent:
-                  "Suivi-Visites-MFR",
-              },
+            
+              
+headers: {
+  "User-Agent":
+    "Suivi-Visites-MFR",
+},
+
             }
           );
 
