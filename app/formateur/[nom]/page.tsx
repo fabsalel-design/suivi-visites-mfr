@@ -151,9 +151,6 @@ const pointsCarte =
     longitude: number;
     apprentis: string[];
   }[];
-
-
-    return {
    
   return (
     <main
