@@ -170,7 +170,7 @@ style={{
       </p>
 
       <p>
-       🏢 établissements géolocalisés : {" "}
+       🏢 Etablissements géolocalisés : {" "}
         <strong>
           {listeEtablissements.length}
         </strong>
