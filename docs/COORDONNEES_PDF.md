@@ -406,3 +406,33 @@ const positions = {
   3: 476,
   4: 529,
 };
+
+
+# MÉMO PROJET
+
+Composant carte :
+
+components/FormateurMap.tsx
+
+Page carte :
+
+app/formateur/[nom]/carte/page.tsx
+
+Dashboard formateur :
+
+app/formateur/[nom]/page.tsx
+
+Technologies utilisées :
+
+- Next.js 15
+- Supabase
+- OpenStreetMap
+- React Leaflet
+- Nominatim
+
+Règle métier :
+
+Google Maps = navigation individuelle.
+
+OpenStreetMap = vision portefeuille et préparation des tournées.
+
