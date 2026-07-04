@@ -83,23 +83,43 @@ const etablissementsGeocodes =
             await response.json();
 
           if (data.length > 0) {
-            return {
-              entreprise:
-                etablissement.entreprise,
-              ville:
-                etablissement.ville,
-              latitude: parseFloat(
-                data[0].lat
-              ),
-              longitude: parseFloat(
-                data[0].lon
-              ),
-              apprentis:
-                etablissement.apprentis.map(
-                  (a) =>
-                    `${a.prenom} ${a.nom}`
-                ),
-            };
+           
+return {
+  entreprise:
+    etablissement.entreprise,
+
+  adresse:
+    etablissement.adresse,
+
+  cp:
+    etablissement.cp,
+
+  ville:
+    etablissement.ville,
+
+  tuteur:
+    etablissement.apprentis[0]
+      ?.tuteur || "",
+
+  telephone:
+    etablissement.apprentis[0]
+      ?.telephone || "",
+
+  latitude: parseFloat(
+    data[0].lat
+  ),
+
+  longitude: parseFloat(
+    data[0].lon
+  ),
+
+  apprentis:
+    etablissement.apprentis.map(
+      (a) =>
+        `${a.prenom} ${a.nom}`
+    ),
+};
+
           }
           return null;
         } catch {
