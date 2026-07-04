@@ -1,61 +1,21 @@
 
 "use client";
 
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-} from "react-leaflet";
-
-import "leaflet/dist/leaflet.css";
-
-type Etablissement = {
-  entreprise: string;
-  adresse: string;
-  cp: string;
-  ville: string;
-  latitude: number;
-  longitude: number;
-};
-
-export default function FormateurMap({
-  etablissements,
-}: {
-  etablissements: Etablissement[];
-}) {
+export default function FormateurMap() {
   return (
-    <MapContainer
-      center={[43.8367, 4.3601]}
-      zoom={8}
+    <div
       style={{
-        height: "450px",
-        width: "100%",
+        height: "400px",
+        background: "#f5f7fa",
+        border: "2px dashed #005CA9",
+        borderRadius: "12px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontWeight: "bold",
       }}
     >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-
-      {etablissements.map((e, index) => (
-        <Marker
-          key={index}
-          position={[
-            e.latitude,
-            e.longitude,
-          ]}
-        >
-          <Popup>
-            <strong>
-              {e.entreprise}
-            </strong>
-
-            <br />
-
-            {e.ville}
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+      🗺️ Carte OpenStreetMap (à venir)
+    </div>
   );
 }
