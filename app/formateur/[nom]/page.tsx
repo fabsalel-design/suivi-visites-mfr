@@ -108,7 +108,6 @@ const entreprises = [
 >
   {total}
 </div>
-``
 
         </div>
 
@@ -171,7 +170,6 @@ const entreprises = [
 >
   {entreprises.length}
 </div>
-``
 
         </div>
       </div>
