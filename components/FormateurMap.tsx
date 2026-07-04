@@ -59,6 +59,7 @@ L.Icon.Default.mergeOptions({
 
 
 
+
 type Etablissement = {
   entreprise: string;
   adresse?: string;
@@ -69,8 +70,8 @@ type Etablissement = {
   latitude: number;
   longitude: number;
   apprentis?: string[];
+  statut?: string;
 };
-
 
 
 
@@ -129,12 +130,14 @@ export default function FormateurMap({
 <Marker
   key={index}
  
+
 icon={pinIcon(
   e.apprentis?.length || 1,
-  (e.apprentis?.length || 0) > 1
-    ? "#f9a825"
-    : "#2e7d32"
+  e.statut === "Terminee"
+    ? "#2e7d32"
+    : "#d32f2f"
 )}
+
 
   position={[
     e.latitude,
