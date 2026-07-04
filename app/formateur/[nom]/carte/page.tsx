@@ -171,7 +171,7 @@ border: "2px solid #005CA9",
       </p>
 
       <p>
-        Établissements à visiter :{" "}
+       🏢 {" "} : établissements géolocalisés
         <strong>
           {listeEtablissements.length}
         </strong>
