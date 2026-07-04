@@ -468,3 +468,10 @@ Mini-carte portefeuille
 Liste apprentis
 
 Conserver la page /carte comme version plein écran.
+
+## PROCHAINE SESSION
+
+1. Intégrer la mini-carte dans le dashboard formateur.
+2. Conserver le bouton "🗺️ Ouvrir la carte complète".
+3. Réutiliser le composant FormateurMap existant.
+4. Afficher les vraies entreprises du formateur sur la mini-carte.
