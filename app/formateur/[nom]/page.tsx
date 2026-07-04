@@ -52,7 +52,6 @@ const { data: visites } =
     .from("visites")
     .select("*")
     .eq("realisee", true);
-
   
 const effectuees = visites?.filter((v) =>
   apprentiIds.includes(v.apprenti_id)
