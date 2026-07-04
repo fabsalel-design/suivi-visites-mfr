@@ -13,6 +13,13 @@ import { useEffect } from "react";
 
 import L from "leaflet";
 
+const pinIcon = L.divIcon({
+  html: `<div style="font-size:30px;">📍</div>`,
+  className: "",
+  iconSize: [30, 30],
+  iconAnchor: [15, 30],
+});
+
 import "leaflet/dist/leaflet.css";
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -84,13 +91,16 @@ export default function FormateurMap({
       />
 
       {etablissements.map((e, index) => (
-        <Marker
-          key={index}
-          position={[
-            e.latitude,
-            e.longitude,
-          ]}
-        >
+       
+<Marker
+  key={index}
+  icon={pinIcon}
+  position={[
+    e.latitude,
+    e.longitude,
+  ]}
+>
+
           <Popup>
             <strong>
               🏢 {e.entreprise}
