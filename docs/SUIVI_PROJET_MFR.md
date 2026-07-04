@@ -408,3 +408,63 @@ Modules opérationnels :
 - Signatures
 - Archivage des visites
 
+
+# ÉTAT DU PROJET - VERSION STABLE
+
+Date : 04/07/2026
+
+## Module Formateur
+
+Fonctionnel.
+
+### Dashboard
+
+- KPI Apprentis
+- KPI Visites réalisées
+- KPI Entreprises
+- Liste des apprentis
+- Historique des visites
+- Nouvelle visite
+- Google Maps par apprenti
+
+### Carte
+
+Route :
+
+/formateur/[nom]/carte
+
+Fonctionnalités :
+
+- OpenStreetMap
+- React Leaflet
+- Géocodage automatique Nominatim
+- Zoom automatique
+- Popup entreprise
+- Apprentis affichés dans les popups
+- Marqueurs personnalisés 📍
+
+### Fichiers créés
+
+components/FormateurMap.tsx
+
+### Bibliothèques ajoutées
+
+- leaflet
+- react-leaflet
+- @types/leaflet
+
+### Prochaine étape prioritaire
+
+Intégrer une mini-carte dans le dashboard formateur.
+
+Objectif :
+
+Dashboard
+↓
+KPI
+↓
+Mini-carte portefeuille
+↓
+Liste apprentis
+
+Conserver la page /carte comme version plein écran.
