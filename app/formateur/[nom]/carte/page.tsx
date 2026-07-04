@@ -137,13 +137,15 @@ const pointsCarte =
     nomFormateur
   )}`}
   style={{
-    display: "inline-flex",
-    alignItems: "center",
+    display: "flex",
+justifyContent: "space-between",
+alignItems: "center",
+
     gap: "8px",
     backgroundColor: "#005CA9",
     color: "white",
-    padding: "12px 20px",
-    borderRadius: "10px",
+  padding: "10px 18px",
+   borderRadius: "14px",
     textDecoration: "none",
     fontWeight: "bold",
     marginBottom: "20px",
@@ -151,7 +153,7 @@ const pointsCarte =
       "0 2px 5px rgba(0,0,0,0.15)",
   }}
 >
-  ← Retour aux visites
+🏠 Retour au tableau de bord
 </Link>
 
       <h1
