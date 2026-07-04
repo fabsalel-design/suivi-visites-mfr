@@ -1,6 +1,14 @@
-
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { supabase } from "../../../../lib/supabase";
+import dynamic from "next/dynamic";
+
+const FormateurMap = dynamic(
+  () => import("../../../../components/FormateurMap"),
+  {
+    ssr: false,
+  }
+);
 
 export const dynamic = "force-dynamic";
 
@@ -86,6 +94,19 @@ export default async function CartePage({
       </p>
 
       <hr />
+
+<div
+  style={{
+    background: "white",
+    padding: "20px",
+    borderRadius: "12px",
+    marginBottom: "20px",
+  }}
+>
+  <FormateurMap
+    etablissements={[]}
+  />
+</div>
 
       {listeEtablissements.map(
         (etablissement, index) => (
