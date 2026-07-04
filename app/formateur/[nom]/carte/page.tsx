@@ -142,8 +142,10 @@ justifyContent: "space-between",
 alignItems: "center",
 
     gap: "8px",
-    backgroundColor: "#005CA9",
-    color: "white",
+   backgroundColor: "white",
+color: "#005CA9",
+border: "2px solid #005CA9",
+
   padding: "10px 18px",
    borderRadius: "14px",
     textDecoration: "none",
