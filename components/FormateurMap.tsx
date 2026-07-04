@@ -211,7 +211,7 @@ export default function FormateurMap({
 
 <hr />
 
-https://maps.google.com/?q=${encodeURIComponent(
+URIComponent(
     `${e.adresse || ""} ${e.cp || ""} ${e.ville}`
   )}`}
   target="_blank"
@@ -227,14 +227,7 @@ https://maps.google.com/?q=${encodeURIComponent(
 
 </div>
 </Popup>
-
-
-
-
-
-
-
-        </Marker>
+       </Marker>
       ))}
     </MapContainer>
   );
