@@ -6,11 +6,14 @@ import {
   TileLayer,
   Marker,
   Popup,
+  useMap,
 } from "react-leaflet";
 
-import "leaflet/dist/leaflet.css";
+import { useEffect } from "react";
 
 import L from "leaflet";
+
+import "leaflet/dist/leaflet.css";
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 
@@ -30,6 +33,31 @@ type Etablissement = {
   longitude: number;
   apprentis?: string[];
 };
+
+function FitBounds({
+  etablissements,
+}: {
+  etablissements: Etablissement[];
+}) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (etablissements.length === 0) return;
+
+    const bounds = L.latLngBounds(
+      etablissements.map((e) => [
+        e.latitude,
+        e.longitude,
+      ])
+    );
+
+    map.fitBounds(bounds, {
+      padding: [50, 50],
+    });
+  }, [etablissements, map]);
+
+  return null;
+}
 
 export default function FormateurMap({
   etablissements,
@@ -51,6 +79,10 @@ export default function FormateurMap({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
+      <FitBounds
+        etablissements={etablissements}
+      />
+
       {etablissements.map((e, index) => (
         <Marker
           key={index}
@@ -59,24 +91,26 @@ export default function FormateurMap({
             e.longitude,
           ]}
         >
-         
-<Popup>
-  <strong>{e.entreprise}</strong>
+          <Popup>
+            <strong>
+              🏢 {e.entreprise}
+            </strong>
 
-  <br />
+            <br />
 
-  {e.ville}
+            📍 {e.ville}
 
-  <br />
-  <br />
+            <br />
+            <br />
 
-  {e.apprentis?.map((nom, index) => (
-    <div key={index}>
-      👨‍🎓 {nom}
-    </div>
-  ))}
-</Popup>
-
+            {e.apprentis?.map(
+              (nom, index) => (
+                <div key={index}>
+                  👨‍🎓 {nom}
+                </div>
+              )
+            )}
+          </Popup>
         </Marker>
       ))}
     </MapContainer>
