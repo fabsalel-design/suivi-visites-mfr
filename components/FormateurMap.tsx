@@ -208,10 +208,10 @@ export default function FormateurMap({
       )
     )}
     
+
 <hr />
 
-https://maps.google.com/?q=${encodeURIComponent(
-    `${e.adresse || ""} ${e.cp || ""} ${e.ville}`
+{`https://maps.google.com/?q=${encodeURIComponent( `${e.adresse || ""} ${e.cp || ""} ${e.ville}`
   )}`}
   target="_blank"
   rel="noreferrer"
@@ -219,7 +219,6 @@ https://maps.google.com/?q=${encodeURIComponent(
     color: "#005CA9",
     fontWeight: "bold",
     textDecoration: "none",
-
   }}
 >
   📍 Ouvrir dans Google Maps
@@ -227,6 +226,7 @@ https://maps.google.com/?q=${encodeURIComponent(
 
 </div>
 </Popup>
+
 
 
 
