@@ -103,44 +103,45 @@ export default function FormateurMap({
   ]}
 >
 
-          <Popup>
-            <strong>
-              🏢 {e.entreprise}
-            </strong>
+          
+<Popup>
+  <strong>
+    🏢 {e.entreprise}
+  </strong>
 
-            <br />
+  <br />
 
-            📍 {e.ville}
+  📍 {e.ville}
 
-            <br />
-            <br />
+  <br />
+  <br />
 
-            {e.apprentis?.map(
-              (nom, index) => (
-                <div key={index}>
-                  👨‍🎓 {nom}
-                </div>
-              )
-            )}
+  {e.apprentis?.map(
+    (nom, index) => (
+      <div key={index}>
+        👨‍🎓 {nom}
+      </div>
+    )
+  )}
 
-<br />
+  <br />
 
-<a
-  href={`https://maps.google.com/?q=${encodeURIComponent(
-    `${e.adresse || ""} ${e.ville}`
-  )}`}
-  target="_blank"
-  rel="noreferrer"
-  style={{
-    color: "#005CA9",
-    fontWeight: "bold",
-    textDecoration: "none",
-  }}
->
-  📍 Ouvrir dans 
+  <a
+    href={`https://maps.google.com/?q=${encodeURIComponent(
+      `${e.adresse || ""} ${e.ville}`
+    )}`}
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      color: "#005CA9",
+      fontWeight: "bold",
+      : "none",
+    }}
+  >
+    📍 Ouvrir dans Google Maps
+  </a>
+</Popup>
 
-            
-          </Popup>
         </Marker>
       ))}
     </MapContainer>
