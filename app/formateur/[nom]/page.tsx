@@ -154,13 +154,7 @@ const pointsCarte =
 
 
     return {
-      ...e,
-      latitude: position.latitude,
-      longitude:
-        position.longitude,
-    };
-  });
-
+   
   return (
     <main
       style={{
