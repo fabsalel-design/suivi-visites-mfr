@@ -57,63 +57,98 @@ const actionStyle = {
   fontWeight: 600,
 };
   
-const entreprisesCarte = [
-  ...new Map(
-    (apprentis || []).map((a) => [
-      `${a.entreprise}-${a.ville_reelle}`,
-      {
-        entreprise: a.entreprise,
-        ville: a.ville_reelle,
-        apprentis: [
-          `${a.prenom} ${a.nom}`,
-        ],
-      },
-    ])
-  ).values(),
-];
 
+const etablissementsCarte = Object.values(
+  (apprentis || []).reduce(
+    (acc: any, apprenti: any) => {
+      const cle =
+        `${apprenti.entreprise}|${apprenti.adresse_reelle}|${apprenti.code_postal_reel}|${apprenti.ville_reelle}`;
 
-const pointsCarte = entreprisesCarte
-  .filter((e) => e.ville)
-  .map((e) => {
-    const villes: Record<
-      string,
-      {
-        latitude: number;
-        longitude: number;
+      if (!acc[cle]) {
+        acc[cle] = {
+          entreprise: apprenti.entreprise,
+          adresse: apprenti.adresse_reelle,
+          cp: apprenti.code_postal_reel,
+          ville: apprenti.ville_reelle,
+          apprentis: [],
+        };
       }
-    > = {
-      Nîmes: {
-        latitude: 43.8367,
-        longitude: 4.3601,
-      },
-      Narbonne: {
-        latitude: 43.1833,
-        longitude: 3.0,
-      },
-      Avignon: {
-        latitude: 43.9493,
-        longitude: 4.8055,
-      },
-      Arles: {
-        latitude: 43.6766,
-        longitude: 4.6278,
-      },
-      Béziers: {
-        latitude: 43.3442,
-        longitude: 3.2158,
-      },
-      Perpignan: {
-        latitude: 42.6887,
-        longitude: 2.8948,
-      },
-    };
 
-    const position =
-      villes[e.ville] || {
-        latitude: 43.8367,
-        longitude: 4.3601,
-      };
+      acc[cle].apprentis.push(apprenti);
+
+      return acc;
+    },
+    {}
+  )
+) as Array<{
+  entreprise: string;
+  adresse: string;
+  cp: string;
+  ville: string;
+  apprentis: any[];
+}>;
+
+const etablissementsGeocodes =
+  await Promise.all(
+    etablissementsCarte.map(
+      async (etablissement) => {
+        try {
+          const adresse = encodeURIComponent(
+            `${etablissement.adresse} ${etablissement.cp} ${etablissement.ville}`
+          );
+
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/search?format=json&q=${adresse}`,
+            {
+              headers: {
+                User-Agent:
+                  "Suivi-Visites-MFR",
+              },
+            }
+          );
+
+          const data =
+            await response.json();
+
+          if (data.length > 0) {
+            return {
+              entreprise:
+                etablissement.entreprise,
+              ville:
+                etablissement.ville,
+              latitude: parseFloat(
+                data[0].lat
+              ),
+              longitude: parseFloat(
+                data[0].lon
+              ),
+              apprentis:
+                etablissement.apprentis.map(
+                  (a) =>
+                    `${a.prenom} ${a.nom}`
+                ),
+            };
+          }
+
+          return null;
+        } catch {
+          return null;
+        }
+      }
+    )
+  );
+
+const pointsCarte =
+  etablissementsGeocodes.filter(
+    Boolean
+  ) as {
+    entreprise: string;
+    ville: string;
+    latitude: number;
+    longitude: number;
+    apprentis: string[];
+  }[];
+
 
     return {
       ...e,
