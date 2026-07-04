@@ -195,23 +195,23 @@ export default function FormateurMap({
       👨‍🎓 {e.apprentis?.length || 0} élève(s)
     </div>
 
-    {e.apprentis?.map(
-      (nom, index) => (
-        <div
-          key={index}
-          style={{
-            marginBottom: "6px",
-          }}
-        >
-          🟠 {nom}
-        </div>
-      )
-    )}
-    
+   
+{e.apprentis?.map(
+  (nom, index) => (
+    <div
+      key={index}
+      style={{
+        marginBottom: "6px",
+      }}
+    >
+      🟠 {nom}
+    </div>
+  )
+)}
 
 <hr />
 
-URIComponent(
+.google.com/?q=${encodeURIComponent(
     `${e.adresse || ""} ${e.cp || ""} ${e.ville}`
   )}`}
   target="_blank"
@@ -227,7 +227,9 @@ URIComponent(
 
 </div>
 </Popup>
-       </Marker>
+
+</Marker>
+
       ))}
     </MapContainer>
   );
