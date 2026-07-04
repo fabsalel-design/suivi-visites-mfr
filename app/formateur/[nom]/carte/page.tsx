@@ -67,6 +67,7 @@ const etablissementsGeocodes =
             `${etablissement.adresse} ${etablissement.cp} ${etablissement.ville}`
           );
 
+
           const response = await fetch(
             `https://nominatim.openstreetmap.org/search?format=json&q=${adresse}`,
             {
@@ -77,10 +78,6 @@ const etablissementsGeocodes =
             }
           );
 
-const pointsCarte =
-  etablissementsGeocodes.filter(
-    Boolean
-  );
 
           const data =
             await response.json();
@@ -104,7 +101,6 @@ const pointsCarte =
                 ),
             };
           }
-
           return null;
         } catch {
           return null;
@@ -112,7 +108,11 @@ const pointsCarte =
       }
     )
   );
-
+const pointsCarte =
+  etablissementsGeocodes.filter(
+    Boolean
+  );
+  
   return (
     <main
       style={{
