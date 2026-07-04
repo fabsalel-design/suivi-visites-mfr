@@ -131,6 +131,29 @@ const pointsCarte =
         minHeight: "100vh",
       }}
     >
+      
+<Link
+  href={`/formateur/${encodeURIComponent(
+    nomFormateur
+  )}`}
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    backgroundColor: "#005CA9",
+    color: "white",
+    padding: "12px 20px",
+    borderRadius: "10px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    marginBottom: "20px",
+    boxShadow:
+      "0 2px 5px rgba(0,0,0,0.15)",
+  }}
+>
+  ← Retour aux visites
+</Link>
+
       <h1
         style={{
           color: "#005CA9",
@@ -258,15 +281,7 @@ const pointsCarte =
         )
       )}
 
-      <hr />
-
-      <Link
-        href={`/formateur/${encodeURIComponent(
-          nomFormateur
-        )}`}
-      >
-        ← Retour aux visites
-      </Link>
+   
     </main>
   );
 }
