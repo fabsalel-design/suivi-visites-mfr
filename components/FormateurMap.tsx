@@ -209,18 +209,18 @@ export default function FormateurMap({
       )
     )}
 
-  
+
 <hr />
 
-{`https://maps.google.com/?q=${encodeURIComponent(noreferrer"
+<div
   style={{
     color: "#005CA9",
     fontWeight: "bold",
-    textDecoration: "none",
   }}
 >
-  📍 Ouvrir dans Google Maps
-</a>
+  📍 Google Maps à venir
+</div>
+
 
   </div>
 </Popup>
