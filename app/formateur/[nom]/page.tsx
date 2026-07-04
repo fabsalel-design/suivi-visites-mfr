@@ -70,14 +70,25 @@ const entreprises = [
         minHeight: "100vh",
       }}
     >
-      <h1
-        style={{
-          color: "#005CA9",
-          marginBottom: "20px",
-        }}
-      >
-        Bonjour {nomFormateur} 👋
-      </h1>
+     
+<h1
+  style={{
+    color: "#005CA9",
+    marginBottom: "5px",
+  }}
+>
+  Bonjour {nomFormateur} 👋
+</h1>
+
+<p
+  style={{
+    color: "#666",
+    marginBottom: "30px",
+  }}
+>
+  Bienvenue dans votre espace de suivi des apprentis
+</p>
+
 
       <div
         style={{
