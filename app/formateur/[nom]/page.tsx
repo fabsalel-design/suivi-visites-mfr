@@ -172,6 +172,45 @@ const actionStyle = {
         </div>
       </div>
 
+<div
+  style={{
+    background: "white",
+    borderRadius: "12px",
+    padding: "20px",
+    marginBottom: "30px",
+    boxShadow:
+      "0 2px 5px rgba(0,0,0,0.1)",
+  }}
+>
+  <h2
+    style={{
+      marginTop: 0,
+      color: "#005CA9",
+    }}
+  >
+    🗺️ Mes entreprises
+  </h2>
+
+  <p
+    style={{
+      color: "#666",
+      marginBottom: "15px",
+    }}
+  >
+    Vue géographique de mon portefeuille
+  </p>
+
+  <div
+    style={{
+      height: "400px",
+      borderRadius: "8px",
+      overflow: "hidden",
+    }}
+  >
+    ICI LA CARTE
+  </div>
+</div>
+
       <div
         style={{
           display: "flex",
@@ -205,7 +244,7 @@ const actionStyle = {
             display: "inline-block",
           }}
         >
-          🗺️ Carte
+         🗺️ Ouvrir la carte complète
         </Link>
       </div>
 
