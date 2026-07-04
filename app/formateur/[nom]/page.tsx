@@ -57,15 +57,71 @@ const actionStyle = {
   fontWeight: 600,
 };
   
-const pointsCarte = [
-  {
-    entreprise: "ANIMALIS",
-    ville: "Nîmes",
-    latitude: 43.8367,
-    longitude: 4.3601,
-    apprentis: ["Test"],
-  },
+const entreprisesCarte = [
+  ...new Map(
+    (apprentis || []).map((a) => [
+      `${a.entreprise}-${a.ville_reelle}`,
+      {
+        entreprise: a.entreprise,
+        ville: a.ville_reelle,
+        apprentis: [
+          `${a.prenom} ${a.nom}`,
+        ],
+      },
+    ])
+  ).values(),
 ];
+
+
+const pointsCarte = entreprisesCarte
+  .filter((e) => e.ville)
+  .map((e) => {
+    const villes: Record<
+      string,
+      {
+        latitude: number;
+        longitude: number;
+      }
+    > = {
+      Nîmes: {
+        latitude: 43.8367,
+        longitude: 4.3601,
+      },
+      Narbonne: {
+        latitude: 43.1833,
+        longitude: 3.0,
+      },
+      Avignon: {
+        latitude: 43.9493,
+        longitude: 4.8055,
+      },
+      Arles: {
+        latitude: 43.6766,
+        longitude: 4.6278,
+      },
+      Béziers: {
+        latitude: 43.3442,
+        longitude: 3.2158,
+      },
+      Perpignan: {
+        latitude: 42.6887,
+        longitude: 2.8948,
+      },
+    };
+
+    const position =
+      villes[e.ville] || {
+        latitude: 43.8367,
+        longitude: 4.3601,
+      };
+
+    return {
+      ...e,
+      latitude: position.latitude,
+      longitude:
+        position.longitude,
+    };
+  });
 
   return (
     <main
