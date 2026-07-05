@@ -158,7 +158,13 @@ apprentis:
       `${a.prenom} ${a.nom}`
   ),
 
-statut: "AFaire",
+statut:
+  etablissement.apprentis.some(
+    (a) => a.statut !== "Terminée"
+  )
+    ? "AFaire"
+    : "Terminee",
+
 
 };
 
