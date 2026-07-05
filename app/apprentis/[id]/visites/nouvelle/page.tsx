@@ -81,25 +81,30 @@ export default async function NouvelleVisitePage({
         </Link>
       </div>
 
-      <p style={{ marginTop: "30px" }}>
-        <Link href={`/formateur/${apprenti?.formateur}`}
-          
+ <p
+        style={{
+          marginTop: "30px",
+        }}
+      >
+       
+       <Link
+          href={`/formateur/${apprenti?.formateur}`}
+         
 style={{
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "8px",
-  backgroundColor: "white",
-  color: "#005CA9",
-  padding: "10px 18px",
-  borderRadius: "12px",
-  textDecoration: "none",
-  fontWeight: "bold",
-  border: "2px solid #005CA9",
-  marginTop: "30px",
-  boxShadow:
-    "0 3px 10px rgba(0,0,0,0.08)",
-}}
-   >
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    backgroundColor: "white",
+    color: "#005CA9",
+    padding: "10px 18px",
+    borderRadius: "12px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    border: "2px solid #005CA9",
+    boxShadow:
+      "0 3px 10px rgba(0,0,0,0.08)",
+  }}
+        >
          🏠 Retour au tableau de bord
         </Link>
       </p>
