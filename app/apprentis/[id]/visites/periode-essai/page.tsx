@@ -775,6 +775,7 @@ const canvas =
   </button>
 </div>
   
+
 <div
   style={{
     marginTop: "40px",
@@ -799,43 +800,52 @@ const canvas =
       ? "Enregistrement..."
       : "Enregistrer"}
   </button>
- 
-{visiteId && pdfData && (
-  <button
-    onClick={() => {
-      const link =
-        document.createElement("a");
 
-      link.href =
-        "data:application/pdf;base64," +
-        pdfData;
+  {visiteId && pdfData && (
+    <button
+      onClick={() => {
+        const link =
+          document.createElement("a");
 
-      link.download =
-        `evaluation_apprenti_${visiteId}.pdf`;
+        link.href =
+          "data:application/pdf;base64," +
+          pdfData;
 
-      link.click();
-    }}
-    style={{
-      backgroundColor: "#f57c00",
-      color: "white",
-      border: "none",
-      padding: "12px 20px",
-      borderRadius: "8px",
-      cursor: "pointer",
-    }}
-  >
-    📄 Télécharger PDF
-  </button>
-)}
+        link.download =
+          `evaluation_apprenti_${visiteId}.pdf`;
 
+        link.click();
+      }}
+      style={{
+        backgroundColor: "#f57c00",
+        color: "white",
+        border: "none",
+        padding: "12px 20px",
+        borderRadius: "8px",
+        cursor: "pointer",
+      }}
+    >
+      📄 Télécharger PDF
+    </button>
+  )}
 </div>
 
-
-<Link
-  href={`/formateur/${apprenti?.formateur}`}
+{`/formateur/${encodeURIComponent( || ""
+  )}`}
   style={{
-    display: "inline-block",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    backgroundColor: "white",
+    color: "#005CA9",
+    padding: "10px 18px",
+    borderRadius: "12px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    border: "2px solid #005CA9",
     marginTop: "30px",
+    boxShadow:
+      "0 3px 10px rgba(0,0,0,0.08)",
   }}
 >
   🏠 Retour au tableau de bord
