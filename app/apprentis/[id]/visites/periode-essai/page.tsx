@@ -840,7 +840,6 @@ const canvas =
   </Link>
 </p>
 
-
 </main>
 );
 }
