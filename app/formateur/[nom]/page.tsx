@@ -189,6 +189,14 @@ const pointsCarte =
     apprentis: string[];
   }[];
    
+function formatDate(date: string | null) {
+  if (!date) return "";
+
+  return new Date(date).toLocaleDateString(
+    "fr-FR"
+  );
+}
+
   return (
     <main
       style={{
@@ -464,13 +472,15 @@ const pointsCarte =
               </p>
 
               
+
 <p>
   📅 Contrat :
   {" "}
-  {apprenti.contrat_date_debut}
+  {formatDate(apprenti.date_debut)}
   {" → "}
-  {apprenti.contrat_date_fin}
+  {formatDate(apprenti.date_fin)}
 </p>
+
 
               <p>
                 📞{" "}
