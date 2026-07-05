@@ -840,7 +840,7 @@ const canvas =
 >
   ← Retour
 
-
+</Link>
 
 </main>
 );
