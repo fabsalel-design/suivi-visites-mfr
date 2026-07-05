@@ -830,16 +830,16 @@ const canvas =
 
 </div>
 
+
 <p
   style={{
     marginTop: "30px",
   }}
 >
-  {`/apprentis/${id}/visites/nouvelle`}
+  id}/visites/nouvelle`}>
     ← Retour aux types de visite
   </Link>
 </p>
-
 
 </main>
 );
