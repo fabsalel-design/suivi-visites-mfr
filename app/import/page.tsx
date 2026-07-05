@@ -78,12 +78,17 @@ gestibase_id:
 contrat:
   ligne["Contrat type contrat"] || "",
 
+
 date_debut:
-  ligne["Contrat date début"] || null,
+  excelDateToISO(
+    ligne["Contrat date début"]
+  ),
 
 date_fin:
-  ligne["Contrat date fin"] || null,
-    
+  excelDateToISO(
+    ligne["Contrat date fin"]
+  ),
+
   }));
 
     const response = await fetch(
