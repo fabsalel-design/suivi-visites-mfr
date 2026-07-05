@@ -88,7 +88,7 @@ export default async function NouvelleVisitePage({
       >
        
        <Link
-          href={`/formateur/${apprenti?.formateur}`}
+          href=`/apprentis/${id}/visites/nouvelle`}
          
 style={{
     display: "inline-flex",
