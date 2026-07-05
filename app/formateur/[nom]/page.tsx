@@ -151,10 +151,7 @@ apprentis:
       `${a.prenom} ${a.nom}`
   ),
 
-statut:
-  etablissement.apprentis.map(
-    (a) => a.statut
-  ),
+statut: "AFaire",
 
 };
 
