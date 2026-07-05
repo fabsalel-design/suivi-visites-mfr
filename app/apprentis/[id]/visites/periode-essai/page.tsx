@@ -835,10 +835,11 @@ const canvas =
     marginTop: "30px",
   }}
 >
-  {`/apprentis/${id}/visites/nouvelle`}
+  prentis/${id}/visites/nouvelle`}>
     ← Retour aux types de visite
   </Link>
 </p>
+
 
 </main>
 );
