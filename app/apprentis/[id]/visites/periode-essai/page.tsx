@@ -829,36 +829,16 @@ const canvas =
 )}
 
 </div>
+    
 
-     
-<div
+<p
   style={{
     marginTop: "30px",
   }}
 >
-  URIComponent(
-      apprenti?.formateur || ""
-    )}`}
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: "8px",
-      backgroundColor: "white",
-      color: "#005CA9",
-      padding: "12px 18px",
-      borderRadius: "12px",
-      textDecoration: "none",
-      fontWeight: "bold",
-      border: "2px solid #005CA9",
-      boxShadow:
-        "0 3px 10px rgba(0,0,0,0.08)",
-    }}
+  }/visites/nouvelle`}
   >
-    🏠 Retour au tableau de bord
+    ← Retour aux types de visite
   </Link>
-</div>
+</p>
 
-
-    </main>
-  );
-}
