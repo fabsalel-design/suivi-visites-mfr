@@ -34,11 +34,12 @@ const entreprises = [
   const apprentiIds =
     apprentis?.map((a) => a.id) || [];
 
-  const { data: visitesEffectuees } =
-    await supabase
-      .from("visites")
-      .select("id, apprenti_id")
-      .eq("realisee", true);
+ 
+const { data: visitesEffectuees } =
+  await supabase
+    .from("visites")
+    .select("*")
+    .eq("realisee", true);
 
   const effectuees =
     visitesEffectuees?.filter((v) =>
