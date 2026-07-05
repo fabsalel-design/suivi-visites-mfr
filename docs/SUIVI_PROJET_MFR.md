@@ -475,3 +475,84 @@ Conserver la page /carte comme version plein écran.
 2. Conserver le bouton "🗺️ Ouvrir la carte complète".
 3. Réutiliser le composant FormateurMap existant.
 4. Afficher les vraies entreprises du formateur sur la mini-carte.
+
+
+# SUIVI PROJET MFR
+
+## État actuel
+
+### Formulaires
+
+Les trois formulaires suivants sont opérationnels :
+
+- Période d'essai
+- Intermédiaire
+- Fin de formation
+
+Chaque formulaire possède désormais un bouton :
+
+🏠 Retour au tableau de bord
+
+Destination :
+
+href={`/formateur/${apprenti?.formateur}`}
+
+Build validé.
+
+---
+
+## Nouvelle visite
+
+Fichier :
+
+app/apprentis/[id]/visites/nouvelle/page.tsx
+
+État actuel :
+
+Le bouton de retour renvoie vers :
+
+href={`/apprentis/${id}/visites`}
+
+c'est-à-dire :
+
+Historique des visites.
+
+Build validé.
+
+---
+
+## Amélioration à prévoir
+
+Objectif :
+
+Depuis NouvelleVisitePage, revenir directement au tableau de bord du formateur.
+
+Problème :
+
+La page ne possède pas la variable :
+
+apprenti.formateur
+
+Solution envisagée :
+
+Récupérer l'apprenti à partir de l'id :
+
+const { data: apprenti } =
+  await supabase
+    .from("apprentis")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+Puis :
+
+href={`/formateur/${apprenti.formateur}`}
+
+Statut :
+
+À étudier ultérieurement.
+
+Aucune modification en attente critique.
+
+Projet actuellement stable.
+
