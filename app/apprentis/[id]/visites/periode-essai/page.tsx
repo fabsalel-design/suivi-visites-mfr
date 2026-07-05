@@ -830,18 +830,18 @@ const canvas =
 
 </div>
 
-      <p
-        style={{
-          marginTop: "30px",
-        }}
-      >
-       
-<Link
- {`/formateur/${apprenti?.formateur}`}
-  🏠 Retour au tableau de bord
-</Link>
+     
+<p
+  style={{
+    marginTop: "30px",
+  }}
+>
+  /${apprenti?.formateur}`}
+  >
+    🏠 Retour au tableau de bord
+  </Link>
+</p>
 
-      </p>
     </main>
   );
 }
