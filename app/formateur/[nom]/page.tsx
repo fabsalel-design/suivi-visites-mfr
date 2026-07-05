@@ -41,9 +41,10 @@ const { data: visitesEffectuees } =
     .select("*")
     .eq("realisee", true);
 
+
 console.log(
   "VISITES EFFECTUEES",
-  visitesEffectuees?.[0]
+  visitesEffectuees
 );
   
   const effectuees =
