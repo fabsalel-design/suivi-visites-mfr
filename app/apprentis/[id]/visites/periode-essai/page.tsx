@@ -828,13 +828,9 @@ const canvas =
   </button>
 )}
 
-
-</div>
-
-{`/formateur/${encodeURIComponent(?.formateur || ""
-  )}`}
-  style={{
-    display: "inline-flex",
+<Link
+  href={`/formateur/${encodeURIComponent(
+    ne-flex",
     alignItems: "center",
     gap: "8px",
     backgroundColor: "white",
@@ -851,6 +847,8 @@ const canvas =
 >
   🏠 Retour au tableau de bord
 </Link>
+
+
 
 </main>
 );
