@@ -59,7 +59,7 @@ const apprentis = lignes
       ligne["Mds code postal"] || "",
 
     ville_reelle:
-      ligne["Mds ville"] || ""
+      ligne["Mds ville"] || "",
 
 gestibase_id:
   ligne["Elève ID"] || null,
