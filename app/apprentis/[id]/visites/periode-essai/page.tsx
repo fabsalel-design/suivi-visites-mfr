@@ -837,7 +837,8 @@ const canvas =
       >
        
 <Link
-  href={`/formateur/${apprenti?.form Retour au tableau de bord
+ {`/formateur/${apprenti?.formateur}`}
+  🏠 Retour au tableau de bord
 </Link>
 
       </p>
