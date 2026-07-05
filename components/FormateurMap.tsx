@@ -161,14 +161,6 @@ icon={pinIcon(
       {e.entreprise}
     </h3>
 
-<div
-  style={{
-    color: "red",
-    fontSize: "12px",
-  }}
->
-  {JSON.stringify(e.statut)}
-</div>
 
     <p
       style={{
