@@ -830,11 +830,8 @@ const canvas =
 
 </div>
 
-<Link
-  href={`/formateur/${encodeURIComponent(
-    apprenti?.formateur || ""
-  )}`}
-  groundColor: "white",
+{`/formateur/${encodeURIComponent(px",
+    backgroundColor: "white",
     color: "#005CA9",
     padding: "10px 18px",
     borderRadius: "12px",
