@@ -60,6 +60,19 @@ const apprentis = lignes
 
     ville_reelle:
       ligne["Mds ville"] || ""
+
+gestibase_id:
+  ligne["Elève ID"] || null,
+
+contrat:
+  ligne["Contrat type contrat"] || "",
+
+date_debut:
+  ligne["Contrat date début"] || null,
+
+date_fin:
+  ligne["Contrat date fin"] || null,
+    
   }));
 
     const response = await fetch(
