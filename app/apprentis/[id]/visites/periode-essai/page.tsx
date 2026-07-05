@@ -832,15 +832,14 @@ const canvas =
 
 
 <Link
-  href={`/apprentis/${id}/visites/nouvelle`}
+  href={`/formateur/${apprenti?.formateur}`}
   style={{
     display: "inline-block",
     marginTop: "30px",
   }}
 >
-  ← Retour
-
-</Link>
+  🏠 Retour au tableau de bord
+</
 
 </main>
 );
