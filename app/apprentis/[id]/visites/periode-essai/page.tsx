@@ -831,10 +831,11 @@ const canvas =
 </div>
 
 
+
 <Link
   href={`/formateur/${encodeURIComponent(
-    apprenti?.formateur || ""
-: "white",
+    apprenti?.px",
+    backgroundColor: "white",
     color: "#005CA9",
     padding: "10px 18px",
     borderRadius: "12px",
@@ -849,9 +850,6 @@ const canvas =
   🏠 Retour au tableau de bord
 </Link>
 
->
-  🏠 Retour au tableau de bord
-</Link>
 
 </main>
 );
