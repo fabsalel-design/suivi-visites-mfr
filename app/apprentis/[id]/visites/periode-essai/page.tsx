@@ -839,7 +839,7 @@ const canvas =
   }}
 >
   🏠 Retour au tableau de bord
-</
+</</Link>
 
 </main>
 );
