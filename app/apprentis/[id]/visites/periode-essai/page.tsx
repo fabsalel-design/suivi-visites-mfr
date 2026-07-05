@@ -831,17 +831,17 @@ const canvas =
 </div>
 
      
-<p
-  style={{
-    marginTop: "30px",
-  }}
->
-  /${apprenti?.formateur}`}
-  >
-    🏠 Retour au tableau de bord
-  </Link>
-</p>
-
+   <p
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <Link
+          href={`/apprentis/${id}/visites/nouvelle`}
+        >
+          ← Retour aux types de visite
+        </Link>
+      </p>
     </main>
   );
 }
