@@ -22,6 +22,18 @@ export default function ImportPage() {
 
     const lignes: any[] =
       XLSX.utils.sheet_to_json(feuille);
+
+function excelDateToISO(excelDate: any) {
+  if (!excelDate) return null;
+
+  if (typeof excelDate === "number") {
+    const date = XLSX.SSF.parse_date_code(excelDate);
+
+    return `${date.y}-${String(date.m).padStart(2, "0")}-${String(date.d).padStart(2, "0")}`;
+  }
+
+  return excelDate;
+}
     
 const apprentis = lignes
   .filter(
