@@ -828,9 +828,15 @@ const canvas =
   </button>
 )}
 
+
 </div>
 
-{`/formateur/${encodeURIComponent(px",
+{`/formateur/${encodeURIComponent(?.formateur || ""
+  )}`}
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
     backgroundColor: "white",
     color: "#005CA9",
     padding: "10px 18px",
@@ -846,8 +852,6 @@ const canvas =
   🏠 Retour au tableau de bord
 </Link>
 
-
 </main>
 );
 }
-
