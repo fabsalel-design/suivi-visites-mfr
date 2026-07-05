@@ -832,11 +832,23 @@ const canvas =
 
 
 <Link
-  href={`/formateur/${apprenti?.formateur}`}
-  style={{
-    display: "inline-block",
+  href={`/formateur/${encodeURIComponent(
+    apprenti?.formateur || ""
+: "white",
+    color: "#005CA9",
+    padding: "10px 18px",
+    borderRadius: "12px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    border: "2px solid #005CA9",
     marginTop: "30px",
+    boxShadow:
+      "0 3px 10px rgba(0,0,0,0.08)",
   }}
+>
+  🏠 Retour au tableau de bord
+</Link>
+
 >
   🏠 Retour au tableau de bord
 </Link>
