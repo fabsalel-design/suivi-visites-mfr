@@ -836,11 +836,12 @@ const canvas =
     marginTop: "30px",
   }}
 >
-  formateur}`}
+  /nouvelle`}
   >
-    🏠 Retour au tableau de bord
+    ← Retour aux types de visite
   </Link>
 </p>
+
 
     </main>
   );
