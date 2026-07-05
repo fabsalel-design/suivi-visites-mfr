@@ -782,9 +782,25 @@ const canvas =
         }}
       >
         <Link
-          href={`/apprentis/${id}/visites/nouvelle`}
+          href={`/formateur/${apprenti?.formateur}`}
+          
+ style={{
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    backgroundColor: "white",
+    color: "#005CA9",
+    padding: "10px 18px",
+    borderRadius: "12px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    border: "2px solid #005CA9",
+    boxShadow:
+      "0 3px 10px rgba(0,0,0,0.08)",
+  }}
+
         >
-          ← Retour aux types de visite
+          🏠 Retour au tableau de bord
         </Link>
       </p>
     </main>
