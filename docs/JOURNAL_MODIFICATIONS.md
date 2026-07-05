@@ -370,3 +370,87 @@ Créer une mini-carte sur le dashboard formateur.
 
 La page /carte devient la version détaillée.
 
+
+# JOURNAL DES MODIFICATIONS
+
+## 2026-07-05
+
+### Navigation des formulaires de visite
+
+Modification des boutons de retour dans les formulaires :
+
+- Période d'essai
+- Intermédiaire
+- Fin de formation
+
+Ancien comportement :
+
+← Retour aux types de visite
+
+Nouveau comportement :
+
+🏠 Retour au tableau de bord
+
+Destination :
+
+href={`/formateur/${apprenti?.formateur}`}
+
+Style harmonisé :
+
+style={{
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "8px",
+  backgroundColor: "white",
+  color: "#005CA9",
+  padding: "10px 18px",
+  borderRadius: "12px",
+  textDecoration: "none",
+  fontWeight: "bold",
+  border: "2px solid #005CA9",
+  boxShadow:
+    "0 3px 10px rgba(0,0,0,0.08)",
+}}
+
+### NouvelleVisitePage
+
+Fichier concerné :
+
+app/apprentis/[id]/visites/nouvelle/page.tsx
+
+Tentative de redirection vers :
+
+href={`/formateur/${apprenti?.formateur}`}
+
+Résultat :
+
+Erreur de build :
+
+Cannot find name 'apprenti'
+
+Cause :
+
+Le fichier ne contient que :
+
+const { id } = await params;
+
+La variable apprenti n'existe pas dans cette page.
+
+Solution temporaire validée :
+
+href={`/apprentis/${id}/visites`}
+
+Cette destination renvoie vers l'historique des visites.
+
+Build validé.
+
+### Méthode de travail retenue
+
+Lorsqu'un bloc compile :
+
+- ne pas réécrire le composant ;
+- modifier uniquement les lignes nécessaires ;
+- travailler par remplacement minimal ;
+- éviter toute reconstruction manuelle des balises JSX.
+
+Cette méthode a permis de retrouver un build stable.
