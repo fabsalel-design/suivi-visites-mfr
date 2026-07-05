@@ -88,7 +88,7 @@ export default async function NouvelleVisitePage({
       >
        
        <Link
-          href=`/apprentis/${id}/visites/nouvelle`}
+          href={`/apprentis/${id}/visites`}
          
 style={{
     display: "inline-flex",
@@ -105,7 +105,7 @@ style={{
       "0 3px 10px rgba(0,0,0,0.08)",
   }}
         >
-         🏠 Retour au tableau de bord
+         🏠 Retour à l'historique
         </Link>
       </p>
     </main>
