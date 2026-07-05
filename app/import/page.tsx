@@ -52,11 +52,18 @@ const apprentis = lignes
       ligne["FORMATEURS"] || "",
 
     statut: "A faire",
+    
+tuteur:
+  `${ligne["Mds prénom"] || ""} ${
+    ligne["Mds nom"] || ""
+  }`.trim(),
 
-    tuteur:
-      `${ligne["Mds prénom"] || ""} ${
-        ligne["Mds nom"] || ""
-      }`.trim(),
+maitre_prenom:
+  ligne["Mds prénom"] || "",
+
+maitre_nom:
+  ligne["Mds nom"] || "",
+
 
     telephone:
       ligne["Portable 1"] ||
