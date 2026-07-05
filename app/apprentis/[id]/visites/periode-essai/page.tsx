@@ -830,21 +830,17 @@ const canvas =
 
 </div>
 
-<Link
- 
-{`/formateur/${encodeURIComponent( padding: "10px 18px",
-    borderRadius: "12px",
-    textDecoration: "none",
-    fontWeight: "bold",
-    border: "2px solid #005CA9",
-    marginTop: "30px",
-    boxShadow:
-      "0 3px 10px rgba(0,0,0,0.08)",
-  }}
->
-  🏠 Retour au tableau de bord
-</Link>
-
-</main>
-);
+      <p
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <Link
+          href={`/apprentis/${id}/visites/nouvelle`}
+        >
+          ← Retour aux types de visite
+        </Link>
+      </p>
+    </main>
+  );
 }
