@@ -836,9 +836,9 @@ const canvas =
         }}
       >
         <Link
-          href={`/apprentis/${id}/visites/nouvelle`}
+          href={`/formateur/${apprenti?.formateur}`}
         >
-          ← Retour aux types de visite
+         🏠 Retour au tableau de bord
         </Link>
       </p>
     </main>
