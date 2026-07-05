@@ -830,14 +830,9 @@ const canvas =
   )}
 </div>
 
-{`/formateur/${encodeURIComponent( || ""
-  )}`}
-  style={{
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "8px",
-    backgroundColor: "white",
-    color: "#005CA9",
+<Link
+  href={`/formateur/${encodeURIComponent(
+    apprenti?    color: "#005CA9",
     padding: "10px 18px",
     borderRadius: "12px",
     textDecoration: "none",
@@ -850,7 +845,3 @@ const canvas =
 >
   🏠 Retour au tableau de bord
 </Link>
-
-</main>
-);
-}
