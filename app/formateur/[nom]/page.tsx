@@ -152,11 +152,9 @@ apprentis:
   ),
 
 statut:
-  etablissement.apprentis.some(
-    (a) => a.statut !== "Terminée"
-  )
-    ? "AFaire"
-    : "Terminee",
+  etablissement.apprentis.map(
+    (a) => a.statut
+  ),
 
 };
 
