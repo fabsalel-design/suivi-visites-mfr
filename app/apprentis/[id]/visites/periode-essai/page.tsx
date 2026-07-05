@@ -829,18 +829,18 @@ const canvas =
 )}
 
 </div>
-    
 
-<p
-  style={{
-    marginTop: "30px",
-  }}
->
-  {`/apprentis/${id}/visites/nouvelle`}
-    ← Retour aux types de visite
-  </Link>
-</p>
-
+      <p
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <Link
+          href={`/apprentis/${id}/visites/nouvelle`}
+        >
+          ← Retour aux types de visite
+        </Link>
+      </p>
     </main>
   );
 }
