@@ -775,7 +775,6 @@ const canvas =
   </button>
 </div>
   
-
 <div
   style={{
     marginTop: "40px",
@@ -800,40 +799,40 @@ const canvas =
       ? "Enregistrement..."
       : "Enregistrer"}
   </button>
+ 
+{visiteId && pdfData && (
+  <button
+    onClick={() => {
+      const link =
+        document.createElement("a");
 
-  {visiteId && pdfData && (
-    <button
-      onClick={() => {
-        const link =
-          document.createElement("a");
+      link.href =
+        "data:application/pdf;base64," +
+        pdfData;
 
-        link.href =
-          "data:application/pdf;base64," +
-          pdfData;
+      link.download =
+        `evaluation_apprenti_${visiteId}.pdf`;
 
-        link.download =
-          `evaluation_apprenti_${visiteId}.pdf`;
+      link.click();
+    }}
+    style={{
+      backgroundColor: "#f57c00",
+      color: "white",
+      border: "none",
+      padding: "12px 20px",
+      borderRadius: "8px",
+      cursor: "pointer",
+    }}
+  >
+    📄 Télécharger PDF
+  </button>
+)}
 
-        link.click();
-      }}
-      style={{
-        backgroundColor: "#f57c00",
-        color: "white",
-        border: "none",
-        padding: "12px 20px",
-        borderRadius: "8px",
-        cursor: "pointer",
-      }}
-    >
-      📄 Télécharger PDF
-    </button>
-  )}
 </div>
 
 <Link
   href={`/formateur/${encodeURIComponent(
-    apprenti?    color: "#005CA9",
-    padding: "10px 18px",
+    apprenti?.18px",
     borderRadius: "12px",
     textDecoration: "none",
     fontWeight: "bold",
@@ -845,3 +844,8 @@ const canvas =
 >
   🏠 Retour au tableau de bord
 </Link>
+
+
+</main>
+);
+}
