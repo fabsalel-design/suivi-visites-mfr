@@ -830,15 +830,16 @@ const canvas =
 
 </div>
 
-<p
+
+<Link
+  href={`/apprentis/${id}/visites/nouvelle`}
   style={{
+    display: "inline-block",
     marginTop: "30px",
   }}
 >
-  prentis/${id}/visites/nouvelle`}>
-    ← Retour aux types de visite
-  </Link>
-</p>
+  ← Retour
+
 
 
 </main>
