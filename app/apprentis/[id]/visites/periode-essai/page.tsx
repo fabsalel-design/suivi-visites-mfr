@@ -835,11 +835,11 @@ const canvas =
           marginTop: "30px",
         }}
       >
-        <Link
-          href={`/apprentis/${id}/visites/nouvelle`}
-        >
-          ← Retour aux types de visite
-        </Link>
+       
+<Link
+  href={`/formateur/${apprenti?.form Retour au tableau de bord
+</Link>
+
       </p>
     </main>
   );
