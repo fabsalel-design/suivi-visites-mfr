@@ -222,9 +222,9 @@ export default async function AffectationsPage() {
                       "⚠️ Non affecté"}
                   </p>
 
+
 <Link
-hboard/affectations/${encodeURIComponent(={{
-    display: "inline-block",
+  href={`/dashboard/affectations/${onent(",
     backgroundColor: "#005CA9",
     color: "white",
     padding: "8px 12px",
@@ -236,7 +236,6 @@ hboard/affectations/${encodeURIComponent(={{
 >
   ✏️ Affecter
 </Link>
-
 
                   <ul>
                     {apprenants.map(
