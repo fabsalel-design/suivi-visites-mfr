@@ -169,20 +169,39 @@ export default async function AffectationsPage() {
                     🏢 {entreprise}
                   </h3>
 
+<p
+  style={{
+    color: "#666",
+    fontSize: "14px",
+  }}
+>
+  📍 {ville}
+</p>
+
                   <p>
                     👨‍🎓 {apprenants.length} apprenant(s)
                   </p>
 
-                  <p
-                    style={{
-                      fontWeight: "bold",
-                      color:
-                        apprenants[0]
-                          ?.formateur
-                          ? "#333"
-                          : "#d97706",
-                    }}
-                  >
+                 
+<p
+  style={{
+    fontWeight: "bold",
+    color:
+      apprenants[0]?.formateur
+        ? "#333"
+        : "#d97706",
+    background:
+      apprenants[0]?.formateur
+        ? "transparent"
+        : "#fff7ed",
+    padding:
+      apprenants[0]?.formateur
+        ? "0"
+        : "10px",
+    borderRadius: "8px",
+  }}
+>
+
                     👨‍🏫{" "}
                     {apprenants[0]
                       ?.formateur ||
