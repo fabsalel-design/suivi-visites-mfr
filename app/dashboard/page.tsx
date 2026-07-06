@@ -37,7 +37,6 @@ export default async function DashboardPage() {
         )
       : 0;
 
- 
 return (
   <main
     style={{
@@ -81,25 +80,97 @@ return (
         marginBottom: "30px",
       }}
     >
-      <DashboardCard
-        title="👨‍🎓 Apprentis"
-        value={totalApprentis}
-      />
+      <div
+        style={{
+          background: "white",
+          borderRadius: "12px",
+          padding: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <div style={{ color: "#666" }}>
+          👨‍🎓 Apprentis
+        </div>
+        <div
+          style={{
+            fontSize: "42px",
+            fontWeight: "bold",
+            color: "#005CA9",
+          }}
+        >
+          {totalApprentis}
+        </div>
+      </div>
 
-      <DashboardCard
-        title="🏢 Entreprises"
-        value={entreprises.length}
-      />
+      <div
+        style={{
+          background: "white",
+          borderRadius: "12px",
+          padding: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <div style={{ color: "#666" }}>
+          🏢 Entreprises
+        </div>
+        <div
+          style={{
+            fontSize: "42px",
+            fontWeight: "bold",
+            color: "#005CA9",
+          }}
+        >
+          {entreprises.length}
+        </div>
+      </div>
 
-      <DashboardCard
-        title="👥 Formateurs"
-        value={formateurs.length}
-      />
+      <div
+        style={{
+          background: "white",
+          borderRadius: "12px",
+          padding: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <div style={{ color: "#666" }}>
+          👥 Formateurs
+        </div>
+        <div
+          style={{
+            fontSize: "42px",
+            fontWeight: "bold",
+            color: "#005CA9",
+          }}
+        >
+          {formateurs.length}
+        </div>
+      </div>
 
-      <DashboardCard
-        title="📝 À faire"
-        value={visitesRestantes}
-      />
+      <div
+        style={{
+          background: "white",
+          borderRadius: "12px",
+          padding: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <div style={{ color: "#666" }}>
+          📝 À faire
+        </div>
+        <div
+          style={{
+            fontSize: "42px",
+            fontWeight: "bold",
+            color: "#f9a825",
+          }}
+        >
+          {visitesRestantes}
+        </div>
+      </div>
     </div>
 
     <div
@@ -124,23 +195,59 @@ return (
       <div
         style={{
           display: "flex",
-          flexWrap: "wrap",
           gap: "15px",
+          flexWrap: "wrap",
         }}
       >
-        <button style={actionStyle}>
+        <button
+          style={{
+            backgroundColor: "#005CA9",
+            color: "white",
+            border: "none",
+            padding: "12px 18px",
+            borderRadius: "10px",
+            fontWeight: "bold",
+          }}
+        >
           📥 Import Gestibase
         </button>
 
-        <button style={actionStyle}>
+        <button
+          style={{
+            backgroundColor: "#005CA9",
+            color: "white",
+            border: "none",
+            padding: "12px 18px",
+            borderRadius: "10px",
+            fontWeight: "bold",
+          }}
+        >
           👥 Affectations
         </button>
 
-        <button style={actionStyle}>
+        <button
+          style={{
+            backgroundColor: "#005CA9",
+            color: "white",
+            border: "none",
+            padding: "12px 18px",
+            borderRadius: "10px",
+            fontWeight: "bold",
+          }}
+        >
           🗺️ Cartographie
         </button>
 
-        <button style={actionStyle}>
+        <button
+          style={{
+            backgroundColor: "#005CA9",
+            color: "white",
+            border: "none",
+            padding: "12px 18px",
+            borderRadius: "10px",
+            fontWeight: "bold",
+          }}
+        >
           📝 Suivi visites
         </button>
       </div>
@@ -186,7 +293,7 @@ return (
                 display: "flex",
                 justifyContent:
                   "space-between",
-                padding: "8px 0",
+                padding: "10px 0",
                 borderBottom:
                   "1px solid #eee",
               }}
@@ -217,21 +324,30 @@ return (
         </h2>
 
         <p>
-          Contrats terminés :
-          <strong> 0</strong>
+          Contrats terminés : <strong>0</strong>
         </p>
 
         <p>
-          Sans formateur :
-          <strong> 0</strong>
+          Sans formateur : <strong>0</strong>
         </p>
 
         <p>
-          Visites en retard :
-          <strong> 0</strong>
+          Visites en retard : <strong>0</strong>
+        </p>
+
+        <hr />
+
+        <p>
+          Avancement global :
+          <strong> {avancement}%</strong>
+        </p>
+
+        <p>
+          Visites réalisées :
+          <strong> {visitesRealisees}</strong>
         </p>
       </div>
     </div>
   </main>
 );
-  }
+}
