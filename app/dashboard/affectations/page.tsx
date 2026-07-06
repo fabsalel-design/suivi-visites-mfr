@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 import { supabase } from "../../../lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -209,21 +209,22 @@ export default async function AffectationsPage() {
                   </p>
 
                  
-<button
+
+<Link
+  href={`/dashboard/affectations/${encodeURIComponent(
+    entreprise
+  )}`}
   style={{
-    backgroundColor: "#005CA9",
-    color: "white",
-    border: "none",
+    display: "inline"none",
     padding: "8px 12px",
     borderRadius: "8px",
+    textDecoration: "none",
     fontWeight: "bold",
-    cursor: "pointer",
     marginBottom: "15px",
   }}
 >
-  ✏️ Affecter ({apprenants.length})
-</button>
-
+  ✏️ Affecter
+</Link>
 
                   <ul>
                     {apprenants.map(
