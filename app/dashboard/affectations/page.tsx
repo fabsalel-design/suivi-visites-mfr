@@ -189,9 +189,7 @@ function formatDate(
 
                           <br />
 
-                          📅{" "}
-                          {
-                           
+                      
 📅 {formatDate(a.date_debut)}
 {" → "}
 {formatDate(a.date_fin)}
