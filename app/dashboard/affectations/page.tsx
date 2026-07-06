@@ -178,9 +178,23 @@ export default async function AffectationsPage() {
   📍 {ville}
 </p>
 
-                  <p>
-                    👨‍🎓 {apprenants.length} apprenant(s)
-                  </p>
+                 
+<p>
+  👨‍🎓 {
+    new Set(
+      apprenants.map(
+        (a: any) =>
+          a.gestibase_id ||
+          `${a.nom}-${a.prenom}`
+      )
+    ).size
+  } apprenant(s)
+</p>
+
+<p>
+  📄 {apprenants.length} période(s)
+</p>
+
 
                  
 <p
@@ -220,7 +234,7 @@ export default async function AffectationsPage() {
     marginBottom: "15px",
   }}
 >
-  ✏️ Affecter ({apprenants.length})
+✏️ Affecter
 </button>
 
 
