@@ -88,7 +88,7 @@ export default async function AffectationsPage() {
         backgroundColor: "#f5f7fa",
         minHeight: "100vh",
       }}
-   
+     >
 <Link
   href="/dashboard"
   style={{
