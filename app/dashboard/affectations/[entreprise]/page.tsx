@@ -1,4 +1,8 @@
 
+import { supabase } from "../../../../lib/supabase";
+
+export const dynamic = "force-dynamic";
+
 export default async function AffectationEntreprisePage({
   params,
 }: {
@@ -8,22 +12,40 @@ export default async function AffectationEntreprisePage({
 }) {
   const { entreprise } = await params;
 
+  const nomEntreprise =
+    decodeURIComponent(entreprise);
+
+  const { data: apprentis } =
+    await supabase
+      .from("apprentis")
+      .select("*")
+      .eq("entreprise", nomEntreprise)
+      .order("nom");
+
+  const formateurActuel =
+    apprentis?.[0]?.formateur ||
+    "Non affecté";
+
   return (
     <main
       style={{
         maxWidth: "900px",
         margin: "0 auto",
         padding: "30px",
+        backgroundColor: "#f5f7fa",
+        minHeight: "100vh",
       }}
     >
-      <h1>
-        🏢 {decodeURIComponent(
-          entreprise
-        )}
+      <h1
+        style={{
+          color: "#005CA9",
+        }}
+      >
+        🏢 {nomEntreprise}
       </h1>
 
       <p>
-        Gestion de l'affectation des
+        Gestion des affectations
         formateurs
       </p>
 
@@ -32,10 +54,53 @@ export default async function AffectationEntreprisePage({
           background: "white",
           padding: "20px",
           borderRadius: "12px",
+          marginBottom: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
         }}
       >
-        🚧 Affectation en cours de
-        développement
+        <h2
+          style={{
+            color: "#005CA9",
+            marginTop: 0,
+          }}
+        >
+          👨‍🏫 Formateur actuel
+        </h2>
+
+        <p>
+          {formateurActuel ||
+            "⚠️ Non affecté"}
+        </p>
+      </div>
+
+      <div
+        style={{
+          background: "white",
+          padding: "20px",
+          borderRadius: "12px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <h2
+          style={{
+            color: "#005CA9",
+            marginTop: 0,
+          }}
+        >
+          👨‍🎓 Apprenants concernés
+        </h2>
+
+        <ul>
+          {(apprentis || []).map(
+            (a: any) => (
+              <li key={a.id}>
+                {a.prenom} {a.nom}
+              </li>
+            )
+          )}
+        </ul>
       </div>
     </main>
   );
