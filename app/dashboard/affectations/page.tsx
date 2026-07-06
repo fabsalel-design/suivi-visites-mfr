@@ -68,6 +68,16 @@ export default async function AffectationsPage() {
     return Object.entries(compteur);
   }
 
+function formatDate(
+  date: string | null
+) {
+  if (!date) return "";
+
+  return new Date(
+    date
+  ).toLocaleDateString("fr-FR");
+}
+
   return (
     <main
       style={{
@@ -159,13 +169,12 @@ export default async function AffectationsPage() {
                     🏢 {entreprise}
                   </h3>
 
-                  <p>
-                    👨‍🏫{" "}
-                    {
-                      apprenants[0]
-                        ?.formateur
-                    }
-                  </p>
+                 
+<p>
+  👨‍🏫{" "}
+  {apprenants[0]?.formateur ||
+    "⚠️ Non affecté"}
+</p>
 
                   <ul>
                     {apprenants.map(
@@ -182,11 +191,11 @@ export default async function AffectationsPage() {
 
                           📅{" "}
                           {
-                            a.date_debut
-                          }{" "}
-                          →{" "}
-                          {
-                            a.date_fin
+                           
+📅 {formatDate(a.date_debut)}
+{" → "}
+{formatDate(a.date_fin)}
+
                           }
                         </li>
                       )
