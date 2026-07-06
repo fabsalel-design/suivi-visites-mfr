@@ -4,10 +4,30 @@ import { supabase } from "../../../lib/supabase";
 export const dynamic = "force-dynamic";
 
 export default async function AffectationsPage() {
-  const { data: apprentis } = await supabase
-    .from("apprentis")
-    .select("*")
-    .order("ville_reelle");
+ 
+const { data: apprentis } = await supabase
+  .from("apprentis")
+  .select("*")
+  .order("ville_reelle")
+  .order("nom");
+
+const villes =
+  apprentis?.reduce(
+    (acc: any, apprenti: any) => {
+      const ville =
+        apprenti.ville_reelle ||
+        "Ville non renseignée";
+
+      if (!acc[ville]) {
+        acc[ville] = [];
+      }
+
+      acc[ville].push(apprenti);
+
+      return acc;
+    },
+    {}
+  ) || {};
 
   return (
     <main
