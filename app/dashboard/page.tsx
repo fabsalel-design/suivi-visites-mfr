@@ -8,7 +8,15 @@ export default async function DashboardPage() {
     .from("apprentis")
     .select("*");
 
-  const totalApprentis = apprentis?.length || 0;
+const totalApprentis =
+  new Set(
+    apprentis?.map(
+      (a) =>
+        a.gestibase_id ||
+        `${a.nom}-${a.prenom}`
+    ) || []
+  ).size;
+
 
   const entreprises = [
     ...new Set(
