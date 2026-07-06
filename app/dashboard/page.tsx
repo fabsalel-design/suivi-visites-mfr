@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 import { supabase } from "../../lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -220,18 +220,21 @@ return (
           📥 Import Gestibase
         </button>
 
-        <button
-          style={{
-            backgroundColor: "#005CA9",
-            color: "white",
-            border: "none",
-            padding: "12px 18px",
-            borderRadius: "10px",
-            fontWeight: "bold",
-          }}
-        >
-          👥 Affectations
-        </button>
+      
+<Link
+  href="/dashboard/affectations"
+  style={{
+    backgroundColor: "#005CA9",
+    color: "white",
+    padding: "12px 18px",
+    borderRadius: "10px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    display: "inline-block",
+  }}
+>
+  👥 Affectations
+</Link>
 
         <button
           style={{
