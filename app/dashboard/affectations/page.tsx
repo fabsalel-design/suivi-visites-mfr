@@ -5,24 +5,27 @@ export const dynamic = "force-dynamic";
 
 export default async function AffectationsPage() {
  
-const { data: apprentis } = await supabase
-  .from("apprentis")
-  .select("*")
-  .order("ville_reelle")
-  .order("nom");
-
 const villes =
   apprentis?.reduce(
     (acc: any, apprenti: any) => {
-     
-const ville =
-  apprenti.ville_reelle
-    ? `${apprenti.ville_reelle} (${String(
-        apprenti.code_postal_reel || ""
-      ).substring(0, 2)})`
-    : "Ville non renseignée";
+      const ville =
+        apprenti.ville_reelle
+          ? `${apprenti.ville_reelle} (${String(
+              apprenti.code_postal_reel || ""
+            ).substring(0, 2)})`
+          : "Ville non renseignée";
 
-     
+      if (!acc[ville]) {
+        acc[ville] = [];
+      }
+
+      acc[ville].push(apprenti);
+
+      return acc;
+    },
+    {}
+  ) || {};
+
 function regrouperParEntreprise(
   liste: any[]
 ) {
@@ -43,17 +46,6 @@ function regrouperParEntreprise(
     {}
   );
 }
-
-      if (!acc[ville]) {
-        acc[ville] = [];
-      }
-
-      acc[ville].push(apprenti);
-
-      return acc;
-    },
-    {}
-  ) || {};
 
   return (
     <main
