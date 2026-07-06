@@ -61,15 +61,17 @@ const ville =
 {Object.entries(villes).map(
   ([ville, liste]: any) => (
     <div key={ville}>
-      <h2
-        style={{
-          color: "#005CA9",
-          marginTop: "30px",
-          marginBottom: "15px",
-        }}
-      >
-        📍 {ville} ({liste.length})
-      </h2>
+   
+<h2
+  style={{
+    color: "#005CA9",
+    marginTop: "30px",
+    marginBottom: "15px",
+  }}
+>
+  📍 {ville} - {liste.length} apprenant(s)
+</h2>
+
 
       {liste.map((apprenti: any) => (
         <div
