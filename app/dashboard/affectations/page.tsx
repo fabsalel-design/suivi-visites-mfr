@@ -14,9 +14,14 @@ const { data: apprentis } = await supabase
 const villes =
   apprentis?.reduce(
     (acc: any, apprenti: any) => {
-      const ville =
-        apprenti.ville_reelle ||
-        "Ville non renseignée";
+     
+const ville =
+  apprenti.ville_reelle
+    ? `${apprenti.ville_reelle} (${String(
+        apprenti.code_postal_reel || ""
+      ).substring(0, 2)})`
+    : "Ville non renseignée";
+
 
       if (!acc[ville]) {
         acc[ville] = [];
