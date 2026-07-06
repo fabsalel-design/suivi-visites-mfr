@@ -6,8 +6,7 @@ export default async function AffectationEntreprisePage({
     entreprise: string;
   }>;
 }) {
-  const { entreprise } =
-    await params;
+  const { entreprise } = await params;
 
   return (
     <main
@@ -24,8 +23,8 @@ export default async function AffectationEntreprisePage({
       </h1>
 
       <p>
-        Gestion de l'affectation
-        formateur
+        Gestion de l'affectation des
+        formateurs
       </p>
 
       <div
@@ -35,8 +34,8 @@ export default async function AffectationEntreprisePage({
           borderRadius: "12px",
         }}
       >
-        🚧 Fonction en cours de
-        construction
+        🚧 Affectation en cours de
+        développement
       </div>
     </main>
   );
