@@ -51,7 +51,21 @@ const villes =
         Gestion des affectations des apprenants
       </p>
 
-      {(apprentis || []).map((apprenti) => (
+      
+{Object.entries(villes).map(
+  ([ville, liste]: any) => (
+    <div key={ville}>
+      <h2
+        style={{
+          color: "#005CA9",
+          marginTop: "30px",
+          marginBottom: "15px",
+        }}
+      >
+        📍 {ville} ({liste.length})
+      </h2>
+
+      {liste.map((apprenti: any) => (
         <div
           key={apprenti.id}
           style={{
@@ -62,6 +76,35 @@ const villes =
             boxShadow:
               "0 2px 8px rgba(0,0,0,0.08)",
           }}
+        >
+          <h3
+            style={{
+              marginTop: 0,
+              color: "#005CA9",
+            }}
+          >
+            {apprenti.prenom}{" "}
+            {apprenti.nom}
+          </h3>
+
+          <p>
+            🏢 {apprenti.entreprise}
+          </p>
+
+          <p>
+            👨‍🏫 {apprenti.formateur}
+          </p>
+
+          <p>
+            📅 {apprenti.date_debut} →{" "}
+            {apprenti.date_fin}
+          </p>
+        </div>
+      ))}
+    </div>
+  )
+)}
+
         >
           <h3
             style={{
