@@ -91,6 +91,49 @@ function regrouperParEntreprise(
   }}
 >
   📍 {ville} - {liste.length} apprenant(s)
+ 
+{Object.entries(
+  regrouperParEntreprise(liste)
+).map(
+  ([entreprise, apprenants]: any) => (
+    <div
+      key={entreprise}
+      style={{
+        background: "#ffffff",
+        padding: "15px",
+        borderRadius: "10px",
+        marginBottom: "15px",
+        border: "1px solid #eee",
+      }}
+    >
+      <h3
+        style={{
+          color: "#005CA9",
+          marginTop: 0,
+        }}
+      >
+        🏢 {entreprise}
+      </h3>
+
+      <p>
+        👨‍🏫 {
+          apprenants[0]?.formateur
+        }
+      </p>
+
+      <ul>
+        {apprenants.map(
+          (a: any) => (
+            <li key={a.id}>
+              {a.prenom} {a.nom}
+            </li>
+          )
+        )}
+      </ul>
+    </div>
+  )
+)}
+
 </h2>
 
 
