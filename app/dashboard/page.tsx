@@ -37,87 +37,200 @@ export default async function DashboardPage() {
         )
       : 0;
 
-  return (
-    <main style={{ padding: "40px" }}>
-      <h1>Tableau de bord</h1>
+ 
+return (
+  <main
+    style={{
+      maxWidth: "1400px",
+      margin: "0 auto",
+      padding: "30px",
+      backgroundColor: "#f5f7fa",
+      minHeight: "100vh",
+    }}
+  >
+    <div style={{ marginBottom: "30px" }}>
+      <h1
+        style={{
+          color: "#005CA9",
+          marginBottom: "5px",
+        }}
+      >
+        Bonjour Fabrice 👋
+      </h1>
 
-      {error && (
-        <p>Erreur : {error.message}</p>
-      )}
+      <p
+        style={{
+          color: "#666",
+          margin: 0,
+        }}
+      >
+        Centre de pilotage des visites supérieur
+      </p>
+    </div>
+
+    {error && (
+      <p>Erreur : {error.message}</p>
+    )}
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns:
+          "repeat(auto-fit, minmax(220px, 1fr))",
+        gap: "20px",
+        marginBottom: "30px",
+      }}
+    >
+      <DashboardCard
+        title="👨‍🎓 Apprentis"
+        value={totalApprentis}
+      />
+
+      <DashboardCard
+        title="🏢 Entreprises"
+        value={entreprises.length}
+      />
+
+      <DashboardCard
+        title="👥 Formateurs"
+        value={formateurs.length}
+      />
+
+      <DashboardCard
+        title="📝 À faire"
+        value={visitesRestantes}
+      />
+    </div>
+
+    <div
+      style={{
+        background: "white",
+        borderRadius: "12px",
+        padding: "20px",
+        marginBottom: "30px",
+        boxShadow:
+          "0 2px 8px rgba(0,0,0,0.08)",
+      }}
+    >
+      <h2
+        style={{
+          marginTop: 0,
+          color: "#005CA9",
+        }}
+      >
+        🚀 Actions rapides
+      </h2>
 
       <div
         style={{
           display: "flex",
-          gap: "20px",
           flexWrap: "wrap",
+          gap: "15px",
         }}
       >
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            minWidth: "180px",
-          }}
-        >
-          <h2>Apprentis</h2>
-          <p>{totalApprentis}</p>
-        </div>
+        <button style={actionStyle}>
+          📥 Import Gestibase
+        </button>
 
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            minWidth: "180px",
-          }}
-        >
-          <h2>Entreprises</h2>
-          <p>{entreprises.length}</p>
-        </div>
+        <button style={actionStyle}>
+          👥 Affectations
+        </button>
 
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            minWidth: "180px",
-          }}
-        >
-          <h2>Formateurs</h2>
-          <p>{formateurs.length}</p>
-        </div>
+        <button style={actionStyle}>
+          🗺️ Cartographie
+        </button>
 
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            minWidth: "180px",
-          }}
-        >
-          <h2>Visites réalisées</h2>
-          <p>{visitesRealisees}</p>
-        </div>
-
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            minWidth: "180px",
-          }}
-        >
-          <h2>Visites restantes</h2>
-          <p>{visitesRestantes}</p>
-        </div>
-
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            minWidth: "180px",
-          }}
-        >
-          <h2>Avancement</h2>
-          <p>{avancement}%</p>
-        </div>
+        <button style={actionStyle}>
+          📝 Suivi visites
+        </button>
       </div>
-    </main>
-  );
-}
+    </div>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns:
+          "2fr 1fr",
+        gap: "20px",
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          borderRadius: "12px",
+          padding: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <h2
+          style={{
+            color: "#005CA9",
+            marginTop: 0,
+          }}
+        >
+          👥 Répartition des formateurs
+        </h2>
+
+        {formateurs.map((formateur) => {
+          const count =
+            apprentis?.filter(
+              (a) =>
+                a.formateur === formateur
+            ).length || 0;
+
+          return (
+            <div
+              key={formateur}
+              style={{
+                display: "flex",
+                justifyContent:
+                  "space-between",
+                padding: "8px 0",
+                borderBottom:
+                  "1px solid #eee",
+              }}
+            >
+              <strong>{formateur}</strong>
+              <span>{count}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      <div
+        style={{
+          background: "white",
+          borderRadius: "12px",
+          padding: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <h2
+          style={{
+            color: "#005CA9",
+            marginTop: 0,
+          }}
+        >
+          ⚠️ Alertes
+        </h2>
+
+        <p>
+          Contrats terminés :
+          <strong> 0</strong>
+        </p>
+
+        <p>
+          Sans formateur :
+          <strong> 0</strong>
+        </p>
+
+        <p>
+          Visites en retard :
+          <strong> 0</strong>
+        </p>
+      </div>
+    </div>
+  </main>
+);
