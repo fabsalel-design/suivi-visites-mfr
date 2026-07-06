@@ -88,18 +88,20 @@ export default async function AffectationsPage() {
         backgroundColor: "#f5f7fa",
         minHeight: "100vh",
       }}
-    >
-      dashboard"
-        style={{
-          display: "inline-block",
-          marginBottom: "20px",
-          textDecoration: "none",
-          color: "#005CA9",
-          fontWeight: "bold",
-        }}
-      >
-        🏠 Retour au Dashboard
-      </Link>
+   
+<Link
+  href="/dashboard"
+  style={{
+    display: "inline-block",
+    marginBottom: "20px",
+    textDecoration: "none",
+    color: "#005CA9",
+    fontWeight: "bold",
+  }}
+>
+  🏠 Retour au Dashboard
+</Link>
+
 
       <h1
         style={{
