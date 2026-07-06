@@ -22,6 +22,27 @@ const ville =
       ).substring(0, 2)})`
     : "Ville non renseignée";
 
+     
+function regrouperParEntreprise(
+  liste: any[]
+) {
+  return liste.reduce(
+    (acc: any, apprenti: any) => {
+      const entreprise =
+        apprenti.entreprise ||
+        "Entreprise non renseignée";
+
+      if (!acc[entreprise]) {
+        acc[entreprise] = [];
+      }
+
+      acc[entreprise].push(apprenti);
+
+      return acc;
+    },
+    {}
+  );
+}
 
       if (!acc[ville]) {
         acc[ville] = [];
