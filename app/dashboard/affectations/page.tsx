@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import { supabase } from "../../../lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -68,35 +69,51 @@ export default async function AffectationsPage() {
     return Object.entries(compteur);
   }
 
-function formatDate(
-  date: string | null
-) {
-  if (!date) return "";
+  function formatDate(
+    date: string | null
+  ) {
+    if (!date) return "";
 
-  return new Date(
-    date
-  ).toLocaleDateString("fr-FR");
-}
+    return new Date(
+      date
+    ).toLocaleDateString("fr-FR");
+  }
 
   return (
     <main
       style={{
-        maxWidth: "1200px",
+        maxWidth: "1400px",
         margin: "0 auto",
         padding: "30px",
         backgroundColor: "#f5f7fa",
         minHeight: "100vh",
       }}
     >
+      /dashboard          display: "inline-block",
+          marginBottom: "20px",
+          textDecoration: "none",
+          color: "#005CA9",
+          fontWeight: "bold",
+        }}
+      >
+        🏠 Retour au Dashboard
+      </Link>
+
       <h1
         style={{
           color: "#005CA9",
+          marginBottom: "10px",
         }}
       >
         👥 Affectations formateurs
       </h1>
 
-      <p>
+      <p
+        style={{
+          color: "#666",
+          marginBottom: "30px",
+        }}
+      >
         Gestion des affectations des apprenants
       </p>
 
@@ -105,7 +122,7 @@ function formatDate(
           <div
             key={ville}
             style={{
-              marginBottom: "40px",
+              marginBottom: "50px",
             }}
           >
             <h2
@@ -149,13 +166,10 @@ function formatDate(
                 <div
                   key={entreprise}
                   style={{
-                    background:
-                      "white",
+                    background: "white",
                     padding: "20px",
-                    borderRadius:
-                      "12px",
-                    marginBottom:
-                      "20px",
+                    borderRadius: "12px",
+                    marginBottom: "20px",
                     boxShadow:
                       "0 2px 8px rgba(0,0,0,0.08)",
                   }}
@@ -164,42 +178,86 @@ function formatDate(
                     style={{
                       color: "#005CA9",
                       marginTop: 0,
+                      marginBottom: "10px",
                     }}
                   >
                     🏢 {entreprise}
                   </h3>
 
-                 
+                  <p>
+                    👨‍🎓{" "}
+                    {apprenants.length} apprenant(s)
+                  </p>
 
-<p>
-  👨‍🏫{" "}
-  {apprenants[0]?.formateur ||
-    "⚠️ Non affecté"}
-</p>
+                  <p>
+                    📍 {ville}
+                  </p>
 
-<ul>
-  {apprenants.map(
-    (a: any) => (
-      <li key={a.id}>
-        <strong>
-          {a.prenom} {a.nom}
-        </strong>
+                  <p
+                    style={{
+                      fontWeight: "bold",
+                      color:
+                        apprenants[0]
+                          ?.formateur
+                          ? "#333"
+                          : "#d97706",
+                    }}
+                  >
+                    👨‍🏫{" "}
+                    {apprenants[0]
+                      ?.formateur ||
+                      "⚠️ Non affecté"}
+                  </p>
 
-        <br />
+                  <button
+                    style={{
+                      backgroundColor:
+                        "#005CA9",
+                      color: "white",
+                      border: "none",
+                      padding:
+                        "8px 12px",
+                      borderRadius:
+                        "8px",
+                      fontWeight:
+                        "bold",
+                      cursor: "pointer",
+                      marginBottom:
+                        "15px",
+                    }}
+                  >
+                    ✏️ Affecter
+                  </button>
 
-        📅{" "}
-        {formatDate(
-          a.date_debut
-        )}{" "}
-        →{" "}
-        {formatDate(
-          a.date_fin
-        )}
-      </li>
-    )
-  )}
-</ul>
+                  <ul>
+                    {apprenants.map(
+                      (a: any) => (
+                        <li
+                          key={a.id}
+                          style={{
+                            marginBottom:
+                              "10px",
+                          }}
+                        >
+                          <strong>
+                            {a.prenom}{" "}
+                            {a.nom}
+                          </strong>
 
+                          <br />
+
+                          📅{" "}
+                          {formatDate(
+                            a.date_debut
+                          )}{" "}
+                          →{" "}
+                          {formatDate(
+                            a.date_fin
+                          )}
+                        </li>
+                      )
+                    )}
+                  </ul>
                 </div>
               )
             )}
@@ -209,4 +267,3 @@ function formatDate(
     </main>
   );
 }
-
