@@ -4,48 +4,69 @@ import { supabase } from "../../../lib/supabase";
 export const dynamic = "force-dynamic";
 
 export default async function AffectationsPage() {
- 
-const villes =
-  apprentis?.reduce(
-    (acc: any, apprenti: any) => {
-      const ville =
-        apprenti.ville_reelle
-          ? `${apprenti.ville_reelle} (${String(
-              apprenti.code_postal_reel || ""
-            ).substring(0, 2)})`
-          : "Ville non renseignée";
+  const { data: apprentis } = await supabase
+    .from("apprentis")
+    .select("*")
+    .order("ville_reelle")
+    .order("nom");
 
-      if (!acc[ville]) {
-        acc[ville] = [];
-      }
+  const villes =
+    apprentis?.reduce(
+      (acc: any, apprenti: any) => {
+        const ville =
+          apprenti.ville_reelle
+            ? `${apprenti.ville_reelle} (${String(
+                apprenti.code_postal_reel || ""
+              ).substring(0, 2)})`
+            : "Ville non renseignée";
 
-      acc[ville].push(apprenti);
+        if (!acc[ville]) {
+          acc[ville] = [];
+        }
 
-      return acc;
-    },
-    {}
-  ) || {};
+        acc[ville].push(apprenti);
 
-function regrouperParEntreprise(
-  liste: any[]
-) {
-  return liste.reduce(
-    (acc: any, apprenti: any) => {
-      const entreprise =
-        apprenti.entreprise ||
-        "Entreprise non renseignée";
+        return acc;
+      },
+      {}
+    ) || {};
 
-      if (!acc[entreprise]) {
-        acc[entreprise] = [];
-      }
+  function regrouperParEntreprise(
+    liste: any[]
+  ) {
+    return liste.reduce(
+      (acc: any, apprenti: any) => {
+        const entreprise =
+          apprenti.entreprise ||
+          "Entreprise non renseignée";
 
-      acc[entreprise].push(apprenti);
+        if (!acc[entreprise]) {
+          acc[entreprise] = [];
+        }
 
-      return acc;
-    },
-    {}
-  );
-}
+        acc[entreprise].push(apprenti);
+
+        return acc;
+      },
+      {}
+    );
+  }
+
+  function getFormateursVille(
+    liste: any[]
+  ) {
+    const compteur: Record<string, number> = {};
+
+    liste.forEach((a) => {
+      const formateur =
+        a.formateur || "Non affecté";
+
+      compteur[formateur] =
+        (compteur[formateur] || 0) + 1;
+    });
+
+    return Object.entries(compteur);
+  }
 
   return (
     <main
@@ -69,104 +90,114 @@ function regrouperParEntreprise(
         Gestion des affectations des apprenants
       </p>
 
-      
-
-{Object.entries(villes).map(
-  ([ville, liste]: any) => (
-    <div key={ville}>
-   
-<h2
-  style={{
-    color: "#005CA9",
-    marginTop: "30px",
-    marginBottom: "15px",
-  }}
->
-  📍 {ville} - {liste.length} apprenant(s)
- 
-{Object.entries(
-  regrouperParEntreprise(liste)
-).map(
-  ([entreprise, apprenants]: any) => (
-    <div
-      key={entreprise}
-      style={{
-        background: "#ffffff",
-        padding: "15px",
-        borderRadius: "10px",
-        marginBottom: "15px",
-        border: "1px solid #eee",
-      }}
-    >
-      <h3
-        style={{
-          color: "#005CA9",
-          marginTop: 0,
-        }}
-      >
-        🏢 {entreprise}
-      </h3>
-
-      <p>
-        👨‍🏫 {
-          apprenants[0]?.formateur
-        }
-      </p>
-
-      <ul>
-        {apprenants.map(
-          (a: any) => (
-            <li key={a.id}>
-              {a.prenom} {a.nom}
-            </li>
-          )
-        )}
-      </ul>
-    </div>
-  )
-)}
-
-</h2>
-
-
-      {liste.map((apprenti: any) => (
-        <div
-          key={apprenti.id}
-          style={{
-            background: "white",
-            padding: "20px",
-            borderRadius: "12px",
-            marginBottom: "15px",
-            boxShadow:
-              "0 2px 8px rgba(0,0,0,0.08)",
-          }}
-        >
-          <h3
+      {Object.entries(villes).map(
+        ([ville, liste]: any) => (
+          <div
+            key={ville}
             style={{
-              marginTop: 0,
-              color: "#005CA9",
+              marginBottom: "40px",
             }}
           >
-            {apprenti.prenom} {apprenti.nom}
-          </h3>
+            <h2
+              style={{
+                color: "#005CA9",
+                marginBottom: "15px",
+              }}
+            >
+              📍 {ville} - {liste.length} apprenant(s)
+            </h2>
 
-          <p>
-            🏢 {apprenti.entreprise}
-          </p>
+            <div
+              style={{
+                background: "#eef5fb",
+                padding: "15px",
+                borderRadius: "12px",
+                marginBottom: "20px",
+              }}
+            >
+              <strong>
+                👨‍🏫 Formateurs présents
+              </strong>
 
-          <p>
-            👨‍🏫 {apprenti.formateur}
-          </p>
+              {getFormateursVille(
+                liste
+              ).map(
+                ([nom, nombre]) => (
+                  <div key={nom}>
+                    {nom} ({nombre})
+                  </div>
+                )
+              )}
+            </div>
 
-          <p>
-            📅 {apprenti.date_debut} → {apprenti.date_fin}
-          </p>
-        </div>
-      ))}
-    </div>
-  )
-)}
+            {Object.entries(
+              regrouperParEntreprise(liste)
+            ).map(
+              (
+                [entreprise, apprenants]: any
+              ) => (
+                <div
+                  key={entreprise}
+                  style={{
+                    background:
+                      "white",
+                    padding: "20px",
+                    borderRadius:
+                      "12px",
+                    marginBottom:
+                      "20px",
+                    boxShadow:
+                      "0 2px 8px rgba(0,0,0,0.08)",
+                  }}
+                >
+                  <h3
+                    style={{
+                      color: "#005CA9",
+                      marginTop: 0,
+                    }}
+                  >
+                    🏢 {entreprise}
+                  </h3>
 
+                  <p>
+                    👨‍🏫{" "}
+                    {
+                      apprenants[0]
+                        ?.formateur
+                    }
+                  </p>
+
+                  <ul>
+                    {apprenants.map(
+                      (a: any) => (
+                        <li
+                          key={a.id}
+                        >
+                          <strong>
+                            {a.prenom}{" "}
+                            {a.nom}
+                          </strong>
+
+                          <br />
+
+                          📅{" "}
+                          {
+                            a.date_debut
+                          }{" "}
+                          →{" "}
+                          {
+                            a.date_fin
+                          }
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )
+            )}
+          </div>
+        )
+      )}
     </main>
   );
 }
