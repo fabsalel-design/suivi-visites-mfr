@@ -222,21 +222,20 @@ export default async function AffectationsPage() {
                       "⚠️ Non affecté"}
                   </p>
                
-<button
-  style={{
-    backgroundColor: "#005CA9",
-    color: "white",
-    border: "none",
-    padding: "8px 12px",
+
+
+<Link
+  href={`/dashboard/affectations/${encodeURIComponent(
+    entreprise
+adding: "8px 12px",
     borderRadius: "8px",
+    textDecoration: "none",
     fontWeight: "bold",
-    cursor: "pointer",
     marginBottom: "15px",
   }}
 >
-✏️ Affecter
-</button>
-
+  ✏️ Affecter
+</Link>
 
 
                   <ul>
