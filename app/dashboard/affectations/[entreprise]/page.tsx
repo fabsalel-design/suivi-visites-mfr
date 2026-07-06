@@ -22,6 +22,16 @@ export default async function AffectationEntreprisePage({
       .eq("entreprise", nomEntreprise)
       .order("nom");
 
+console.log(
+  "ENTREPRISE",
+  nomEntreprise
+);
+
+console.log(
+  "APPRENTIS",
+  apprentis
+);
+
   const formateurActuel =
     apprentis?.[0]?.formateur ||
     "Non affecté";
