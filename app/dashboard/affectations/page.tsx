@@ -52,6 +52,7 @@ const villes =
       </p>
 
       
+
 {Object.entries(villes).map(
   ([ville, liste]: any) => (
     <div key={ville}>
@@ -83,8 +84,7 @@ const villes =
               color: "#005CA9",
             }}
           >
-            {apprenti.prenom}{" "}
-            {apprenti.nom}
+            {apprenti.prenom} {apprenti.nom}
           </h3>
 
           <p>
@@ -96,8 +96,7 @@ const villes =
           </p>
 
           <p>
-            📅 {apprenti.date_debut} →{" "}
-            {apprenti.date_fin}
+            📅 {apprenti.date_debut} → {apprenti.date_fin}
           </p>
         </div>
       ))}
@@ -105,29 +104,6 @@ const villes =
   )
 )}
 
-        >
-          <h3
-            style={{
-              marginTop: 0,
-              color: "#005CA9",
-            }}
-          >
-            {apprenti.prenom} {apprenti.nom}
-          </h3>
-
-          <p>
-            📍 {apprenti.ville_reelle}
-          </p>
-
-          <p>
-            🏢 {apprenti.entreprise}
-          </p>
-
-          <p>
-            👨‍🏫 {apprenti.formateur}
-          </p>
-        </div>
-      ))}
     </main>
   );
 }
