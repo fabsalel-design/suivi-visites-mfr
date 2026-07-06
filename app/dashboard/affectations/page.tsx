@@ -170,41 +170,33 @@ function formatDate(
                   </h3>
 
                  
+
 <p>
   👨‍🏫{" "}
   {apprenants[0]?.formateur ||
     "⚠️ Non affecté"}
 </p>
 
-                  <ul>
-                    {apprenants.map(
-                      (a: any) => (
-                        <li
-                          key={a.id}
-                        >
-                          <strong>
-                            {a.prenom}{" "}
-                            {a.nom}
-                          </strong>
+<ul>
+  {apprenants.map(
+    (a: any) => (
+      <li key={a.id}>
+        <strong>
+          {a.prenom} {a.nom}
+        </strong>
 
-                          <br />
+        <br />
 
-                      
-📅 {formatDate(a.date_debut)}
-{" → "}
-{formatDate(a.date_fin)}
+        📅{" "}
+        {formatDate(
+          a.date_debut
+        )}{" "}
+        →{" "}
+        {formatDate(
+          a.date_fin
+        )}
+      </li>
+    )
+  )}
+</ul>
 
-                          }
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </div>
-              )
-            )}
-          </div>
-        )
-      )}
-    </main>
-  );
-}
