@@ -54,13 +54,13 @@ export default async function AffectationEntreprisePage({
 
 <Link
   href=
-/dashboard/affectations={{
+/dashboard/affectations
     display: "inline-block",
     marginBottom: "20px",
     textDecoration: "none",
     color: "#005CA9",
     fontWeight: "bold",
-  }}
+  
 >
   ← Retour aux affectations
 </Link>
