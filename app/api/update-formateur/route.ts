@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   "https://cbhomuatxxptfcbzveys.supabase.co",
-  "TON_ANON_KEY_ICI"
+ "sb_publishable_4vPEKeE_FYXBu6jm_YvlHw_zKUR_aNz"
 );
 
 export async function POST(request: Request) {
