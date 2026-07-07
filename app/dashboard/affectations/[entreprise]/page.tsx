@@ -1,6 +1,6 @@
 import AffectationForm from "../../../../components/AffectationForm";
 import { supabase } from "../../../../lib/supabase";
-
+import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 export default async function AffectationEntreprisePage({
@@ -21,16 +21,6 @@ export default async function AffectationEntreprisePage({
       .select("*")
       .eq("entreprise", nomEntreprise)
       .order("nom");
-
-console.log(
-  "ENTREPRISE",
-  nomEntreprise
-);
-
-console.log(
-  "APPRENTIS",
-  apprentis
-);
 
   const formateurActuel =
     apprentis?.[0]?.formateur ||
@@ -59,6 +49,19 @@ const formateurs = [
         minHeight: "100vh",
       }}
     >
+
+
+/dashboard/affectations display: "inline-block",
+    marginBottom: "20px",
+    textDecoration: "none",
+    color: "#005CA9",
+    fontWeight: "bold",
+  }}
+>
+  ← Retour aux affectations
+</Link>
+
+      
       <h1
         style={{
           color: "#005CA9",
