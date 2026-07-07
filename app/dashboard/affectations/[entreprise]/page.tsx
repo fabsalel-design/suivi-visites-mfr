@@ -51,16 +51,21 @@ export default async function AffectationEntreprisePage({
         minHeight: "100vh",
       }}
     >
-      /dashboard/affectations={{
-          display: "inline-block",
-          marginBottom: "20px",
-          textDecoration: "none",
-          color: "#005CA9",
-          fontWeight: "bold",
-        }}
-      >
-        ← Retour aux affectations
-      </Link>
+     
+
+<Link
+  href=
+/dashboard/affectations={{
+    display: "inline-block",
+    marginBottom: "20px",
+    textDecoration: "none",
+    color: "#005CA9",
+    fontWeight: "bold",
+  }}
+>
+  ← Retour aux affectations
+</Link>
+
 
       <h1
         style={{
