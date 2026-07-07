@@ -224,20 +224,24 @@ export default async function AffectationsPage() {
 
 
 
-<button
+
+/affectations/${encodeURIComponent(
+    entreprise
+  )}`}
   style={{
+    display: "inline-block",
     backgroundColor: "#005CA9",
     color: "white",
-    border: "none",
     padding: "8px 12px",
     borderRadius: "8px",
+    textDecoration: "none",
     fontWeight: "bold",
-    cursor: "pointer",
     marginBottom: "15px",
   }}
 >
   ✏️ Affecter
-</button>
+</Link>
+
 
 
 
