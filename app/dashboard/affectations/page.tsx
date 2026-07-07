@@ -216,20 +216,15 @@ export default async function AffectationsPage() {
   }}
 >
 
-                    👨‍🏫{" "}
-                    {apprenants[0]
-                      ?.formateur ||
-                      "⚠️ Non affecté"}
-                  </p>
-
-
+<p>
+  👨‍🏫{" "}
+  {apprenants[0]?.formateur ||
+    "⚠️ Non affecté"}
+</p>
 
 <Link
-  href={`/dashboard/affectations/${encodeURIComponent(
-    entreprise
-  )}`}
-  style={{
-,
+  href={`/dashboard/affectations/${onent(    backgroundColor: "#005CA9",
+    color: "white",
     padding: "8px 12px",
     borderRadius: "8px",
     textDecoration: "none",
@@ -239,6 +234,7 @@ export default async function AffectationsPage() {
 >
   ✏️ Affecter
 </Link>
+
 
 
                   <ul>
