@@ -2,6 +2,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 export default function AffectationForm({
   entreprise,
@@ -17,6 +19,7 @@ export default function AffectationForm({
 
   const [message, setMessage] =
     useState("");
+  const router = useRouter();
 
   async function enregistrer() {
     const response = await fetch(
@@ -34,15 +37,20 @@ export default function AffectationForm({
       }
     );
 
-    if (response.ok) {
-      setMessage(
-        "✅ Affectation enregistrée"
-      );
-    } else {
-      setMessage(
-        "❌ Erreur d'enregistrement"
-      );
-    }
+   
+if (response.ok) {
+  setMessage(
+    "✅ Affectation enregistrée"
+  );
+
+  setTimeout(() => {
+    router.push(
+      "/dashboard/affectations"
+    );
+    router.refresh();
+  }, 1000);
+}
+
   }
 
   return (
