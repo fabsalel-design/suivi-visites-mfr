@@ -1,6 +1,8 @@
+
+import Link from "next/link";
 import AffectationForm from "../../../../components/AffectationForm";
 import { supabase } from "../../../../lib/supabase";
-import Link from "next/link";
+
 export const dynamic = "force-dynamic";
 
 export default async function AffectationEntreprisePage({
@@ -26,18 +28,18 @@ export default async function AffectationEntreprisePage({
     apprentis?.[0]?.formateur ||
     "Non affecté";
 
-const { data: tousLesApprentis } =
-  await supabase
-    .from("apprentis")
-    .select("formateur");
+  const { data: tousLesApprentis } =
+    await supabase
+      .from("apprentis")
+      .select("formateur");
 
-const formateurs = [
-  ...new Set(
-    (tousLesApprentis || [])
-      .map((a) => a.formateur)
-      .filter(Boolean)
-  ),
-].sort();
+  const formateurs = [
+    ...new Set(
+      (tousLesApprentis || [])
+        .map((a) => a.formateur)
+        .filter(Boolean)
+    ),
+  ].sort();
 
   return (
     <main
@@ -49,7 +51,17 @@ const formateurs = [
         minHeight: "100vh",
       }}
     >
-      
+      /dashboard/affectations={{
+          display: "inline-block",
+          marginBottom: "20px",
+          textDecoration: "none",
+          color: "#005CA9",
+          fontWeight: "bold",
+        }}
+      >
+        ← Retour aux affectations
+      </Link>
+
       <h1
         style={{
           color: "#005CA9",
@@ -63,28 +75,24 @@ const formateurs = [
         formateurs
       </p>
 
-      
-<div
-  style={{
-    background: "white",
-    padding: "20px",
-    borderRadius: "12px",
-    marginBottom: "20px",
-    boxShadow:
-      "0 2px 8px rgba(0,0,0,0.08)",
-  }}
->
-
-<AffectationForm
-  entreprise={nomEntreprise}
-  formateurActuel={
-    formateurActuel
-  }
-  formateurs={formateurs}
-/>
-
-</div>
-
+      <div
+        style={{
+          background: "white",
+          padding: "20px",
+          borderRadius: "12px",
+          marginBottom: "20px",
+          boxShadow:
+            "0 2px 8px rgba(0,0,0,0.08)",
+        }}
+      >
+        <AffectationForm
+          entreprise={nomEntreprise}
+          formateurActuel={
+            formateurActuel
+          }
+          formateurs={formateurs}
+        />
+      </div>
 
       <div
         style={{
