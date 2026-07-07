@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import AffectationForm from "../../../../components/AffectationForm";
 import { supabase } from "../../../../lib/supabase";
