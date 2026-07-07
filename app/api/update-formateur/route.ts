@@ -4,19 +4,19 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   "https://cbhomuatxxptfcbzveys.supabase.co",
- "sb_publishable_4vPEKeE_FYXBu6jm_YvlHw_zKUR_aNz"
+  "sb_publishable_4vPEKeE_FYXBu6jm_YvlHw_zKUR_aNz"
 );
 
 export async function POST(request: Request) {
   const { entreprise, formateur } =
     await request.json();
 
-console.log(
-  "UPDATE",
-  entreprise,
-  formateur
-);
-  
+  console.log(
+    "UPDATE DEMANDE",
+    entreprise,
+    formateur
+  );
+
   const { error } = await supabase
     .from("apprentis")
     .update({
@@ -24,22 +24,27 @@ console.log(
     })
     .eq("entreprise", entreprise);
 
-console.log(
-  "ERREUR",
-  error
-);
-  
+  console.log(
+    "RESULTAT UPDATE",
+    error
+  );
+
   if (error) {
+    console.error(error);
+
     return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
+      {
+        error: error.message,
+      },
+      {
+        status: 500,
+      }
     );
   }
 
- 
-return NextResponse.json({
-  success: true,
-  entreprise,
-  formateur,
-  error,
-});
+  return NextResponse.json({
+    success: true,
+    entreprise,
+    formateur,
+  });
+}
