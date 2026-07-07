@@ -223,9 +223,13 @@ export default async function AffectationsPage() {
                   </p>
 
 
+
 <Link
-  href={`/dashboard/${encodeURIComponent(Color: "#005CA9",
-    color: "white",
+  href={`/dashboard/affectations/${encodeURIComponent(
+    entreprise
+  )}`}
+  style={{
+,
     padding: "8px 12px",
     borderRadius: "8px",
     textDecoration: "none",
@@ -235,11 +239,6 @@ export default async function AffectationsPage() {
 >
   ✏️ Affecter
 </Link>
-
-
-
-
-
 
 
                   <ul>
