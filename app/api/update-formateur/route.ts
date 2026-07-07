@@ -11,6 +11,12 @@ export async function POST(request: Request) {
   const { entreprise, formateur } =
     await request.json();
 
+console.log(
+  "UPDATE",
+  entreprise,
+  formateur
+);
+  
   const { error } = await supabase
     .from("apprentis")
     .update({
@@ -18,6 +24,11 @@ export async function POST(request: Request) {
     })
     .eq("entreprise", entreprise);
 
+console.log(
+  "ERREUR",
+  error
+);
+  
   if (error) {
     return NextResponse.json(
       { error: error.message },
@@ -25,7 +36,10 @@ export async function POST(request: Request) {
     );
   }
 
-  return NextResponse.json({
-    success: true,
-  });
-}
+ 
+return NextResponse.json({
+  success: true,
+  entreprise,
+  formateur,
+  error,
+});
