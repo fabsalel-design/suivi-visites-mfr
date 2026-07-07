@@ -1,4 +1,4 @@
-
+import AffectationForm from "../../../../components/AffectationForm";
 import { supabase } from "../../../../lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -83,77 +83,15 @@ const formateurs = [
       "0 2px 8px rgba(0,0,0,0.08)",
   }}
 >
-  <h2
-    style={{
-      color: "#005CA9",
-      marginTop: 0,
-    }}
-  >
-    👨‍🏫 Affectation
-  </h2>
 
-  <p>
-    Formateur actuel :
-    <strong>
-      {" "}
-      {formateurActuel ||
-        "⚠️ Non affecté"}
-    </strong>
-  </p>
+<AffectationForm
+  entreprise={nomEntreprise}
+  formateurActuel={
+    formateurActuel
+  }
+  formateurs={formateurs}
+/>
 
-  <hr
-    style={{
-      margin: "20px 0",
-    }}
-  />
-
-  <p>
-    Nouveau formateur :
-  </p>
-
-  <select
-    style={{
-      padding: "10px",
-      borderRadius: "8px",
-      border:
-        "1px solid #ccc",
-      minWidth: "250px",
-      marginBottom: "20px",
-    }}
-  >
-    <option>
-      Sélectionner un formateur
-    </option>
-
-    {formateurs.map(
-      (formateur) => (
-        <option
-          key={formateur}
-          value={formateur}
-        >
-          {formateur}
-        </option>
-      )
-    )}
-  </select>
-
-  <br />
-
-  <button
-    style={{
-      backgroundColor:
-        "#005CA9",
-      color: "white",
-      border: "none",
-      padding:
-        "10px 16px",
-      borderRadius: "8px",
-      fontWeight: "bold",
-      cursor: "pointer",
-    }}
-  >
-    💾 Enregistrer
-  </button>
 </div>
 
 
