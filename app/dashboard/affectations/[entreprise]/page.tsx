@@ -51,11 +51,7 @@ export default async function AffectationEntreprisePage({
         minHeight: "100vh",
       }}
     >
-      /dashboard/affectations
-        ← Retour aux affectations
-      </Link>
-
-      <h1
+          <h1
         style={{
           color: "#005CA9",
         }}
