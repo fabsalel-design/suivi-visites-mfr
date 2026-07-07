@@ -216,8 +216,11 @@ export default async function AffectationsPage() {
   }}
 >
 
-
-</p>
+                    👨‍🏫{" "}
+                    {apprenants[0]
+                      ?.formateur ||
+                      "⚠️ Non affecté"}
+                  </p>
 
 <button
   style={{
@@ -233,6 +236,11 @@ export default async function AffectationsPage() {
 >
   ✏️ Affecter
 </button>
+
+
+
+
+
 
                   <ul>
                     {apprenants.map(
