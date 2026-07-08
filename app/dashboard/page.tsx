@@ -125,7 +125,93 @@ return (
 {error && (
   <p>Erreur : {error.message}</p>
 )}
-
+<div
+2
+style={{
+3
+background:
+4
+sansFormateur > 0
+5
+? "#fff7ed"
+6
+: "#ecfdf5",
+7
+border:
+8
+sansFormateur > 0
+9
+? "2px solid #f59e0b"
+10
+: "2px solid #10b981",
+11
+borderRadius: "12px",
+12
+padding: "20px",
+13
+marginBottom: "30px",
+14
+}}
+15
+>
+16
+<h2
+17
+style={{
+18
+marginTop: 0,
+19
+color:
+20
+sansFormateur > 0
+21
+? "#d97706"
+22
+: "#047857",
+23
+}}
+24
+>
+25
+{sansFormateur > 0
+26
+? "⚠️ Action requise"
+27
+: "✅ Situation sous contrôle"}
+28
+</h2>
+29
+ 
+30
+{sansFormateur > 0 ? (
+31
+<p>
+32
+<strong>
+33
+{sansFormateur}
+34
+</strong>{" "}
+35
+apprenant(s) restent à
+36
+affecter à un formateur.
+37
+</p>
+38
+) : (
+39
+<p>
+40
+Tous les apprenants sont
+41
+affectés.
+42
+</p>
+43
+)}
+44
+</div>
 
 <div
   style={{
