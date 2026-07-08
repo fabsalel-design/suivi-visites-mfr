@@ -8,42 +8,67 @@ export default async function DashboardPage() {
     .from("apprentis")
     .select("*");
 
+
+const apprentisUniques = [
+  ...new Map(
+    (apprentis || []).map((a) => [
+      a.gestibase_id ||
+        `${a.nom}-${a.prenom}`,
+      a,
+    ])
+  ).values(),
+];
+
 const totalApprentis =
-  new Set(
-    apprentis?.map(
-      (a) =>
-        a.gestibase_id ||
-        `${a.nom}-${a.prenom}`
-    ) || []
-  ).size;
+  apprentisUniques.length;
 
+const entreprises = [
+  ...new Set(
+    (apprentis || [])
+      .map((a) => a.entreprise)
+      .filter(Boolean)
+  ),
+];
 
-  const entreprises = [
-    ...new Set(
-      apprentis?.map((a) => a.entreprise) || []
-    ),
-  ];
+const formateurs = [
+  ...new Set(
+    (apprentis || [])
+      .map((a) => a.formateur)
+      .filter(Boolean)
+      .filter(
+        (f) => f !== "Non affecté"
+      )
+  ),
+];
 
-  const formateurs = [
-    ...new Set(
-      apprentis?.map((a) => a.formateur) || []
-    ),
-  ];
+const sansFormateur =
+  apprentisUniques.filter(
+    (a) =>
+      !a.formateur ||
+      a.formateur ===
+        "Non affecté"
+  ).length;
 
- const visitesRealisees =
-  apprentis?.filter(
-    (a) => a.statut?.trim() === "Terminée"
-  ).length || 0;
+const visitesRealisees =
+  apprentisUniques.filter(
+    (a) =>
+      a.statut?.trim() ===
+      "Terminée"
+  ).length;
 
-  const visitesRestantes =
-    totalApprentis - visitesRealisees;
+const visitesRestantes =
+  totalApprentis -
+  visitesRealisees;
 
-  const avancement =
-    totalApprentis > 0
-      ? Math.round(
-          (visitesRealisees / totalApprentis) * 100
-        )
-      : 0;
+const avancement =
+  totalApprentis > 0
+    ? Math.round(
+        (visitesRealisees /
+          totalApprentis) *
+          100
+      )
+    : 0;
+
   
 const sansFormateur =
   apprentis?.filter(
