@@ -4,7 +4,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 export default function AffectationForm({
   entreprise,
   formateurActuel,
@@ -14,12 +13,13 @@ export default function AffectationForm({
   formateurActuel: string;
   formateurs: string[];
 }) {
+  const router = useRouter();
+
   const [formateur, setFormateur] =
     useState(formateurActuel);
 
   const [message, setMessage] =
     useState("");
-  const router = useRouter();
 
   async function enregistrer() {
     const response = await fetch(
@@ -37,20 +37,25 @@ export default function AffectationForm({
       }
     );
 
-   
-if (response.ok) {
-  setMessage(
-    "✅ Affectation enregistrée"
-  );
+    const data =
+      await response.json();
 
-  setTimeout(() => {
-    router.push(
-      "/dashboard/affectations"
-    );
-    router.refresh();
-  }, 1000);
-}
+    if (response.ok) {
+      setMessage(
+        "✅ Affectation enregistrée"
+      );
 
+      setTimeout(() => {
+        router.push(
+          "/dashboard/affectations"
+        );
+        router.refresh();
+      }, 1000);
+    } else {
+      setMessage(
+        `❌ ${data.error}`
+      );
+    }
   }
 
   return (
@@ -92,11 +97,29 @@ if (response.ok) {
 
       <button
         onClick={enregistrer}
+        style={{
+          backgroundColor:
+            "#005CA9",
+          color: "white",
+          border: "none",
+          padding:
+            "10px 16px",
+          borderRadius: "8px",
+          cursor: "pointer",
+          fontWeight: "bold",
+        }}
       >
         💾 Enregistrer
       </button>
 
-      <p>{message}</p>
+      <p
+        style={{
+          fontWeight: "bold",
+          marginTop: "15px",
+        }}
+      >
+        {message}
+      </p>
     </>
   );
 }
