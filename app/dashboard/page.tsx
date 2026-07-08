@@ -41,13 +41,6 @@ const formateurs = [
   ),
 ];
 
-const sansFormateur =
-  apprentisUniques.filter(
-    (a) =>
-      !a.formateur ||
-      a.formateur ===
-        "Non affecté"
-  ).length;
 
 const visitesRealisees =
   apprentisUniques.filter(
