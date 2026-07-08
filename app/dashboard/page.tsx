@@ -126,59 +126,6 @@ return (
       <p>Erreur : {error.message}</p>
     )}
 
-{sansFormateur > 0 ? (
-  <div
-    style={{
-      background: "#fff7ed",
-      border: "2px solid #f59e0b",
-      borderRadius: "12px",
-      padding: "20px",
-      marginBottom: "30px",
-    }}
-  >
-    <h2
-      style={{
-        marginTop: 0,
-        color: "#d97706",
-      }}
-    >
-      ⚠️ Action requise
-    </h2>
-
-    <p>
-      <strong>
-        {sansFormateur}
-      </strong>{" "}
-      apprenant(s) sont
-      actuellement sans formateur.
-    </p>
-
-    <Link
-      href="/dashboard/affectations"
-      style={{
-        display: "inline-block",
-        backgroundColor: "#d97706",
-        color: "white",
-        padding: "10px 16px",
-        borderRadius: "8px",
-        textDecoration: "none30px",
-    }}
-  >
-    <h2
-      style={{
-        marginTop: 0,
-        color: "#047857",
-      }}
-    >
-      ✅ Situation sous contrôle
-    </h2>
-
-    <p>
-      Tous les apprenants sont affectés.
-    </p>
-  </div>
-)}
-
     <div
       style={{
         display: "grid",
