@@ -154,16 +154,20 @@ sansFormateur > 0
 </h2>
  
 {sansFormateur > 0 ? (
+<>
 <p>
 <strong>{sansFormateur}</strong>{" "}
 apprenant(s) restent à affecter à un
 formateur.
 </p>
-) : (
-<p>
-Tous les apprenants sont affectés.
-</p>
-)}
+ 
+<Link
+href="/dashboard/affectations"
+style={{
+display: "inline-block",
+backgroundColor: "#005CA9",
+color: "white",
+padding: "10px 16px",
 </div>
 
 <div
