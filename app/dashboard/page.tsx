@@ -73,7 +73,6 @@ if (visitesRestantes > 0) {
 priorites.push(
   `🏢 ${entreprises.length} entreprises à suivre`
 );
-`
 
 
 return (
@@ -217,17 +216,7 @@ color:
       </div>
     </div>
 
-    <div
-      style={{
-        background: "white",
-        borderRadius: "12px",
-        padding: "20px",
-        marginBottom: "30px",
-        boxShadow:
-          "0 2px 8px rgba(0,0,0,0.08)",
-      }}
-    >
-    
+  
 <div
   style={{
     background: "white",
@@ -262,14 +251,24 @@ color:
   )}
 </div>
 
-      <h2
-        style={{
-          marginTop: 0,
-          color: "#005CA9",
-        }}
-      >
-        🚀 Actions rapides
-      </h2>
+<div
+  style={{
+    background: "white",
+    borderRadius: "12px",
+    padding: "20px",
+    marginBottom: "30px",
+    boxShadow:
+      "0 2px 8px rgba(0,0,0,0.08)",
+  }}
+>
+  <h2
+    style={{
+      marginTop: 0,
+      color: "#005CA9",
+    }}
+  >
+    🚀 Actions rapides
+  </h2>
 
       <div
         style={{
