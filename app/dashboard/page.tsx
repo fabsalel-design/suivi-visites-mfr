@@ -8,7 +8,6 @@ export default async function DashboardPage() {
     .from("apprentis")
     .select("*");
 
-
 const apprentisUniques = [
   ...new Map(
     (apprentis || []).map((a) => [
