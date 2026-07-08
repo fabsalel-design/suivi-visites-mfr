@@ -320,6 +320,11 @@ const nbNonAffectes =
                   </p>
 
 <button
+onClick={() => {
+window.location.href =
+"/dashboard/affectations/" +
+encodeURIComponent(entreprise);
+}}
 style={{
 backgroundColor: "#005CA9",
 color: "white",
