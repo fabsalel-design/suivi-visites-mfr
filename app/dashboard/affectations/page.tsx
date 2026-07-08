@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { supabase } from "../../../lib/supabase";
-
+import AffecterButton from "../../../components/AffecterButton";
 export const dynamic = "force-dynamic";
 
 export default async function AffectationsPage() {
@@ -319,25 +319,9 @@ const nbNonAffectes =
                       "⚠️ Non affecté"}
                   </p>
 
-<button
-onClick={() => {
-window.location.href =
-"/dashboard/affectations/" +
-encodeURIComponent(entreprise);
-}}
-style={{
-backgroundColor: "#005CA9",
-color: "white",
-border: "none",
-padding: "8px 12px",
-borderRadius: "8px",
-fontWeight: "bold",
-cursor: "pointer",
-marginBottom: "15px",
-}}
->
-✏️ Affecter
-</button>
+<AffecterButton
+entreprise={entreprise}
+/>
 
                   <ul>
                     {apprenants.map(
