@@ -122,8 +122,9 @@ return (
     </div>
   
 {error && (
-  <p>Erreur : {error.message}</p>
+<p>Erreur : {error.message}</p>
 )}
+ 
 <div
 style={{
 background:
@@ -164,12 +165,23 @@ formateur.
 <Link
 href="/dashboard/affectations"
 style={{
-display: "inline-block",
-backgroundColor: "#005CA9",
-color: "white",
-padding: "10px 16px",
+display
+) : (
+<p>
+Tous les apprenants sont affectés.
+</p>
+)}
 </div>
-
+ 
+<div
+style={{
+display: "grid",
+gridTemplateColumns:
+"repeat(auto-fit, minmax(220px, 1fr))",
+gap: "20px",
+marginBottom: "30px",
+}}
+>
 <div
   style={{
     display: "grid",
