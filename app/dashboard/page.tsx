@@ -62,13 +62,12 @@ const avancement =
       )
     : 0;
 
-  
 const sansFormateur =
-  apprentis?.filter(
+  apprentisUniques.filter(
     (a) =>
       !a.formateur ||
       a.formateur === "Non affecté"
-  ).length || 0;
+  ).length;
 
 const priorites = [];
 
