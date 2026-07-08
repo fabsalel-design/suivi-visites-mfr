@@ -78,6 +78,33 @@ export default async function AffectationsPage() {
     );
   }
 
+
+const nbApprenants =
+  apprentis?.length || 0;
+
+const nbEntreprises =
+  new Set(
+    (apprentis || []).map(
+      (a: any) => a.entreprise
+    )
+  ).size;
+
+const nbFormateurs =
+  new Set(
+    (apprentis || [])
+      .map((a: any) => a.formateur)
+      .filter(Boolean)
+  ).size;
+
+const nbNonAffectes =
+  (apprentis || []).filter(
+    (a: any) =>
+      !a.formateur ||
+      a.formateur ===
+        "Non affecté"
+  ).length;
+
+  
   return (
     <main
       style={{
@@ -100,6 +127,76 @@ export default async function AffectationsPage() {
         Gestion des affectations des apprenants
       </p>
 
+  
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns:
+      "repeat(auto-fit, minmax(180px, 1fr))",
+    gap: "15px",
+    marginBottom: "30px",
+  }}
+>
+  <div
+    style={{
+      background: "white",
+      padding: "20px",
+      borderRadius: "12px",
+      textAlign: "center",
+      boxShadow:
+        "0 2px 8px rgba(0,0,0,0.08)",
+    }}
+  >
+    <h2>{nbApprenants}</h2>
+    <p>👨‍🎓 Apprenants</p>
+  </div>
+
+  <div
+    style={{
+      background: "white",
+      padding: "20px",
+      borderRadius: "12px",
+      textAlign: "center",
+      boxShadow:
+        "0 2px 8px rgba(0,0,0,0.08)",
+    }}
+  >
+    <h2>{nbEntreprises}</h2>
+    <p>🏢 Entreprises</p>
+  </div>
+
+  <div
+    style={{
+      background: "white",
+      padding: "20px",
+      borderRadius: "12px",
+      textAlign: "center",
+      boxShadow:
+        "0 2px 8px rgba(0,0,0,0.08)",
+    }}
+  >
+    <h2>{nbFormateurs}</h2>
+    <p>👨‍🏫 Formateurs</p>
+  </div>
+
+  <div
+    style={{
+      background:
+        nbNonAffectes > 0
+          ? "#fff7ed"
+          : "white",
+      padding: "20px",
+      borderRadius: "12px",
+      textAlign: "center",
+      boxShadow:
+        "0 2px 8px rgba(0,0,0,0.08)",
+    }}
+  >
+    <h2>{nbNonAffectes}</h2>
+    <p>⚠️ Non affectés</p>
+  </div>
+</div>
+      
       {Object.entries(villes).map(
         ([ville, liste]: any) => (
           <div
