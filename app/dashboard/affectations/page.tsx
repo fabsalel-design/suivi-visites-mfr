@@ -319,20 +319,18 @@ const nbNonAffectes =
                       "⚠️ Non affecté"}
                   </p>
 
-<button
-style={{
-backgroundColor: "#005CA9",
+<a
+href={`/dashboard/affectations/${encodeURIComponent9",
 color: "white",
-border: "none",
 padding: "8px 12px",
 borderRadius: "8px",
 fontWeight: "bold",
-cursor: "pointer",
+textDecoration: "none",
 marginBottom: "15px",
 }}
 >
 ✏️ Affecter
-</button>
+</a>
 
                   <ul>
                     {apprenants.map(
