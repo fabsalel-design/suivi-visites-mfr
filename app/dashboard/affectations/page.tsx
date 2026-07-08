@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { supabase } from "../../../lib/supabase";
 import AffecterButton from "../../../components/AffecterButton";
+import FiltreAffectations from "../../../components/FiltreAffectations";
+
 export const dynamic = "force-dynamic";
 
 export default async function AffectationsPage() {
@@ -204,7 +206,7 @@ const nbNonAffectes =
             style={{
               marginBottom: "40px",
             }}
-          >
+                     >            
             <h2
               style={{
                 color: "#005CA9",
