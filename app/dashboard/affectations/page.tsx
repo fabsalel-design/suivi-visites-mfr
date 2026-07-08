@@ -243,10 +243,18 @@ regrouperParEntreprise(liste)
 )
 .sort(([, apprenantsA]: any, [, apprenantsB]: any) => {
 const aNonAffecte =
-!apprenantsA[0]?.formateur;
+apprenantsA.some(
+(a: any) =>
+!a.formateur ||
+a.formateur === "Non affecté"
+);
  
 const bNonAffecte =
-!apprenantsB[0]?.formateur;
+apprenantsB.some(
+(a: any) =>
+!a.formateur ||
+a.formateur === "Non affecté"
+);
  
 if (aNonAffecte && !bNonAffecte)
 return -1;
