@@ -44,6 +44,37 @@ const totalApprentis =
           (visitesRealisees / totalApprentis) * 100
         )
       : 0;
+  
+const sansFormateur =
+  apprentis?.filter(
+    (a) =>
+      !a.formateur ||
+      a.formateur === "Non affecté"
+  ).length || 0;
+
+const priorites = [];
+
+if (sansFormateur > 0) {
+  priorites.push(
+    `⚠️ ${sansFormateur} apprenant(s) sans formateur`
+  );
+} else {
+  priorites.push(
+    "✅ Tous les apprenants sont affectés"
+  );
+}
+
+if (visitesRestantes > 0) {
+  priorites.push(
+    `📅 ${visitesRestantes} visite(s) à réaliser`
+  );
+}
+
+priorites.push(
+  `🏢 ${entreprises.length} entreprises à suivre`
+);
+`
+
 
 return (
   <main
@@ -167,16 +198,21 @@ return (
         }}
       >
         <div style={{ color: "#666" }}>
-          📝 À faire
+       ⚠️ Non affectés
         </div>
         <div
           style={{
             fontSize: "42px",
             fontWeight: "bold",
-            color: "#f9a825",
+            
+color:
+  sansFormateur > 0
+    ? "#f57c00"
+    : "#2e7d32",
+
           }}
         >
-          {visitesRestantes}
+         {sansFormateur}
         </div>
       </div>
     </div>
@@ -191,6 +227,41 @@ return (
           "0 2px 8px rgba(0,0,0,0.08)",
       }}
     >
+    
+<div
+  style={{
+    background: "white",
+    borderRadius: "12px",
+    padding: "20px",
+    marginBottom: "30px",
+    boxShadow:
+      "0 2px 8px rgba(0,0,0,0.08)",
+  }}
+>
+  <h2
+    style={{
+      marginTop: 0,
+      color: "#005CA9",
+    }}
+  >
+    🎯 Priorités du jour
+  </h2>
+
+  {priorites.map(
+    (priorite, index) => (
+      <p
+        key={index}
+        style={{
+          margin: "10px 0",
+          fontSize: "16px",
+        }}
+      >
+        {priorite}
+      </p>
+    )
+  )}
+</div>
+
       <h2
         style={{
           marginTop: 0,
