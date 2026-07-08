@@ -122,9 +122,8 @@ return (
     </div>
   
 {error && (
-<p>Erreur : {error.message}</p>
+  <p>Erreur : {error.message}</p>
 )}
- 
 <div
 style={{
 background:
@@ -155,33 +154,18 @@ sansFormateur > 0
 </h2>
  
 {sansFormateur > 0 ? (
-<>
 <p>
 <strong>{sansFormateur}</strong>{" "}
 apprenant(s) restent à affecter à un
 formateur.
 </p>
- 
-<Link
-href="/dashboard/affectations"
-style={{
-display
 ) : (
 <p>
 Tous les apprenants sont affectés.
 </p>
 )}
 </div>
- 
-<div
-style={{
-display: "grid",
-gridTemplateColumns:
-"repeat(auto-fit, minmax(220px, 1fr))",
-gap: "20px",
-marginBottom: "30px",
-}}
->
+
 <div
   style={{
     display: "grid",
