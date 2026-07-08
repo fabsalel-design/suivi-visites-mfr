@@ -198,8 +198,29 @@ const nbNonAffectes =
     <p>⚠️ Non affectés</p>
   </div>
 </div>
-      
-      {Object.entries(villes).map(
+      {Object.entries(villes)
+.sort(([, listeA]: any, [, listeB]: any) => {
+const aNonAffecte = listeA.some(
+(a: any) =>
+!a.formateur ||
+a.formateur === "Non affecté"
+);
+ 
+const bNonAffecte = listeB.some(
+(a: any) =>
+!a.formateur ||
+a.formateur === "Non affecté"
+);
+ 
+if (aNonAffecte && !bNonAffecte)
+return -1;
+ 
+if (!aNonAffecte && bNonAffecte)
+return 1;
+ 
+return 0;
+})
+.map(
         ([ville, liste]: any) => (
           <div
             key={ville}
