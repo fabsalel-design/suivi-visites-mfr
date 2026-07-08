@@ -238,11 +238,26 @@ const nbNonAffectes =
                 )
               )}
             </div>
-
-            {Object.entries(
-              regrouperParEntreprise(liste)
-            ).map(
-              (
+{Object.entries(
+regrouperParEntreprise(liste)
+)
+.sort(([, apprenantsA]: any, [, apprenantsB]: any) => {
+const aNonAffecte =
+!apprenantsA[0]?.formateur;
+ 
+const bNonAffecte =
+!apprenantsB[0]?.formateur;
+ 
+if (aNonAffecte && !bNonAffecte)
+return -1;
+ 
+if (!aNonAffecte && bNonAffecte)
+return 1;
+ 
+return 0;
+})
+.map(
+                         (
                 [entreprise, apprenants]: any
               ) => (
                 <div
