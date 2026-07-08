@@ -377,30 +377,74 @@ color:
           👥 Répartition des formateurs
         </h2>
 
-        {formateurs.map((formateur) => {
-          const count =
-            apprentis?.filter(
-              (a) =>
-                a.formateur === formateur
-            ).length || 0;
+       
+{formateurs.map((formateur) => {
+  const count =
+    apprentis?.filter(
+      (a) =>
+        a.formateur === formateur
+    ).length || 0;
 
-          return (
-            <div
-              key={formateur}
-              style={{
-                display: "flex",
-                justifyContent:
-                  "space-between",
-                padding: "10px 0",
-                borderBottom:
-                  "1px solid #eee",
-              }}
-            >
-              <strong>{formateur}</strong>
-              <span>{count}</span>
-            </div>
-          );
-        })}
+  const maxCount = Math.max(
+    ...(formateurs.map(
+      (f) =>
+        apprentis?.filter(
+          (a) =>
+            a.formateur === f
+        ).length || 0
+    ))
+  );
+
+  const largeur =
+    maxCount > 0
+      ? (count / maxCount) * 100
+      : 0;
+
+  return (
+    <div
+      key={formateur}
+      style={{
+        marginBottom: "20px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent:
+            "space-between",
+          marginBottom: "6px",
+        }}
+      >
+        <strong>
+          {formateur}
+        </strong>
+
+        <strong>
+          {count}
+        </strong>
+      </div>
+
+      <div
+        style={{
+          height: "12px",
+          borderRadius: "999px",
+          background: "#e5e7eb",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            width: `${largeur}%`,
+            height: "100%",
+            background:
+              "#005CA9",
+          }}
+        />
+      </div>
+    </div>
+  );
+})}
+
       </div>
 
       <div
