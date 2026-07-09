@@ -124,17 +124,7 @@ const nbNonAffectes =
       >
         👥 Affectations formateurs
       </h1>
-dashboard"
-style={{
-display: "inline-block",
-marginBottom: "20px",
-color: "#005CA9",
-textDecoration: "none",
-fontWeight: "bold",
-}}
->
-← Retour au tableau de bord
-</Link>
+
       <p>
         Gestion des affectations des apprenants
       </p>
