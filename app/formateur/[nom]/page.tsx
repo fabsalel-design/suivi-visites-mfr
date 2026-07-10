@@ -276,32 +276,7 @@ color: "#d97706",
         >
          <strong>👨‍🎓 Apprentis</strong>
          
-{priorites.map((apprenti) => (
-<div
-key={apprenti.id}
-style={{
-marginBottom: "12px",
-padding: "10px",
-background: "white",
-borderRadius: "8px",
-}}
->
-<strong>
-{apprenti.prenom}{" "}
-{apprenti.nom}
-</strong>
- 
-<br />
- 
-🏢 {apprenti.entreprise}
- 
-<br />
- 
-📍 {apprenti.ville_reelle}
-</div>
-))}
-</>
-)}
+
 <div
   style={{
     fontSize: "42px",
