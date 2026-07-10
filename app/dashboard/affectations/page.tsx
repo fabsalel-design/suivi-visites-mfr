@@ -54,22 +54,31 @@ export default async function AffectationsPage() {
     );
   }
 
-  function getFormateursVille(
-    liste: any[]
-  ) {
-    const compteur: Record<string, number> = {};
-
-    liste.forEach((a) => {
-      const formateur =
-        a.formateur || "Non affecté";
-
-      compteur[formateur] =
-        (compteur[formateur] || 0) + 1;
-    });
-
-    return Object.entries(compteur);
-  }
-
+ function getFormateursVille(
+liste: any[]
+) {
+const compteur: Record<string, number> = {};
+ 
+const apprentisUniques = [
+...new Map(
+liste.map((a) => [
+a.gestibase_id ||
+`${a.nom}-${a.prenom}`,
+a,
+])
+).values(),
+];
+ 
+apprentisUniques.forEach((a: any) => {
+const formateur =
+a.formateur || "Non affecté";
+ 
+compteur[formateur] =
+(compteur[formateur] || 0) + 1;
+});
+ 
+return Object.entries(compteur);
+}
   function formatDate(
     date: string | null
   ) {
@@ -234,7 +243,15 @@ return 0;
                 marginBottom: "15px",
               }}
             >
-              📍 {ville} - {liste.length} apprenant(s)
+              📍 {ville} - {
+new Set(
+liste.map(
+(a: any) =>
+a.gestibase_id ||
+`${a.nom}-${a.prenom}`
+)
+).size
+} apprenant(s)
             </h2>
 
             <div
