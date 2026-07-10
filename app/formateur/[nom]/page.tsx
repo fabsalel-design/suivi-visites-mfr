@@ -285,7 +285,7 @@ marginTop: "20px",
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
-         <strong>👨‍🎓 Apprentis</strong>
+         <strong>📋 Fin de période d'essai</strong>
          
 
 <div
@@ -311,7 +311,7 @@ marginTop: "20px",
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
-<strong>📝 Visites réalisées</strong>
+<strong>📅 Visites intermédiaires</strong>
    
 <div
   style={{
@@ -336,7 +336,7 @@ marginTop: "20px",
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
           >
-       <strong>🏢 Entreprises</strong>
+       <strong>🏁 Visites de fin de formation</strong>
 
 <div
   style={{
