@@ -318,7 +318,7 @@ Actions en attente
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
         >
-         <strong>📋 Fin de période d'essai</strong>
+         <strong>📋 Visites Fin de période d'essai</strong>
          
 
 <div
