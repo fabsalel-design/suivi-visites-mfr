@@ -266,7 +266,29 @@ marginTop: "20px",
 </div>
 </div>
 </div>
-
+<div
+style={{
+marginBottom: "20px",
+}}
+>
+<h2
+style={{
+color: "#005CA9",
+marginBottom: "5px",
+}}
+>
+📋 Actions à réaliser
+</h2>
+ 
+<p
+style={{
+color: "#666",
+margin: 0,
+}}
+>
+Mes interventions à planifier et à effectuer
+</p>
+</div>
       <div
         style={{
           display: "flex",
