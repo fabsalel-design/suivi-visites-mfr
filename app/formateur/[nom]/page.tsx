@@ -253,6 +253,16 @@ gap: "20px",
 marginTop: "20px",
 }}
 >
+  <p
+style={{
+color: "#666",
+marginTop: "0",
+marginBottom: "20px",
+fontWeight: "bold",
+}}
+>
+{total} actions en attente
+</p>
 <div>
 👨‍🎓 {total} apprenti(s)
 </div>
@@ -286,7 +296,7 @@ color: "#666",
 margin: 0,
 }}
 >
-Mes interventions à planifier et à effectuer
+Actions en attente
 </p>
 </div>
       <div
