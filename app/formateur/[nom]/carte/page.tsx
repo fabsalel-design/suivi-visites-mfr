@@ -302,8 +302,13 @@ pointsCarte.length}{" "}
                 }}
               >
                 {
-                  etablissement
-                    .apprentis.length
+                  new Set(
+etablissement.apprentis.map(
+(a) =>
+a.gestibase_id ||
+`${a.nom}-${a.prenom}`
+)
+).size
                 }{" "}
                 apprenti(s)
               </div>
@@ -321,17 +326,22 @@ pointsCarte.length}{" "}
             <h4>Apprentis :</h4>
 
             <ul>
-              {etablissement.apprentis.map(
-                (apprenti) => (
-                  <li
-                    key={apprenti.id}
-                  >
-                    {apprenti.prenom}{" "}
-                    {apprenti.nom}
-                  </li>
-                )
-              )}
-            </ul>
+{[
+...new Map(
+etablissement.apprentis.map(
+(apprenti) => [
+apprenti.gestibase_id ||
+`${apprenti.nom}-${apprenti.prenom}`,
+apprenti,
+]
+)
+).values(),
+].map((apprenti: any) => (
+<li key={apprenti.id}>
+{apprenti.prenom} {apprenti.nom}
+</li>
+))}
+</ul>
 
             <a
               href={`https://maps.google.com/?q=${encodeURIComponent(
