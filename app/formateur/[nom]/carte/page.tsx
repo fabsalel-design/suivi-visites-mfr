@@ -202,7 +202,20 @@ style={{
         {pointsCarte.length}
         </strong>
       </p>
-
+{listeEtablissements.length >
+pointsCarte.length && (
+<p
+style={{
+color: "#d97706",
+fontWeight: "bold",
+}}
+>
+⚠️{" "}
+{listeEtablissements.length -
+pointsCarte.length}{" "}
+établissement(s) non géolocalisé(s)
+</p>
+)}
       <hr />
 
 <div
