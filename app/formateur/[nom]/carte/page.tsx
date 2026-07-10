@@ -82,7 +82,31 @@ const etablissementsGeocodes =
           const data =
             await response.json();
 
-          if (data.length > 0) {
+       let resultat = data;
+ 
+if (resultat.length === 0) {
+ 
+const rechercheSecours =
+encodeURIComponent(
+`${etablissement.entreprise} ${etablissement.ville}`
+);
+ 
+const responseSecours =
+await fetch(
+`https://nominatim.openstreetmap.org/search?format=json&q=${rechercheSecours}`,
+{
+headers: {
+"User-Agent":
+"Suivi-Visites-MFR",
+},
+}
+);
+ 
+resultat =
+await responseSecours.json();
+}
+ 
+if (resultat.length > 0) {
            
 return {
   entreprise:
@@ -106,11 +130,11 @@ return {
       ?.telephone || "",
 
   latitude: parseFloat(
-    data[0].lat
+  resultat[0].lat
   ),
 
   longitude: parseFloat(
-    data[0].lon
+  resultat[0].lon
   ),
 
  
