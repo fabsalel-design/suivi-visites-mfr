@@ -54,11 +54,7 @@ console.log(
 
   const aFaire =
     Math.max(0, total - effectuees);
-const priorites = (apprentis || [])
-.filter(
-(a) => a.statut !== "Terminée"
-)
-.slice(0, 5);
+
 const actionStyle = {
   padding: "8px 14px",
   borderRadius: "8px",
@@ -279,18 +275,7 @@ color: "#d97706",
           }}
         >
          <strong>👨‍🎓 Apprentis</strong>
-         {priorites.length > 0 && (
-<>
-<hr />
- 
-<h3
-style={{
-color: "#d97706",
-}}
->
-📍 À traiter en priorité
-</h3>
- 
+         
 {priorites.map((apprenti) => (
 <div
 key={apprenti.id}
