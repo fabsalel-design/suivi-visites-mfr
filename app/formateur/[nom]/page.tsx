@@ -240,7 +240,7 @@ marginTop: 0,
 color: "#d97706",
 }}
 >
-🎯 Mes priorités
+📊 Mes statistiques
 </h2>
  
 <div
@@ -254,7 +254,7 @@ marginTop: "20px",
 }}
 >
 <div>
-⚠️ <strong>{aFaire}</strong> visite(s) à réaliser
+👨‍🎓 {total} apprenti(s)
 </div>
  
 <div>
