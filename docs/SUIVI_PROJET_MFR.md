@@ -556,3 +556,266 @@ Aucune modification en attente critique.
 
 Projet actuellement stable.
 
+PROJET SUIVI VISITES MFR
+Vision fonctionnelle cible
+ 
+OBJECTIF
+ 
+Le projet n'a pas pour but de reproduire Gestibase.
+ 
+Le projet doit permettre :
+ 
+- au coordinateur de piloter les affectations et les campagnes de visites ;
+- au formateur de savoir immédiatement quoi faire, où aller et quand intervenir.
+ 
+Le coordinateur organise.
+L'application calcule.
+Le formateur exécute.
+ 
+--------------------------------------------------
+ 
+AFFECTATIONS FORMATEURS
+ 
+L'affectation est réalisée sur l'apprenant.
+ 
+Exemple :
+ 
+Opaline Garcia
+→ Fabrice
+ 
+Une seule affectation.
+ 
+Même si l'apprenante possède :
+- plusieurs périodes ;
+- plusieurs entreprises ;
+- plusieurs lieux de stage.
+ 
+L'affectation reste unique.
+ 
+--------------------------------------------------
+ 
+IMPORT GESTIBASE
+ 
+Décision :
+ 
+Conserver l'import complet.
+ 
+Importer :
+- toutes les périodes ;
+- toutes les entreprises ;
+- toutes les villes ;
+- toutes les évolutions de contrat.
+ 
+Pourquoi ?
+ 
+Parce que lors des premiers imports :
+- certains stages ne sont pas encore connus ;
+- certaines entreprises changent ;
+- de nouvelles périodes apparaissent.
+ 
+L'import sert à maintenir une image fidèle de la réalité administrative.
+ 
+--------------------------------------------------
+ 
+DISTINCTION ESSENTIELLE
+ 
+Affectations
+ 
+On travaille sur :
+ 
+APPRENANT UNIQUE
+ 
+Exemple :
+ 
+Opaline Garcia
+→ Fabrice
+ 
+Préparation des visites
+ 
+On travaille sur :
+ 
+PERIODE CORRESPONDANT A LA CAMPAGNE DE VISITE
+ 
+Exemple :
+ 
+01/09/2025 → 05/10/2025
+Bagnols-sur-Cèze
+ 
+13/10/2025 → 08/02/2026
+Bollène
+ 
+16/02/2026 → 21/06/2026
+Bagnols-sur-Cèze
+ 
+Selon le semestre concerné :
+ 
+Visite S1
+→ Bollène
+ 
+Visite S2
+→ Bagnols-sur-Cèze
+ 
+--------------------------------------------------
+ 
+NOTION DE CAMPAGNE
+ 
+A introduire dans l'application.
+ 
+Exemples :
+ 
+S1 2025-2026
+ 
+S2 2025-2026
+ 
+La campagne sélectionnée détermine :
+ 
+- l'entreprise à visiter ;
+- la ville à visiter ;
+- le maître d'apprentissage concerné ;
+- les visites à réaliser.
+ 
+--------------------------------------------------
+ 
+ACTIONS OBLIGATOIRES
+ 
+L'application devra générer automatiquement les actions de suivi.
+ 
+BTS 1
+ 
+- Contact période d'essai
+- Visite S1
+- Visite S2
+ 
+BTS 2
+ 
+Contrat inchangé :
+ 
+- Visite S1
+- Visite S2
+ 
+Nouveau contrat :
+ 
+- Contact période d'essai
+- Visite S1
+- Visite S2
+ 
+Bachelor
+ 
+- Contact période d'essai
+- Visite obligatoire
+ 
+Mastère 1
+ 
+- Contact période d'essai
+- Visite S1
+- Visite S2
+ 
+Mastère 2
+ 
+Même logique que BTS2.
+ 
+--------------------------------------------------
+ 
+ROLE DU COORDINATEUR
+ 
+Le coordinateur :
+ 
+- paramètre les règles ;
+- attribue les formateurs ;
+- lance les campagnes ;
+- suit les indicateurs ;
+- contrôle l'avancement.
+ 
+--------------------------------------------------
+ 
+ROLE DU FORMATEUR
+ 
+Le formateur ne doit jamais chercher :
+ 
+- qui suivre ;
+- quelle visite réaliser ;
+- quelle entreprise visiter ;
+- quelle ville visiter ;
+- quelle période est concernée.
+ 
+L'application doit lui fournir directement ces informations.
+ 
+--------------------------------------------------
+ 
+ESPACE FORMATEUR IDEAL
+ 
+Bonjour Fabrice
+ 
+8 actions à réaliser
+ 
+- 2 périodes d'essai
+- 3 visites S1
+- 3 visites S2
+ 
+--------------------------------------------------
+ 
+EXEMPLE D'ACTION
+ 
+Opaline Garcia
+ 
+Visite S1 à réaliser
+ 
+Entreprise :
+Jardinerie Coulange
+ 
+Ville :
+Bollène
+ 
+--------------------------------------------------
+ 
+GESTION DES RENDEZ-VOUS
+ 
+Fonctionnalité envisagée :
+ 
+Depuis une visite :
+ 
+[ Demander un rendez-vous ]
+ 
+Le formateur propose plusieurs créneaux.
+ 
+Exemple :
+ 
+- 19/10 à 14h
+- 20/10 à 10h
+- 22/10 à 16h
+ 
+Le maître d'apprentissage reçoit un mail.
+ 
+Il choisit un créneau.
+ 
+La visite passe automatiquement dans l'état :
+ 
+- Confirmée
+ 
+--------------------------------------------------
+ 
+ETATS D'UNE VISITE
+ 
+- A planifier
+- En attente de réponse
+- Confirmée
+- Réalisée
+- Compte rendu saisi
+ 
+--------------------------------------------------
+ 
+OBJECTIF FINAL
+ 
+Quand un formateur ouvre son espace, il doit immédiatement savoir :
+ 
+- Qui suivre ?
+- Où aller ?
+- Quand intervenir ?
+- Quelle action réaliser ?
+- Quel est son avancement ?
+ 
+Sans recherche.
+Sans calcul.
+Sans consultation de Gestibase.
+ 
+L'application devient un véritable outil de pilotage et d'exécution des visites d'alternance.
