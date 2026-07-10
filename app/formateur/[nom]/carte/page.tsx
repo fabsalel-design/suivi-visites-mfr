@@ -199,7 +199,7 @@ style={{
       <p>
        🏢 Etablissements géolocalisés : {" "}
         <strong>
-          {listeEtablissements.length}
+        {pointsCarte.length}
         </strong>
       </p>
 
