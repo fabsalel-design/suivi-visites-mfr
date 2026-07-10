@@ -243,17 +243,28 @@ color: "#d97706",
 🎯 Mes priorités
 </h2>
  
-<p>
+<div
+style={{
+display: "flex",
+justifyContent: "space-around",
+alignItems: "center",
+flexWrap: "wrap",
+gap: "20px",
+marginTop: "20px",
+}}
+>
+<div>
 ⚠️ <strong>{aFaire}</strong> visite(s) à réaliser
-</p>
+</div>
  
-<p>
+<div>
 ✅ <strong>{effectuees}</strong> visite(s) réalisées
-</p>
+</div>
  
-<p>
+<div>
 🏢 <strong>{entreprises.length}</strong> entreprise(s) à suivre
-</p>
+</div>
+</div>
 </div>
 
       <div
