@@ -49,7 +49,7 @@ const apprentis = lignes
       ligne["Mds organisme"] || "",
 
     formateur:
-      ligne["FORMATEURS"] || "",
+      ligne["Formateurs"] || "",
 
     statut: "A faire",
     
