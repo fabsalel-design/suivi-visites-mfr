@@ -225,7 +225,36 @@ function formatDate(date: string | null) {
 >
   Bienvenue dans votre espace de suivi des apprentis
 </p>
-
+<div
+style={{
+background: "#fff7ed",
+border: "2px solid #f59e0b",
+borderRadius: "12px",
+padding: "20px",
+marginBottom: "30px",
+}}
+>
+<h2
+style={{
+marginTop: 0,
+color: "#d97706",
+}}
+>
+🎯 Mes priorités
+</h2>
+ 
+<p>
+⚠️ <strong>{aFaire}</strong> visite(s) à réaliser
+</p>
+ 
+<p>
+✅ <strong>{effectuees}</strong> visite(s) réalisées
+</p>
+ 
+<p>
+🏢 <strong>{entreprises.length}</strong> entreprise(s) à suivre
+</p>
+</div>
 
       <div
         style={{
