@@ -136,13 +136,15 @@ return {
   longitude: parseFloat(
   resultat[0].lon
   ),
-
  
-apprentis:
-  etablissement.apprentis.map(
-    (a) =>
-      `${a.prenom} ${a.nom}`
-  ),
+apprentis: [
+...new Set(
+etablissement.apprentis.map(
+(a) =>
+`${a.prenom} ${a.nom}`
+)
+),
+],
 
 statut:
   etablissement.apprentis.some(
