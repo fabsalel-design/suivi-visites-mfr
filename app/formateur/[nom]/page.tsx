@@ -369,7 +369,7 @@ Actions en attente
               "0 2px 5px rgba(0,0,0,0.1)",
           }}
           >
-       <strong>🏁 Visites de fin de formation</strong>
+       <strong>🏁 Visites de Fin de formation</strong>
 
 <div
   style={{
