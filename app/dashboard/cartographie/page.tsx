@@ -53,12 +53,17 @@ headers: {
 const resultat = await response.json();
  
 if (resultat.length > 0) {
-const apprentisSite = (apprentis || []).filter(
+const apprentisSite = (apprentis || [])
+.filter(
 (a) =>
 a.entreprise === entreprise &&
 a.adresse_reelle === adresse &&
 a.code_postal_reel === cp &&
 a.ville_reelle === ville
+)
+.map(
+(a) =>
+`${a.prenom ?? ""} ${a.nom ?? ""}`.trim()
 );
  
 return {
