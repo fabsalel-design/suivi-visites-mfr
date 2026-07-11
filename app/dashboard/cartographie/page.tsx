@@ -7,6 +7,20 @@ export default async function CartographiePage() {
 await supabase    
 .from("apprentis")
 .select("*");
+  const etablissements = [
+...new Set(
+(apprentis || [])
+.filter(
+(a) =>
+a.adresse_reelle &&
+a.ville_reelle
+)
+.map(
+(a) =>
+`${a.entreprise}|${a.adresse_reelle}|${a.code_postal_reel}|${a.ville_reelle}`
+)
+),
+];
   
 return (
 <main
@@ -50,6 +64,13 @@ marginTop: 0,
 👨‍🎓 Apprentis :{" "}
 <strong>
 {apprentis?.length || 0}
+</strong>
+</p>
+ 
+<p>
+📍 Établissements :{" "}
+<strong>
+{etablissements.length}
 </strong>
 </p>
 </main>
