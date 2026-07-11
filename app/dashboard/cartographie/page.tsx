@@ -1,8 +1,13 @@
 import Link from "next/link";
- 
+ import { supabase } from "../../../lib/supabase";
 export const dynamic = "force-dynamic";
  
 export default async function CartographiePage() {
+  const { data: apprentis } =
+await supabase    
+.from("apprentis")
+.select("*");
+  
 return (
 <main
 style={{
@@ -42,7 +47,10 @@ marginTop: 0,
 </h1>
  
 <p>
-Page en construction.
+👨‍🎓 Apprentis :{" "}
+<strong>
+{apprentis?.length || 0}
+</strong>
 </p>
 </main>
 );
