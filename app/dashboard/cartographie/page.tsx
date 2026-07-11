@@ -8,7 +8,11 @@ export default async function CartographiePage() {
 const { data: apprentis } = await supabase
 .from("apprentis")
 .select("*");
- 
+ const { data: toutesVisites } =
+  await supabase
+    .from("visites")
+    .select("apprenti_id")
+    .eq("realisee", true);
 const etablissements = [
 ...new Set(
 (apprentis || [])
@@ -84,8 +88,15 @@ apprentisSite.map(
 )
 )
 ],
- 
-statut: "AFaire",
+ statut:
+  apprentisSite.some(
+    (a) =>
+      toutesVisites?.some(
+        (v) => v.apprenti_id === a.id
+      )
+  )
+    ? "Terminee"
+    : "AFaire",statut: "AFaire",
 
 };
  }
