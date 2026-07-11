@@ -84,28 +84,7 @@ marginTop: "20px",
 etablissements={pointsCarte}
 />
 </div>
-    <div
-style={{
-height: "600px",
-marginBottom: "20px",
-}}
->
-<FormateurMap
-etablissements={pointsCarte}
-/>
-</div>
-    TypeScript
-<div
-style={{
-height: "600px",
-marginBottom: "20px",
-}}
->
-<FormateurMap
-etablissements={pointsCarte}
-/>
-</div>
- 
+  
 
 </main>
 );
