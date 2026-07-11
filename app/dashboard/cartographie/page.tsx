@@ -92,7 +92,7 @@ apprentisSite.some(
 : "Terminee",
 
 };
- 
+ }
 return null;
 } catch {
 return null;
