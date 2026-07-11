@@ -24,13 +24,16 @@ a.ville_reelle
 ];
   const listeEtablissements =
 etablissements.sort();
-const pointsCarte: {
-latitude: number;
-longitude: number;
-entreprise: string;
-ville: string;
-apprentis: string[];
-}[] = [];
+const pointsCarte = [
+{
+entreprise: "MFR Test",
+ville: "Marguerittes",
+latitude: 43.859,
+longitude: 4.446,
+apprentis: ["Test"],
+statut: "AFaire",
+},
+];
   
 return (
 <main
