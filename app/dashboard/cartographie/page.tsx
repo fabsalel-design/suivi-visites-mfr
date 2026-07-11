@@ -68,6 +68,8 @@ a.ville_reelle === ville
  
 return {
 entreprise,
+adresse,
+cp,
 ville,
 latitude: parseFloat(resultat[0].lat),
 longitude: parseFloat(resultat[0].lon),
