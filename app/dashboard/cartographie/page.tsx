@@ -11,7 +11,8 @@ margin: "0 auto",
 padding: "20px",
 }}
 >
-dashboard"
+<Link
+href="/dashboard"
 style={{
 display: "inline-flex",
 alignItems: "center",
