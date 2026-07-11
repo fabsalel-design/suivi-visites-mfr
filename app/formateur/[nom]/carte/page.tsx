@@ -151,14 +151,14 @@ etablissement.apprentis.map(
 ],
 
 statut:
-  etabli*sement.apprentis.some(
+  etablissement.apprentis.some(
     (a) =>
-*     toutesVisites?.some(
-        *v) => v.apprenti_id === a.id
-     *)
+      toutesVisites?.some(
+        (v) => v.apprenti_id === a.id
+      )
   )
     ? "Terminee"
-    : "AFai*e",
+    : "AFaire",
   };
           }
           return null;
