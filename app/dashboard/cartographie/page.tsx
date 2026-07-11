@@ -21,6 +21,8 @@ a.ville_reelle
 )
 ),
 ];
+  const listeEtablissements =
+etablissements.sort();
   
 return (
 <main
@@ -73,6 +75,27 @@ marginTop: 0,
 {etablissements.length}
 </strong>
 </p>
+
+  <div
+style={{
+background: "white",
+padding: "20px",
+borderRadius: "12px",
+marginTop: "20px",
+}}
+>
+<h2>Liste des établissements</h2>
+ 
+<ul>
+{listeEtablissements.map(
+(etablissement) => (
+<li key={etablissement}>
+{etablissement}
+</li>
+)
+)}
+</ul>
+</div>
 </main>
 );
 }
