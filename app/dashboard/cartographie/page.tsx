@@ -164,6 +164,19 @@ pointsCarte.filter(
 ).length
 }
 </p>
+  <ul>
+{pointsCarte
+.filter(
+(e) => e.statut === "AFaire"
+)
+.map((e, index) => (
+<li key={index}>
+<strong>{e.entreprise}</strong>
+{" - "}
+{e.ville}
+</li>
+))}
+</ul>
  <div
 style={{
 display: "flex",
