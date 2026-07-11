@@ -365,18 +365,19 @@ display: "inline-block",
   👥 Affectations
 </Link>
 
-        <button
-          style={{
-            backgroundColor: "#005CA9",
-            color: "white",
-            border: "none",
-            padding: "12px 18px",
-            borderRadius: "10px",
-            fontWeight: "bold",
-          }}
-        >
-          🗺️ Cartographie
-        </button>
+      <Link
+href="/dashboard/cartographie"
+style={{
+backgroundColor: "#005CA9",
+color: "white",
+padding: "12px 18px",
+borderRadius: "10px",
+fontWeight: "bold",
+textDecoration: "none",
+display: "inline-block",
+}}
+>
+🗺️Cartographie
 
         <button
           style={{
