@@ -1,5 +1,6 @@
 import Link from "next/link";
  import { supabase } from "../../../lib/supabase";
+import FormateurMap from "../../../components/FormateurMap";
 export const dynamic = "force-dynamic";
  
 export default async function CartographiePage() {
@@ -23,6 +24,7 @@ a.ville_reelle
 ];
   const listeEtablissements =
 etablissements.sort();
+  const pointsCarte = [];
   
 return (
 <main
@@ -85,6 +87,17 @@ marginTop: "20px",
 }}
 >
 <h2>Liste des établissements</h2>
+    TypeScript
+<div
+style={{
+height: "600px",
+marginBottom: "20px",
+}}
+>
+<FormateurMap
+etablissements={pointsCarte}
+/>
+</div>
  
 <ul>
 {listeEtablissements.map(
