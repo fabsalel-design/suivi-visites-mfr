@@ -154,7 +154,14 @@ await generateIntermediairePdf({
     ponctualite_assiduite,
     attitude_generale,
   });
-
+await supabase
+.from("visites")
+.update({
+pdf_data: Buffer.from(
+pdfBuffer
+).toString("base64"),
+})
+.eq("id", visite.id);
 return NextResponse.json({
   success: true,
 
