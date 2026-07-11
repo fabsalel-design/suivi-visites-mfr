@@ -421,24 +421,7 @@ display: "inline-block",
 
        
 {formateurs.map((formateur) => {
- const total =
-apprentis?.filter(
-(a) => a.formateur === formateur
-).length || 0;
- 
-const realisees =
-apprentis?.filter(
-(a) =>
-a.formateur === formateur &&
-a.statut === "Terminée"
-).length || 0;
- 
-const pourcentage =
-total > 0
-? Math.round(
-(realisees / total) * 100
-)
-: 0;
+
  const total =
 apprentis?.filter(
 (a) => a.formateur === formateur
