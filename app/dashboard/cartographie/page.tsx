@@ -92,6 +92,7 @@ apprentisSite.some(
 )
 ? "AFaire"
 : "Terminee",
+
 };
  
 return null;
