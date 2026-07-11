@@ -79,10 +79,9 @@ longitude: parseFloat(resultat[0].lon),
 apprentis: [
 ...new Set(
 apprentisSite.map(
-(a) =>
-`${a.prenom} ${a.nom}`
+(a) => `${a.prenom} ${a.nom}`
 )
-),
+)
 ],
  
 statut:
