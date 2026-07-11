@@ -164,20 +164,7 @@ pointsCarte.filter(
 ).length
 }
 </p>
-  <ul>
-{pointsCarte
-.filter(
-(e) => e.statut === "AFaire"
-)
-.map((e, index) => (
-<li key={index}>
-<strong>{e.entreprise}</strong>
-{" - "}
-{e.ville}
-</li>
-))}
-</ul>
- <div
+  <div
 style={{
 display: "flex",
 gap: "20px",
@@ -265,9 +252,11 @@ borderRadius: "12px",
 marginTop: "20px",
 }}
 >
+
 <FormateurMap etablissements={pointsCarte} />
 </div>
-  <h2
+ 
+<h2
 style={{
 color: "#d32f2f",
 marginTop: "20px",
@@ -275,13 +264,18 @@ marginTop: "20px",
 >
 🔴 Établissements à visiter
 </h2>
-  <p>
+ 
+<p>
 Total : {
 pointsCarte.filter(
 (e) => e.statut === "AFaire"
 ).length
 } établissement(s)
 </p>
+ 
+<ul>
+...
+</ul>
 </main>
 );
 }
