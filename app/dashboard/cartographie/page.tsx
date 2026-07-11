@@ -85,7 +85,6 @@ etablissements={pointsCarte}
 />
 </div>
   
-
 </main>
 );
 }
