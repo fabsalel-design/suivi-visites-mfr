@@ -31,6 +31,10 @@ a.ville_reelle
  
 const pointsCarte = (
 await Promise.all(
+  console.log(
+  "NB ETABLISSEMENTS",
+  etablissements.length
+);
 etablissements.map(async (etablissement) => {
 const morceaux = etablissement.split("|");
  
@@ -107,7 +111,10 @@ return null;
 })
 )
 ).filter(Boolean) as any[];
- 
+ console.log(
+  "NB POINTS CARTE",
+  pointsCarte.length
+);
 return (
 <main
 style={{
