@@ -72,22 +72,7 @@ marginTop: 0,
 >
 🗺️ Cartographie du supérieur
 </h1>
- 
-<p>
-👨‍🎓 Apprentis :{" "}
-<strong>
-{apprentis?.length || 0}
-</strong>
-</p>
- 
-<p>
-📍 Établissements :{" "}
-<strong>
-{etablissements.length}
-</strong>
-</p>
-
-  <div
+ <div
 style={{
 background: "white",
 padding: "20px",
@@ -95,7 +80,10 @@ borderRadius: "12px",
 marginTop: "20px",
 }}
 >
-<h2>Liste des établissements</h2>
+<FormateurMap
+etablissements={pointsCarte}
+/>
+</div>
     <div
 style={{
 height: "600px",
@@ -118,16 +106,7 @@ etablissements={pointsCarte}
 />
 </div>
  
-<ul>
-{listeEtablissements.map(
-(etablissement) => (
-<li key={etablissement}>
-{etablissement}
-</li>
-)
-)}
-</ul>
-</div>
+
 </main>
 );
 }
