@@ -25,7 +25,22 @@ export async function GET(
       .select("*")
       .eq("id", visiteId)
       .single();
-
+if (visite?.pdf_data) {
+return new NextResponse(
+Buffer.from(
+visite.pdf_data,
+"base64"
+),
+{
+headers: {
+"Content-Type":
+"application/pdf",
+"Content-Disposition":
+`attachment; filename="visite_${visiteId}.pdf"`,
+},
+}
+);
+}
     if (!visite) {
       return NextResponse.json(
         { error: "Visite introuvable" },
