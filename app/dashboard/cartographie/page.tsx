@@ -96,7 +96,7 @@ apprentisSite.map(
       )
   )
     ? "Terminee"
-    : "AFaire",statut: "AFaire",
+    : "AFaire",
 
 };
  }
