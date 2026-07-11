@@ -460,8 +460,8 @@ total > 0
         </strong>
 
         <strong>
-          {count}
-        </strong>
+{pourcentage} %
+</strong>
       </div>
 
       <div
@@ -472,14 +472,18 @@ total > 0
           overflow: "hidden",
         }}
       >
-        <div
-          style={{
-            width: `${largeur}%`,
-            height: "100%",
-            background:
-              "#005CA9",
-          }}
-        />
+       <div
+style={{
+width: `${pourcentage}%`,
+height: "100%",
+background:
+pourcentage >= 80
+? "#2e7d32"
+: pourcentage >= 50
+? "#f9a825"
+: "#d32f2f",
+}}
+/>
       </div>
     </div>
   );
