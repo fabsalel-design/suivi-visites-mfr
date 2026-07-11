@@ -125,16 +125,7 @@ marginBottom: "20px",
           </div>
         </div>
       ))}
-
-      <hr />
-
-      <p>
-        <Link
-          href={`/apprentis/${id}/edit`}
-        >
-          Retour à la fiche apprenti
-        </Link>
-      </p>
+     
     </main>
   );
 }
