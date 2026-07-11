@@ -396,7 +396,7 @@ Actions en attente
 
         </div>
       </div>
-
+{/*
 <div
   style={{
     background: "white",
@@ -438,7 +438,7 @@ Actions en attente
 </div>
 
 </div>
-
+*/}
       <div
         style={{
           display: "flex",
