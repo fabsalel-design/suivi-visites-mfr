@@ -254,6 +254,14 @@ marginTop: "20px",
 >
 <FormateurMap etablissements={pointsCarte} />
 </div>
+  <h2
+style={{
+color: "#d32f2f",
+marginTop: "20px",
+}}
+>
+🔴 Établissements à visiter
+</h2>
 </main>
 );
 }
