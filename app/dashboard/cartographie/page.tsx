@@ -75,7 +75,19 @@ longitude: parseFloat(
 resultat[0].lon
 ),
  
-apprentis: [],
+const apprentisSite = (apprentis || []).filter(
+2
+(a) =>
+3
+a.entreprise === entreprise &&
+4
+a.adresse_reelle === adresse &&
+5
+a.code_postal_reel === cp &&
+6
+a.ville_reelle === ville
+7
+);
  
 statut: "AFaire",
 };
@@ -88,6 +100,14 @@ return null;
 })
 )
 ).filter(Boolean) as any[];
+
+ const apprentisSite = (apprentis || []).filter(
+(a) =>
+a.entreprise === entreprise &&
+a.adresse_reelle === adresse &&
+a.code_postal_reel === cp &&
+a.ville_reelle === ville
+);
   
 return (
 <main
