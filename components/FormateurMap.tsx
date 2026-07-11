@@ -57,14 +57,12 @@ L.Icon.Default.mergeOptions({
 });
 
 
-
-
-
 type Etablissement = {
   entreprise: string;
   adresse?: string;
   cp?: string;
   ville: string;
+  formateur?: string;
   tuteur?: string;
   telephone?: string;
   latitude: number;
@@ -194,7 +192,15 @@ icon={pinIcon(
         📞 {e.telephone}
       </div>
     )}
-
+{e.formateur && (
+  <div
+    style={{
+      marginBottom: "10px",
+    }}
+  >
+    👨‍🏫 {e.formateur}
+  </div>
+)}
     <hr />
 
     <div
