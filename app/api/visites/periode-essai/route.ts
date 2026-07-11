@@ -137,7 +137,12 @@ console.log(
         }
       );
     }
-
+await supabase
+  .from("apprentis")
+  .update({
+    statut: "Terminée",
+  })
+  .eq("id", apprenti_id);
     
 const pdfBuffer =
   await generatePeriodeEssaiPdf({
