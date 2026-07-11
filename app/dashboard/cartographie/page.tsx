@@ -24,7 +24,13 @@ a.ville_reelle
 ];
   const listeEtablissements =
 etablissements.sort();
-  const pointsCarte = [];
+const pointsCarte: {
+latitude: number;
+longitude: number;
+entreprise: string;
+ville: string;
+apprentis: string[];
+}[] = [];
   
 return (
 <main
