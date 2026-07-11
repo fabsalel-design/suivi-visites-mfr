@@ -137,6 +137,22 @@ marginTop: 0,
 >
 🗺️ Cartographie du supérieur
 </h1>
+
+<p
+style={{
+color: "#666",
+marginBottom: "20px",
+}}
+>
+👨‍🏫 Formateurs présents : {
+new Set(
+(apprentis || [])
+.map((a) => a.formateur)
+.filter(Boolean)
+).size
+}
+</p>
+  
  <div
 style={{
 display: "flex",
