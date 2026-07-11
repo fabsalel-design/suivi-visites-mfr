@@ -18,11 +18,17 @@ export default async function VisitesPage({
     .order("date_visite", {
       ascending: false,
     });
-
+const { data: apprenti } = await supabase
+.from("apprentis")
+.select("formateur")
+.eq("id", id)
+.single();
   return (
     <main style={{ padding: "40px" }}>
       <Link
-href="/dashboard"
+href={`/formateur/${encodeURIComponent(
+apprenti?.formateur || ""
+)}`}
 style={{
 display: "inline-flex",
 alignItems: "center",
