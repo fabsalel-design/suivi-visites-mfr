@@ -278,10 +278,18 @@ pointsCarte.filter(
 .filter((e) => e.statut === "AFaire")
 .sort((a, b) => a.ville.localeCompare(b.ville))
 .map((e, index) => (
-<li key={index}>
-<strong>{e.entreprise}</strong>
+<li
+key={index}
+style={{
+marginBottom: "8px",
+padding: "8px",
+borderBottom: "1px solid #eee",
+}}
+>
+🔴 <strong>{e.entreprise}</strong>
 {" - "}
 {e.ville}
+</li>
 </li>
 ))}
 </ul>
