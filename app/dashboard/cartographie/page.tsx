@@ -87,7 +87,9 @@ margin: "0 auto",
 padding: "20px",
 }}
 >
-/dashboard style={{
+<Link
+href="/dashboard"
+style={{
 display: "inline-flex",
 alignItems: "center",
 gap: "8px",
