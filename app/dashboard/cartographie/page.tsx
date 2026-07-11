@@ -28,13 +28,12 @@ a.ville_reelle
 ),
 ];
  const listeEtablissements = etablissements.sort();
- 
-const pointsCarte = (
-await Promise.all(
-  console.log(
+  console.log(
   "NB ETABLISSEMENTS",
   etablissements.length
 );
+const pointsCarte = (
+await Promise.all( 
 etablissements.map(async (etablissement) => {
 const morceaux = etablissement.split("|");
  
