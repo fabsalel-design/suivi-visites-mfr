@@ -28,7 +28,16 @@ const entreprises = [
       .filter(Boolean)
   ),
 ];
-
+const formateurs = [
+  ...new Set(
+    (apprentis || [])
+      .map((a) => a.formateur)
+      .filter(Boolean)
+      .filter(
+        (f) => f !== "Non affecté"
+      )
+  ),
+];
 const { data: toutesVisites } =
   await supabase
     .from("visites")
