@@ -23,8 +23,7 @@ a.ville_reelle
 )
 ),
 ];
- 
-const listeEtablissements = etablissements.sort();
+ const listeEtablissements = etablissements.sort();
  
 const pointsCarte = (
 await Promise.all(
