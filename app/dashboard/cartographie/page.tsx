@@ -24,46 +24,70 @@ a.ville_reelle
 ];
   const listeEtablissements =
 etablissements.sort();
-const premier =
-etablissements[0]?.split("|");
-
-  const adresseRecherche = encodeURIComponent(
-`${premier?.[1] || ""} ${premier?.[2] || ""} ${premier?.[3] || ""}`
+const pointsCarte = (
+await Promise.all(
+etablissements.map(async (etablissement) => {
+const morceaux =
+etablissement.split("|");
+ 
+const entreprise =
+morceaux[0];
+ 
+const adresse =
+morceaux[1];
+ 
+const cp =
+morceaux[2];
+ 
+const ville =
+morceaux[3];
+ 
+try {
+const recherche =
+encodeURIComponent(
+`${adresse} ${cp} ${ville}`
 );
  
-const response = await fetch(
-`https://nominatim.openstreetmap.org/search?format=json&q=${adresseRecherche}`,
+const response =
+await fetch(
+`https://nominatim.openstreetmap.org/search?format=json&q=${recherche}`,
 {
 headers: {
-"User-Agent": "Suivi-Visites-MFR",
+"User-Agent":
+"Suivi-Visites-MFR",
 },
 }
 );
  
-const resultat = await response.json();
-const pointsCarte = [
-{
-entreprise:
-premier?.[0] || "",
+const resultat =
+await response.json();
  
-ville:
-premier?.[3] || "",
+if (resultat.length > 0) {
+return {
+entreprise,
+ville,
  
-latitude:
-resultat?.[0]?.lat
-? parseFloat(resultat[0].lat)
-: 43.859,
+latitude: parseFloat(
+resultat[0].lat
+),
  
-longitude:
-resultat?.[0]?.lon
-? parseFloat(resultat[0].lon)
-: 4.446,
+longitude: parseFloat(
+resultat[0].lon
+),
  
 apprentis: [],
  
 statut: "AFaire",
-},
-];
+};
+}
+ 
+return null;
+} catch {
+return null;
+}
+})
+)
+).filter(Boolean);
   
 return (
 <main
