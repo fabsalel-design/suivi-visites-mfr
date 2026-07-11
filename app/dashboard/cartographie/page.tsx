@@ -289,6 +289,9 @@ borderBottom: "1px solid #eee",
 🔴 <strong>{e.entreprise}</strong>
 {" - "}
 {e.ville}
+  {" ("}
+{e.apprentis?.length || 0}
+{" apprenti(s))"}
 </li>
 
 ))}
