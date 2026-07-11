@@ -520,9 +520,10 @@ pourcentage >= 80
           Contrats terminés : <strong>0</strong>
         </p>
 
-        <p>
-          Sans formateur : <strong>0</strong>
-        </p>
+       <p>
+  Sans formateur :
+  <strong> {sansFormateur}</strong>
+</p>
 
         <p>
           Visites en retard : <strong>0</strong>
