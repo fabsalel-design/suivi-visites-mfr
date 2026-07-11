@@ -53,17 +53,12 @@ headers: {
 const resultat = await response.json();
  
 if (resultat.length > 0) {
-const apprentisSite = (apprentis || [])
-.filter(
+const apprentisSite = (apprentis || []).filter(
 (a) =>
 a.entreprise === entreprise &&
 a.adresse_reelle === adresse &&
 a.code_postal_reel === cp &&
 a.ville_reelle === ville
-)
-.map(
-(a) =>
-`${a.prenom ?? ""} ${a.nom ?? ""}`.trim()
 );
  
 return {
@@ -71,12 +66,33 @@ entreprise,
 adresse,
 cp,
 ville,
+ 
+tuteur:
+apprentisSite[0]?.tuteur || "",
+ 
+telephone:
+apprentisSite[0]?.telephone || "",
+ 
 latitude: parseFloat(resultat[0].lat),
+ 
 longitude: parseFloat(resultat[0].lon),
-apprentis: apprentisSite,
-statut: "AFaire",
+ 
+apprentis: [
+...new Set(
+apprentisSite.map(
+(a) =>
+`${a.prenom} ${a.nom}`
+)
+),
+],
+ 
+statut:
+apprentisSite.some(
+(a) => a.statut !== "Terminée"
+)
+? "AFaire"
+: "Terminee",
 };
-}
  
 return null;
 } catch {
