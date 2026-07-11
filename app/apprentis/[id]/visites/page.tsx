@@ -20,7 +20,7 @@ export default async function VisitesPage({
     });
 const { data: apprenti } = await supabase
 .from("apprentis")
-.select("formateur")
+.select("formateur, nom, prenom")
 .eq("id", id)
 .single();
   return (
@@ -49,22 +49,14 @@ marginBottom: "20px",
 </Link>
       <h1>Historique des visites</h1>
 
-      <p>
-        Apprenti ID : {id}
-      </p>
+ <p>
+<strong>Apprenti :</strong>{" "}
+{apprenti?.prenom} {apprenti?.nom}
+{" "}
+(ID : {id})
+</p>
 
-      <hr />
-
-      <Link
-        href={`/apprentis/${id}/visites/nouvelle`}
-      >
-        <button>
-          Nouvelle visite
-        </button>
-      </Link>
-
-      <hr />
-
+     
       {error && (
         <p>
           Erreur : {error.message}
