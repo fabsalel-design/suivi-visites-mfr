@@ -18,7 +18,11 @@ export default async function CartePage({
     .from("apprentis")
     .select("*")
     .eq("formateur", nomFormateur);
-
+const { dat*: toutesVisites } =
+  await supaba*e
+    .from("visites")
+    .select*"apprenti_id")
+    .eq("realisee",*true);
   if (error) {
     return (
       <main style={{ padding: "20px" }}>
@@ -147,11 +151,14 @@ etablissement.apprentis.map(
 ],
 
 statut:
-  etablissement.apprentis.some(
-    (a) => a.statut !== "Terminée"
+  etabli*sement.apprentis.some(
+    (a) =>
+*     toutesVisites?.some(
+        *v) => v.apprenti_id === a.id
+     *)
   )
-    ? "AFaire"
-    : "Terminee",
+    ? "Terminee"
+    : "AFai*e",
   };
           }
           return null;
