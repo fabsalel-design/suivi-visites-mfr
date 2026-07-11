@@ -1,14 +1,15 @@
 import Link from "next/link";
- import { supabase } from "../../../lib/supabase";
+import { supabase } from "../../../lib/supabase";
 import FormateurMap from "../../../components/FormateurMap";
+ 
 export const dynamic = "force-dynamic";
  
 export default async function CartographiePage() {
-  const { data: apprentis } =
-await supabase    
+const { data: apprentis } = await supabase
 .from("apprentis")
 .select("*");
-  const etablissements = [
+ 
+const etablissements = [
 ...new Set(
 (apprentis || [])
 .filter(
@@ -22,73 +23,50 @@ a.ville_reelle
 )
 ),
 ];
-  const listeEtablissements =
-etablissements.sort();
+ 
+const listeEtablissements = etablissements.sort();
+ 
 const pointsCarte = (
 await Promise.all(
 etablissements.map(async (etablissement) => {
-const morceaux =
-etablissement.split("|");
+const morceaux = etablissement.split("|");
  
-const entreprise =
-morceaux[0];
- 
-const adresse =
-morceaux[1];
- 
-const cp =
-morceaux[2];
- 
-const ville =
-morceaux[3];
+const entreprise = morceaux[0];
+const adresse = morceaux[1];
+const cp = morceaux[2];
+const ville = morceaux[3];
  
 try {
-const recherche =
-encodeURIComponent(
+const recherche = encodeURIComponent(
 `${adresse} ${cp} ${ville}`
 );
  
-const response =
-await fetch(
+const response = await fetch(
 `https://nominatim.openstreetmap.org/search?format=json&q=${recherche}`,
 {
 headers: {
-"User-Agent":
-"Suivi-Visites-MFR",
+"User-Agent": "Suivi-Visites-MFR",
 },
 }
 );
  
-const resultat =
-await response.json();
+const resultat = await response.json();
  
 if (resultat.length > 0) {
+const apprentisSite = (apprentis || []).filter(
+(a) =>
+a.entreprise === entreprise &&
+a.adresse_reelle === adresse &&
+a.code_postal_reel === cp &&
+a.ville_reelle === ville
+);
+ 
 return {
 entreprise,
 ville,
- 
-latitude: parseFloat(
-resultat[0].lat
-),
- 
-longitude: parseFloat(
-resultat[0].lon
-),
- 
-const apprentisSite = (apprentis || []).filter(
-2
-(a) =>
-3
-a.entreprise === entreprise &&
-4
-a.adresse_reelle === adresse &&
-5
-a.code_postal_reel === cp &&
-6
-a.ville_reelle === ville
-7
-);
- 
+latitude: parseFloat(resultat[0].lat),
+longitude: parseFloat(resultat[0].lon),
+apprentis: apprentisSite,
 statut: "AFaire",
 };
 }
@@ -100,15 +78,7 @@ return null;
 })
 )
 ).filter(Boolean) as any[];
-
- const apprentisSite = (apprentis || []).filter(
-(a) =>
-a.entreprise === entreprise &&
-a.adresse_reelle === adresse &&
-a.code_postal_reel === cp &&
-a.ville_reelle === ville
-);
-  
+ 
 return (
 <main
 style={{
@@ -117,22 +87,7 @@ margin: "0 auto",
 padding: "20px",
 }}
 >
-<Link
-href="/dashboard"
-style={{
-display: "inline-flex",
-alignItems: "center",
-gap: "8px",
-backgroundColor: "white",
-color: "#005CA9",
-padding: "10px 18px",
-borderRadius: "12px",
-textDecoration: "none",
-fontWeight: "bold",
-border: "2px solid #005CA9",
-boxShadow:
-"0 3px 10px rgba(0,0,0,0.08)",
-marginBottom: "20px",
+/dashboard20px",
 }}
 >
 🏠 Retour au dashboard
@@ -146,7 +101,8 @@ marginTop: 0,
 >
 🗺️ Cartographie du supérieur
 </h1>
- <div
+ 
+<div
 style={{
 background: "white",
 padding: "20px",
@@ -154,11 +110,8 @@ borderRadius: "12px",
 marginTop: "20px",
 }}
 >
-<FormateurMap
-etablissements={pointsCarte}
-/>
+<FormateurMap etablissements={pointsCarte} />
 </div>
-  
 </main>
 );
 }
