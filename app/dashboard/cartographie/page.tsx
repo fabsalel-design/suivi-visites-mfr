@@ -46,7 +46,7 @@ return acc;
 const etablissementsGeocodes =
 await Promise.all(
 etablissements.map(
-async (etablissement) => {
+async (etablissement: any) => {
 try {
 const adresse =
 encodeURIComponent(
@@ -67,9 +67,7 @@ headers: {
 let resultat =
 await response.json();
  
-if (
-resultat.length === 0
-) {
+if (resultat.length === 0) {
 const secours =
 encodeURIComponent(
 `${etablissement.entreprise} ${etablissement.ville}`
@@ -90,27 +88,28 @@ resultat =
 await responseSecours.json();
 }
  
-if (
-resultat.length > 0
-) {
+if (resultat.length > 0) {
 return {
 entreprise:
 etablissement.entreprise,
+ 
 ville:
 etablissement.ville,
-latitude:
-parseFloat(
+ 
+latitude: parseFloat(
 resultat[0].lat
 ),
-longitude:
-parseFloat(
+ 
+longitude: parseFloat(
 resultat[0].lon
 ),
+ 
 apprentis:
 etablissement.apprentis.map(
 (a: any) =>
 `${a.prenom} ${a.nom}`
 ),
+ 
 statut:
 etablissement.apprentis.some(
 (a: any) =>
@@ -142,28 +141,20 @@ maxWidth: "1400px",
 margin: "0 auto",
 padding: "20px",
 }}
-  >
- <Link
-href="/dashboard" 
- style={{
+>
+"
+style={{
 display: "inline-flex",
 alignItems: "center",
 gap: "8px",
-backgroundColor:
-"white",
+backgroundColor: "white",
 color: "#005CA9",
-padding:
-"10px 18px",
-borderRadius:
-"12px",
-textDecoration:
-"none",
-fontWeight:
-"bold",
-border:
-"2px solid #005CA9",
-marginBottom:
-"20px",
+padding: "10px 18px",
+borderRadius: "12px",
+textDecoration: "none",
+fontWeight: "bold",
+border: "2px solid #005CA9",
+marginBottom: "20px",
 }}
 >
 🏠 Retour au dashboard
@@ -187,18 +178,13 @@ color: "#005CA9",
  
 <div
 style={{
-background:
-"white",
-padding:
-"20px",
-borderRadius:
-"12px",
+background: "white",
+padding: "20px",
+borderRadius: "12px",
 }}
 >
 <FormateurMap
-etablissements={
-pointsCarte
-}
+etablissements={pointsCarte}
 />
 </div>
 </main>
