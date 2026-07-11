@@ -85,12 +85,7 @@ apprentisSite.map(
 )
 ],
  
-statut:
-apprentisSite.some(
-(a) => a.statut !== "Terminée"
-)
-? "AFaire"
-: "Terminee",
+statut: "AFaire",
 
 };
  }
