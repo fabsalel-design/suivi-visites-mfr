@@ -65,7 +65,8 @@ entreprise,
 adresse,
 cp,
 ville,
- 
+ formateur:
+  apprentisSite[0]?.formateur || "",
 tuteur:
 apprentisSite[0]?.tuteur || "",
  
