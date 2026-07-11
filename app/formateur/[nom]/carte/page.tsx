@@ -18,11 +18,11 @@ export default async function CartePage({
     .from("apprentis")
     .select("*")
     .eq("formateur", nomFormateur);
-const { dat*: toutesVisites } =
-  await supaba*e
+const { data: toutesVisites } =
+  await supabase
     .from("visites")
-    .select*"apprenti_id")
-    .eq("realisee",*true);
+    .select("apprenti_id")
+    .eq("realisee", true);
   if (error) {
     return (
       <main style={{ padding: "20px" }}>
