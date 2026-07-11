@@ -87,7 +87,7 @@ return null;
 }
 })
 )
-).filter(Boolean);
+).filter(Boolean) as any[];
   
 return (
 <main
