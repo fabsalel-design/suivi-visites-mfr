@@ -47,17 +47,3 @@ Page en construction.
 </main>
 );
 }
-Afficher plus de lignes
-
-Une fois que ce fichier est déployé et que le build est vert, on ajoutera :
-
-récupération des apprentis ;
-regroupement des établissements ;
-géocodage ;
-composant FormateurMap.
-
-On repartira d'une base saine sans recasser le build. 👍
-
-Fournissez vos commentaires sur BizChat
-Ajoute la récupération des apprentisMontre comment regrouper les établissementsComment intégrer FormateurMap ?
-FichiersFichiers
