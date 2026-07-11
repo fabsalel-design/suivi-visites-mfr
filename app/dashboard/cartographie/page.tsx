@@ -26,7 +26,21 @@ a.ville_reelle
 etablissements.sort();
 const premier =
 etablissements[0]?.split("|");
+
+  const adresseRecherche = encodeURIComponent(
+`${premier?.[1] || ""} ${premier?.[2] || ""} ${premier?.[3] || ""}`
+);
  
+const response = await fetch(
+`https://nominatim.openstreetmap.org/search?format=json&q=${adresseRecherche}`,
+{
+headers: {
+"User-Agent": "Suivi-Visites-MFR",
+},
+}
+);
+ 
+const resultat = await response.json();
 const pointsCarte = [
 {
 entreprise:
@@ -35,8 +49,15 @@ premier?.[0] || "",
 ville:
 premier?.[3] || "",
  
-latitude: 43.859,
-longitude: 4.446,
+latitude:
+resultat?.[0]?.lat
+? parseFloat(resultat[0].lat)
+: 43.859,
+ 
+longitude:
+resultat?.[0]?.lon
+? parseFloat(resultat[0].lon)
+: 4.446,
  
 apprentis: [],
  
