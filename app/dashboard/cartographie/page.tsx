@@ -137,7 +137,73 @@ marginTop: 0,
 >
 🗺️ Cartographie du supérieur
 </h1>
+ <div
+style={{
+display: "flex",
+gap: "20px",
+marginBottom: "20px",
+flexWrap: "wrap",
+}}
+>
+<div
+style={{
+background: "#fff",
+padding: "15px 20px",
+borderRadius: "12px",
+fontWeight: "bold",
+minWidth: "180px",
+}}
+>
+🏢 Établissements : {pointsCarte.length}
+</div>
  
+<div
+style={{
+background: "#fff",
+padding: "15px 20px",
+borderRadius: "12px",
+fontWeight: "bold",
+minWidth: "180px",
+}}
+>
+👨‍🎓 Apprentis : {(apprentis || []).length}
+</div>
+ 
+<div
+style={{
+background: "#fff",
+padding: "15px 20px",
+borderRadius: "12px",
+fontWeight: "bold",
+minWidth: "180px",
+color: "#2e7d32",
+}}
+>
+🟢 Terminées : {
+pointsCarte.filter(
+(e) => e.statut === "Terminee"
+).length
+}
+</div>
+ 
+<div
+style={{
+background: "#fff",
+padding: "15px 20px",
+borderRadius: "12px",
+fontWeight: "bold",
+minWidth: "180px",
+color: "#d32f2f",
+}}
+>
+🔴 À faire : {
+pointsCarte.filter(
+(e) => e.statut === "AFaire"
+).length
+}
+</div>
+</div>
+  
 <div
 style={{
 background: "white",
