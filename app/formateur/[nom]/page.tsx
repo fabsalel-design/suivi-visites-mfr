@@ -170,11 +170,13 @@ apprentis:
 
 statut:
   etablissement.apprentis.some(
-    (a) => a.statut !== "Terminée"
+    (a) =>
+      toutesVisites?.some(
+        (v) => v.apprenti_id === a.id
+      )
   )
-    ? "AFaire"
-    : "Terminee",
-
+    ? "Terminee"
+    : "AFaire",
 
 };
 
