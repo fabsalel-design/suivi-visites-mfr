@@ -93,6 +93,16 @@ marginTop: "20px",
 }}
 >
 <h2>Liste des établissements</h2>
+    <div
+style={{
+height: "600px",
+marginBottom: "20px",
+}}
+>
+<FormateurMap
+etablissements={pointsCarte}
+/>
+</div>
     TypeScript
 <div
 style={{
