@@ -29,23 +29,18 @@ const entreprises = [
   ),
 ];
 
-const formateurs = [
-  ...new Set(
-    (apprentis || [])
-      .map((a) => a.formateur)
-      .filter(Boolean)
-      .filter(
-        (f) => f !== "Non affecté"
-      )
-  ),
-];
-
+const { data: toutesVisites } =
+  await supabase
+    .from("visites")
+    .select("apprenti_id")
+    .eq("realisee", true);
 
 const visitesRealisees =
   apprentisUniques.filter(
     (a) =>
-      a.statut?.trim() ===
-      "Terminée"
+      toutesVisites?.some(
+        (v) => v.apprenti_id === a.id
+      )
   ).length;
 
 const visitesRestantes =
@@ -432,7 +427,9 @@ const realisees =
 apprentis?.filter(
 (a) =>
 a.formateur === formateur &&
-a.statut === "Terminée"
+toutesVisites?.some(
+(v) => v.apprenti_id === a.id
+)
 ).length || 0;
  
 const pourcentage =
