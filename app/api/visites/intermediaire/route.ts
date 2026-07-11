@@ -105,18 +105,12 @@ console.log(
   typeof signature_maitre
 );
 
-    if (detailsError) {
-      return NextResponse.json(
-        {
-          success: false,
-          error:
-            detailsError.message,
-        },
-        {
-          status: 500,
-        }
-      );
-    }
+    await supabase
+.from("apprentis")
+.update({
+statut: "Terminée",
+})
+.eq("id", apprenti_id);
 
 const pdfBuffer =
 await generateIntermediairePdf({
