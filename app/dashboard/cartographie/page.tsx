@@ -172,6 +172,19 @@ marginBottom: "20px",
 flexWrap: "wrap",
 }}
 >
+   <p
+style={{
+color: "#2e7d32",
+fontWeight: "bold",
+}}
+>
+🟢 Établissements visités : {
+pointsCarte.filter(
+(e) => e.statut === "Terminee"
+).length
+}
+</p>
+   
 <div
 style={{
 background: "#fff",
