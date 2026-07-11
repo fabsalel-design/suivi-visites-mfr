@@ -152,7 +152,18 @@ new Set(
 ).size
 }
 </p>
-  
+  <p
+style={{
+color: "#d32f2f",
+fontWeight: "bold",
+}}
+>
+🔴 Établissements restant à visiter : {
+pointsCarte.filter(
+(e) => e.statut === "AFaire"
+).length
+}
+</p>
  <div
 style={{
 display: "flex",
