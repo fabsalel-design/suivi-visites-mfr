@@ -41,12 +41,12 @@ const recherche = encodeURIComponent(
 );
  
 const response = await fetch(
-`https://nominatim.openstreetmap.org/search?format=json&q=${recherche}`,
-{
-headers: {
-"User-Agent": "Suivi-Visites-MFR",
-},
-}
+  `https://nominatim.openstreetmap.org/search?format=json&q=${recherche}`,
+  {
+    headers: {
+      "User-Agent": "Suivi-Visites-MFR",
+    },
+  }
 );
  
 const resultat = await response.json();
