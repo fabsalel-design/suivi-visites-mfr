@@ -290,7 +290,7 @@ borderBottom: "1px solid #eee",
 {" - "}
 {e.ville}
 </li>
-</li>
+
 ))}
 </ul>
 </main>
