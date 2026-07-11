@@ -262,6 +262,13 @@ marginTop: "20px",
 >
 🔴 Établissements à visiter
 </h2>
+  <p>
+Total : {
+pointsCarte.filter(
+(e) => e.statut === "AFaire"
+).length
+} établissement(s)
+</p>
 </main>
 );
 }
