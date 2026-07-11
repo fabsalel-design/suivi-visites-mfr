@@ -22,13 +22,19 @@ export default async function FormateurDetailPage({
   const total = apprentis?.length || 0;
 
 const entreprises = [
-  ...new Set(
-    apprentis?.map(
-      (a) => a.entreprise
-    ) || []
-  ),
+...new Set(
+(apprentis || [])
+.filter(
+(a) =>
+a.adresse_reelle &&
+a.ville_reelle
+)
+.map(
+(a) =>
+`${a.entreprise}|${a.adresse_reelle}|${a.code_postal_reel}|${a.ville_reelle}`
+)
+),
 ];
-
 
 
   const apprentiIds =
@@ -272,7 +278,7 @@ fontWeight: "bold",
 </div>
  
 <div>
-🏢 <strong>{entreprises.length}</strong> entreprise(s) à suivre
+📍 <strong>{entreprises.length}</strong> établissement(s) à visiter
 </div>
 </div>
 </div>
