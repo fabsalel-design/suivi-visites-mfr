@@ -39,7 +39,11 @@ a.ville_reelle
 
   const apprentiIds =
     apprentis?.map((a) => a.id) || [];
-
+const { data: toutesVisites } =
+  await supabase
+    .from("visites")
+    .select("apprenti_id")
+    .eq("realisee", true);
  
 const { data: visitesEffectuees } =
   await supabase
@@ -571,16 +575,23 @@ Actions en attente
 <div
   style={{
     backgroundColor:
-      apprenti.statut === "Terminée"
+      toutesVisites?.some(
+        (v) =>
+          v.apprenti_id === apprenti.id
+      )
         ? "#2e7d32"
         : "#f9a825",
+
     color: "white",
     padding: "6px 12px",
     borderRadius: "20px",
     fontWeight: "bold",
   }}
 >
-  {apprenti.statut === "Terminée"
+  {toutesVisites?.some(
+    (v) =>
+      v.apprenti_id === apprenti.id
+  )
     ? "✅ Terminée"
     : "🟠 À faire"}
 </div>
