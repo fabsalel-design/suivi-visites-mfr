@@ -338,8 +338,7 @@ color:
     flexWrap: "wrap",
   }}
 >
-  /import style={{
-      backgroundColor: "#005CA9",
+  /import "#005CA9",
       color: "white",
       padding: "12px 18px",
       borderRadius: "10px",
@@ -351,15 +350,24 @@ color:
     📥 Import Gestibase
   </Link>
 
-  <Link
-    href="/dashboard/affectations"
-    style={{
+  /dashboard/affectations={{
       backgroundColor: "#005CA9",
       color: "white",
       padding: "12px 18px",
       borderRadius: "10px",
       fontWeight: "bold",
-      textDecoration: "nonex",
+      textDecoration: "none",
+      display: "inline-block",
+    }}
+  >
+    👥 Affectations
+  </Link>
+
+  /dashboard/cartographie    style={{
+      backgroundColor: "#005CA9",
+      color: "white",
+      padding: "12px 18px",
+      borderRadius: "10px",
       fontWeight: "bold",
       textDecoration: "none",
       display: "inline-block",
@@ -368,11 +376,9 @@ color:
     🗺️ Cartographie
   </Link>
 
-  <Link
-    href="/dashboard/suivi-visites"
+  dashboard/suivi-visites"
     style={{
       backgroundColor: "#005CA9",
-      
       color: "white",
       padding: "12px 18px",
       borderRadius: "10px",
@@ -384,7 +390,6 @@ color:
     📝 Suivi visites
   </Link>
 </div>
-    </div>
 
     <div
       style={{
