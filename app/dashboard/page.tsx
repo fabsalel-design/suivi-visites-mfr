@@ -381,9 +381,18 @@ textDecoration: "none",
 display: "inline-block",
 }}
 >
-🗺️Cartographie
-</Link>
-        /dashboard/suivi-visites
+<Link
+  href="/dashboard/suivi-visites"
+  style={{
+    backgroundColor: "#005CA9",
+    color: "white",
+    padding: "12px 18px",
+    borderRadius: "10px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    display: "inline-block",
+  }}
+>
   📝 Suivi visites
 </Link>
       </div>
