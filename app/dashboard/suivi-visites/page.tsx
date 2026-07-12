@@ -449,23 +449,7 @@ Actions en attente
         >
           📋 Mes visites
         </button>
-
-        <Link
-          href={`/formateur/${encodeURIComponent(
-            nomFormateur
-          )}/carte`}
-          style={{
-            backgroundColor: "white",
-            border: "1px solid #ddd",
-            padding: "12px 20px",
-            borderRadius: "8px",
-            textDecoration: "none",
-            color: "black",
-            display: "inline-block",
-          }}
-        >
-         🗺️ Ouvrir la carte complète
-        </Link>
+        
       </div>
 
       {error && (
