@@ -383,18 +383,9 @@ display: "inline-block",
 >
 🗺️Cartographie
 </Link>
-        <button
-          style={{
-            backgroundColor: "#005CA9",
-            color: "white",
-            border: "none",
-            padding: "12px 18px",
-            borderRadius: "10px",
-            fontWeight: "bold",
-          }}
-        >
-          📝 Suivi visites
-        </button>
+        /dashboard/suivi-visites
+  📝 Suivi visites
+</Link>
       </div>
     </div>
 
