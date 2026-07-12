@@ -331,33 +331,35 @@ color:
     🚀 Actions rapides
   </h2>
 
-    <div
+<div
   style={{
     display: "flex",
     gap: "15px",
     flexWrap: "wrap",
   }}
 >
-  <Link
-    href="/import"
-    style={{
+  /import style={{
       backgroundColor: "#005CA9",
       color: "white",
       padding: "12px 18px",
       borderRadius: "10px",
-      fontWeight      borderRadius: "10px",
       fontWeight: "bold",
       textDecoration: "none",
       display: "inline-block",
     }}
   >
-    👥 Affectations
+    📥 Import Gestibase
   </Link>
 
-  /dashboard/cartographie "#005CA9",
+  <Link
+    href="/dashboard/affectations"
+    style={{
+      backgroundColor: "#005CA9",
       color: "white",
       padding: "12px 18px",
       borderRadius: "10px",
+      fontWeight: "bold",
+      textDecoration: "nonex",
       fontWeight: "bold",
       textDecoration: "none",
       display: "inline-block",
@@ -366,8 +368,11 @@ color:
     🗺️ Cartographie
   </Link>
 
-  /dashboard/suivi-visites    style={{
+  <Link
+    href="/dashboard/suivi-visites"
+    style={{
       backgroundColor: "#005CA9",
+      
       color: "white",
       padding: "12px 18px",
       borderRadius: "10px",
