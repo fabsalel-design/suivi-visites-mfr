@@ -331,71 +331,54 @@ color:
     🚀 Actions rapides
   </h2>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "15px",
-          flexWrap: "wrap",
-        }}
-      >
-       <Link
-href="/import"
-style={{
-backgroundColor: "#005CA9",
-color: "white",
-padding: "12px 18px",
-borderRadius: "10px",
-fontWeight: "bold",
-textDecoration: "none",
-display: "inline-block",
-}}
->
-📥 Import Gestibase
-</Link>
-
-      
-<Link
-  href="/dashboard/affectations"
+    <div
   style={{
-    backgroundColor: "#005CA9",
-    color: "white",
-    padding: "12px 18px",
-    borderRadius: "10px",
-    fontWeight: "bold",
-    textDecoration: "none",
-    display: "inline-block",
+    display: "flex",
+    gap: "15px",
+    flexWrap: "wrap",
   }}
 >
-  👥 Affectations
-</Link>
+  <Link
+    href="/import"
+    style={{
+      backgroundColor: "#005CA9",
+      color: "white",
+      padding: "12px 18px",
+      borderRadius: "10px",
+      fontWeight      borderRadius: "10px",
+      fontWeight: "bold",
+      textDecoration: "none",
+      display: "inline-block",
+    }}
+  >
+    👥 Affectations
+  </Link>
 
-      <Link
-href="/dashboard/cartographie"
-style={{
-backgroundColor: "#005CA9",
-color: "white",
-padding: "12px 18px",
-borderRadius: "10px",
-fontWeight: "bold",
-textDecoration: "none",
-display: "inline-block",
-}}
->
-<Link
-  href="/dashboard/suivi-visites"
-  style={{
-    backgroundColor: "#005CA9",
-    color: "white",
-    padding: "12px 18px",
-    borderRadius: "10px",
-    fontWeight: "bold",
-    textDecoration: "none",
-    display: "inline-block",
-  }}
->
-  📝 Suivi visites
-</Link>
-      </div>
+  /dashboard/cartographie "#005CA9",
+      color: "white",
+      padding: "12px 18px",
+      borderRadius: "10px",
+      fontWeight: "bold",
+      textDecoration: "none",
+      display: "inline-block",
+    }}
+  >
+    🗺️ Cartographie
+  </Link>
+
+  /dashboard/suivi-visites    style={{
+      backgroundColor: "#005CA9",
+      color: "white",
+      padding: "12px 18px",
+      borderRadius: "10px",
+      fontWeight: "bold",
+      textDecoration: "none",
+      display: "inline-block",
+    }}
+  >
+    📝 Suivi visites
+  </Link>
+</div>
     </div>
 
     <div
