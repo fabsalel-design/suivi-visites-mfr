@@ -326,11 +326,6 @@ color:
     marginTop: 0,
     color: "#005CA9",
   }}
-<h2
-  style={{
-    marginTop: 0,
-    color: "#005CA9",
-  }}
 >
   🚀 Actions rapides
 </h2>
