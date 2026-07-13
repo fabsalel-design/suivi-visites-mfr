@@ -337,32 +337,54 @@ color:
     flexWrap: "wrap",
   }}
 >
-  <Link
-    href="/import"
-    style={{
-      backgroundColor: "#005CA9",
-      color: "white",
-      padding: "12px 18px",
-            color: "white",
-      padding: "12px 18px",
-      borderRadius: "10px",
-      fontWeight: "bold",
-      textDecoration: "none",
-      display: "inline-block",
-    }}
-  >
-    👥 Affectations
-  </Link>
+<Link
+  href="/import"
+  style={{
+    backgroundColor: "#005CA9",
+    color: "white",
+    padding: "12px 18px",
+    borderRadius: "10px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    display: "inline-block",
+  }}
+>
+  📥 Import Gestibase
+</Link>
+<Link
+  href="/dashboard/affectations"
+  style={{
+    backgroundColor: "#005CA9",
+    color: "white",
+    padding: "12px 18px",
+    borderRadius: "10px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    display: "inline-block",
+  }}
+>
+  👥 Affectations
+</Link>
+  
+<Link
+  href="/dashboard/cartographie"
+  style={{
+    backgroundColor: "#005CA9",
+    color: "white",
+    padding: "12px 18px",
+    borderRadius: "10px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    display: "inline-block",
+  }}
+>
+  🗺️ Cartographie
+</Link>
 
-  <Link
-    href="/dashboard/cartographie"
-   
-  </Link>
-
-  <Link
-    href="/dashboard/suivi-visites"
-    style={{
-      backgroundColor:
+ <Link
+  href="/dashboard/suivi-visites"
+  style={{
+    backgroundColor: "#005CA9",
     color: "white",
     padding: "12px 18px",
     borderRadius: "10px",
