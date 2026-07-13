@@ -218,7 +218,7 @@ function formatDate(date: string | null) {
     marginBottom: "5px",
   }}
 >
-👨‍🎓 Suivi global des visites*
+👨‍🎓 Suivi global des visites
 </h1>
 
 <p
