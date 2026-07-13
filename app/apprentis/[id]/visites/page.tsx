@@ -52,13 +52,26 @@ const { data: apprenti } = await supabase
     🏠 Retour au suivi global
   </Link>
 ) : (
-  <Link
-    href={`/formateur/${encodeURIComponent(
-      apprenti?.formateur || ""
-    )}`}
-    style={{
-      display: "inline-flex",
-      alignItems: "
+<Link
+  href={`/formateur/${encodeURIComponent(
+    apprenti?.formateur || ""
+  )}`}
+  style={{
+ kgroundColor: "white",
+    color: "#005CA9",
+    padding: "10px 18px",
+    borderRadius: "12px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    border: "2px solid #005CA9",
+    boxShadow:
+      "0 3px 10px rgba(0,0,0,0.08)",
+    marginBottom: "20px",
+  }}
+>
+  🏠 Retour au tableau de bord
+</Link>
+)}
       <h1>Historique des visites</h1>
 
  <p>
