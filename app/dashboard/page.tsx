@@ -396,6 +396,7 @@ color:
   📝 Suivi visites
 </Link>
 </div>
+  </div>
     <div
       style={{
         display: "grid",
