@@ -630,7 +630,7 @@ Actions en attente
             
 <Link
   style={actionStyle}
-  href={`/apprentis/${apprenti.id}/visites`}
+href={`/apprentis/${apprenti.id}/visites?origine=formateur`}
 >
   📂 Historique
 </Link>
