@@ -359,7 +359,7 @@ color:
       backgroundColor: "#005CA9",
       color: "white",
       padding: "12px 18px",
-      borderRadius: "10px",,
+      borderRadius: "10px",
       padding: "12px 18px",
    fontWeight: "bold",
       textDecoration: "none",
