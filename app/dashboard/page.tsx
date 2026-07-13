@@ -322,14 +322,14 @@ color:
       "0 2px 8px rgba(0,0,0,0.08)",
   }}
 >
-  <h2
-    style={{
-      marginTop: 0,
-      color: "#005CA9",
-    }}
-  >
-    🚀 Actions rapides
-  </h2>
+<h2
+  style={{
+    marginTop: 0,
+    color: "#005CA9",
+  }}
+>
+  🚀 Actions rapides
+</h2>
 
 <div
   style={{
@@ -338,7 +338,8 @@ color:
     flexWrap: "wrap",
   }}
 >
-  /import "#005CA9",
+  /import    style={{
+      backgroundColor: "#005CA9",
       color: "white",
       padding: "12px 18px",
       borderRadius: "10px",
@@ -350,25 +351,15 @@ color:
     📥 Import Gestibase
   </Link>
 
-  /dashboard/affectations={{
+  <Link
+    href="/dashboard/affectations"
+    style={{
       backgroundColor: "#005CA9",
       color: "white",
       padding: "12px 18px",
-      borderRadius: "10px",
-      fontWeight: "bold",
-      textDecoration: "none",
-      display: "inline-block",
-    }}
-  >
-    👥 Affectations
-  </Link>
-
-  /dashboard/cartographie    style={{
-      backgroundColor: "#005CA9",
-      color: "white",
+      borderRadius: "10px",,
       padding: "12px 18px",
-      borderRadius: "10px",
-      fontWeight: "bold",
+   fontWeight: "bold",
       textDecoration: "none",
       display: "inline-block",
     }}
@@ -376,7 +367,8 @@ color:
     🗺️ Cartographie
   </Link>
 
-  dashboard/suivi-visites"
+  <Link
+    href="/dashboard/suivi-visites"
     style={{
       backgroundColor: "#005CA9",
       color: "white",
@@ -390,7 +382,6 @@ color:
     📝 Suivi visites
   </Link>
 </div>
-
     <div
       style={{
         display: "grid",
