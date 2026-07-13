@@ -56,8 +56,7 @@ const { data: apprenti } = await supabase
   href={`/formateur/${encodeURIComponent(
     apprenti?.formateur || ""
   )}`}
-  style={{
- kgroundColor: "white",
+  style={{backgroundColor: "white", 
     color: "#005CA9",
     padding: "10px 18px",
     borderRadius: "12px",
