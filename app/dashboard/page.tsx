@@ -343,17 +343,19 @@ color:
     flexWrap: "wrap",
   }}
 >
-  /import    style={{
-      backgroundColor: "#005CA9",
-      color: "white",
-      padding: "12px 18px",
-      borderRadius: "10px",
-      fontWeight: "bold",
-      textDecoration: "none",
-      display: "inline-block",
-    }}
-  >
-    📥 Import Gestibase
+<Link
+  href="/import"
+  style={{
+    backgroundColor: "#005CA9",
+    color: "white",
+    padding: "12px 18px",
+    borderRadius: "10px",
+    fontWeight: "bold",
+    textDecoration: "none",
+    display: "inline-block",
+  }}
+>
+     📥 Import Gestibase
   </Link>
 
   <Link
@@ -362,9 +364,7 @@ color:
       backgroundColor: "#005CA9",
       color: "white",
       padding: "12px 18px",
-      borderRadius: "10px",
-      fontWeight: "bold",x",
-      borderRadius: "10px",
+      borderRadius: "10px",  
       fontWeight: "bold",
       textDecoration: "none",
       display: "inline-block",
@@ -377,7 +377,8 @@ color:
     href="/dashboard/suivi-visites"
     style={{
       backgroundColor: "#005CA9",
-      
+      </Link>
+</div>
     <div
       style={{
         display: "grid",
