@@ -6,9 +6,14 @@ export const dynamic = "force-dynamic";
 
 export default async function VisitesPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{
+    origine?: string;
+  }>;
 }) {
+ const { origine } = await searchParams;
   const { id } = await params;
 
   const { data: visites, error } = await supabase
@@ -25,28 +30,35 @@ const { data: apprenti } = await supabase
 .single();
   return (
     <main style={{ padding: "40px" }}>
-      <Link
-href={`/formateur/${encodeURIComponent(
-apprenti?.formateur || ""
-)}`}
-style={{
-display: "inline-flex",
-alignItems: "center",
-gap: "8px",
-backgroundColor: "white",
-color: "#005CA9",
-padding: "10px 18px",
-borderRadius: "12px",
-textDecoration: "none",
-fontWeight: "bold",
-border: "2px solid #005CA9",
-boxShadow:
-"0 3px 10px rgba(0,0,0,0.08)",
-marginBottom: "20px",
-}}
->
-🏠 Retour au tableau de bord
-</Link>
+  {origine === "coordinateur" ? (
+  <Link
+    href="/dashboard/suivi-visites"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "8px",
+      backgroundColor: "white",
+      color: "#005CA9",
+      padding: "10px 18px",
+      borderRadius: "12px",
+      textDecoration: "none",
+      fontWeight: "bold",
+      border: "2px solid #005CA9",
+      boxShadow:
+        "0 3px 10px rgba(0,0,0,0.08)",
+      marginBottom: "20px",
+    }}
+  >
+    🏠 Retour au suivi global
+  </Link>
+) : (
+  <Link
+    href={`/formateur/${encodeURIComponent(
+      apprenti?.formateur || ""
+    )}`}
+    style={{
+      display: "inline-flex",
+      alignItems: "
       <h1>Historique des visites</h1>
 
  <p>
