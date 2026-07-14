@@ -15,13 +15,24 @@ export default async function VisitesPage({
  const { origine } = await searchParams;
   const { id } = await params;
 
-  const { data: visites, error } = await supabase
-    .from("visites")
-    .select("*")
-    .eq("apprenti_id", id)
-    .order("date_visite", {
-      ascending: false,
-    });
+const { data: apprenti } = await supabase
+  .from("apprentis")
+  .select(
+    "formateur, nom, prenom, gestibase_id"
+  )
+  .eq("id", id)
+  .single();
+
+const { data: visites, error } = await supabase
+  .from("visites")
+  .select("*")
+  .eq(
+    "gestibase_id",
+    apprenti?.gestibase_id
+  )
+  .order("date_visite", {
+    ascending: false,
+  });
 const { data: apprenti } = await supabase
 .from("apprentis")
 .select("formateur, nom, prenom")
