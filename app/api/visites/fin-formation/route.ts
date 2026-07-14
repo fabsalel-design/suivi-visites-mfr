@@ -176,7 +176,16 @@ signatureApprenti:
   signature_apprenti,
 
   });
-
+    
+await supabase
+  .from("visites")
+  .update({
+    pdf_data: Buffer.from(
+      pdfBuffer
+    ).toString("base64"),
+  })
+  .eq("id", visite.id);
+    
 return NextResponse.json({
   success: true,
 
