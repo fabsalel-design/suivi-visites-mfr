@@ -16,12 +16,12 @@ export default async function VisitesPage({
   const { id } = await params;
 
 const { data: apprenti } = await supabase
-  .from("apprentis")
-  .select(
-    "formateur, nom, prenom, gestibase_id"
-  )
-  .eq("id", id)
-  .single();
+.from("apprentis")
+.select(
+  "formateur, nom, prenom, gestibase_id"
+)
+.eq("id", id)
+.single();
 
 const { data: visites, error } = await supabase
   .from("visites")
@@ -33,11 +33,7 @@ const { data: visites, error } = await supabase
   .order("date_visite", {
     ascending: false,
   });
-const { data: apprenti } = await supabase
-.from("apprentis")
-.select("formateur, nom, prenom")
-.eq("id", id)
-.single();
+
   return (
     <main style={{ padding: "40px" }}>
   {origine === "coordinateur" ? (
