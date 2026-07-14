@@ -188,7 +188,16 @@ pointsFaibles: points_faibles,
     application_regles,
     aptitudes_physiques,
   });
- 
+    
+ await supabase
+  .from("visites")
+  .update({
+    pdf_data: Buffer.from(
+      pdfBuffer
+    ).toString("base64"),
+  })
+  .eq("id", visite.id);
+    
 return NextResponse.json({
   success: true,
 
