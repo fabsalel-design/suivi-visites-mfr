@@ -50,6 +50,7 @@ const {
 .from("visites")
 .insert({
   apprenti_id,
+  gestibase_id: apprenti?.gestibase_id,
   date_visite,
 type_visite: "fin_formation",
   formateur_visiteur:
