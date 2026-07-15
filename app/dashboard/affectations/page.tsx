@@ -11,7 +11,12 @@ export default async function AffectationsPage() {
     .select("*")
     .order("ville_reelle")
     .order("nom");
-
+const { data: formateurs } = await supabase
+  .from("formateurs")
+  .select("nom")
+  .eq("actif", true)
+  .order("nom");
+  
   const villes =
     apprentis?.reduce(
       (acc: any, apprenti: any) => {
