@@ -27,18 +27,17 @@ export default async function AffectationEntreprisePage({
     apprentis?.[0]?.formateur ||
     "Non affecté";
 
-  const { data: tousLesApprentis } =
-    await supabase
-      .from("apprentis")
-      .select("formateur");
+  const { data: formateursData } =
+  await supabase
+    .from("formateurs")
+    .select("nom")
+    .eq("actif", true)
+    .order("nom");
 
-  const formateurs = [
-    ...new Set(
-      (tousLesApprentis || [])
-        .map((a) => a.formateur)
-        .filter(Boolean)
-    ),
-  ].sort();
+const formateurs =
+  formateursData?.map(
+    (f: any) => f.nom
+  ) || [];
 
   return (
     <main
