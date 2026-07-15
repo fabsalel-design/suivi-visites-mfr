@@ -17,7 +17,8 @@ export default function AffectationForm({
 
   const [formateur, setFormateur] =
     useState(formateurActuel);
-
+const [nouveauFormateur, setNouveauFormateur] =
+  useState("");
   const [message, setMessage] =
     useState("");
 
@@ -57,7 +58,27 @@ export default function AffectationForm({
       );
     }
   }
+async function ajouterFormateur() {
+  if (!nouveauFormateur.trim()) return;
 
+  const response = await fetch(
+    "/api/formateurs",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type":
+          "application/json",
+      },
+      body: JSON.stringify({
+        nom: nouveauFormateur,
+      }),
+    }
+  );
+
+  if (response.ok) {
+    window.location.reload();
+  }
+}
   return (
     <>
       <p>
@@ -91,7 +112,38 @@ export default function AffectationForm({
           )
         )}
       </select>
+<br />
+<br />
 
+<p>
+  ➕ Créer un formateur :
+</p>
+
+<input
+  type="text"
+  value={nouveauFormateur}
+  onChange={(e) =>
+    setNouveauFormateur(
+      e.target.value
+    )
+  }
+  placeholder="Nom du formateur"
+/>
+
+<button
+  onClick={ajouterFormateur}
+  style={{
+    marginLeft: "10px",
+    backgroundColor: "#2e7d32",
+    color: "white",
+    border: "none",
+    padding: "8px 12px",
+    borderRadius: "8px",
+    cursor: "pointer",
+  }}
+>
+  ➕ Ajouter
+</button>
       <br />
       <br />
 
